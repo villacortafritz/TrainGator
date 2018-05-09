@@ -3,15 +3,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from uselooper.com/auth-signin-v1.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Apr 2018 08:08:05 GMT -->
+<!-- Mirrored from uselooper.com/auth-signup.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Apr 2018 08:09:36 GMT -->
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- End Required meta tags -->
     <!-- Begin SEO tag -->
-    <title> Sign In | TrainGator </title>
-    <meta property="og:title" content="Sign In">
+    <title> Sign Up | TrainGator </title>
+    <meta property="og:title" content="Sign Up">
     <meta name="author" content="Beni Arisandi">
     <meta property="og:locale" content="en_US">
     <meta name="description" content="Responsive admin theme build on top of Bootstrap 4">
@@ -30,7 +30,7 @@
         },
         "@type": "WebSite",
         "url": "",
-        "headline": "Sign In",
+        "headline": "Sign Up",
         "@context": "http://schema.org"
       }
     </script>
@@ -54,10 +54,10 @@
       <header id="auth-header" class="auth-header" style="background-image: url(/images/illustration/img-1.png);">
         <h1>
           <img src="/images/rect-logo.png" alt="" height="120">
-          <span class="sr-only">Sign In</span>
+          <span class="sr-only">Sign Up</span>
         </h1>
-        <p> Don't have a account?
-          <a href="signup.html">Create One</a>
+        <p> Already have an account? please
+          <a href="signin.html">Sign In</a>
         </p>
       </header>
       <!-- form -->
@@ -65,9 +65,39 @@
         <!-- .form-group -->
         <div class="form-group">
           <div class="form-label-group">
-            <input type="text" id="inputUser" class="form-control" placeholder="Username" required="" autofocus="">
-            <label for="inputUser">Username</label>
+            <input type="email" id="inputEmail" class="form-control" placeholder="Email" required="" autofocus="">
+            <label for="inputEmail">Email</label>
           </div>
+        </div>
+        <!-- /.form-group -->
+        <!-- .form-group -->
+        <div class="form-row">
+          <!-- form grid -->
+          <div class="col-md-6 mb-3">
+            <label for="validationTooltip01">First name</label>
+            <input type="text" class="form-control" id="validationTooltip01" placeholder="First name" value="" required="">
+            <div class="valid-tooltip"> Looks good! </div>
+          </div>
+          <!-- /form grid -->
+          <!-- form grid -->
+          <div class="col-md-6 mb-3">
+            <label for="validationTooltip02">Last name</label>
+            <input type="text" class="form-control" id="validationTooltip02" placeholder="Last name" value="" required="">
+            <div class="valid-tooltip"> Looks good! </div>
+          </div>
+          <!-- /form grid -->
+          <!-- form grid -->
+          <div class="col-md-12 mb-3">
+            <label for="validationTooltipUsername">Username</label>
+            <div class="input-group input-group-alt">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroupPrepend">@</span>
+              </div>
+              <input type="text" class="form-control" id="validationTooltipUsername" placeholder="Username" aria-describedby="inputGroupPrepend" required="">
+              <div class="invalid-tooltip"> Please choose a username. </div>
+            </div>
+          </div>
+          <!-- /form grid -->
         </div>
         <!-- /.form-group -->
         <!-- .form-group -->
@@ -77,30 +107,22 @@
             <label for="inputPassword">Password</label>
           </div>
         </div>
+        <div class="form-group">
+          <label for="exampleSelect1">Position in the company</label>
+          <select id="exampleSelect1" class="custom-select">
+            <option selected> Select role </option>
+            <option value="1"> Regular Employee </option>
+            <option value="2"> Supervisor/Manager </option>
+            <option value="3"> Senior Employee </option>
+          </select>
+        </div>
+
+        <br/>
         <!-- /.form-group -->
         <!-- .form-group -->
         <div class="form-group">
-          <button class="btn btn-lg btn-primary btn-block" type="submit" formaction="userAll.html">Sign In</button>
+          <button class="btn btn-lg btn-primary btn-block" type="submit" formaction="signin.html">Sign Up</button>
         </div>
-        <!-- /.form-group -->
-        <!-- .form-group -->
-        <div class="form-group text-center">
-          <div class="custom-control custom-control-inline custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="remember-me">
-            <label class="custom-control-label" for="remember-me">Keep me sign in</label>
-          </div>
-        </div>
-        <!-- /.form-group -->
-        <!-- recovery links -->
-        <div class="text-center pt-3">
-          <a href="recoverUsername.html" class="link">Forgot Username?</a>
-          <span class="mx-2">·</span>
-          <a href="recoverPassword.html" class="link">Forgot Password?</a>
-        </div>
-        <!-- /recovery links -->
-      </form>
-      <!-- /.auth-form -->
-      <!-- copyright -->
 
     </main>
     <!-- /.auth -->
@@ -125,5 +147,6 @@
     </script>
   </body>
 
-<!-- Mirrored from uselooper.com/auth-signin-v1.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Apr 2018 08:08:06 GMT -->
+<!-- Mirrored from uselooper.com/auth-signup.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Apr 2018 08:09:36 GMT -->
 </html>
+    

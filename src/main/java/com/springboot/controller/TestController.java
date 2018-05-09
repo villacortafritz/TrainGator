@@ -86,4 +86,49 @@ public class TestController {
 	public String doneEvents(HttpServletRequest request, ModelMap map) {
 		return "doneEvents";
 	}
+	
+	@RequestMapping(value="/faciComments",method=RequestMethod.GET)
+	public String faciComments(HttpServletRequest request, ModelMap map) {
+		return "faciComments";
+	}
+	
+	@RequestMapping(value="/profile",method=RequestMethod.GET)
+	public String profile(HttpServletRequest request, ModelMap map) {
+		return "profile";
+	}
+	
+	@RequestMapping(value="/recoverPassword",method=RequestMethod.GET)
+	public String recoverPassword(HttpServletRequest request, ModelMap map) {
+		return "recoverPassword";
+	}
+	
+	@RequestMapping(value="/recoverUsername",method=RequestMethod.GET)
+	public String recoverUsername(HttpServletRequest request, ModelMap map) {
+		return "recoverUsername";
+	}
+	
+	@RequestMapping(value="/signin",method=RequestMethod.GET)
+	public String signin(HttpServletRequest request, ModelMap map) {
+		return "signin";
+	}
+	
+	@RequestMapping(value="/signup",method=RequestMethod.GET)
+	public String signup(HttpServletRequest request, ModelMap map) {
+		return "signup";
+	}
+	
+	@RequestMapping(value="/skillsAssessment",method=RequestMethod.GET)
+	public String skillsAssessment(HttpServletRequest request, ModelMap map) {
+		return "skillsAssessment";
+	}
+	
+	@RequestMapping(value="/teaf",method=RequestMethod.GET)
+	public String teaf(HttpServletRequest request, ModelMap map) {
+		return "teaf";
+	}
+	
+	@RequestMapping(value="/tna",method=RequestMethod.GET)
+	public String tna(HttpServletRequest request, ModelMap map) {
+		return "tna";
+	}
 }
