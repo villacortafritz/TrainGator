@@ -46,4 +46,44 @@ public class TestController {
 		map.addAttribute("andrewUser", andrew);
 		return "test_cha2";
 	}
+	
+	@RequestMapping(value="/adminAll",method=RequestMethod.GET)
+	public String adminAll(HttpServletRequest request, ModelMap map) {
+		return "adminAll";
+	}
+	
+	@RequestMapping(value="/adminDone",method=RequestMethod.GET)
+	public String adminDone(HttpServletRequest request, ModelMap map) {
+		return "adminDone";
+	}
+	
+	@RequestMapping(value="/adminOngoing",method=RequestMethod.GET)
+	public String adminOngoing(HttpServletRequest request, ModelMap map) {
+		return "adminOngoing";
+	}
+	
+	@RequestMapping(value="/adminUpcoming",method=RequestMethod.GET)
+	public String adminUpcoming(HttpServletRequest request, ModelMap map) {
+		return "adminUpcoming";
+	}
+	
+	@RequestMapping(value="/attendance",method=RequestMethod.GET)
+	public String attendance(HttpServletRequest request, ModelMap map) {
+		return "attendance";
+	}
+	
+	@RequestMapping(value="/cff",method=RequestMethod.GET)
+	public String cff(HttpServletRequest request, ModelMap map) {
+		return "cff";
+	}
+	
+	@RequestMapping(value="/createEvent",method=RequestMethod.GET)
+	public String createEvent(HttpServletRequest request, ModelMap map) {
+		return "createEvent";
+	}
+	
+	@RequestMapping(value="/doneEvents",method=RequestMethod.GET)
+	public String doneEvents(HttpServletRequest request, ModelMap map) {
+		return "doneEvents";
+	}
 }
