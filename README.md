@@ -1,0 +1,1 @@
+Kanang other groups na makakita ani nga repository, ayawg kopyaha ha! Tangtangon jud na nako inyong utin ug bilat. 
