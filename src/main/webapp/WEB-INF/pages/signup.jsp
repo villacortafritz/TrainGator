@@ -11,14 +11,6 @@
     <!-- End Required meta tags -->
     <!-- Begin SEO tag -->
     <title> Sign Up | TrainGator </title>
-    <meta property="og:title" content="Sign Up">
-    <meta name="author" content="Beni Arisandi">
-    <meta property="og:locale" content="en_US">
-    <meta name="description" content="Responsive admin theme build on top of Bootstrap 4">
-    <meta property="og:description" content="Responsive admin theme build on top of Bootstrap 4">
-    <link rel="canonical" href="index.html">
-    <meta property="og:url" content="//uselooper.com">
-    <meta property="og:site_name" content="Looper - Bootstrap 4 Admin Theme">
     <script type="application/ld+json">
       {
         "name": "Looper - Bootstrap 4 Admin Theme",
@@ -61,41 +53,28 @@
         </p>
       </header>
       <!-- form -->
-      <form class="auth-form">
-        <!-- .form-group -->
-        <div class="form-group">
-          <div class="form-label-group">
-            <input type="email" id="inputEmail" class="form-control" placeholder="Email" required="" autofocus="">
-            <label for="inputEmail">Email</label>
-          </div>
-        </div>
-        <!-- /.form-group -->
-        <!-- .form-group -->
+      <form class="auth-form" action="http://localhost:8080/signup" method="post">
         <div class="form-row">
           <!-- form grid -->
           <div class="col-md-6 mb-3">
-            <label for="validationTooltip01">First name</label>
-            <input type="text" class="form-control" id="validationTooltip01" placeholder="First name" value="" required="">
+             <div class="form-group">
+	          <div class="form-label-group">
+	            <input type="text" id="inputFirstname" class="form-control"  name="fname" placeholder="First Name" required="">
+	            <label for="inputFirstname">First name</label>
+	          </div>
+	        </div>
             <div class="valid-tooltip"> Looks good! </div>
           </div>
           <!-- /form grid -->
           <!-- form grid -->
           <div class="col-md-6 mb-3">
-            <label for="validationTooltip02">Last name</label>
-            <input type="text" class="form-control" id="validationTooltip02" placeholder="Last name" value="" required="">
+            <div class="form-group">
+	          <div class="form-label-group">
+	            <input type="text" id="inputLastname" class="form-control" name="lname" placeholder="Last Name" required="">
+	            <label for="inputLastname">Last name</label>
+	          </div>
+	        </div>
             <div class="valid-tooltip"> Looks good! </div>
-          </div>
-          <!-- /form grid -->
-          <!-- form grid -->
-          <div class="col-md-12 mb-3">
-            <label for="validationTooltipUsername">Username</label>
-            <div class="input-group input-group-alt">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroupPrepend">@</span>
-              </div>
-              <input type="text" class="form-control" id="validationTooltipUsername" placeholder="Username" aria-describedby="inputGroupPrepend" required="">
-              <div class="invalid-tooltip"> Please choose a username. </div>
-            </div>
           </div>
           <!-- /form grid -->
         </div>
@@ -103,17 +82,23 @@
         <!-- .form-group -->
         <div class="form-group">
           <div class="form-label-group">
-            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+            <input type="email" id="inputEmail" class="form-control" name="email" placeholder="email" required="">
+            <label for="inputEmail">Email</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-label-group">
+            <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required="">
             <label for="inputPassword">Password</label>
           </div>
         </div>
         <div class="form-group">
           <label for="exampleSelect1">Position in the company</label>
-          <select id="exampleSelect1" class="custom-select">
+          <select id="exampleSelect1" class="custom-select" name="role">
             <option selected> Select role </option>
-            <option value="1"> Regular Employee </option>
-            <option value="2"> Supervisor/Manager </option>
-            <option value="3"> Senior Employee </option>
+            <option value="Regular Employee"> Regular Employee </option>
+            <option value="Supervisor/Manager"> Supervisor/Manager </option>
+            <option value="Senior Employee"> Senior Employee </option>
           </select>
         </div>
 
@@ -121,9 +106,9 @@
         <!-- /.form-group -->
         <!-- .form-group -->
         <div class="form-group">
-          <button class="btn btn-lg btn-primary btn-block" type="submit" formaction="signin.html">Sign Up</button>
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
         </div>
-
+		</form>
     </main>
     <!-- /.auth -->
     <!-- BEGIN PLUGINS JS -->
