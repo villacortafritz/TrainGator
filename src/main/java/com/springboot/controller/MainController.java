@@ -2,14 +2,20 @@ package com.springboot.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.springboot.service.MainService;
+
 @Controller
 @RequestMapping("")
 public class MainController {
+	
+	@Autowired
+	private MainService MainService;
 	
 	@RequestMapping(value="/tnaform",method=RequestMethod.GET)
 	public String tnaform(HttpServletRequest request, ModelMap map) {
@@ -112,8 +118,20 @@ public class MainController {
 		return "signin";
 	}
 	
-	@RequestMapping(value="/signup",method=RequestMethod.GET)
+	@RequestMapping("/signup")
+	public String loadsignup() {
+		return "signup";
+	}
+	
+	@RequestMapping(value="/signup",method=RequestMethod.POST)
 	public String signup(HttpServletRequest request, ModelMap map) {
+		String fname = request.getParameter("fname");
+		String lname = request.getParameter("lname");
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
+		String type = request.getParameter("role");
+		MainService.addUser(fname,lname,email,password,type);
+		
 		return "signup";
 	}
 	
