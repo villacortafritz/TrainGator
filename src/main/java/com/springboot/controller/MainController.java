@@ -120,6 +120,21 @@ public class MainController {
 		return "signin";
 	}
 	
+	@RequestMapping(value="/userAll",method=RequestMethod.POST)
+	public String loaduserall(HttpServletRequest request, ModelMap map) {
+		
+		String uname = request.getParameter("username");
+		String pword = request.getParameter("password");
+		
+		if(uname.equals("admin") && pword.equals("admin")){
+			return "userAll";
+		}
+		else {
+			return "signin";
+		}
+		
+	}
+	
 	@RequestMapping("/signup")
 	public String loadsignup() {
 		return "signup";
