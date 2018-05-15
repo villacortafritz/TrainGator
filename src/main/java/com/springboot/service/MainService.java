@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.springboot.entities.Student;
 import com.springboot.entities.TblFormdetail;
+import com.springboot.entities.TblParticipant;
 import com.springboot.entities.TblUser;
 import com.springboot.repository.custom.MainRepository;
 
@@ -34,6 +35,23 @@ public class MainService {
 		return result;
 		
 	}
+
+	public boolean addParticipant(String name) {
+		// TODO Auto-generated method stub
+		boolean result = false;
+		TblParticipant participant = new TblParticipant();
+		participant.setPartId(2);
+		participant.setUserId(20150);
+		
+		result = MainRepository.addParticipant(em, participant);
+		
+		return result;
+		
+	}
+	
+	
+
+
 
 //	public boolean addTrainingParticipantRating(int trainParVal) {
 //		

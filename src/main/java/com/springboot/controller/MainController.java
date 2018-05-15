@@ -8,6 +8,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.List;
+
 import com.springboot.service.MainService;
 
 @Controller
@@ -154,13 +156,18 @@ public class MainController {
 		return "trainingDetails";
 	}
 	
-//	@RequestMapping(value="/trainingDetails",method=RequestMethod.POST)
-//	public String addParticipant(HttpServletRequest request, ModelMap map) {
-//		String name = request.getParameter("name");
-//		MainService.addParticipant(name);
-//
-//		return listParticipant(map);
-//	}
+	@RequestMapping(value="/insertParticipant",method=RequestMethod.POST)
+	public String addParticipant(HttpServletRequest request, ModelMap map) {
+		String name = request.getParameter("nameRecommended");
+		if(name.equals("Bunny Barros")){
+			MainService.addParticipant(name);
+		}		
+		return "trainingDetails";
+	}
+	
+	
+
+
 	
 
 	

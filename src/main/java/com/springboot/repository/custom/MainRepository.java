@@ -5,6 +5,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
+import com.springboot.entities.TblParticipant;
 import com.springboot.entities.TblUser;
 
 @Repository
@@ -14,6 +15,12 @@ public class MainRepository {
 	public boolean addUser(EntityManager em, TblUser user) {	
 		boolean result = false;
 		em.persist(user);
+		return result;
+	}
+
+	public boolean addParticipant(EntityManager em, TblParticipant participant) {
+		boolean result = false;
+		em.persist(participant);
 		return result;
 	}
 	
