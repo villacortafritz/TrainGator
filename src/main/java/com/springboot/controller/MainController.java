@@ -140,6 +140,10 @@ public class MainController {
 	
 	@RequestMapping(value="/skillsAssessment",method=RequestMethod.GET)
 	public String skillsAssessment(HttpServletRequest request, ModelMap map) {
+//		String temp = request.getParameter("ratingtrophy");
+//		int trainParVal = Integer.parseInt(temp);
+//		MainService.addTrainingParticipantRating(trainParVal);
+//		
 		return "skillsAssessment";
 	}
 	
@@ -147,4 +151,23 @@ public class MainController {
 	public String teaf(HttpServletRequest request, ModelMap map) {
 		return "teaf";
 	}
+	
+	@RequestMapping("/trainingDetails")
+	public String loadTrainingDetails() {
+		return "trainingDetails";
+	}
+	
+//	@RequestMapping(value="/trainingDetails",method=RequestMethod.POST)
+//	public String addParticipant(HttpServletRequest request, ModelMap map) {
+//		String name = request.getParameter("name");
+//		MainService.addParticipant(name);
+//
+//		return listParticipant(map);
+//	}
+	
+
+	
+	
+	
+	
 }
