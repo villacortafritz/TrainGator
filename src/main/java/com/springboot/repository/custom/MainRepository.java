@@ -1,9 +1,13 @@
 package com.springboot.repository.custom;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
+
 import com.springboot.entities.TblTraining;
 import com.springboot.entities.TblParticipant;
 import com.springboot.entities.TblUser;
@@ -29,6 +33,13 @@ public class MainRepository {
 		boolean result = false;
 		em.persist(participant);
 		return result;
+	}
+
+	public List<TblUser> getParticipants(EntityManager em) {
+		StringBuilder participantQuery = new StringBuilder("FROM tbl_user");
+		Query query = em.createQuery(participantQuery.toString());
+		List<TblUser> participantList = query.getResultList();
+		return participantList;
 	}
 	
 

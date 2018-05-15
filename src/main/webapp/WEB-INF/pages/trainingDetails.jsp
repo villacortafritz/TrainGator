@@ -860,26 +860,17 @@
                                                        <form action="http://localhost:8080/insertParticipant" method="post">
 	                                                      <div class="list-group list-group-flush list-group-bordered">
 	                                                        <div class="list-group-header"> Recommended Participants </div>
-		                                                        <label class="list-group-item custom-control custom-checkbox">
-		                                                          <input name="nameRecommended" type="checkbox" class="custom-control-input" value="Bunny Barros" >
-		                                                          <span class="custom-control-label">Bunny Barros</span>
-		                                                        </label>
-		                                                        <label class="list-group-item custom-control custom-checkbox">
-		                                                          <input name="nameRecommended" type="checkbox" class="custom-control-input" value="June Sliter">
-		                                                          <span class="custom-control-label">June Sliter</span>
-		                                                        </label>
-		                                                        <label class="list-group-item custom-control custom-checkbox">
-		                                                          <input name="nameRecommended" type="checkbox" class="custom-control-input" value="Danna Bogardus">
-		                                                          <span class="custom-control-label">Danna Bogardus</span>
-		                                                        </label>
-		                                                        <label class="list-group-item custom-control custom-checkbox">
-		                                                          <input name="nameRecommended" type="checkbox" class="custom-control-input" value="Yelena Vallejo">
-		                                                          <span class="custom-control-label">Yelena Vallejo</span>
-		                                                        </label>
-		                                                        <label class="list-group-item custom-control custom-checkbox">
-		                                                          <input name="nameRecommended" type="checkbox" class="custom-control-input" value="Miesha Couture">
-		                                                          <span class="custom-control-label">Miesha Couture</span>
-		                                                        </label>
+	                                                        
+	                                                        	<c:forEach items="${participantList}" var="participantVar">
+																	
+																	<label class="list-group-item custom-control custom-checkbox">
+			                                                          <input name="nameRecommended" type="checkbox" class="custom-control-input" value="Bunny Barros" >
+			                                                          <span class="custom-control-label">${participantVar.userFname}</span>
+			                                                        </label>
+
+																	<br>
+																</c:forEach>
+		                                                    
                                                       		</div>
                                                       		<button type="submit">Add</button>
 														</form>

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
+import com.springboot.entities.TblUser;
 import com.springboot.service.MainService;
 
 @Controller
@@ -185,7 +186,15 @@ public class MainController {
 	}
 	
 	@RequestMapping("/trainingDetails")
-	public String loadTrainingDetails() {
+	public String loadTrainingDetailsScreen() {
+		return "trainingDetails";
+	}
+
+	
+	@RequestMapping(value = "/trainingDetails", method = RequestMethod.POST)
+	public String displayParticipants(HttpServletRequest request, ModelMap map) {
+		List<TblUser> participantList = MainService.getParticipants();
+		map.addAttribute("participantList", participantList);
 		return "trainingDetails";
 	}
 	

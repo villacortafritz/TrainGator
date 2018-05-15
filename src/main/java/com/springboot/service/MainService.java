@@ -1,10 +1,14 @@
 package com.springboot.service;
 
 import java.util.Date;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.springboot.entities.TblTraining;
 import com.springboot.entities.TblFormdetail;
 import com.springboot.entities.TblParticipant;
@@ -67,19 +71,12 @@ public class MainService {
 		
 	}
 
-//	public boolean addTrainingParticipantRating(int trainParVal) {
-//		
-//		boolean result = false;
-//		TblFormdetail formDetail = new TblFormdetail();
-//		formDetail.setUserId(userId);
-//		
-//		
-//		return result;
-//		
-//		
-//
-//
-//		
-//	}
+	public List<TblUser> getParticipants() {
+		
+			return MainRepository.getParticipants(em);
+		
+	}
+
+
 }
 	
