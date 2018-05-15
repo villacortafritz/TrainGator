@@ -1,4 +1,4 @@
-package com.springboot.entities;
+package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -19,39 +19,40 @@ public class TblTraining implements Serializable {
 	@Column(name="train_id")
 	private int trainId;
 
-	@Temporal(TemporalType.DATE)
-	@Column(name="train_datestart")
-	private Date trainDatestart;
-	
+	@Column(name="form_id")
+	private int formId;
+
+	@Column(name="train_courseobjective")
+	private String trainCourseobjective;
+
+	@Column(name="train_courseoutline")
+	private String trainCourseoutline;
+
 	@Temporal(TemporalType.DATE)
 	@Column(name="train_dateend")
 	private Date trainDateend;
-	
-	@Column(name="train_timestart")
-	private String trainTimestart;
-	
-	@Column(name="train_timeend")
-	private String trainTimeend;
-	
-	@Column(name="train_courseobjective")
-	private String trainCourseobjective;
-	
-	@Column(name="train_courseoutline")
-	private String trainCourseoutline;
-	
+
+	@Temporal(TemporalType.DATE)
+	@Column(name="train_datestart")
+	private Date trainDatestart;
+
 	@Column(name="train_faci")
 	private int trainFaci;
-	
-	@Column(name="train_sv")
-	private int trainSv;
-	
+
 	@Column(name="train_pt")
 	private int trainPt;
 
 	@Column(name="train_status")
 	private int trainStatus;
 
-	private String trainCouseobjective;
+	@Column(name="train_sv")
+	private int trainSv;
+
+	@Column(name="train_timeend")
+	private String trainTimeend;
+
+	@Column(name="train_timestart")
+	private String trainTimestart;
 
 	public TblTraining() {
 	}
@@ -63,53 +64,45 @@ public class TblTraining implements Serializable {
 	public void setTrainId(int trainId) {
 		this.trainId = trainId;
 	}
-	
-	public Date getTrainDatestart() {
-		return this.trainDatestart;
+
+	public int getFormId() {
+		return this.formId;
 	}
 
-	public void setTrainDatestart(Date trainDatestart) {
-		this.trainDatestart = trainDatestart;
-	}
-	
-	public Date getTrainDateend() {
-		return this.trainDateend;
-	}
-	
-	public void setTrainDateend(Date trainDateend) {
-		this.trainDateend = trainDateend;
-	}
-	
-	public String getTrainTimestart() {
-		return this.trainTimestart;
-	}
-
-	public void setTrainTimestart(String trainTimestart) {
-		this.trainTimestart = trainTimestart;
-	}
-	
-	public String getTrainTimeend() {
-		return this.trainTimeend;
-	}
-
-	public void setTrainTimeend(String trainTimeend) {
-		this.trainTimeend = trainTimeend;
+	public void setFormId(int formId) {
+		this.formId = formId;
 	}
 
 	public String getTrainCourseobjective() {
-		return this.trainCouseobjective;
+		return this.trainCourseobjective;
 	}
 
-	public void setTrainCourseobjective(String trainCouseobjective) {
-		this.trainCouseobjective = trainCouseobjective;
+	public void setTrainCourseobjective(String trainCourseobjective) {
+		this.trainCourseobjective = trainCourseobjective;
 	}
-	
+
 	public String getTrainCourseoutline() {
 		return this.trainCourseoutline;
 	}
 
 	public void setTrainCourseoutline(String trainCourseoutline) {
 		this.trainCourseoutline = trainCourseoutline;
+	}
+
+	public Date getTrainDateend() {
+		return this.trainDateend;
+	}
+
+	public void setTrainDateend(Date trainDateend) {
+		this.trainDateend = trainDateend;
+	}
+
+	public Date getTrainDatestart() {
+		return this.trainDatestart;
+	}
+
+	public void setTrainDatestart(Date trainDatestart) {
+		this.trainDatestart = trainDatestart;
 	}
 
 	public int getTrainFaci() {
@@ -119,15 +112,7 @@ public class TblTraining implements Serializable {
 	public void setTrainFaci(int trainFaci) {
 		this.trainFaci = trainFaci;
 	}
-	
-	public int getTrainSv() {
-		return this.trainSv;
-	}
 
-	public void setTrainSv(int trainSv) {
-		this.trainSv = trainSv;
-	}
-	
 	public int getTrainPt() {
 		return this.trainPt;
 	}
@@ -143,4 +128,29 @@ public class TblTraining implements Serializable {
 	public void setTrainStatus(int trainStatus) {
 		this.trainStatus = trainStatus;
 	}
+
+	public int getTrainSv() {
+		return this.trainSv;
+	}
+
+	public void setTrainSv(int trainSv) {
+		this.trainSv = trainSv;
+	}
+
+	public String getTrainTimeend() {
+		return this.trainTimeend;
+	}
+
+	public void setTrainTimeend(String trainTimeend) {
+		this.trainTimeend = trainTimeend;
+	}
+
+	public String getTrainTimestart() {
+		return this.trainTimestart;
+	}
+
+	public void setTrainTimestart(String trainTimestart) {
+		this.trainTimestart = trainTimestart;
+	}
+
 }

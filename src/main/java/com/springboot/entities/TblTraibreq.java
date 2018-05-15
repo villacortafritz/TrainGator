@@ -9,7 +9,7 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@Table(name="tbl_traibreq")
+@Table(name="tbl_trainreq")
 @NamedQuery(name="TblTraibreq.findAll", query="SELECT t FROM TblTraibreq t")
 public class TblTraibreq implements Serializable {
 	private static final long serialVersionUID = 1L;

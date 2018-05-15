@@ -65,7 +65,7 @@ var flatpickrDemo = {
       disableMobile: true,
       mode: 'range',
       dateFormat: 'Y-m-d',
-      defaultDate: ['2018-03-03', '2018-03-20']
+      defaultDate: ['dateStart', 'dateEnd']
     });
   },
   _fp8: function _fp8() {
