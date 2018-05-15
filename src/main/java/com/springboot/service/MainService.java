@@ -8,7 +8,13 @@ import javax.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+<<<<<<< HEAD
 import com.springboot.entities.TblTraining;
+=======
+import com.springboot.entities.Student;
+import com.springboot.entities.TblFormdetail;
+import com.springboot.entities.TblParticipant;
+>>>>>>> bc049ba8a604c5e239e60ddacdbe28100012fa0e
 import com.springboot.entities.TblUser;
 import com.springboot.repository.custom.MainRepository;
 
@@ -36,6 +42,7 @@ public class MainService {
 		
 	}
 
+<<<<<<< HEAD
 	public Object addTraining(Date train_datestart, Date train_dateend, String train_timestart, String train_timeend,
 			String train_courseobjective, String train_courseoutline, int train_faci, int train_sv, int train_pt) {
 		// TODO Auto-generated method stub
@@ -54,6 +61,39 @@ public class MainService {
 		
 		return result;
 	}
+=======
+	public boolean addParticipant(String name) {
+		// TODO Auto-generated method stub
+		boolean result = false;
+		TblParticipant participant = new TblParticipant();
+		participant.setPartId(2);
+		participant.setUserId(20150);
+		
+		result = MainRepository.addParticipant(em, participant);
+		
+		return result;
+		
+	}
+	
+	
+
+
+
+//	public boolean addTrainingParticipantRating(int trainParVal) {
+//		
+//		boolean result = false;
+//		TblFormdetail formDetail = new TblFormdetail();
+//		formDetail.setUserId(userId);
+//		
+//		
+//		return result;
+//		
+//		
+//
+//
+//		
+//	}
+>>>>>>> bc049ba8a604c5e239e60ddacdbe28100012fa0e
 
 }
 	

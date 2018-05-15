@@ -13,6 +13,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.List;
+
 import com.springboot.service.MainService;
 
 @Controller
@@ -142,6 +144,10 @@ public class MainController {
 	
 	@RequestMapping(value="/skillsAssessment",method=RequestMethod.GET)
 	public String skillsAssessment(HttpServletRequest request, ModelMap map) {
+//		String temp = request.getParameter("ratingtrophy");
+//		int trainParVal = Integer.parseInt(temp);
+//		MainService.addTrainingParticipantRating(trainParVal);
+//		
 		return "skillsAssessment";
 	}
 	
@@ -149,4 +155,28 @@ public class MainController {
 	public String teaf(HttpServletRequest request, ModelMap map) {
 		return "teaf";
 	}
+	
+	@RequestMapping("/trainingDetails")
+	public String loadTrainingDetails() {
+		return "trainingDetails";
+	}
+	
+	@RequestMapping(value="/insertParticipant",method=RequestMethod.POST)
+	public String addParticipant(HttpServletRequest request, ModelMap map) {
+		String name = request.getParameter("nameRecommended");
+		if(name.equals("Bunny Barros")){
+			MainService.addParticipant(name);
+		}		
+		return "trainingDetails";
+	}
+	
+	
+
+
+	
+
+	
+	
+	
+	
 }
