@@ -61,11 +61,11 @@
         </p>
       </header>
       <!-- form -->
-      <form class="auth-form">
+      <form class="auth-form" action="http://localhost:8080/signin" method="post">
         <!-- .form-group -->
         <div class="form-group">
           <div class="form-label-group">
-            <input type="text" id="inputUser" class="form-control" placeholder="Username" required="" autofocus="">
+            <input type="text" id="inputUser" class="form-control" name="username" placeholder="Username" required="" autofocus="">
             <label for="inputUser">Username</label>
           </div>
         </div>
@@ -73,7 +73,7 @@
         <!-- .form-group -->
         <div class="form-group">
           <div class="form-label-group">
-            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+            <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required="">
             <label for="inputPassword">Password</label>
           </div>
         </div>

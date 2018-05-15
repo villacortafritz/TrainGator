@@ -115,6 +115,9 @@ public class MainController {
 	
 	@RequestMapping(value="/signin",method=RequestMethod.GET)
 	public String signin(HttpServletRequest request, ModelMap map) {
+		
+		
+		
 		return "signin";
 	}
 	
