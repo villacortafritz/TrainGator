@@ -43,12 +43,12 @@ public class MainService {
 		training.setTrainDatestart(train_datestart);
 		training.setTrainDateend(train_dateend);
 		training.setTrainTimestart(train_timestart);
-//		training.setTrainTimeend(train_timeend);
-//		training.setTrainCourseobjective(train_courseobjective);
+		training.setTrainTimeend(train_timeend);
+		training.setTrainCourseobjective(train_courseobjective);
 		training.setTrainCourseoutline(train_courseoutline);
 		training.setTrainFaci(train_faci);
-//		training.setTrainSv(train_sv);
-//		training.setTrainPt(train_pt);
+		training.setTrainSv(train_sv);
+		training.setTrainPt(train_pt);
 		result = MainRepository.addTraining(em,training);
 		
 		return result;
