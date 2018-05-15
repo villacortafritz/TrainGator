@@ -61,7 +61,7 @@
         </p>
       </header>
       <!-- form -->
-      <form class="auth-form" action="http://localhost:8080/signin" method="post">
+      <form class="auth-form" action="http://localhost:8080/userAll" method="post">
         <!-- .form-group -->
         <div class="form-group">
           <div class="form-label-group">
