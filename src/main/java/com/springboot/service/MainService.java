@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.springboot.entities.Student;
+import com.springboot.entities.TblFormdetail;
 import com.springboot.entities.TblUser;
 import com.springboot.repository.custom.MainRepository;
 
@@ -33,6 +34,21 @@ public class MainService {
 		return result;
 		
 	}
+
+//	public boolean addTrainingParticipantRating(int trainParVal) {
+//		
+//		boolean result = false;
+//		TblFormdetail formDetail = new TblFormdetail();
+//		formDetail.setUserId(userId);
+//		
+//		
+//		return result;
+//		
+//		
+//
+//
+//		
+//	}
 
 }
 	
