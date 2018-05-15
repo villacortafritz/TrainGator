@@ -3,6 +3,5 @@
 	<persistence-unit name="KanbanProject">
 		<class>com.springboot.entities.Address</class>
 		<class>com.springboot.entities.AddressPK</class>
-		<class>model.TblTraining</class>
 	</persistence-unit>
 </persistence>
