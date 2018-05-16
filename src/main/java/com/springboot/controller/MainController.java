@@ -185,18 +185,15 @@ public class MainController {
 		return "teaf";
 	}
 	
-	@RequestMapping("/trainingDetails")
-	public String loadTrainingDetailsScreen() {
+	@RequestMapping(value = "/trainingDetails", method = RequestMethod.GET)
+	public String loadTrainingDetailsScreen(HttpServletRequest request, ModelMap map) {
+		List<TblUser> participantList = MainService.getParticipants();
+		map.addAttribute("participantList", participantList);	
 		return "trainingDetails";
 	}
 
 	
-	@RequestMapping(value = "/trainingDetails", method = RequestMethod.POST)
-	public String displayParticipants(HttpServletRequest request, ModelMap map) {
-		List<TblUser> participantList = MainService.getParticipants();
-		map.addAttribute("participantList", participantList);
-		return "trainingDetails";
-	}
+
 	
 	@RequestMapping(value="/insertParticipant",method=RequestMethod.POST)
 	public String addParticipant(HttpServletRequest request, ModelMap map) {
@@ -206,6 +203,14 @@ public class MainController {
 		}		
 		return "trainingDetails";
 	}
+	
+
+//	@RequestMapping("/list")
+//	public String listParticipant(ModelMap map) {
+//		List<TblUser> participantList = MainService.getParticipants();
+//		map.addAttribute("participantList", participantList);
+//		return "trainingDetails";
+//	}
 	
 	
 

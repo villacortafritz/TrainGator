@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 
@@ -860,26 +861,22 @@
                                                        <form action="http://localhost:8080/insertParticipant" method="post">
 	                                                      <div class="list-group list-group-flush list-group-bordered">
 	                                                        <div class="list-group-header"> Recommended Participants </div>
-	                                                        
 	                                                        	<c:forEach items="${participantList}" var="participantVar">
 																	
 																	<label class="list-group-item custom-control custom-checkbox">
 			                                                          <input name="nameRecommended" type="checkbox" class="custom-control-input" value="Bunny Barros" >
-			                                                          <span class="custom-control-label">${participantVar.userFname}</span>
+			                                                          <span class="custom-control-label">${participantVar.userFname} ${participantVar.userLname}</span>
 			                                                        </label>
 
 																	<br>
-																</c:forEach>
-		                                                    
+																</c:forEach>	
+ 
                                                       		</div>
                                                       		<button type="submit">Add</button>
 														</form>
-                                                      
-                                                     
 														
-															
-
-
+	                                                        														
+                                                      
                                                       <!-- /.list-group -->
                                                     </div>
                                                     <!-- /.card -->

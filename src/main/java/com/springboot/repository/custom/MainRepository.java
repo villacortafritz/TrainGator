@@ -1,5 +1,6 @@
 package com.springboot.repository.custom;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -36,10 +37,11 @@ public class MainRepository {
 	}
 
 	public List<TblUser> getParticipants(EntityManager em) {
-		StringBuilder participantQuery = new StringBuilder("FROM tbl_user");
-		Query query = em.createQuery(participantQuery.toString());
-		List<TblUser> participantList = query.getResultList();
-		return participantList;
+		
+		StringBuilder studentQuery = new StringBuilder("FROM TblUser");
+		Query query = em.createQuery(studentQuery.toString());
+		List<TblUser> studentList = query.getResultList();
+		return studentList;
 	}
 	
 
