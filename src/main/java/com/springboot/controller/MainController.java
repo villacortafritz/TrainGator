@@ -197,11 +197,12 @@ public class MainController {
 	
 	@RequestMapping(value="/insertParticipant",method=RequestMethod.POST)
 	public String addParticipant(HttpServletRequest request, ModelMap map) {
-		String name = request.getParameter("nameRecommended");
-		if(name.equals("Bunny Barros")){
-			MainService.addParticipant(name);
-		}		
-		return "trainingDetails";
+				
+		int userID = Integer.parseInt(request.getParameter("userRecommended"));
+	
+		MainService.addParticipant(userID);
+				
+		return loadTrainingDetailsScreen(request,map);
 	}
 	
 

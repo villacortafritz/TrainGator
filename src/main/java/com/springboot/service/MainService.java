@@ -58,12 +58,11 @@ public class MainService {
 		return result;
 	}
 
-	public boolean addParticipant(String name) {
+	public boolean addParticipant(int userID) {
 		// TODO Auto-generated method stub
 		boolean result = false;
 		TblParticipant participant = new TblParticipant();
-		participant.setPartId(2);
-		participant.setUserId(20150);
+		participant.setUserId(userID);
 		
 		result = MainRepository.addParticipant(em, participant);
 		

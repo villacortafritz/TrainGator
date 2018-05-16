@@ -38,10 +38,13 @@ public class MainRepository {
 
 	public List<TblUser> getParticipants(EntityManager em) {
 		
-		StringBuilder studentQuery = new StringBuilder("FROM TblUser");
+		StringBuilder studentQuery = new StringBuilder("from TblUser");
 		Query query = em.createQuery(studentQuery.toString());
 		List<TblUser> studentList = query.getResultList();
 		return studentList;
+		
+		//session.createQuery("from Role as role INNER JOIN Involvement as involvement WHERE involvement.id = X").list();
+		//em.createQuery(studentQuery.toString());
 	}
 	
 
