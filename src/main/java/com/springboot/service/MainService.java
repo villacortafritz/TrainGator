@@ -1,10 +1,16 @@
 package com.springboot.service;
 
 import java.util.Date;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.springboot.entities.TblCat;
+import com.springboot.entities.TblSubcat;
 import com.springboot.entities.TblTraining;
 import com.springboot.entities.TblFormdetail;
 import com.springboot.entities.TblParticipant;
@@ -53,17 +59,26 @@ public class MainService {
 		return result;
 	}
 
-	public boolean addParticipant(String name) {
+	public boolean addParticipant(int userID) {
 		// TODO Auto-generated method stub
 		boolean result = false;
 		TblParticipant participant = new TblParticipant();
-		participant.setPartId(2);
-		participant.setUserId(20150);
+		participant.setUserId(userID);
 		
 		result = MainRepository.addParticipant(em, participant);
 		
 		return result;
 		
+	}
+
+	public List<TblCat> getCategoriesByFormId(int id) {
+		// TODO Auto-generated method stub
+		return MainRepository.getCategoriesByFormId(em,id);
+	}
+
+	public List<TblSubcat> getSubCategoriesByFormId(int id) {	
+		// TODO Auto-generated method stub
+		return MainRepository.getSubCategoriesByFormId(em,id);
 	}
 
 //	public boolean addTrainingParticipantRating(int trainParVal) {
@@ -80,5 +95,11 @@ public class MainService {
 //
 //		
 //	}
+	public List<TblUser> getParticipants() {
+		
+			return MainRepository.getParticipants(em);
+		
+	}
+
 }
 	

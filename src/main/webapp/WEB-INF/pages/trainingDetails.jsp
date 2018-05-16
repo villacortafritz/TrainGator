@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 
@@ -860,35 +861,22 @@
                                                        <form action="http://localhost:8080/insertParticipant" method="post">
 	                                                      <div class="list-group list-group-flush list-group-bordered">
 	                                                        <div class="list-group-header"> Recommended Participants </div>
-		                                                        <label class="list-group-item custom-control custom-checkbox">
-		                                                          <input name="nameRecommended" type="checkbox" class="custom-control-input" value="Bunny Barros" >
-		                                                          <span class="custom-control-label">Bunny Barros</span>
-		                                                        </label>
-		                                                        <label class="list-group-item custom-control custom-checkbox">
-		                                                          <input name="nameRecommended" type="checkbox" class="custom-control-input" value="June Sliter">
-		                                                          <span class="custom-control-label">June Sliter</span>
-		                                                        </label>
-		                                                        <label class="list-group-item custom-control custom-checkbox">
-		                                                          <input name="nameRecommended" type="checkbox" class="custom-control-input" value="Danna Bogardus">
-		                                                          <span class="custom-control-label">Danna Bogardus</span>
-		                                                        </label>
-		                                                        <label class="list-group-item custom-control custom-checkbox">
-		                                                          <input name="nameRecommended" type="checkbox" class="custom-control-input" value="Yelena Vallejo">
-		                                                          <span class="custom-control-label">Yelena Vallejo</span>
-		                                                        </label>
-		                                                        <label class="list-group-item custom-control custom-checkbox">
-		                                                          <input name="nameRecommended" type="checkbox" class="custom-control-input" value="Miesha Couture">
-		                                                          <span class="custom-control-label">Miesha Couture</span>
-		                                                        </label>
+	                                                        	<c:forEach items="${participantList}" var="participantVar">
+																	
+																	<label class="list-group-item custom-control custom-checkbox">
+			                                                          <input name="userRecommended" type="checkbox" class="custom-control-input" value="${participantVar.userId}" >
+			                                                          <span class="custom-control-label">${participantVar.userFname} ${participantVar.userLname}</span>
+			                                                        </label>
+
+																	<br>
+																</c:forEach>	
+ 
                                                       		</div>
                                                       		<button type="submit">Add</button>
 														</form>
-                                                      
-                                                     
 														
-															
-
-
+	                                                        														
+                                                      
                                                       <!-- /.list-group -->
                                                     </div>
                                                     <!-- /.card -->
@@ -997,247 +985,38 @@
                                                           <!-- /thead -->
                                                           <!-- tbody -->
                                                           <tbody>
-                                                            <!-- tr -->
-                                                            <tr>
-                                                              <td class="align-middle">
-                                                                <div class="table-custom-control custom-control custom-checkbox">
+                                                          
+                                                          	<c:forEach items="${participantList}" var="participantVar">
+															<!-- tr -->
+	                                                            <tr>
+	                                                              <td class="align-middle">
+	                                                                <div class="table-custom-control custom-control custom-checkbox">
+	
+	                                                                </div>
+	                                                              </td>
+	                                                              <td>
+	                                                                <div class="user-avatar">
+	                                                                  <img src="/images/avatars/profile.jpg" alt="User Avatar"> </div>
+	                                                                <a href="#">${participantVar.userFname} ${participantVar.userLname} </a>
+	                                                              </td>
+	                                                              <td class="align-middle"> ${participantVar.userType} </td>
+	                                                              <td class="align-middle"> ${participantVar.userEmail} </td>
+	
+	                                                              <td class="align-middle text-right">
+	                                                                <div class="btn-group">
+	                                                                  <button type="button" class="btn btn-sm btn-secondary">
+	                                                                    <i class="far fa-trash-alt"></i>
+	                                                                    <span class="sr-only">Remove</span>
+	                                                                  </button>
+	                                                                </div>
+	                                                              </td>
+	                                                            </tr>
+	                                                            <!-- /tr -->
 
-                                                                </div>
-                                                              </td>
-                                                              <td>
-                                                                <div class="user-avatar">
-                                                                  <img src="/images/avatars/profile.jpg" alt="User Avatar"> </div>
-                                                                <a href="#">Tomato - Green</a>
-                                                              </td>
-                                                              <td class="align-middle"> Senior Java Developer </td>
-                                                              <td class="align-middle"> thisistheuseremail@gmail.com </td>
-
-                                                              <td class="align-middle text-right">
-                                                                <div class="btn-group">
-                                                                  <button type="button" class="btn btn-sm btn-secondary">
-                                                                    <i class="far fa-trash-alt"></i>
-                                                                    <span class="sr-only">Remove</span>
-                                                                  </button>
-                                                                </div>
-                                                              </td>
-                                                            </tr>
-                                                            <!-- /tr -->
-                                                            <!-- tr -->
-                                                            <tr>
-                                                              <td class="align-middle">
-                                                                <div class="table-custom-control custom-control custom-checkbox">
-
-                                                                </div>
-                                                              </td>
-                                                              <td>
-                                                                <div class="user-avatar">
-                                                                  <img src="/images/avatars/profile.jpg" alt="User Avatar"> </div>
-                                                                <a href="#">Quiche Assorted</a>
-                                                              </td>
-                                                              <td class="align-middle"> Senior Java Developer </td>
-                                                              <td class="align-middle"> thisistheuseremail@gmail.com </td>
-                                                              <td class="align-middle text-right">
-                                                                <div class="btn-group">
-                                                                  <button type="button" class="btn btn-sm btn-secondary">
-                                                                    <i class="far fa-trash-alt"></i>
-                                                                    <span class="sr-only">Remove</span>
-                                                                  </button>
-                                                                </div>
-                                                              </td>
-                                                            </tr>
-                                                            <!-- /tr -->
-                                                            <!-- tr -->
-                                                            <tr>
-                                                              <td class="align-middle">
-                                                                <div class="table-custom-control custom-control custom-checkbox">
-
-                                                                </div>
-                                                              </td>
-                                                              <td>
-                                                                <div class="user-avatar">
-                                                                  <img src="/images/avatars/profile.jpg" alt="User Avatar"> </div>
-                                                                <a href="#">Cookies Oatmeal Raisin</a>
-                                                              </td>
-                                                              <td class="align-middle"> Senior Java Developer </td>
-                                                              <td class="align-middle"> thisistheuseremail@gmail.com </td>
-                                                              <td class="align-middle text-right">
-                                                                <div class="btn-group">
-                                                                  <button type="button" class="btn btn-sm btn-secondary">
-                                                                    <i class="far fa-trash-alt"></i>
-                                                                    <span class="sr-only">Remove</span>
-                                                                  </button>
-                                                                </div>
-                                                              </td>
-                                                            </tr>
-                                                            <!-- /tr -->
-                                                            <!-- tr -->
-                                                            <tr>
-                                                              <td class="align-middle">
-                                                                <div class="table-custom-control custom-control custom-checkbox">
-
-                                                                </div>
-                                                              </td>
-                                                              <td>
-                                                                <div class="user-avatar">
-                                                                  <img src="/images/avatars/profile.jpg" alt="User Avatar"> </div>
-                                                                <a href="#">Lemonade - Mandarin, 591 Ml</a>
-                                                              </td>
-                                                              <td class="align-middle"> Senior Java Developer </td>
-                                                              <td class="align-middle"> thisistheuseremail@gmail.com </td>
-                                                              <td class="align-middle text-right">
-                                                                <div class="btn-group">
-                                                                  <button type="button" class="btn btn-sm btn-secondary">
-                                                                    <i class="far fa-trash-alt"></i>
-                                                                    <span class="sr-only">Remove</span>
-                                                                  </button>
-                                                                </div>
-                                                              </td>
-                                                            </tr>
-                                                            <!-- /tr -->
-                                                            <!-- tr -->
-                                                            <tr>
-                                                              <td class="align-middle">
-                                                                <div class="table-custom-control custom-control custom-checkbox">
-
-                                                                </div>
-                                                              </td>
-                                                              <td>
-                                                                <div class="user-avatar">
-                                                                  <img src="/images/avatars/profile.jpg" alt="User Avatar"> </div>
-                                                                <a href="#">Sour Puss - Tangerine</a>
-                                                              </td>
-                                                              <td class="align-middle"> Senior Java Developer </td>
-                                                              <td class="align-middle"> thisistheuseremail@gmail.com </td>
-                                                              <td class="align-middle text-right">
-                                                                <div class="btn-group">
-                                                                  <button type="button" class="btn btn-sm btn-secondary">
-                                                                    <i class="far fa-trash-alt"></i>
-                                                                    <span class="sr-only">Remove</span>
-                                                                  </button>
-                                                                </div>
-                                                              </td>
-                                                            </tr>
-                                                            <!-- /tr -->
-                                                            <!-- tr -->
-                                                            <tr>
-                                                              <td class="align-middle">
-                                                                <div class="table-custom-control custom-control custom-checkbox">
-
-                                                                </div>
-                                                              </td>
-                                                              <td>
-                                                                <div class="user-avatar">
-                                                                  <img src="/images/avatars/profile.jpg" alt="User Avatar"> </div>
-                                                                <a href="#">Scallops - 20/30</a>
-                                                              </td>
-                                                              <td class="align-middle"> Senior Java Developer </td>
-                                                              <td class="align-middle"> thisistheuseremail@gmail.com </td>
-                                                              <td class="align-middle text-right">
-                                                                <div class="btn-group">
-                                                                  <button type="button" class="btn btn-sm btn-secondary">
-                                                                    <i class="far fa-trash-alt"></i>
-                                                                    <span class="sr-only">Remove</span>
-                                                                  </button>
-                                                                </div>
-                                                              </td>
-                                                            </tr>
-                                                            <!-- /tr -->
-                                                            <!-- tr -->
-                                                            <tr>
-                                                              <td class="align-middle">
-                                                                <div class="table-custom-control custom-control custom-checkbox">
-
-                                                                </div>
-                                                              </td>
-                                                              <td>
-                                                                <div class="user-avatar">
-                                                                  <img src="/images/avatars/profile.jpg" alt="User Avatar"> </div>
-                                                                <a href="#">Skirt - 29 Foot</a>
-                                                              </td>
-                                                              <td class="align-middle"> Senior Java Developer </td>
-                                                              <td class="align-middle"> thisistheuseremail@gmail.com </td>
-                                                              <td class="align-middle text-right">
-                                                                <div class="btn-group">
-                                                                  <button type="button" class="btn btn-sm btn-secondary">
-                                                                    <i class="far fa-trash-alt"></i>
-                                                                    <span class="sr-only">Remove</span>
-                                                                  </button>
-                                                                </div>
-                                                              </td>
-                                                            </tr>
-                                                            <!-- /tr -->
-                                                            <!-- tr -->
-                                                            <tr>
-                                                              <td class="align-middle">
-                                                                <div class="table-custom-control custom-control custom-checkbox">
-
-                                                                </div>
-                                                              </td>
-                                                              <td>
-                                                                <div class="user-avatar">
-                                                                  <img src="/images/avatars/profile.jpg" alt="User Avatar"> </div>
-                                                                <a href="#">Tea - Grapefruit Green Tea</a>
-                                                              </td>
-                                                              <td class="align-middle"> Senior Java Developer </td>
-                                                              <td class="align-middle"> thisistheuseremail@gmail.com </td>
-                                                              <td class="align-middle text-right">
-                                                                <div class="btn-group">
-                                                                  <button type="button" class="btn btn-sm btn-secondary">
-                                                                    <i class="far fa-trash-alt"></i>
-                                                                    <span class="sr-only">Remove</span>
-                                                                  </button>
-                                                                </div>
-                                                              </td>
-                                                            </tr>
-                                                            <!-- /tr -->
-                                                            <!-- tr -->
-                                                            <tr>
-                                                              <td class="align-middle">
-                                                                <div class="table-custom-control custom-control custom-checkbox">
-
-                                                                </div>
-                                                              </td>
-                                                              <td>
-                                                                <div class="user-avatar">
-                                                                  <img src="/images/avatars/profile.jpg" alt="User Avatar"> </div>
-                                                                <a href="#">Pecan Raisin - Tarts</a>
-                                                              </td>
-                                                              <td class="align-middle"> Senior Java Developer </td>
-                                                              <td class="align-middle"> thisistheuseremail@gmail.com </td>
-                                                              <td class="align-middle text-right">
-                                                                <div class="btn-group">
-                                                                  <button type="button" class="btn btn-sm btn-secondary">
-                                                                    <i class="far fa-trash-alt"></i>
-                                                                    <span class="sr-only">Remove</span>
-                                                                  </button>
-                                                                </div>
-                                                              </td>
-                                                            </tr>
-                                                            <!-- /tr -->
-                                                            <!-- tr -->
-                                                            <tr>
-                                                              <td class="align-middle">
-                                                                <div class="table-custom-control custom-control custom-checkbox">
-
-                                                                </div>
-                                                              </td>
-                                                              <td>
-                                                                <div class="user-avatar">
-                                                                  <img src="/images/avatars/profile.jpg" alt="User Avatar"> </div>
-                                                                <a href="#">Wine - Chateau Bonnet</a>
-                                                              </td>
-                                                              <td class="align-middle"> Senior Java Developer </td>
-                                                              <td class="align-middle"> thisistheuseremail@gmail.com </td>
-                                                              <td class="align-middle text-right">
-                                                                <div class="btn-group">
-                                                                  <button type="button" class="btn btn-sm btn-secondary">
-                                                                    <i class="far fa-trash-alt"></i>
-                                                                    <span class="sr-only">Remove</span>
-                                                                  </button>
-                                                                </div>
-                                                              </td>
-                                                            </tr>
-                                                            <!-- /tr -->
+															</c:forEach>	
+                                                       
+                                                    
+                                                            
                                                           </tbody>
                                                           <!-- /tbody -->
                                                         </table>

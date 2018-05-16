@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -411,7 +412,7 @@
                         <fieldset>
                           <!-- .form-group -->
                           <div class="form-group">
-                            <label for="exampleInputEmail1">1. The training met my expectations and desired outcome.</label>
+                            <label for="exampleInputEmail1">${CatList[catDesc][1]}</label>
                             <div class="col-lg-9" style="padding-top: 10px;">
                               <section class="text-center text-sm-left">
                                 <!-- .visual-picker -->

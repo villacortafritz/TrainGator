@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-
+import com.springboot.entities.TblCat;
+import com.springboot.entities.TblSubcat;
+import com.springboot.entities.TblUser;
 import com.springboot.service.MainService;
 
 @Controller
@@ -172,29 +174,62 @@ public class MainController {
 	
 	@RequestMapping(value="/skillsAssessment",method=RequestMethod.GET)
 	public String skillsAssessment(HttpServletRequest request, ModelMap map) {
-//		String temp = request.getParameter("ratingtrophy");
-//		int trainParVal = Integer.parseInt(temp);
-//		MainService.addTrainingParticipantRating(trainParVal);
-//		
+		int id = 1;
+		List<TblCat> CatList = MainService.getCategoriesByFormId(id);
+		List<TblSubcat> SubCatList = MainService.getSubCategoriesByFormId(id);
+		map.addAttribute("CatList", CatList);
+		map.addAttribute("SubCatList", SubCatList);
 		return "skillsAssessment";
-	}
+	}	
 	
 	@RequestMapping(value="/teaf",method=RequestMethod.GET)
 	public String teaf(HttpServletRequest request, ModelMap map) {
+		int id = 2;
+		List<TblCat> CatList = MainService.getCategoriesByFormId(id);
+		List<TblSubcat> SubCatList = MainService.getSubCategoriesByFormId(id);
+		map.addAttribute("CatList", CatList);
+		map.addAttribute("SubCatList", SubCatList);
 		return "teaf";
 	}
 	
-	@RequestMapping("/trainingDetails")
-	public String loadTrainingDetails() {
+	@RequestMapping(value = "/trainingDetails", method = RequestMethod.GET)
+	public String loadTrainingDetailsScreen(HttpServletRequest request, ModelMap map) {
+		List<TblUser> participantList = MainService.getParticipants();
+		map.addAttribute("participantList", participantList);	
 		return "trainingDetails";
 	}
+
+	
+
 	
 	@RequestMapping(value="/insertParticipant",method=RequestMethod.POST)
 	public String addParticipant(HttpServletRequest request, ModelMap map) {
-		String name = request.getParameter("nameRecommended");
-		if(name.equals("Bunny Barros")){
-			MainService.addParticipant(name);
-		}		
-		return "trainingDetails";
+				
+		int userID = Integer.parseInt(request.getParameter("userRecommended"));
+	
+		MainService.addParticipant(userID);
+				
+		return loadTrainingDetailsScreen(request,map);
 	}
+<<<<<<< HEAD
+=======
+	
+
+//	@RequestMapping("/list")
+//	public String listParticipant(ModelMap map) {
+//		List<TblUser> participantList = MainService.getParticipants();
+//		map.addAttribute("participantList", participantList);
+//		return "trainingDetails";
+//	}
+	
+	
+
+
+	
+
+	
+	
+	
+	
+>>>>>>> 77ae366f19f2d8138f52a9fb74f86895a61c9896
 }
