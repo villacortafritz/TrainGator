@@ -176,7 +176,7 @@ public class MainController {
 	public String skillsAssessment(HttpServletRequest request, ModelMap map) {
 		List<TblCat> CatList = MainService.getCategoriesByFormId();
 		List<TblSubcat> SubCatList = MainService.getSubCategoriesByFormId();
-		map.addAttribute("CatList", CatList);aaaaaaaaaaa
+		map.addAttribute("CatList", CatList);
 		map.addAttribute("SubCatList", SubCatList);
 		return "skillsAssessment";
 	}	
