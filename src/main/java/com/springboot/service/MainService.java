@@ -1,10 +1,16 @@
 package com.springboot.service;
 
 import java.util.Date;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.springboot.entities.TblCat;
+import com.springboot.entities.TblSubcat;
 import com.springboot.entities.TblTraining;
 import com.springboot.entities.TblFormdetail;
 import com.springboot.entities.TblParticipant;
@@ -65,6 +71,16 @@ public class MainService {
 		
 		return result;
 		
+	}
+
+	public List<TblCat> getCategoriesByFormId() {
+		// TODO Auto-generated method stub
+		return MainRepository.getCategoriesByFormId(em);
+	}
+
+	public List<TblSubcat> getSubCategoriesByFormId() {	
+		// TODO Auto-generated method stub
+		return MainRepository.getSubCategoriesByFormId(em);
 	}
 
 //	public boolean addTrainingParticipantRating(int trainParVal) {

@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
+import com.springboot.entities.TblCat;
+import com.springboot.entities.TblSubcat;
 import com.springboot.service.MainService;
 
 @Controller
@@ -172,12 +174,12 @@ public class MainController {
 	
 	@RequestMapping(value="/skillsAssessment",method=RequestMethod.GET)
 	public String skillsAssessment(HttpServletRequest request, ModelMap map) {
-//		String temp = request.getParameter("ratingtrophy");
-//		int trainParVal = Integer.parseInt(temp);
-//		MainService.addTrainingParticipantRating(trainParVal);
-//		
+		List<TblCat> CatList = MainService.getCategoriesByFormId();
+		List<TblSubcat> SubCatList = MainService.getSubCategoriesByFormId();
+		map.addAttribute("CatList", CatList);aaaaaaaaaaa
+		map.addAttribute("SubCatList", SubCatList);
 		return "skillsAssessment";
-	}
+	}	
 	
 	@RequestMapping(value="/teaf",method=RequestMethod.GET)
 	public String teaf(HttpServletRequest request, ModelMap map) {
