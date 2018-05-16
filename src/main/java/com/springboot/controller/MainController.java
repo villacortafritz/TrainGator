@@ -199,9 +199,6 @@ public class MainController {
 		return "trainingDetails";
 	}
 
-	
-
-	
 	@RequestMapping(value="/insertParticipant",method=RequestMethod.POST)
 	public String addParticipant(HttpServletRequest request, ModelMap map) {
 				
@@ -211,25 +208,10 @@ public class MainController {
 				
 		return loadTrainingDetailsScreen(request,map);
 	}
-<<<<<<< HEAD
-=======
-	
-
 //	@RequestMapping("/list")
 //	public String listParticipant(ModelMap map) {
 //		List<TblUser> participantList = MainService.getParticipants();
 //		map.addAttribute("participantList", participantList);
 //		return "trainingDetails";
 //	}
-	
-	
-
-
-	
-
-	
-	
-	
-	
->>>>>>> 77ae366f19f2d8138f52a9fb74f86895a61c9896
 }
