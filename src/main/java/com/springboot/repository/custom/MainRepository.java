@@ -19,7 +19,6 @@ public class MainRepository {
 	}
 	
 	public Object addTraining(EntityManager em, TblTraining training) {
-		// TODO Auto-generated method stub
 		boolean result = false;
 		em.persist(training);
 		return result;
