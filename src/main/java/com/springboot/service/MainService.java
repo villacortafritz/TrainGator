@@ -60,12 +60,11 @@ public class MainService {
 		return result;
 	}
 
-	public boolean addParticipant(String name) {
+	public boolean addParticipant(int userID) {
 		// TODO Auto-generated method stub
 		boolean result = false;
 		TblParticipant participant = new TblParticipant();
-		participant.setPartId(2);
-		participant.setUserId(20150);
+		participant.setUserId(userID);
 		
 		result = MainRepository.addParticipant(em, participant);
 		
@@ -73,14 +72,14 @@ public class MainService {
 		
 	}
 
-	public List<TblCat> getCategoriesByFormId() {
+	public List<TblCat> getCategoriesByFormId(int id) {
 		// TODO Auto-generated method stub
-		return MainRepository.getCategoriesByFormId(em);
+		return MainRepository.getCategoriesByFormId(em,id);
 	}
 
-	public List<TblSubcat> getSubCategoriesByFormId() {	
+	public List<TblSubcat> getSubCategoriesByFormId(int id) {	
 		// TODO Auto-generated method stub
-		return MainRepository.getSubCategoriesByFormId(em);
+		return MainRepository.getSubCategoriesByFormId(em,id);
 	}
 
 //	public boolean addTrainingParticipantRating(int trainParVal) {
@@ -97,5 +96,11 @@ public class MainService {
 //
 //		
 //	}
+	public List<TblUser> getParticipants() {
+		
+			return MainRepository.getParticipants(em);
+		
+	}
+
 }
 	
