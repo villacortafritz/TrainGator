@@ -410,496 +410,97 @@
                     <div class="card-body" style="padding-top: 50px;">
                       <form>
                         <fieldset>
-                          <!-- .form-group -->
-                          <div class="form-group">
-                            <label for="exampleInputEmail1">${CatList[catDesc][1]}</label>
-                            <div class="col-lg-9" style="padding-top: 10px;">
-                              <section class="text-center text-sm-left">
-                                <!-- .visual-picker -->
-                                <div class="visual-picker visual-picker-sm has-peek px-3">
-                                  <!-- visual-picker input -->
-                                  <input type="radio" id="vpr01" name="vprSM">
-                                  <!-- .visual-picker-figure -->
-                                  <label class="visual-picker-figure" for="vpr01">
-                                    <!-- .visual-picker-content -->
-                                    <span class="visual-picker-content">
-                                      <strong>Strongly Agree</strong>
-                                    </span>
-                                    <!-- /.visual-picker-content -->
-                                  </label>
-                                </div>
-                                <!-- /.visual-picker -->
-                                <!-- .visual-picker -->
-                                <div class="visual-picker visual-picker-sm has-peek px-3">
-                                  <!-- visual-picker input -->
-                                  <input type="radio" id="vpr02" name="vprSM" checked>
-                                  <!-- .visual-picker-figure -->
-                                  <label class="visual-picker-figure" for="vpr02">
-                                    <!-- .visual-picker-content -->
-                                    <span class="visual-picker-content" style="padding-bottom:15px;">
-                                      <strong>Agree</strong>
-                                    </span>
-                                    <!-- /.visual-picker-content -->
-                                  </label>
-                                </div>
-                                <!-- /.visual-picker -->
-                                <!-- .visual-picker -->
-                                <div class="visual-picker visual-picker-sm has-peek px-3">
-                                  <!-- visual-picker input -->
-                                  <input type="radio" id="vpr03" name="vprSM">
-                                  <!-- .visual-picker-figure -->
-                                  <label class="visual-picker-figure" for="vpr03">
-                                    <!-- .visual-picker-content -->
-                                    <span class="visual-picker-content" style="padding-bottom:15px;">
-                                      <strong>Neutral</strong>
-                                    </span>
-                                    <!-- /.visual-picker-content -->
-                                  </label>
-                                </div>
-                                <!-- /.visual-picker -->
-                                <!-- .visual-picker -->
-                                <div class="visual-picker visual-picker-sm has-peek px-3">
-                                  <!-- visual-picker input -->
-                                  <input type="radio" id="vpr04" name="vprSM">
-                                  <!-- .visual-picker-figure -->
-                                  <label class="visual-picker-figure" for="vpr04">
-                                    <!-- .visual-picker-content -->
-                                    <span class="visual-picker-content" style="padding-bottom:15px;">
-                                      <strong>Disagree</strong>
-                                    </span>
-                                    <!-- /.visual-picker-content -->
-                                  </label>
-                                </div>
-                                <!-- /.visual-picker -->
-                                <div class="visual-picker visual-picker-sm has-peek px-3">
-                                  <!-- visual-picker input -->
-                                  <input type="radio" id="vpr05" name="vprSM">
-                                  <!-- .visual-picker-figure -->
-                                  <label class="visual-picker-figure" for="vpr05">
-                                    <!-- .visual-picker-content -->
-                                    <span class="visual-picker-content" style="padding-top: 5px;">
-                                      <strong>Strongly Disagree</strong>
-                                    </span>
-                                    <!-- /.visual-picker-content -->
-                                  </label>
-                                </div>
-                                <!-- /.visual-picker -->
-                              </section>
-                            </div>
-                          </div>
-                        </fieldset>
-                      </form>
-                      <form>
-                      </fieldset>
-                          <div class="form-group">
-                            <label for="exampleInputEmail1">2. Participant was able to apply the knowledge learned.</label>
-                            <div class="col-lg-9" style="padding-top: 10px;">
-                              <section class="text-center text-sm-left">
-                                <!-- .visual-picker -->
-                                <div class="visual-picker visual-picker-sm has-peek px-3">
-                                  <!-- visual-picker input -->
-                                  <input type="radio" id="vpr06" name="vprSM">
-                                  <!-- .visual-picker-figure -->
-                                  <label class="visual-picker-figure" for="vpr06">
-                                    <!-- .visual-picker-content -->
-                                    <span class="visual-picker-content">
-                                      <strong>Strongly Agree</strong>
-                                    </span>
-                                    <!-- /.visual-picker-content -->
-                                  </label>
-                                </div>
-                                <!-- /.visual-picker -->
-                                <!-- .visual-picker -->
-                                <div class="visual-picker visual-picker-sm has-peek px-3">
-                                  <!-- visual-picker input -->
-                                  <input type="radio" id="vpr07" name="vprSM" checked>
-                                  <!-- .visual-picker-figure -->
-                                  <label class="visual-picker-figure" for="vpr07">
-                                    <!-- .visual-picker-content -->
-                                    <span class="visual-picker-content" style="padding-bottom:15px;">
-                                      <strong>Agree</strong>
-                                    </span>
-                                    <!-- /.visual-picker-content -->
-                                  </label>
-                                </div>
-                                <!-- /.visual-picker -->
-                                <!-- .visual-picker -->
-                                <div class="visual-picker visual-picker-sm has-peek px-3">
-                                  <!-- visual-picker input -->
-                                  <input type="radio" id="vpr08" name="vprSM">
-                                  <!-- .visual-picker-figure -->
-                                  <label class="visual-picker-figure" for="vpr08">
-                                    <!-- .visual-picker-content -->
-                                    <span class="visual-picker-content" style="padding-bottom:15px;">
-                                      <strong>Neutral</strong>
-                                    </span>
-                                    <!-- /.visual-picker-content -->
-                                  </label>
-                                </div>
-                                <!-- /.visual-picker -->
-                                <!-- .visual-picker -->
-                                <div class="visual-picker visual-picker-sm has-peek px-3">
-                                  <!-- visual-picker input -->
-                                  <input type="radio" id="vpr09" name="vprSM">
-                                  <!-- .visual-picker-figure -->
-                                  <label class="visual-picker-figure" for="vpr09">
-                                    <!-- .visual-picker-content -->
-                                    <span class="visual-picker-content" style="padding-bottom:15px;">
-                                      <strong>Disagree</strong>
-                                    </span>
-                                    <!-- /.visual-picker-content -->
-                                  </label>
-                                </div>
-                                <!-- /.visual-picker -->
-                                <div class="visual-picker visual-picker-sm has-peek px-3">
-                                  <!-- visual-picker input -->
-                                  <input type="radio" id="vpr10" name="vprSM">
-                                  <!-- .visual-picker-figure -->
-                                  <label class="visual-picker-figure" for="vpr10">
-                                    <!-- .visual-picker-content -->
-                                    <span class="visual-picker-content" style="padding-top: 5px;">
-                                      <strong>Strongly Disagree</strong>
-                                    </span>
-                                    <!-- /.visual-picker-content -->
-                                  </label>
-                                </div>
-                                <!-- /.visual-picker -->
-                              </section>
-                            </div>
-                          </div>
-                        </fieldset>
-                      </form>
-                      <form>
-                        <fieldset>
-                          <div class="form-group">
-                            <label for="exampleInputEmail1">3. The materials distributed were pertinent and useful to the participant (if any).</label>
-                            <div class="col-lg-9" style="padding-top: 10px;">
-                              <section class="text-center text-sm-left">
-                                <!-- .visual-picker -->
-                                <div class="visual-picker visual-picker-sm has-peek px-3">
-                                  <!-- visual-picker input -->
-                                  <input type="radio" id="vpr11" name="vprSM">
-                                  <!-- .visual-picker-figure -->
-                                  <label class="visual-picker-figure" for="vpr11">
-                                    <!-- .visual-picker-content -->
-                                    <span class="visual-picker-content">
-                                      <strong>Strongly Agree</strong>
-                                    </span>
-                                    <!-- /.visual-picker-content -->
-                                  </label>
-                                </div>
-                                <!-- /.visual-picker -->
-                                <!-- .visual-picker -->
-                                <div class="visual-picker visual-picker-sm has-peek px-3">
-                                  <!-- visual-picker input -->
-                                  <input type="radio" id="vpr12" name="vprSM" checked>
-                                  <!-- .visual-picker-figure -->
-                                  <label class="visual-picker-figure" for="vpr12">
-                                    <!-- .visual-picker-content -->
-                                    <span class="visual-picker-content" style="padding-bottom:15px;">
-                                      <strong>Agree</strong>
-                                    </span>
-                                    <!-- /.visual-picker-content -->
-                                  </label>
-                                </div>
-                                <!-- /.visual-picker -->
-                                <!-- .visual-picker -->
-                                <div class="visual-picker visual-picker-sm has-peek px-3">
-                                  <!-- visual-picker input -->
-                                  <input type="radio" id="vpr13" name="vprSM">
-                                  <!-- .visual-picker-figure -->
-                                  <label class="visual-picker-figure" for="vpr13">
-                                    <!-- .visual-picker-content -->
-                                    <span class="visual-picker-content" style="padding-bottom:15px;">
-                                      <strong>Neutral</strong>
-                                    </span>
-                                    <!-- /.visual-picker-content -->
-                                  </label>
-                                </div>
-                                <!-- /.visual-picker -->
-                                <!-- .visual-picker -->
-                                <div class="visual-picker visual-picker-sm has-peek px-3">
-                                  <!-- visual-picker input -->
-                                  <input type="radio" id="vpr14" name="vprSM">
-                                  <!-- .visual-picker-figure -->
-                                  <label class="visual-picker-figure" for="vpr14">
-                                    <!-- .visual-picker-content -->
-                                    <span class="visual-picker-content" style="padding-bottom:15px;">
-                                      <strong>Disagree</strong>
-                                    </span>
-                                    <!-- /.visual-picker-content -->
-                                  </label>
-                                </div>
-                                <!-- /.visual-picker -->
-                                <div class="visual-picker visual-picker-sm has-peek px-3">
-                                  <!-- visual-picker input -->
-                                  <input type="radio" id="vpr15" name="vprSM">
-                                  <!-- .visual-picker-figure -->
-                                  <label class="visual-picker-figure" for="vpr15">
-                                    <!-- .visual-picker-content -->
-                                    <span class="visual-picker-content" style="padding-top: 5px;">
-                                      <strong>Strongly Disagree</strong>
-                                    </span>
-                                    <!-- /.visual-picker-content -->
-                                  </label>
-                                </div>
-                                <!-- /.visual-picker -->
-                              </section>
-                            </div>
-                          </div>
-                        </fieldset>
-                      </form>
-                      <form>
-                        <fieldset>
-                          <div class="form-group">
-                            <label for="exampleInputEmail1">4. The trainer was able to deliver the desired knowledge and output as evident by the participant's development.</label>
-                            <div class="col-lg-9" style="padding-top: 10px;">
-                              <section class="text-center text-sm-left">
-                                <!-- .visual-picker -->
-                                <div class="visual-picker visual-picker-sm has-peek px-3">
-                                  <!-- visual-picker input -->
-                                  <input type="radio" id="vpr16" name="vprSM">
-                                  <!-- .visual-picker-figure -->
-                                  <label class="visual-picker-figure" for="vpr16">
-                                    <!-- .visual-picker-content -->
-                                    <span class="visual-picker-content">
-                                      <strong>Strongly Agree</strong>
-                                    </span>
-                                    <!-- /.visual-picker-content -->
-                                  </label>
-                                </div>
-                                <!-- /.visual-picker -->
-                                <!-- .visual-picker -->
-                                <div class="visual-picker visual-picker-sm has-peek px-3">
-                                  <!-- visual-picker input -->
-                                  <input type="radio" id="vpr17" name="vprSM" checked>
-                                  <!-- .visual-picker-figure -->
-                                  <label class="visual-picker-figure" for="vpr17">
-                                    <!-- .visual-picker-content -->
-                                    <span class="visual-picker-content" style="padding-bottom:15px;">
-                                      <strong>Agree</strong>
-                                    </span>
-                                    <!-- /.visual-picker-content -->
-                                  </label>
-                                </div>
-                                <!-- /.visual-picker -->
-                                <!-- .visual-picker -->
-                                <div class="visual-picker visual-picker-sm has-peek px-3">
-                                  <!-- visual-picker input -->
-                                  <input type="radio" id="vpr18" name="vprSM">
-                                  <!-- .visual-picker-figure -->
-                                  <label class="visual-picker-figure" for="vpr18">
-                                    <!-- .visual-picker-content -->
-                                    <span class="visual-picker-content" style="padding-bottom:15px;">
-                                      <strong>Neutral</strong>
-                                    </span>
-                                    <!-- /.visual-picker-content -->
-                                  </label>
-                                </div>
-                                <!-- /.visual-picker -->
-                                <!-- .visual-picker -->
-                                <div class="visual-picker visual-picker-sm has-peek px-3">
-                                  <!-- visual-picker input -->
-                                  <input type="radio" id="vpr19" name="vprSM">
-                                  <!-- .visual-picker-figure -->
-                                  <label class="visual-picker-figure" for="vpr19">
-                                    <!-- .visual-picker-content -->
-                                    <span class="visual-picker-content" style="padding-bottom:15px;">
-                                      <strong>Disagree</strong>
-                                    </span>
-                                    <!-- /.visual-picker-content -->
-                                  </label>
-                                </div>
-                                <!-- /.visual-picker -->
-                                <div class="visual-picker visual-picker-sm has-peek px-3">
-                                  <!-- visual-picker input -->
-                                  <input type="radio" id="vpr20" name="vprSM">
-                                  <!-- .visual-picker-figure -->
-                                  <label class="visual-picker-figure" for="vpr20">
-                                    <!-- .visual-picker-content -->
-                                    <span class="visual-picker-content" style="padding-top: 5px;">
-                                      <strong>Strongly Disagree</strong>
-                                    </span>
-                                    <!-- /.visual-picker-content -->
-                                  </label>
-                                </div>
-                                <!-- /.visual-picker -->
-                              </section>
-                            </div>
-                          </div>
-                        </fieldset>
-                      </form>
-                      <form>
-                      <fieldset>
-                          <div class="form-group">
-                            <label for="exampleInputEmail1">5. How do you rate the participant’s development relating to the training objectives?</label>
-                            <div class="col-lg-9" style="padding-top: 10px;">
-                              <section class="text-center text-sm-left">
-                                <!-- .visual-picker -->
-                                <div class="visual-picker visual-picker-sm has-peek px-3">
-                                  <!-- visual-picker input -->
-                                  <input type="radio" id="vpr21" name="vprSM">
-                                  <!-- .visual-picker-figure -->
-                                  <label class="visual-picker-figure" for="vpr21">
-                                    <!-- .visual-picker-content -->
-                                    <span class="visual-picker-content">
-                                      <strong>Strongly Agree</strong>
-                                    </span>
-                                    <!-- /.visual-picker-content -->
-                                  </label>
-                                </div>
-                                <!-- /.visual-picker -->
-                                <!-- .visual-picker -->
-                                <div class="visual-picker visual-picker-sm has-peek px-3">
-                                  <!-- visual-picker input -->
-                                  <input type="radio" id="vpr22" name="vprSM" checked>
-                                  <!-- .visual-picker-figure -->
-                                  <label class="visual-picker-figure" for="vpr22">
-                                    <!-- .visual-picker-content -->
-                                    <span class="visual-picker-content" style="padding-bottom:15px;">
-                                      <strong>Agree</strong>
-                                    </span>
-                                    <!-- /.visual-picker-content -->
-                                  </label>
-                                </div>
-                                <!-- /.visual-picker -->
-                                <!-- .visual-picker -->
-                                <div class="visual-picker visual-picker-sm has-peek px-3">
-                                  <!-- visual-picker input -->
-                                  <input type="radio" id="vpr23" name="vprSM">
-                                  <!-- .visual-picker-figure -->
-                                  <label class="visual-picker-figure" for="vpr23">
-                                    <!-- .visual-picker-content -->
-                                    <span class="visual-picker-content" style="padding-bottom:15px;">
-                                      <strong>Neutral</strong>
-                                    </span>
-                                    <!-- /.visual-picker-content -->
-                                  </label>
-                                </div>
-                                <!-- /.visual-picker -->
-                                <!-- .visual-picker -->
-                                <div class="visual-picker visual-picker-sm has-peek px-3">
-                                  <!-- visual-picker input -->
-                                  <input type="radio" id="vpr24" name="vprSM">
-                                  <!-- .visual-picker-figure -->
-                                  <label class="visual-picker-figure" for="vpr24">
-                                    <!-- .visual-picker-content -->
-                                    <span class="visual-picker-content" style="padding-bottom:15px;">
-                                      <strong>Disagree</strong>
-                                    </span>
-                                    <!-- /.visual-picker-content -->
-                                  </label>
-                                </div>
-                                <!-- /.visual-picker -->
-                                <div class="visual-picker visual-picker-sm has-peek px-3">
-                                  <!-- visual-picker input -->
-                                  <input type="radio" id="vpr25" name="vprSM">
-                                  <!-- .visual-picker-figure -->
-                                  <label class="visual-picker-figure" for="vpr25">
-                                    <!-- .visual-picker-content -->
-                                    <span class="visual-picker-content" style="padding-top: 5px;">
-                                      <strong>Strongly Disagree</strong>
-                                    </span>
-                                    <!-- /.visual-picker-content -->
-                                  </label>
-                                </div>
-                                <!-- /.visual-picker -->
-                              </section>
-                            </div>
-                          </div>
-                        </fieldset>
-                      </form>
-                      <form>
-                        <fieldset>
-                          <div class="form-group">
-                            <label for="exampleInputEmail1">6. How do you rate the training overall?</label>
-                            <div class="col-lg-9" style="padding-top: 10px;">
-                              <section class="text-center text-sm-left">
-                                <!-- .visual-picker -->
-                                <div class="visual-picker visual-picker-sm has-peek px-3">
-                                  <!-- visual-picker input -->
-                                  <input type="radio" id="vpr26" name="vprSM">
-                                  <!-- .visual-picker-figure -->
-                                  <label class="visual-picker-figure" for="vpr26">
-                                    <!-- .visual-picker-content -->
-                                    <span class="visual-picker-content">
-                                      <strong>Strongly Agree</strong>
-                                    </span>
-                                    <!-- /.visual-picker-content -->
-                                  </label>
-                                </div>
-                                <!-- /.visual-picker -->
-                                <!-- .visual-picker -->
-                                <div class="visual-picker visual-picker-sm has-peek px-3">
-                                  <!-- visual-picker input -->
-                                  <input type="radio" id="vpr27" name="vprSM" checked>
-                                  <!-- .visual-picker-figure -->
-                                  <label class="visual-picker-figure" for="vpr27">
-                                    <!-- .visual-picker-content -->
-                                    <span class="visual-picker-content" style="padding-bottom:15px;">
-                                      <strong>Agree</strong>
-                                    </span>
-                                    <!-- /.visual-picker-content -->
-                                  </label>
-                                </div>
-                                <!-- /.visual-picker -->
-                                <!-- .visual-picker -->
-                                <div class="visual-picker visual-picker-sm has-peek px-3">
-                                  <!-- visual-picker input -->
-                                  <input type="radio" id="vpr28" name="vprSM">
-                                  <!-- .visual-picker-figure -->
-                                  <label class="visual-picker-figure" for="vpr28">
-                                    <!-- .visual-picker-content -->
-                                    <span class="visual-picker-content" style="padding-bottom:15px;">
-                                      <strong>Neutral</strong>
-                                    </span>
-                                    <!-- /.visual-picker-content -->
-                                  </label>
-                                </div>
-                                <!-- /.visual-picker -->
-                                <!-- .visual-picker -->
-                                <div class="visual-picker visual-picker-sm has-peek px-3">
-                                  <!-- visual-picker input -->
-                                  <input type="radio" id="vpr29" name="vprSM">
-                                  <!-- .visual-picker-figure -->
-                                  <label class="visual-picker-figure" for="vpr29">
-                                    <!-- .visual-picker-content -->
-                                    <span class="visual-picker-content" style="padding-bottom:15px;">
-                                      <strong>Disagree</strong>
-                                    </span>
-                                    <!-- /.visual-picker-content -->
-                                  </label>
-                                </div>
-                                <!-- /.visual-picker -->
-                                <div class="visual-picker visual-picker-sm has-peek px-3">
-                                  <!-- visual-picker input -->
-                                  <input type="radio" id="vpr30" name="vprSM">
-                                  <!-- .visual-picker-figure -->
-                                  <label class="visual-picker-figure" for="vpr30">
-                                    <!-- .visual-picker-content -->
-                                    <span class="visual-picker-content" style="padding-top: 5px;">
-                                      <strong>Strongly Disagree</strong>
-                                    </span>
-                                    <!-- /.visual-picker-content -->
-                                  </label>
-                                </div>
-                                <!-- /.visual-picker -->
-                              </section>
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label for="exampleTextarea">7. What aspects of the training could be improved?</label>
-                            <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-                          </div>
-                          <div class="form-group">
-                            <label for="exampleTextarea">8. Other comments?</label>
-                            <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-                          </div>
+                            <c:forEach items="${CatList}" var="CatVar">
+                            <c:choose>
+                                <c:when test="${CatVar.catId<16}">
+                                  <div class="form-group">
+                                    <label for="exampleInputEmail1">${CatVar.catDesc}</label>
+                                    <div class="col-lg-9" style="padding-top: 10px;">
+                                      <section class="text-center text-sm-left">
+                                        <!-- .visual-picker -->
+                                        <div class="visual-picker visual-picker-sm has-peek px-3">
+                                          <!-- visual-picker input -->
+                                          <input type="radio" id="vpr01" name="vprSM">
+                                          <!-- .visual-picker-figure -->
+                                          <label class="visual-picker-figure" for="vpr01">
+                                            <!-- .visual-picker-content -->
+                                            <span class="visual-picker-content">
+                                              <strong>Strongly Agree</strong>
+                                            </span>
+                                            <!-- /.visual-picker-content -->
+                                          </label>
+                                        </div>
+                                        <!-- /.visual-picker -->
+                                        <!-- .visual-picker -->
+                                        <div class="visual-picker visual-picker-sm has-peek px-3">
+                                          <!-- visual-picker input -->
+                                          <input type="radio" id="vpr02" name="vprSM" checked>
+                                          <!-- .visual-picker-figure -->
+                                          <label class="visual-picker-figure" for="vpr02">
+                                            <!-- .visual-picker-content -->
+                                            <span class="visual-picker-content" style="padding-bottom:15px;">
+                                              <strong>Agree</strong>
+                                            </span>
+                                            <!-- /.visual-picker-content -->
+                                          </label>
+                                        </div>
+                                        <!-- /.visual-picker -->
+                                        <!-- .visual-picker -->
+                                        <div class="visual-picker visual-picker-sm has-peek px-3">
+                                          <!-- visual-picker input -->
+                                          <input type="radio" id="vpr03" name="vprSM">
+                                          <!-- .visual-picker-figure -->
+                                          <label class="visual-picker-figure" for="vpr03">
+                                            <!-- .visual-picker-content -->
+                                            <span class="visual-picker-content" style="padding-bottom:15px;">
+                                              <strong>Neutral</strong>
+                                            </span>
+                                            <!-- /.visual-picker-content -->
+                                          </label>
+                                        </div>
+                                        <!-- /.visual-picker -->
+                                        <!-- .visual-picker -->
+                                        <div class="visual-picker visual-picker-sm has-peek px-3">
+                                          <!-- visual-picker input -->
+                                          <input type="radio" id="vpr04" name="vprSM">
+                                          <!-- .visual-picker-figure -->
+                                          <label class="visual-picker-figure" for="vpr04">
+                                            <!-- .visual-picker-content -->
+                                            <span class="visual-picker-content" style="padding-bottom:15px;">
+                                              <strong>Disagree</strong>
+                                            </span>
+                                            <!-- /.visual-picker-content -->
+                                          </label>
+                                        </div>
+                                        <!-- /.visual-picker -->
+                                        <div class="visual-picker visual-picker-sm has-peek px-3">
+                                          <!-- visual-picker input -->
+                                          <input type="radio" id="vpr05" name="vprSM">
+                                          <!-- .visual-picker-figure -->
+                                          <label class="visual-picker-figure" for="vpr05">
+                                            <!-- .visual-picker-content -->
+                                            <span class="visual-picker-content" style="padding-top: 5px;">
+                                              <strong>Strongly Disagree</strong>
+                                            </span>
+                                            <!-- /.visual-picker-content -->
+                                          </label>
+                                        </div>
+                                        <!-- /.visual-picker -->
+                                      </section>
+                                    </div>
+                                  </div>
+                                </c:when>    
+                                <c:otherwise>
+                                    <div class="form-group">
+                                      <label for="exampleTextarea">${CatVar.catDesc}</label>
+                                      <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+                                    </div>
+                                </c:otherwise>
+                            </c:choose>
+                            </c:forEach>
                           <div class="form-actions">
                             <button class="btn btn-primary" type="submit">Submit form</button>
                           </div>
-
-
                         </fieldset>
                       </form>
                     </div>
