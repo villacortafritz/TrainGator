@@ -43,7 +43,6 @@ public class MainService {
 
 	public Object addTraining(Date train_datestart, Date train_dateend, String train_timestart, String train_timeend,
 			String train_courseobjective, String train_courseoutline, int train_faci, int train_sv, int train_pt) {
-		// TODO Auto-generated method stub
 		Object result = false;
 		TblTraining training = new TblTraining();
 		training.setTrainDatestart(train_datestart);

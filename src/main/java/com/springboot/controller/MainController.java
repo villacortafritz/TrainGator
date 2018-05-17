@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import com.springboot.entities.TblCat;
@@ -92,10 +93,10 @@ public class MainController {
 		return "cff";
 	}
 	
-	@RequestMapping(value="/createEvent",method=RequestMethod.GET)
+	@RequestMapping(value="/createEvent.html",method=RequestMethod.GET)
 	public String createEvent(HttpServletRequest request, ModelMap map) throws ParseException {
-		Date train_datestart = new SimpleDateFormat("yyyy,MM,dd",Locale.ENGLISH).parse("train_datestart");
-		Date train_dateend = new SimpleDateFormat("yyyy,MM,dd",Locale.ENGLISH).parse("train_dateend");
+		Date train_datestart = new SimpleDateFormat("yyyy-MM-dd",Locale.ENGLISH).parse(request.getParameter("train_datestart"));
+		Date train_dateend = new SimpleDateFormat("yyyy-MM-dd",Locale.ENGLISH).parse(request.getParameter("train_dateend"));
 		String train_timestart = request.getParameter("train_timestart");
 		String train_timeend = request.getParameter("train_timeend");
 		String train_courseobjective = request.getParameter("train_courseobjective");
@@ -103,7 +104,6 @@ public class MainController {
 		int train_faci = Integer.parseInt(request.getParameter("train_faci"));
 		int train_sv = Integer.parseInt(request.getParameter("train_sv"));
 		int train_pt = Integer.parseInt(request.getParameter("train_pt"));
-		
 		MainService.addTraining(train_datestart, train_dateend, train_timestart, train_timeend, train_courseobjective,
 				train_courseoutline, train_faci, train_sv, train_pt);
 
@@ -199,9 +199,6 @@ public class MainController {
 		return "trainingDetails";
 	}
 
-	
-
-	
 	@RequestMapping(value="/insertParticipant",method=RequestMethod.POST)
 	public String addParticipant(HttpServletRequest request, ModelMap map) {
 				
@@ -211,22 +208,10 @@ public class MainController {
 				
 		return loadTrainingDetailsScreen(request,map);
 	}
-	
-
 //	@RequestMapping("/list")
 //	public String listParticipant(ModelMap map) {
 //		List<TblUser> participantList = MainService.getParticipants();
 //		map.addAttribute("participantList", participantList);
 //		return "trainingDetails";
 //	}
-	
-	
-
-
-	
-
-	
-	
-	
-	
 }

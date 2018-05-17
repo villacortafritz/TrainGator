@@ -671,25 +671,29 @@
                       <form>
                         <!-- /.form-group -->
                         <div class="form-group">
-                          <label class="control-label" for="flatpickr07">Input Range of Date of Training Event</label>
-                          <input id="flatpickr07" type="text" class="form-control"> </div>
+                          <label class="control-label" for="flatpickr01">Input Starting Date</label>
+                          <input id="flatpickr01" type="text" class="form-control" name="train_datestart" required=""> </div>
+                        <!-- /.form-group -->
+                        <div class="form-group">
+                          <label class="control-label" for="flatpickr01">Input Ending Date</label>
+                          <input id="flatpickr01" type="text" class="form-control" name="train_dateend" required=""> </div>
                         <!-- /.form-group -->
                         <div class="form-group">
                           <label class="control-label" for="flatpickr08">Input Start Time</label>
-                          <input id="flatpickr08" type="text" class="form-control"> </div>
+                          <input id="flatpickr08" type="text" class="form-control" name="train_timestart" required=""> </div>
                         <!-- /.form-group -->
                         <div class="form-group">
                           <label class="control-label" for="flatpickr08">Input End Time</label>
-                          <input id="flatpickr08" type="text" class="form-control"> </div>
+                          <input id="flatpickr08" type="text" class="form-control" name="train_timeend" required=""> </div>
                         <!-- .form-group -->
                         <div class="form-group">
                           <label for="exampleTextarea">Input Course Objective for Training Event</label>
-                          <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+                          <textarea class="form-control" id="exampleTextarea" rows="3" name="train_courseobjective" required=""></textarea>
                         </div>
                         <!-- .form-group -->
                         <div class="form-group">
                           <label for="exampleTextarea">Input Course Outline for Training Event</label>
-                          <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+                          <textarea class="form-control" id="exampleTextarea" rows="3" name="train_courseoutline" required=""></textarea>
                         </div>
                         <!-- /.form-group -->
 
@@ -697,24 +701,24 @@
                         <div class="form-group">
                           <!-- .control-label -->
                           <label class="control-label" for="select2-tagging">Add Facilitator/s for the Training Event</label>
-                          <select id="select2-tagging" class="form-control" multiple="multiple"></select>
+                          <select id="select2-tagging" class="form-control" multiple="multiple" name="train_faci" required=""></select>
                         </div>
 
                         <div class="form-group">
                           <!-- .control-label -->
                           <label class="control-label" for="select2-tagging">Add Supervisor/s for the Training Event</label>
-                          <select id="select2Supervisor-tagging" class="form-control" multiple="multiple"></select>
+                          <select id="select2Supervisor-tagging" class="form-control" multiple="multiple" name="train_sv" required=""></select>
                         </div>
 
                         <div class="form-group">
                           <!-- .control-label -->
                           <label class="control-label" for="select2-tagging">Add Participant/s for the Training Event</label>
-                          <select id="select2Facilitator-tagging" class="form-control" multiple="multiple"></select>
+                          <select id="select2Facilitator-tagging" class="form-control" multiple="multiple" name="train_pt" required=""></select>
                         </div>
                         <!-- .form-group -->
                         <div class="form-actions">
                           <!-- .form-group -->
-                          <button class="btn btn-primary" type="button" onclick="window.location.href='adminAll.html'">Confirm</button>
+                          <button class="btn btn-primary" type="submit" onclick="window.location.href='adminAll.html'">Confirm</button>
                           <!-- .form-group -->
                           <button type="button" class="btn btn-sm btn-secondary" onclick="window.location.href='adminAll.html'">
                             <i class="far fa-trash-alt"></i>
