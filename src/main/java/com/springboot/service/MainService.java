@@ -101,5 +101,11 @@ public class MainService {
 		
 	}
 
+	public Object checkUser(String email, String password) {	
+		// TODO Auto-generated method stub
+		return MainRepository.checkuser(em,email,password);
+		
+	}
+
 }
 	
