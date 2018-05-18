@@ -52,7 +52,7 @@ public class MainRepository {
 	}
 	public List<TblUser> getParticipants(EntityManager em) {
 		
-		StringBuilder studentQuery = new StringBuilder("from TblUser");
+		StringBuilder studentQuery = new StringBuilder("from TblUser");	
 		Query query = em.createQuery(studentQuery.toString());
 		List<TblUser> studentList = query.getResultList();
 		return studentList;

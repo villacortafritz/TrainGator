@@ -867,8 +867,6 @@
 			                                                          <input name="userRecommended" type="checkbox" class="custom-control-input" value="${participantVar.userId}" >
 			                                                          <span class="custom-control-label">${participantVar.userFname} ${participantVar.userLname}</span>
 			                                                        </label>
-
-																	<br>
 																</c:forEach>	
  
                                                       		</div>
