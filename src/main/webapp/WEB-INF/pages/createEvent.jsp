@@ -668,7 +668,7 @@
                     <!-- .card-body -->
                     <div class="card-body">
                       <!-- form -->
-                      <form>
+                      <form method="post" action="http://localhost:8080/createEvent">
                         <!-- /.form-group -->
                         <div class="form-group">
                           <label class="control-label" for="flatpickr01">Input Starting Date</label>

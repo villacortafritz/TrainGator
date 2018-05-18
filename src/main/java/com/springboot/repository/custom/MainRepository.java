@@ -3,10 +3,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
+
 import com.springboot.entities.TblCat;
 import com.springboot.entities.TblSubcat;
 import com.springboot.entities.TblTraining;
@@ -59,6 +61,20 @@ public class MainRepository {
 		
 		//session.createQuery("from Role as role INNER JOIN Involvement as involvement WHERE involvement.id = X").list();
 		//em.createQuery(studentQuery.toString());
+	}
+
+	public Object checkuser(EntityManager em, String email, String password) {
+		Object user = null;
+		StringBuilder userQuery = new StringBuilder("FROM TblUser WHERE userEmail = :email and userPassword = :password");
+		Query query = em.createQuery(userQuery.toString());
+		query.setParameter("email", email);
+		query.setParameter("password", password);
+		
+		try{
+			user = query.getSingleResult();
+		}
+		catch (NoResultException e){}
+		return user;
 	}
 	
 
