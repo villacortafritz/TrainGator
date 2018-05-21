@@ -984,34 +984,39 @@
                                                           <!-- tbody -->
                                                           <tbody>
                                                           
-                                                          	<c:forEach items="${participantList}" var="participantVar">
-															<!-- tr -->
-	                                                            <tr>
-	                                                              <td class="align-middle">
-	                                                                <div class="table-custom-control custom-control custom-checkbox">
-	
-	                                                                </div>
-	                                                              </td>
-	                                                              <td>
-	                                                                <div class="user-avatar">
-	                                                                  <img src="/images/avatars/profile.jpg" alt="User Avatar"> </div>
-	                                                                <a href="#">${participantVar.userFname} ${participantVar.userLname} </a>
-	                                                              </td>
-	                                                              <td class="align-middle"> ${participantVar.userType} </td>
-	                                                              <td class="align-middle"> ${participantVar.userEmail} </td>
-	
-	                                                              <td class="align-middle text-right">
-	                                                                <div class="btn-group">
-	                                                                  <button type="button" class="btn btn-sm btn-secondary">
-	                                                                    <i class="far fa-trash-alt"></i>
-	                                                                    <span class="sr-only">Remove</span>
-	                                                                  </button>
-	                                                                </div>
-	                                                              </td>
-	                                                            </tr>
-	                                                            <!-- /tr -->
-
-															</c:forEach>	
+                                                      	 <form action="http://localhost:8080/deleteParticipant" method="post">
+	                                                     	<c:forEach items="${participantList}" var="participantVar">
+	                                                      		
+																	<!-- tr -->
+		                                                            <tr>
+		                                                             
+		                                                              <td>
+		                                                                <div class="user-avatar">
+		                                                                  <img src="/images/avatars/profile.jpg" alt="User Avatar"> </div>
+		                                                                <a href="#">${participantVar.userFname} ${participantVar.userLname} </a>
+		                                                              </td>
+		                                                              <td class="align-middle"> ${participantVar.userType} </td>
+		                                                              <td class="align-middle"> ${participantVar.userEmail} </td>
+		
+		                                                              <td class="align-middle text-right">
+		                                                                <div class="btn-group">
+		                                                                
+		                                                                  <button type="submit" class="btn btn-sm btn-secondary" type="submit">
+		                                                                    <i class="far fa-trash-alt"></i>
+		                                                                    <input name="confirmedUser" value="${participantVar.userId}"}>
+		                                                                    <span class="sr-only">Remove</span>
+		                                                                  </button>
+		                                                                </div>
+		                                                              </td>
+		                                                            </tr>
+		                                                            <!-- /tr -->
+																
+															</c:forEach>
+														</form>
+                                                          
+                                                        
+                                                          
+                                                          	
                                                        
                                                     
                                                             

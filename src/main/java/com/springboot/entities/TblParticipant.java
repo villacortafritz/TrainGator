@@ -20,6 +20,7 @@ public class TblParticipant implements Serializable {
 
 	@Column(name="train_id")
 	private int trainId;
+	
 
 	@Column(name="user_id")
 	private int userId;

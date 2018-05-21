@@ -101,5 +101,15 @@ public class MainService {
 		
 	}
 
+
+
+		
+	public List<TblUser> removeParticipantById(int id) {
+			return MainRepository.removeParticipantById(em, id);
+			
+	}
+		
+	
+
 }
 	
