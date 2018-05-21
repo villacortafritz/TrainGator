@@ -202,8 +202,8 @@
                     <img src="/images/avatars/profile.jpg" alt="">
                   </span>
                   <span class="account-summary pr-lg-4 d-none d-lg-block">
-                    <span class="account-name">Name of User</span>
-                    <span class="account-description">Participant/Supervisor</span>
+                    <span class="account-name">${fname} ${lname}</span>
+                    <span class="account-description">${usertype}</span>
                   </span>
                 </button>
                 <div class="dropdown-arrow dropdown-arrow-left"></div>
@@ -650,12 +650,11 @@
                   <a href="user-profile.html" class="user-avatar user-avatar-xl">
                     <img src="/images/avatars/profile.jpg" alt="User Avatar">
                   </a>
-                  <h2 class="h4 mt-3 mb-0"> Name of User </h2>
-                  <p class="text-muted"> Participant/Supervisor </p>
+                  <h2 class="h4 mt-3 mb-0"> ${fname} ${lname} </h2>
+                  <p class="text-muted"> ${usertype} </p>
                   <c:if test="${user.userType=='administrator'}">
                   <c:redirect url="http://localhost:8080/adminAll"/>
                   </c:if>
-                  <p>${user.userType}</p>
                 </div>
                 <!-- .cover-controls -->
                 <!-- /.cover-controls -->

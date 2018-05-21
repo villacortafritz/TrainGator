@@ -48,7 +48,7 @@
           <img src="/images/rect-logo.png" alt="" height="120">
           <span class="sr-only">Sign Up</span>
         </h1>
-        <p> Already have an account? please
+        <p> Already have an account? please ${usertype}
           <a href="signin.html">Sign In</a>
         </p>
       </header>

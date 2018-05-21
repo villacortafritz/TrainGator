@@ -12,8 +12,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import java.util.List;
+
 import com.springboot.entities.TblCat;
 import com.springboot.entities.TblSubcat;
 import com.springboot.entities.TblUser;
@@ -21,6 +23,7 @@ import com.springboot.service.MainService;
 
 @Controller
 @RequestMapping("")
+@SessionAttributes({"userID","fname","lname","usertype"})//mapped variables that is declared here will auto acquire the data, can be accessed every page
 public class MainController {
 	
 	@Autowired
@@ -91,11 +94,15 @@ public class MainController {
 	public String cff(HttpServletRequest request, ModelMap map) {
 		return "cff";
 	}
+	@RequestMapping("/createEvent")
+	public String loadcreateEvent() {
+		return "createEvent";
+	}
 	
-	@RequestMapping(value="/createEvent",method=RequestMethod.GET)
+	@RequestMapping(value="/createEvent",method=RequestMethod.POST)
 	public String createEvent(HttpServletRequest request, ModelMap map) throws ParseException {
-		Date train_datestart = new SimpleDateFormat("yyyy,MM,dd",Locale.ENGLISH).parse("train_datestart");
-		Date train_dateend = new SimpleDateFormat("yyyy,MM,dd",Locale.ENGLISH).parse("train_dateend");
+		Date train_datestart = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("train_datestart"));
+		Date train_dateend = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("train_dateend"));
 		String train_timestart = request.getParameter("train_timestart");
 		String train_timeend = request.getParameter("train_timeend");
 		String train_courseobjective = request.getParameter("train_courseobjective");
@@ -143,10 +150,14 @@ public class MainController {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		String error = "Invalid Email or Password";
-		Object user = MainService.checkUser(email,password);
-		TblUser user2 = (TblUser) user;
+		TblUser user = (TblUser)MainService.checkUser(email,password);
+		
 		if(user!=null){
-			if(user2.getUserType().equals("administrator"))
+			map.addAttribute("userID",user.getUserId());
+			map.addAttribute("fname",user.getUserFname());
+			map.addAttribute("lname",user.getUserLname());
+			map.addAttribute("usertype",user.getUserType());
+			if(user.getUserType().equals("administrator"))
 				return "adminAll";
 			else
 				return "userAll";

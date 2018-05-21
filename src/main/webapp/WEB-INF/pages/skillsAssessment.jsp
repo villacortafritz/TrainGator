@@ -828,43 +828,43 @@
                                                       <!-- form -->
                                                       <span class="rating rating-primary">
                                                         <font size="3px" style="padding-left:200px;">${SubCatVar.subDesc}</font>
-                                                        <input  type="radio" name="ratingtrophy" id="scopemTrophy10" value="10" >
+                                                        <input  type="radio" name="${SubCatVar.subDesc}" id="scopemTrophy10" value="10" >
                                                         <label  style="padding-left:20px" style="padding-left:20px" for="scopemTrophy10">
                                                           <span class="fa fa-trophy"></span>
                                                         </label>
-                                                        <input type="radio" name="ratingtrophy" id="scopemTrophy9" value="9">
+                                                        <input type="radio" name="${SubCatVar.subDesc}" id="scopemTrophy9" value="9">
                                                         <label  style="padding-left:20px" for="scopemTrophy9">
                                                           <span class="fa fa-trophy"></span>
                                                         </label>
-                                                        <input type="radio" name="ratingtrophy" id="scopemTrophy8" value="8" checked>
+                                                        <input type="radio" name="${SubCatVar.subDesc}" id="scopemTrophy8" value="8" checked>
                                                         <label style="padding-left:20px" for="scopemTrophy8">
                                                           <span class="fa fa-trophy"></span>
                                                         </label>
-                                                        <input type="radio" name="ratingtrophy" id="scopemTrophy7" value="7">
+                                                        <input type="radio" name="${SubCatVar.subDesc}" id="scopemTrophy7" value="7">
                                                         <label style="padding-left:20px" for="scopemTrophy7">
                                                           <span class="fa fa-trophy"></span>
                                                         </label>
-                                                        <input type="radio" name="ratingtrophy" id="scopemTrophy6" value="6">
+                                                        <input type="radio" name="${SubCatVar.subDesc}" id="scopemTrophy6" value="6">
                                                         <label style="padding-left:20px" for="scopemTrophy6">
                                                           <span class="fa fa-trophy"></span>
                                                         </label>
-                                                        <input type="radio" name="ratingtrophy" id="scopemTrophy5" value="5">
+                                                        <input type="radio" name="${SubCatVar.subDesc}" id="scopemTrophy5" value="5">
                                                         <label style="padding-left:20px" for="scopemTrophy5">
                                                           <span class="fa fa-trophy"></span>
                                                         </label>
-                                                        <input type="radio" name="ratingtrophy" id="scopemTrophy4" value="4">
+                                                        <input type="radio" name="${SubCatVar.subDesc}" id="scopemTrophy4" value="4">
                                                         <label style="padding-left:20px" for="scopemTrophy4">
                                                           <span class="fa fa-trophy"></span>
                                                         </label>
-                                                        <input type="radio" name="ratingtrophy" id="scopemTrophy3" value="3" checked>
+                                                        <input type="radio" name="${SubCatVar.subDesc}" id="scopemTrophy3" value="3" checked>
                                                         <label style="padding-left:20px" for="scopemTrophy3">
                                                           <span class="fa fa-trophy"></span>
                                                         </label>
-                                                        <input type="radio" name="ratingtrophy" id="scopemTrophy2" value="2">
+                                                        <input type="radio" name="${SubCatVar.subDesc}" id="scopemTrophy2" value="2">
                                                         <label style="padding-left:20px" for="scopemTrophy2">
                                                           <span class="fa fa-trophy"></span>
                                                         </label>
-                                                        <input type="radio" name="ratingtrophy" id="scopemTrophy1" value="1">
+                                                        <input type="radio" name="${SubCatVar.subDesc}" id="scopemTrophy1" value="1">
                                                         <label  style="padding-left:68px" for="scopemTrophy1">
                                                           <span class="fa fa-trophy"></span>
                                                         </label>

@@ -51,8 +51,6 @@ public class TblTraining implements Serializable {
 	@Column(name="train_status")
 	private int trainStatus;
 
-	private String trainCouseobjective;
-
 	public TblTraining() {
 	}
 
@@ -97,11 +95,11 @@ public class TblTraining implements Serializable {
 	}
 
 	public String getTrainCourseobjective() {
-		return this.trainCouseobjective;
+		return this.trainCourseobjective;
 	}
 
-	public void setTrainCourseobjective(String trainCouseobjective) {
-		this.trainCouseobjective = trainCouseobjective;
+	public void setTrainCourseobjective(String trainCourseobjective) {
+		this.trainCourseobjective = trainCourseobjective;
 	}
 	
 	public String getTrainCourseoutline() {
