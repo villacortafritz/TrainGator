@@ -7,6 +7,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
+import org.apache.commons.logging.Log;
 import org.springframework.stereotype.Repository;
 
 import com.springboot.entities.TblCat;
@@ -79,12 +80,15 @@ public class MainRepository {
 	public List<TblUser> removeParticipantById(EntityManager em, int id) {
 
 
-		StringBuilder studentQuery = new StringBuilder("DELETE FROM TblUser WHERE id IN :id");
+		StringBuilder studentQuery = new StringBuilder("DELETE FROM TblUser WHERE user_id =:id");
 		Query query = em.createQuery(studentQuery.toString());
 		query.setParameter("id",id);
 		query.executeUpdate();
-	
 		return null;
+	
+		
+		
+	}
 
 	public Object checkuser(EntityManager em, String email, String password) {
 		Object user = null;
