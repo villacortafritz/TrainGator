@@ -244,6 +244,16 @@ public class MainController {
 	}
 	
 
+	@RequestMapping(value="/deleteParticipant",method=RequestMethod.POST)
+	public String deleteParticipant(HttpServletRequest request, ModelMap map) {
+				
+		int userID = Integer.parseInt(request.getParameter("confirmedUser"));
+		MainService.removeParticipantById(userID);
+
+		return loadTrainingDetailsScreen(request,map);
+	}
+
+
 //	@RequestMapping("/list")
 //	public String listParticipant(ModelMap map) {
 //		List<TblUser> participantList = MainService.getParticipants();
@@ -253,11 +263,4 @@ public class MainController {
 	
 	
 
-
-	
-
-	
-	
-	
-	
 }

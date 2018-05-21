@@ -54,15 +54,38 @@ public class MainRepository {
 	}
 	public List<TblUser> getParticipants(EntityManager em) {
 		
-		StringBuilder studentQuery = new StringBuilder("from TblUser");	
+//		StringBuilder studentQuery = new StringBuilder("FROM TblUser u, TblParticipant p WHERE u.userId=p.userId");	
+//		Query query = em.createQuery(studentQuery.toString());
+//		List<TblUser> participantList = query.getResultList();
+//		return participantList;
+//		
+//		
+//		StringBuilder studentQuery = new StringBuilder("FROM TblUser u INNER JOIN FETCH TblParticipant p WHERE u.userId = p.userId");	
+//		Query query = em.createQuery(studentQuery.toString());
+//		List<TblUser> participantList = query.getResultList();
+//		return participantList;
+
+		StringBuilder studentQuery = new StringBuilder("FROM TblUser");	
 		Query query = em.createQuery(studentQuery.toString());
-		List<TblUser> studentList = query.getResultList();
-		return studentList;
+		List<TblUser> participantList = query.getResultList();
+		return participantList;
+		
 		
 		//session.createQuery("from Role as role INNER JOIN Involvement as involvement WHERE involvement.id = X").list();
 		//em.createQuery(studentQuery.toString());
 	}
 
+
+	public List<TblUser> removeParticipantById(EntityManager em, int id) {
+
+
+		StringBuilder studentQuery = new StringBuilder("DELETE FROM TblUser WHERE id IN :id");
+		Query query = em.createQuery(studentQuery.toString());
+		query.setParameter("id",id);
+		query.executeUpdate();
+	
+		return null;
+	}
 	public Object checkuser(EntityManager em, String email, String password) {
 		Object user = null;
 		StringBuilder userQuery = new StringBuilder("FROM TblUser WHERE userEmail = :email and userPassword = :password");
@@ -75,7 +98,7 @@ public class MainRepository {
 		}
 		catch (NoResultException e){}
 		return user;
+
 	}
 	
-
 }
