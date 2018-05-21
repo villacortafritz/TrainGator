@@ -687,7 +687,7 @@
                           <input id="flatpickr08" type="text" class="form-control" name="train_timeend" required=""> </div>
                         <!-- .form-group -->
                         <div class="form-group">
-                          <label for="exampleTextarea">Input Course Objective for Training Event</label>
+                          <label for="exampleTextarea">Input Course Objective and Outline for Training Event</label>
                           <textarea class="form-control" id="exampleTextarea" rows="3" name="train_courseobjective" required=""></textarea>
                         </div>
                         <!-- .form-group -->
@@ -713,13 +713,13 @@
                         <div class="form-group">
                           <!-- .control-label -->
                           <label class="control-label" for="select2-tagging">Add Participant/s for the Training Event</label>
-                          <select id="select2Facilitator-tagging" class="form-control" multiple="multiple" name="train_pt" required=""></select>
+                          <select id="select2Facilitator-tagging" class="form-control" name="train_pt" required=""></select>
                         </div>
                         <!-- .form-group -->
                         <div class="form-actions">
                           <!-- .form-group -->
-                          <button class="btn btn-primary" type="submit" onclick="window.location.href='adminAll.html'">Confirm</button>
-                          <!-- .form-group -->
+                          <button class="btn btn-primary" type="submit" ">Confirm</button>
+                          <!-- .form-group --><!-- onclick="window.location.href='adminAll.html' -->
                           <button type="button" class="btn btn-sm btn-secondary" onclick="window.location.href='adminAll.html'">
                             <i class="far fa-trash-alt"></i>
                             <span>Remove</span>
