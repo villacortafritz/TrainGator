@@ -246,8 +246,9 @@ public class MainController {
 
 	@RequestMapping(value="/deleteParticipant",method=RequestMethod.POST)
 	public String deleteParticipant(HttpServletRequest request, ModelMap map) {
-				
-		int userID = Integer.parseInt(request.getParameter("confirmedUser"));
+		String temp = request.getParameter("confirmedUser");		
+		int userID = Integer.parseInt(temp);
+		
 		MainService.removeParticipantById(userID);
 
 		return loadTrainingDetailsScreen(request,map);
