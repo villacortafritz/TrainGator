@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -60,6 +60,7 @@
     <!-- END THEME STYLES -->
   </head>
   <body>
+
     <!-- .app -->
     <div class="app has-fullwidth">
       <!-- .app-header -->
@@ -651,6 +652,10 @@
                   </a>
                   <h2 class="h4 mt-3 mb-0"> Name of User </h2>
                   <p class="text-muted"> Participant/Supervisor </p>
+                  <c:if test="${user.userType=='administrator'}">
+                  <c:redirect url="http://localhost:8080/adminAll"/>
+                  </c:if>
+                  <p>${user.userType}</p>
                 </div>
                 <!-- .cover-controls -->
                 <!-- /.cover-controls -->

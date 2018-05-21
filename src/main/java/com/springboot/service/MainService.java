@@ -102,14 +102,18 @@ public class MainService {
 	}
 
 
-
 		
 	public List<TblUser> removeParticipantById(int id) {
 			return MainRepository.removeParticipantById(em, id);
 			
 	}
+
+	public Object checkUser(String email, String password) {	
+		// TODO Auto-generated method stub
+		return MainRepository.checkuser(em,email,password);
 		
-	
+	}
+
 
 }
 	

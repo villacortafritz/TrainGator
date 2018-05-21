@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
@@ -74,6 +75,7 @@ public class MainRepository {
 		//em.createQuery(studentQuery.toString());
 	}
 
+
 	public List<TblUser> removeParticipantById(EntityManager em, int id) {
 
 
@@ -83,6 +85,20 @@ public class MainRepository {
 		query.executeUpdate();
 	
 		return null;
+
+	public Object checkuser(EntityManager em, String email, String password) {
+		Object user = null;
+		StringBuilder userQuery = new StringBuilder("FROM TblUser WHERE userEmail = :email and userPassword = :password");
+		Query query = em.createQuery(userQuery.toString());
+		query.setParameter("email", email);
+		query.setParameter("password", password);
+		
+		try{
+			user = query.getSingleResult();
+		}
+		catch (NoResultException e){}
+		return user;
+
 	}
 	
 

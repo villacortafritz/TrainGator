@@ -410,6 +410,7 @@
                     <div class="card-body" style="padding-top: 50px;">
                       <form>
                         <fieldset>
+                          <c:out value="CatList">
                             <c:forEach items="${CatList}" var="CatVar">
                             <c:choose>
                                 <c:when test="${CatVar.catId<16}">
