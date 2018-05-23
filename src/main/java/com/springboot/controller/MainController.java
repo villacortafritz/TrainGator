@@ -123,7 +123,7 @@ public class MainController {
 	public String userTna(HttpServletRequest request, ModelMap map) {
 		return "TrainGator/userTna";
 	}
-<<<<<<< HEAD
+
 	@RequestMapping(value="/signin",method=RequestMethod.POST)
 	public String signin(HttpServletRequest request, ModelMap map) {
 		String email = request.getParameter("email");
@@ -150,6 +150,8 @@ public class MainController {
 	@RequestMapping("/userAll")
 	public String loadUserAll(){
 		return "userAll";
+		
+	}
 
 	@RequestMapping(value="/userUpcoming", method=RequestMethod.GET)
 	public String userUpcoming(HttpServletRequest request, ModelMap map) {

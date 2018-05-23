@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -101,33 +104,27 @@
                           <br>
                         </section>
                       </div>
-                      <div class="col-lg-6">
-                        <div class="card card-fluid">
-                          <div class="list-group list-group-flush list-group-bordered">
-                            <div class="list-group-header"> Recommended Participants </div>
-                            <label class="list-group-item custom-control custom-checkbox">
-                              <input name="listcheckbox" type="checkbox" class="custom-control-input" checked>
-                              <span class="custom-control-label">Bunny Barros</span>
-                            </label>
-                            <label class="list-group-item custom-control custom-checkbox">
-                              <input name="listcheckbox" type="checkbox" class="custom-control-input" checked>
-                              <span class="custom-control-label">June Sliter</span>
-                            </label>
-                            <label class="list-group-item custom-control custom-checkbox">
-                              <input name="listcheckbox" type="checkbox" class="custom-control-input" checked>
-                              <span class="custom-control-label">Danna Bogardus</span>
-                            </label>
-                            <label class="list-group-item custom-control custom-checkbox">
-                              <input name="listcheckbox" type="checkbox" class="custom-control-input" checked>
-                              <span class="custom-control-label">Yelena Vallejo</span>
-                            </label>
-                            <label class="list-group-item custom-control custom-checkbox">
-                              <input name="listcheckbox" type="checkbox" class="custom-control-input" checked>
-                              <span class="custom-control-label">Miesha Couture</span>
-                            </label>
-                          </div>
-                        </div>
-                      </div>
+                      	<div class="col-lg-6">
+                           <!-- .card -->
+                           <div class="card card-fluid">
+                             <!-- .list-group -->
+                            	<form action="http://localhost:8080/insertParticipant" method="post">
+	                               <div class="list-group list-group-flush list-group-bordered">
+	                                 <div class="list-group-header"> Recommended Participants </div>
+	                                 	<c:forEach items="${recommendedList}" var="recVar">
+											<label class="list-group-item custom-control custom-checkbox">                               
+	                                       		<input name="userRecommended" type="checkbox" class="custom-control-input" value="${recVar.userId}" >
+	                                       		<span class="custom-control-label">${recVar.userFname} ${recVar.userLname}</span>
+	                                   		</label>
+										</c:forEach>	
+	                              	</div><hr>
+	                              	<div style="padding-left:40%"><button  type="submit">Add Participant</button></div>
+	                              	<hr>
+								</form>
+                             <!-- /.list-group -->
+                           </div>
+                           <!-- /.card -->
+                      	</div>                    
                       <div class="col-lg-6">
                         <div class="card card-fluid">
                           <div class="list-group list-group-flush list-group-bordered">
@@ -160,44 +157,47 @@
                       <div class="col-lg-12">
                           <div class="card card-fluid">
                         <div class="card-body">
-                            <h2 class="section-title"> Confirmed Participants </h2>
-                          <div class="table-responsive">
-                            <table class="table">
-                              <thead>
-                                <tr>
-                                  <th style="width:62px">
-                                  </th>
-                                  <th style="min-width:280px">  Participant Name </th>
-                                  <th> Job Position </th>
-                                  <th> Email </th>
-                                  <th style="width: 50px;"> &nbsp; </th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <td class="align-middle">
-                                    <div class="table-custom-control custom-control custom-checkbox">
-                                    </div>
-                                  </td>
-                                  <td>
-                                    <div class="user-avatar">
-                                      <img src="/images/avatars/profile.jpg" alt="User Avatar"> </div>
-                                    <a href="#">Tomato - Green</a>
-                                  </td>
-                                  <td class="align-middle"> Senior Java Developer </td>
-                                  <td class="align-middle"> thisistheuseremail@gmail.com </td>
-
-                                  <td class="align-middle text-right">
-                                    <div class="btn-group">
-                                      <button type="button" class="btn btn-sm btn-secondary">
-                                        <i class="far fa-trash-alt"></i>
-                                        <span class="sr-only">Remove</span>
-                                      </button>
-                                    </div>
-                                  </td>
-                                </tr>
-                              </tbody>
-                            </table>
+                           <h2 class="section-title"> Confirmed Participants </h2>
+                           <table class="table">
+                           	<thead>
+                           		<tr>
+                                	<th style="width:62px"></th>
+                                    <th style="min-width:200px">  Participant Name </th>
+                                    <th> Email </th>
+                                    <th> Job Position </th>
+                                    <th style="width: 50px;"> &nbsp; </th>
+                                    </tr>
+                           	</thead>
+                           	 <tbody>
+                           		<form action="http://localhost:8080/participant/deleteParticipant" method="post">
+	                           	                            	
+	                            	<c:forEach items="${confirmedList}" var="confVar">
+										<label class="list-group-item custom-control custom-checkbox">
+											<tr>                             				                                 	
+	                                   			<td style="width:62px"></td>
+	                                   			<td>
+	                                   				<span>${confVar.userFname} ${confVar.userLname}</span>
+	                                   			</td>	
+	                                   	 		<td>
+	                                   	 			<span> ${confVar.userEmail}</span>
+	                                   	 		</td>
+	                                   	 		<td>				                                                      
+	                                   	 			<span> ${confVar.userType}</span>	                                   	 		
+	                                   	 		</td>
+	                                   	 		<td class="align-middle text-right">				                                   
+				                                     <label class="list-group-item custom-control custom-checkbox">
+				                                       <input name="confirmedUser" type="checkbox" class="custom-control-input" value="${confVar.userId}">
+				                                       <span class="custom-control-label"></span>
+				                                     </label>				                                  
+				                                 </td>	
+	                                   	 	</tr>
+	                               		</label>
+									</c:forEach>		                     
+	                           		<button type="submit">Delete</button>
+                           		</form>	
+                           	</tbody> 
+                           </table>
+                           
                           </div>
                         </div>
                       </div>
