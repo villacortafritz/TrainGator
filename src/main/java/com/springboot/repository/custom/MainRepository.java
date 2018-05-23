@@ -11,6 +11,7 @@ import org.apache.commons.logging.Log;
 import org.springframework.stereotype.Repository;
 
 import com.springboot.entities.TblCat;
+import com.springboot.entities.TblFormresult;
 import com.springboot.entities.TblSubcat;
 import com.springboot.entities.TblTraining;
 import com.springboot.entities.TblParticipant;
@@ -99,6 +100,11 @@ public class MainRepository {
 		catch (NoResultException e){}
 		return user;
 
+	}
+
+	public void addSAF(EntityManager em, TblFormresult form) {
+		// TODO Auto-generated method stub
+		em.persist(form);
 	}
 	
 }

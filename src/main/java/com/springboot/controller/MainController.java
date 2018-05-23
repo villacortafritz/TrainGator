@@ -2,6 +2,7 @@ package com.springboot.controller;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
@@ -109,10 +110,25 @@ public class MainController {
 		return "TrainGator/userRecommended";
 	}
 	
-	@RequestMapping(value="/userSaf", method=RequestMethod.GET)
+	@RequestMapping("/userSaf")
 	public String userSaf(HttpServletRequest request, ModelMap map) {
 		return "TrainGator/userSaf";
 	}
+	@RequestMapping(value="/userSaf",method=RequestMethod.POST)
+	public String skillsAssessment(HttpServletRequest request, ModelMap map) {
+		int id = 1;
+		int ansId = Integer.parseInt(request.getParameter("ansId"));
+		int userId = Integer.parseInt(request.getParameter("userId"));
+		String[] results = new String[60];
+		for(int i=1;i<54;i++){
+			if(request.getParameter(Integer.toString(i))!=null)
+			results[i] = request.getParameter(Integer.toString(i));
+		}
+		List<TblSubcat> SubCatList = MainService.getSubCategoriesByFormId(id);
+		MainService.addSAF(SubCatList,results,ansId,userId);
+		
+		return "TrainGator/userSaf";
+	}	
 	
 	@RequestMapping(value="/userTeaf", method=RequestMethod.GET)
 	public String userTeaf(HttpServletRequest request, ModelMap map) {

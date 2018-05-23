@@ -16,11 +16,12 @@ public class TblFormresult implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue
 	@Column(name="res_id")
 	private int resId;
 
-	@Column(name="fd_id")
-	private int fdId;
+	@Column(name="user_id")
+	private int userId;
 
 	@Column(name="res_data")
 	private String resData;
@@ -29,39 +30,30 @@ public class TblFormresult implements Serializable {
 	@Column(name="res_date")
 	private Date resDate;
 
-	@Column(name="res_peer")
-	private int resPeer;
+	@Column(name="quest_id")
+	private int questId;
 
-	@Column(name="res_status")
-	private String resStatus;
-
-	@Column(name="res_sv")
-	private int resSv;
-
-	@Column(name="train_id")
-	private int trainId;
-
-	public TblFormresult() {
-	}
+	@Column(name="ans_id")
+	private int ansId;
 
 	public int getResId() {
-		return this.resId;
+		return resId;
 	}
 
 	public void setResId(int resId) {
 		this.resId = resId;
 	}
 
-	public int getFdId() {
-		return this.fdId;
+	public int getUserId() {
+		return userId;
 	}
 
-	public void setFdId(int fdId) {
-		this.fdId = fdId;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	public String getResData() {
-		return this.resData;
+		return resData;
 	}
 
 	public void setResData(String resData) {
@@ -69,43 +61,54 @@ public class TblFormresult implements Serializable {
 	}
 
 	public Date getResDate() {
-		return this.resDate;
+		return resDate;
 	}
 
 	public void setResDate(Date resDate) {
 		this.resDate = resDate;
 	}
 
-	public int getResPeer() {
-		return this.resPeer;
+	public int getQuestId() {
+		return questId;
 	}
 
-	public void setResPeer(int resPeer) {
-		this.resPeer = resPeer;
+	public void setQuestId(int questId) {
+		this.questId = questId;
 	}
 
-	public String getResStatus() {
-		return this.resStatus;
+	public int getAnsId() {
+		return ansId;
 	}
 
-	public void setResStatus(String resStatus) {
-		this.resStatus = resStatus;
+	public void setAnsId(int ansId) {
+		this.ansId = ansId;
 	}
 
-	public int getResSv() {
-		return this.resSv;
+	public String getResType() {
+		return resType;
 	}
 
-	public void setResSv(int resSv) {
-		this.resSv = resSv;
+	public void setResType(String resType) {
+		this.resType = resType;
 	}
 
 	public int getTrainId() {
-		return this.trainId;
+		return trainId;
 	}
 
 	public void setTrainId(int trainId) {
 		this.trainId = trainId;
 	}
+
+	@Column(name="res_type")
+	private String resType;
+
+	@Column(name="train_id")
+	private int trainId;
+
+	public TblFormresult() {
+	}
+
+
 
 }
