@@ -131,13 +131,10 @@
                     <tr>
                       <td class="align-middle"></td>
                       <td>
-                          <a href="#" class="tile tile-img mr-1">
-                            <img class="img-fluid" src="/images/dummy/img-1.jpg" alt="Card image cap">
-                          </a>
-                        <a href="#">Name of Participant</a>
+                        <a>Name of Participant</a>
                       </td>
                       <td class="align-middle"> Time-In </td>
-                      <td class="align-middle"> Time-Put </td>
+                      <td class="align-middle"> Time-Out </td>
                       <td class="align-middle"> Contact Number </td>
                       <td class="align-middle text-right">
                     </td>

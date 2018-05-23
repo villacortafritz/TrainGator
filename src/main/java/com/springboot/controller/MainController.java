@@ -35,6 +35,11 @@ public class MainController {
 		return "TrainGator/adminAttendance";
 	}
 	
+	@RequestMapping(value="/adminCff", method=RequestMethod.GET)
+	public String adminCff(HttpServletRequest request, ModelMap map) {
+		return "TrainGator/adminCff";
+	}
+	
 	@RequestMapping(value="/adminConcluded", method=RequestMethod.GET)
 	public String adminConcluded(HttpServletRequest request, ModelMap map) {
 		return "TrainGator/adminConcluded";
@@ -60,6 +65,11 @@ public class MainController {
 		return "TrainGator/adminOngoing";
 	}
 	
+	@RequestMapping(value="/adminTeaf", method=RequestMethod.GET)
+	public String adminTeaf(HttpServletRequest request, ModelMap map) {
+		return "TrainGator/adminTeaf";
+	}
+	
 	@RequestMapping(value="/adminTrainingDetails", method=RequestMethod.GET)
 	public String adminTrainingDetails(HttpServletRequest request, ModelMap map) {
 		return "TrainGator/adminTrainingDetails";
@@ -76,13 +86,46 @@ public class MainController {
 	}
 	
 	@RequestMapping(value="/generalSignin", method=RequestMethod.GET)
-	public String generalSignin(HttpServletRequest request, ModelMap map) {
+	public String generalSigninGet(HttpServletRequest request, ModelMap map) {
 		return "TrainGator/generalSignin";
 	}
 	
+	@RequestMapping(value="/generalSignin", method=RequestMethod.POST)
+	public String generalSigninPost(HttpServletRequest request, ModelMap map) {
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
+		String error = "Invalid Email or Password";
+		TblUser user = (TblUser)MainService.checkUser(email,password);
+		if(user!=null){
+			map.addAttribute("userID",user.getUserId());
+			map.addAttribute("fname",user.getUserFname());
+			map.addAttribute("lname",user.getUserLname());
+			map.addAttribute("usertype",user.getUserType());
+			if(user.getUserType().equals("administrator"))
+				return "TrainGator/adminOngoing";
+			else
+				return "TrainGator/userJoined";
+			}
+		else{
+			map.addAttribute("error",error);
+			return "TrainGator/generalSignin";
+		}
+	}
+	
 	@RequestMapping(value="/generalSignup", method=RequestMethod.GET)
-	public String generalSignup(HttpServletRequest request, ModelMap map) {
+	public String generalSignupGet(HttpServletRequest request, ModelMap map) {
 		return "TrainGator/generalSignup";
+	}
+	
+	@RequestMapping(value="/generalSignup", method=RequestMethod.POST)
+	public String generalSignupPost(HttpServletRequest request, ModelMap map) {
+		String fname = request.getParameter("fname");
+		String lname = request.getParameter("lname");
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
+		String type = request.getParameter("role");
+		MainService.addUser(fname,lname,email,password,type);
+		return "signup";
 	}
 	
 	@RequestMapping(value="/userAccomplished", method=RequestMethod.GET)
@@ -139,10 +182,37 @@ public class MainController {
 	public String userTna(HttpServletRequest request, ModelMap map) {
 		return "TrainGator/userTna";
 	}
+	@RequestMapping(value="/signin",method=RequestMethod.POST)
+	public String signin(HttpServletRequest request, ModelMap map) {
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
+		String error = "Invalid Email or Password";
+		TblUser user = (TblUser)MainService.checkUser(email,password);
+		
+		if(user!=null){
+			map.addAttribute("userID",user.getUserId());
+			map.addAttribute("fname",user.getUserFname());
+			map.addAttribute("lname",user.getUserLname());
+			map.addAttribute("usertype",user.getUserType());
+			if(user.getUserType().equals("administrator"))
+				return "adminAll";
+			else
+				return "userAll";
+			}
+		else{
+			map.addAttribute("error",error);
+			return "signin";
+		}
+	}
 	
+	@RequestMapping("/userAll")
+	public String loadUserAll(){
+		return "userAll";
+	}
 	@RequestMapping(value="/userUpcoming", method=RequestMethod.GET)
 	public String userUpcoming(HttpServletRequest request, ModelMap map) {
 		return "TrainGator/userUpcoming";
+
 	}
 	
 //	@RequestMapping(value="/tnaform",method=RequestMethod.GET)

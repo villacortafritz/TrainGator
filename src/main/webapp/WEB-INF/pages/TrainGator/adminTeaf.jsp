@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title> Attendance | TrainGator </title>
-  <link rel="stylesheet" href="/vendor/flatpickr/flatpickr.min.css">
+  <title> Admin Training Effectiveness Assessment Form | TrainGator </title>
   <link rel="shortcut icon" href="/icon.png">
   <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="/vendor/font-awesome/css/fontawesome-all.min.css">
@@ -10,11 +9,11 @@
   <link rel="stylesheet" href="/vendor/open-iconic/css/open-iconic-bootstrap.min.css">
 </head>
 <body>
-  <div class="app has-fullwidth">
-    <header class="app-header">
+<div class="app has-fullwidth">
+  <header class="app-header">
         <div class="top-bar">
           <div class="top-bar-brand">
-            <a href="adminOngoing.html">
+            <a href="userJoined.html">
               <img src="/images/rect-logo.png" height="45" alt="">
             </a>
           </div>
@@ -78,93 +77,84 @@
           </div>
         </div>
       </header>
-    <main class="app-main">
-      <div class="wrapper">
-        <div class="page">
-          <div class="page-inner">
+  <main class="app-main">
+    <div class="wrapper">
+      <div class="page">
+        <div class="page-inner" style="padding-left:15%; padding-right:15%;">
           <header class="page-title-bar">
-            <button type="button" class="btn btn-success btn-floated">
-              <span class="fa fa-plus"></span>
-            </button>
-          <div class="d-sm-flex align-items-sm-center">
-            <h1 class="page-title mr-sm-auto mb-0" style="padding-left:45%"> Attendance </h1>
-            <div class="btn-toolbar">
-              <button type="button" class="btn btn-outline-secondary">
-                <i class="oi oi-data-transfer-download"></i>
-                <span class="ml-1">Export</span>
-              </button>
+            <h1 class="page-title" style="text-align:center;"> Training Effectiveness Assessment Form </h1>
+          </header>
+          <div class="page-section">
+            <div class="section-deck">
+                <section class="card card-fluid">
+                  <div class="card-body">
+                    <table>
+                      <tr style="padding: 10px; margin: 10px;">
+                        Input for Question 1
+                      </tr>
+                      <tr style="padding: 10px; margin: 10px;">
+                        <textarea class="form-control" placeholder="Enter question here"></textarea>
+                        </br>
+                      </tr>
+                      <tr style="padding: 10px; margin: 10px;">
+                        Input for Question 2
+                      </tr>
+                      <tr style="padding: 10px; margin: 10px;">
+                        <textarea class="form-control" placeholder="Enter question here"></textarea>
+                        </br>
+                      </tr>
+                      <tr style="padding: 10px; margin: 10px;">
+                        Input for Question 3
+                      </tr>
+                      <tr style="padding: 10px; margin: 10px;">
+                        <textarea class="form-control" placeholder="Enter question here"></textarea>
+                        </br>
+                      </tr>
+                      <tr style="padding: 10px; margin: 10px;">
+                        Input for Question 4
+                      </tr>
+                      <tr style="padding: 10px; margin: 10px;">
+                        <textarea class="form-control" placeholder="Enter question here"></textarea>
+                        </br>
+                      </tr>
+                      <tr style="padding: 10px; margin: 10px;">
+                        Input for Question 5
+                      </tr>
+                      <tr style="padding: 10px; margin: 10px;">
+                        <textarea class="form-control" placeholder="Enter question here"></textarea>
+                        </br>
+                      </tr>
+                      <tr style="padding: 10px; margin: 10px;">
+                        Input for Question 6
+                      </tr>
+                      <tr style="padding: 10px; margin: 10px;">
+                        <textarea class="form-control" placeholder="Enter question here"></textarea>
+                        </br>
+                      </tr>
+                      <tr style="padding: 10px; margin: 10px;">
+                        Input for Question 7
+                      </tr>
+                      <tr style="padding: 10px; margin: 10px;">
+                        <textarea class="form-control" placeholder="Enter question here"></textarea>
+                        </br>
+                      </tr>
+                    </table>
+                  </div>
+                </section>
+            </div>
+            <div class="form-actions" style="padding-left:45%">
+              <button class="btn btn-primary" type="submit" onclick="window.location.href='adminConcluded.html'">Submit form</button>
             </div>
           </div>
-        </header>
-        <div class="page-section">
-          <div class="section-deck">
-            <section class="card card-fluid">
-              <div class="card-body">
-                <form action="adminOngoing.html">
-                  <div class="form-group">
-                    <label class="control-label" for="flatpickr08">Input Start Time</label>
-                    <input id="flatpickr08" type="text" class="form-control">
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label" for="flatpickr08">Input End Time</label>
-                    <input id="flatpickr08" type="text" class="form-control">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleTextarea">Input Contact Number</label>
-                    <textarea class="form-control" id="exampleTextarea" rows="1"></textarea>
-                  </div>
-                  <div class="form-actions">
-                    <button class="btn btn-primary" type="submit"> Confirm </button>
-                  </div>
-                  </form>
-                </div>
-              </section>
-            </div>
-            <div class="page-section">
-            <section class="card card-fluid">
-            <div class="card-body">
-              <div class="table-responsive">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th style="width:62px"></th>
-                      <th style="min-width:280px"> Name of Participant </th>
-                      <th> Time-In </th>
-                      <th> Time-Out </th>
-                      <th> Contact Number </th>
-                      <th style="width: 50px;"> &nbsp; </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td class="align-middle"></td>
-                      <td>
-                        <a>Name of Participant</a>
-                      </td>
-                      <td class="align-middle"> Time-In </td>
-                      <td class="align-middle"> Time-Put </td>
-                      <td class="align-middle"> Contact Number </td>
-                      <td class="align-middle text-right">
-                        <div class="btn-group">
-                          <button type="button" class="btn btn-sm btn-secondary">
-                            <i class="far fa-trash-alt"></i>
-                          <span class="sr-only">Remove</span>
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
       </div>
-    </main>
+    </div>
+  </main>
+  </div>
   <script src="/vendor/jquery/jquery.min.js"></script>
   <script src="/vendor/bootstrap/js/popper.min.js"></script>
   <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/vendor/stacked-menu/stacked-menu.min.js"></script>
+  <script src="/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
   <script src="/js/main.min.js"></script>
-  <script src="/vendor/flatpickr/flatpickr.min.js"></script>
-  <script src="/js/pages/flatpickr-demo.js"></script>
 </body>
 </html>

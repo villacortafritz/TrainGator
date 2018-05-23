@@ -106,24 +106,8 @@
                           <div class="list-group list-group-flush list-group-bordered">
                             <div class="list-group-header"> Recommended Participants </div>
                             <label class="list-group-item custom-control custom-checkbox">
-                              <input name="listcheckbox" type="checkbox" class="custom-control-input" checked>
+                              <input name="listcheckbox" type="checkbox" class="custom-control-input" unchecked>
                               <span class="custom-control-label">Bunny Barros</span>
-                            </label>
-                            <label class="list-group-item custom-control custom-checkbox">
-                              <input name="listcheckbox" type="checkbox" class="custom-control-input" checked>
-                              <span class="custom-control-label">June Sliter</span>
-                            </label>
-                            <label class="list-group-item custom-control custom-checkbox">
-                              <input name="listcheckbox" type="checkbox" class="custom-control-input" checked>
-                              <span class="custom-control-label">Danna Bogardus</span>
-                            </label>
-                            <label class="list-group-item custom-control custom-checkbox">
-                              <input name="listcheckbox" type="checkbox" class="custom-control-input" checked>
-                              <span class="custom-control-label">Yelena Vallejo</span>
-                            </label>
-                            <label class="list-group-item custom-control custom-checkbox">
-                              <input name="listcheckbox" type="checkbox" class="custom-control-input" checked>
-                              <span class="custom-control-label">Miesha Couture</span>
                             </label>
                           </div>
                         </div>
@@ -133,24 +117,8 @@
                           <div class="list-group list-group-flush list-group-bordered">
                             <div class="list-group-header"> Participants Who Requested to Join </div>
                             <label class="list-group-item custom-control custom-checkbox">
-                              <input name="listcheckbox" type="checkbox" class="custom-control-input" checked>
+                              <input name="listcheckbox" type="checkbox" class="custom-control-input" unchecked>
                               <span class="custom-control-label">Bunny Barros</span>
-                            </label>
-                            <label class="list-group-item custom-control custom-checkbox">
-                              <input name="listcheckbox" type="checkbox" class="custom-control-input" checked>
-                              <span class="custom-control-label">June Sliter</span>
-                            </label>
-                            <label class="list-group-item custom-control custom-checkbox">
-                              <input name="listcheckbox" type="checkbox" class="custom-control-input" checked>
-                              <span class="custom-control-label">Danna Bogardus</span>
-                            </label>
-                            <label class="list-group-item custom-control custom-checkbox">
-                              <input name="listcheckbox" type="checkbox" class="custom-control-input" checked>
-                              <span class="custom-control-label">Yelena Vallejo</span>
-                            </label>
-                            <label class="list-group-item custom-control custom-checkbox">
-                              <input name="listcheckbox" type="checkbox" class="custom-control-input" checked>
-                              <span class="custom-control-label">Miesha Couture</span>
                             </label>
                           </div>
                         </div>
@@ -168,7 +136,7 @@
                                   <th style="width:62px">
                                   </th>
                                   <th style="min-width:280px">  Participant Name </th>
-                                  <th> Job Position </th>
+                                  <th> Company Position </th>
                                   <th> Email </th>
                                   <th style="width: 50px;"> &nbsp; </th>
                                 </tr>
@@ -180,19 +148,16 @@
                                     </div>
                                   </td>
                                   <td>
-                                    <div class="user-avatar">
-                                      <img src="/images/avatars/profile.jpg" alt="User Avatar"> </div>
-                                    <a href="#">Tomato - Green</a>
+                                    <a>Tomato - Green</a>
                                   </td>
                                   <td class="align-middle"> Senior Java Developer </td>
                                   <td class="align-middle"> thisistheuseremail@gmail.com </td>
-
-                                  <td class="align-middle text-right">
+									<td class="align-middle text-right">
                                     <div class="btn-group">
-                                      <button type="button" class="btn btn-sm btn-secondary">
-                                        <i class="far fa-trash-alt"></i>
-                                        <span class="sr-only">Remove</span>
-                                      </button>
+                                      <label class="list-group-item custom-control custom-checkbox">
+                                        <input name="listcheckbox" type="checkbox" class="custom-control-input" unchecked>
+                                        <span class="custom-control-label"></span>
+                                      </label>
                                     </div>
                                   </td>
                                 </tr>
