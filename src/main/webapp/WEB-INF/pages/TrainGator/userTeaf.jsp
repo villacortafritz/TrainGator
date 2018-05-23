@@ -91,7 +91,7 @@
                   <form>
                     <fieldset>
                       <div class="form-group">
-                        <label for="exampleInputEmail1">1. The training met my expectations and desired outcome.</label>
+                        <label for="exampleInputEmail1">1. Question 1</label>
                         <div class="col-lg-9" style="padding-top: 10px;">
                           <section class="text-center text-sm-left">
                             <div class="visual-picker visual-picker-sm has-peek px-3">
@@ -142,7 +142,7 @@
                   <form>
                   </fieldset>
                       <div class="form-group">
-                        <label for="exampleInputEmail1">2. Participant was able to apply the knowledge learned.</label>
+                        <label for="exampleInputEmail1">2. Question 2</label>
                         <div class="col-lg-9" style="padding-top: 10px;">
                           <section class="text-center text-sm-left">
                             <div class="visual-picker visual-picker-sm has-peek px-3">
@@ -193,7 +193,7 @@
                   <form>
                     <fieldset>
                       <div class="form-group">
-                        <label for="exampleInputEmail1">3. The materials distributed were pertinent and useful to the participant (if any).</label>
+                        <label for="exampleInputEmail1">3. Question 3</label>
                         <div class="col-lg-9" style="padding-top: 10px;">
                           <section class="text-center text-sm-left">
                             <div class="visual-picker visual-picker-sm has-peek px-3">
@@ -244,7 +244,7 @@
                   <form>
                     <fieldset>
                       <div class="form-group">
-                        <label for="exampleInputEmail1">4. The trainer was able to deliver the desired knowledge and output as evident by the participant’s development.</label>
+                        <label for="exampleInputEmail1">4. Question 4</label>
                         <div class="col-lg-9" style="padding-top: 10px;">
                           <section class="text-center text-sm-left">
                             <div class="visual-picker visual-picker-sm has-peek px-3">
@@ -295,7 +295,7 @@
                   <form>
                   <fieldset>
                       <div class="form-group">
-                        <label for="exampleInputEmail1">5. How do you rate the participant’s development relating to the training objectives?</label>
+                        <label for="exampleInputEmail1">5. Question 5</label>
                         <div class="col-lg-9" style="padding-top: 10px;">
                           <section class="text-center text-sm-left">
                             <div class="visual-picker visual-picker-sm has-peek px-3">
@@ -346,7 +346,7 @@
                   <form>
                     <fieldset>
                       <div class="form-group">
-                        <label for="exampleInputEmail1">6. How do you rate the training overall?</label>
+                        <label for="exampleInputEmail1">6. Question 6</label>
                         <div class="col-lg-9" style="padding-top: 10px;">
                           <section class="text-center text-sm-left">
                             <div class="visual-picker visual-picker-sm has-peek px-3">
@@ -393,7 +393,7 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="exampleTextarea">7. What aspects of the training could be improved?</label>
+                        <label for="exampleTextarea">7. Question 7</label>
                         <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
                       </div>
                       <div class="form-group">

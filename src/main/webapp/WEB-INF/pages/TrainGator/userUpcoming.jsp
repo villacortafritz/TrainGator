@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="/css/main.min.css">
   <link rel="stylesheet" href="/vendor/open-iconic/css/open-iconic-bootstrap.min.css">
 </head>
-
 <body>
   <div class="app has-fullwidth">
     <header class="app-header">
@@ -81,7 +80,6 @@
   <main class="app-main">
     <header class="page-cover">
       <div class="text-center">
-        <a href="userJoined.html" class="user-avatar user-avatar-xl"><img src="/images/avatars/profile.jpg" alt="User Avatar"></a>
         <h2 class="h4 mt-3 mb-0"> Name of User </h2>
         <p class="text-muted"> Participant/Supervisor </p>
       </div>
@@ -115,8 +113,7 @@
                     <tr>
                     <td class="align-middle"></td>
                     <td>
-                    <a href="#" class="tile tile-img mr-1"><img class="img-fluid" src="/images/dummy/img-1.jpg" alt="Card image cap"></a>
-                    <a href="#">Name of Training</a>
+                    <a>Name of Training</a>
                     </td>
                     <td class="align-middle"> Name of Facilitator </td>
                     <td class="align-middle"> Date of Training </td>

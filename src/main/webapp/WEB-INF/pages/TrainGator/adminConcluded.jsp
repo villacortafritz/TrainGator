@@ -111,15 +111,27 @@
                         <tbody>
                           <tr>
                           <td class="align-middle"></td>
-                          <td>
-                          <a href="#" class="tile tile-img mr-1"><img class="img-fluid" src="/images/dummy/img-1.jpg" alt="Card image cap"></a>
-                          <a href="#">Name of Training</a>
-                          </td>
-                          <td class="align-middle"> 10 </td>
-                          <td class="align-middle"> 90% </td>
+                          <td><a><br><br>Name of Training</a></td>
+                          <td class="align-middle"><br> 10 </td>
+                          <td class="align-middle"><br> 90% </td>
                           <td class="align-middle text-right">
                             <div class="btn-group">
-                              <button class="btn btn-primary" type="submit" onclick="window.location = 'adminEventComments.html'">View Results</button>
+                              <button class="btn btn-primary" style="height:100px" type="submit" onclick="window.location = 'adminCff.html'">Edit Course <br> Feedback <br> Form Questions</button>
+                            </div>
+                          </td>
+                          <td class="align-middle text-right">
+                            <div class="btn-group">
+                              <button class="btn btn-primary" style="height:100px" type="submit">Edit Facilitator's <br> Feedback <br> Form Questions</button>
+                            </div>
+                          </td>
+                          <td class="align-middle text-right">
+                            <div class="btn-group">
+                              <button class="btn btn-primary" style="height:100px" type="submit" onclick="window.location = 'adminTeaf.html'">Edit Training <br> Effectiveness <br> Assessment Form <br> Questions</button>
+                            </div>
+                          </td>
+                          <td class="align-middle text-right">
+                            <div class="btn-group">
+                              <button class="btn btn-primary" style="height:100px" type="submit" onclick="window.location = 'adminEventComments.html'">View Results</button>
                             </div>
                           </td>
                         </tr>

@@ -155,30 +155,25 @@
                            </div>
                          </nav>
                         <div class="list-group-item read">
-                          <div class="list-group-item-figure">
-                            <div class="avatar">
-                              <a href="app-conversations.html" class="tile tile-circle bg-green">GZ</a>
-                            </div>
-                          </div>
                           <div class="list-group-item-body pl-md-2">
                             <div class="row">
                               <div class="col-12 col-lg-3 d-none d-lg-block">
                                 <h4 class="list-group-item-title text-truncate">
-                                  <a href="app-conversations.html">Gogo Zoom</a>
+                                  <a><br><br><br>Name of Participant</a>
                                 </h4>
                               </div>
                               <div class="col-12 col-lg-7">
-                                <p class="list-group-item-text text-truncate"> Hi all, eveniet magnam fugiat odio nemo vero! </p>
-                              </div>
-                              <div class="col-12 col-lg-2 text-lg-right">
-                                <p class="list-group-item-text"> 1 day ago </p>
+                                <p class="list-group-item-text text-truncate"> Answer 1: Answer </p><br>
+                                <p class="list-group-item-text text-truncate"> Answer 2: Answer </p><br>
+                                <p class="list-group-item-text text-truncate"> Answer 3: Answer </p><br>
+                                <p class="list-group-item-text text-truncate"> Answer 4: Answer </p>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </section>
-                  <div class="form-actions" style="padding-left:45%">
+                  <div class="form-actions" style="padding-left:40%">
                     <button class="btn btn-primary" type="submit" onclick="window.location.href='adminConcluded.html'">Back to Concluded Trainings List</button>
                   </div>
                 </div>

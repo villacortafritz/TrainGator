@@ -85,27 +85,27 @@
               <header class="page-title-bar">
                 <h1 class="page-title" style="text-align:Center;"> Training Needs Analysis Form</h1>
               </header>
-              <div class="page-section">
-                <div class="section-deck">
-                  <section class="card card-fluid">
-                    <div class="card-body">
-                      <table>
-                          <tr>
-                            <td colspan="3"  style="padding: 10px; width:40%">Name:
-                              <input type="text" name="" class="form-control form-control-sm">
-                            </td>
-                            <td colspan="2" style="padding: 10px; width:20%">Position:
-                              <input type="text" name="" class="form-control form-control-sm">
-                            </td>
-                            <td colspan="2" style="padding: 10px; width:35%">TNA done by:
-                              <input type="text" name="" class="form-control form-control-sm">
-                            </td>
-                          </tr>
-                        </table>
-                    </div>
-                  </section>
-                </div>
-              </div>
+<!--               <div class="page-section"> -->
+<!--                 <div class="section-deck"> -->
+<!--                   <section class="card card-fluid"> -->
+<!--                     <div class="card-body"> -->
+<!--                       <table> -->
+<!--                           <tr> -->
+<!--                             <td colspan="3"  style="padding: 10px; width:40%">Name: -->
+<!--                               <input type="text" name="" class="form-control form-control-sm"> -->
+<!--                             </td> -->
+<!--                             <td colspan="2" style="padding: 10px; width:20%">Position: -->
+<!--                               <input type="text" name="" class="form-control form-control-sm"> -->
+<!--                             </td> -->
+<!--                             <td colspan="2" style="padding: 10px; width:35%">TNA done by: -->
+<!--                               <input type="text" name="" class="form-control form-control-sm"> -->
+<!--                             </td> -->
+<!--                           </tr> -->
+<!--                         </table> -->
+<!--                     </div> -->
+<!--                   </section> -->
+<!--                 </div> -->
+<!--               </div> -->
               <div class="page-section">
                 <div class="section-deck">
                   <section class="card card-fluid">
