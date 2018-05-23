@@ -78,10 +78,9 @@ public class MainRepository {
 
 
 	public List<TblUser> removeParticipantById(EntityManager em, int id) {
-
-
 		StringBuilder studentQuery = new StringBuilder("DELETE FROM TblUser WHERE user_id =:id");
 		Query query = em.createQuery(studentQuery.toString());
+		
 		query.setParameter("id",id);
 		query.executeUpdate();
 		return null;
