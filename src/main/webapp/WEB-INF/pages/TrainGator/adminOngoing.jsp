@@ -128,8 +128,8 @@
               </div>
             </div>
               <div>
-                <button class="btn btn-primary" type="submit" style="width:49%" onclick="window.location.href='adminCreateEvent.html'">Create Training</button>
-                <button class="btn btn-primary" type="submit" style="width:50%">View Calendar</button>
+                <button class="btn btn-primary" type="submit" style="width:100%" onclick="window.location.href='adminCreateEvent.html'">Create Training</button>
+<!--                 <button class="btn btn-primary" type="submit" style="width:50%">View Calendar</button> -->
               </div>
             <button type="button" class="btn btn-success btn-floated d-block d-sm-none">
               <span class="fa fa-plus"></span>
@@ -171,12 +171,6 @@
                                   <div class="list-group">
                                     <div class="list-group-item">
                                       <div class="list-group-item-body py-1 text-truncate">
-                                          <i class="fa fa-long-arrow-alt-right"></i>
-                                        <div class="avatar-group">
-                                          <a href="#" class="user-avatar user-avatar-sm" data-toggle="tooltip" title="Name of User">
-                                            <img src="/images/avatars/uifaces2.jpg" alt="Name of User">
-                                          </a>
-                                        </div>
                                       </div>
                                     </div>
                                     <a href="#" class="list-group-item pt-0">
@@ -191,6 +185,10 @@
                                     </a>
                                   </div>
                                 </div>
+                                <button type="button" class="btn btn-sm btn-secondary">
+                                  <i class="far fa-trash-alt"></i>
+                                <span class="sr-only">Remove</span>
+                              </button>
                               </div>
                             </div>
                           </section>

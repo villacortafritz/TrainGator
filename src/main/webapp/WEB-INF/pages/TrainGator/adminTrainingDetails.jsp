@@ -104,6 +104,7 @@
                           <br>
                         </section>
                       </div>
+<<<<<<< HEAD
                       	<div class="col-lg-6">
                            <!-- .card -->
                            <div class="card card-fluid">
@@ -125,29 +126,26 @@
                            </div>
                            <!-- /.card -->
                       	</div>                    
+=======
+                      <div class="col-lg-6">
+                        <div class="card card-fluid">
+                          <div class="list-group list-group-flush list-group-bordered">
+                            <div class="list-group-header"> Recommended Participants </div>
+                            <label class="list-group-item custom-control custom-checkbox">
+                              <input name="listcheckbox" type="checkbox" class="custom-control-input" unchecked>
+                              <span class="custom-control-label">Bunny Barros</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+>>>>>>> e6c4166c2d8a3add0ea7035b96122a18addbf9f2
                       <div class="col-lg-6">
                         <div class="card card-fluid">
                           <div class="list-group list-group-flush list-group-bordered">
                             <div class="list-group-header"> Participants Who Requested to Join </div>
                             <label class="list-group-item custom-control custom-checkbox">
-                              <input name="listcheckbox" type="checkbox" class="custom-control-input" checked>
+                              <input name="listcheckbox" type="checkbox" class="custom-control-input" unchecked>
                               <span class="custom-control-label">Bunny Barros</span>
-                            </label>
-                            <label class="list-group-item custom-control custom-checkbox">
-                              <input name="listcheckbox" type="checkbox" class="custom-control-input" checked>
-                              <span class="custom-control-label">June Sliter</span>
-                            </label>
-                            <label class="list-group-item custom-control custom-checkbox">
-                              <input name="listcheckbox" type="checkbox" class="custom-control-input" checked>
-                              <span class="custom-control-label">Danna Bogardus</span>
-                            </label>
-                            <label class="list-group-item custom-control custom-checkbox">
-                              <input name="listcheckbox" type="checkbox" class="custom-control-input" checked>
-                              <span class="custom-control-label">Yelena Vallejo</span>
-                            </label>
-                            <label class="list-group-item custom-control custom-checkbox">
-                              <input name="listcheckbox" type="checkbox" class="custom-control-input" checked>
-                              <span class="custom-control-label">Miesha Couture</span>
                             </label>
                           </div>
                         </div>
@@ -157,6 +155,7 @@
                       <div class="col-lg-12">
                           <div class="card card-fluid">
                         <div class="card-body">
+
                            <h2 class="section-title"> Confirmed Participants </h2>
                            <table class="table">
                            	<thead>
@@ -198,6 +197,7 @@
                            	</tbody> 
                            </table>
                            
+
                           </div>
                         </div>
                       </div>

@@ -87,53 +87,32 @@
           </header>
           <div class="page-section">
             <div class="section-deck">
-              <section class="card card-fluid">
-                <div class="card-body">
-                  <table>
-                      <tr>
-                        <td colspan="3"  style="padding: 10px; width:40%">Name:
-                          <input type="text" name="" class="form-control form-control-sm">
-                        </td>
-                        <td colspan="2" style="padding: 10px; width:20%">Position:
-                          <input type="text" name="" class="form-control form-control-sm">
-                        </td>
-                        <td colspan="2" style="padding: 10px; width:35%">TNA done by:
-                          <input type="text" name="" class="form-control form-control-sm">
-                        </td>
-                      </tr>
-                    </table>
-                </div>
-              </section>
-            </div>
-          </div>
-          <div class="page-section">
-            <div class="section-deck">
                 <section class="card card-fluid">
                   <div class="card-body">
                     <table>
                       <tr style="padding: 10px; margin: 10px;">
-                        What did you achieve during the training period?
+                        Question 1
                       </tr>
                       <tr style="padding: 10px; margin: 10px;">
                         <textarea class="form-control" placeholder="Enter comment here"></textarea>
                         </br>
                       </tr>
                       <tr style="padding: 10px; margin: 10px;">
-                        Where do you/we see your career progressing in the next two years based on your learnings from the training?
+                        Question 2
                       </tr>
                       <tr style="padding: 10px; margin: 10px;">
                         <textarea class="form-control" placeholder="Enter comment here"></textarea>
                         </br>
                       </tr>
                       <tr style="padding: 10px; margin: 10px;">
-                        How are we going to make this happen?
+                        Question 3
                       </tr>
                       <tr style="padding: 10px; margin: 10px;">
                         <textarea class="form-control" placeholder="Enter comment here"></textarea>
                         </br>
                       </tr>
                       <tr style="padding: 10px; margin: 10px;">
-                        What mroe do you need from the company to help you to reach your career goals?
+                        Question 4
                       </tr>
                       <tr style="padding: 10px; margin: 10px;">
                         <textarea class="form-control" placeholder="Enter comment here"></textarea>

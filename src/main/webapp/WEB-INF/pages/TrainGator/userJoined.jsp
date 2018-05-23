@@ -83,9 +83,6 @@
             <div class="page">
               <header class="page-cover">
                 <div class="text-center">
-                  <a href="userJoined.html" class="user-avatar user-avatar-xl">
-                    <img src="/images/avatars/profile.jpg" alt="User Avatar">
-                  </a>
                   <h2 class="h4 mt-3 mb-0"> Name of User </h2>
                   <p class="text-muted"> Participant/Supervisor </p>
                 </div>
@@ -145,12 +142,6 @@
                                         <div class="list-group">
                                           <div class="list-group-item">
                                             <div class="list-group-item-body py-1 text-truncate">
-                                                <i class="fa fa-long-arrow-alt-right"></i>
-                                              <div class="avatar-group">
-                                                <a href="#" class="user-avatar user-avatar-sm" data-toggle="tooltip" title="Name of User">
-                                                  <img src="/images/avatars/uifaces2.jpg" alt="Name of User">
-                                                </a>
-                                              </div>
                                             </div>
                                           </div>
                                           <a href="#" class="list-group-item pt-0">

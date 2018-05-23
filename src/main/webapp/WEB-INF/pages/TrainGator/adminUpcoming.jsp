@@ -112,8 +112,7 @@
                           <tr>
                           <td class="align-middle"></td>
                           <td>
-                          <a href="#" class="tile tile-img mr-1"><img class="img-fluid" src="/images/dummy/img-1.jpg" alt="Card image cap"></a>
-                          <a href="#">Name of Training</a>
+                          <a>Name of Training</a>
                           </td>
                           <td class="align-middle"> 10 </td>
                           <td class="align-middle"> 20 </td>
