@@ -166,10 +166,38 @@ public class MainController {
 	public String userTna(HttpServletRequest request, ModelMap map) {
 		return "TrainGator/userTna";
 	}
+<<<<<<< HEAD
+	@RequestMapping(value="/signin",method=RequestMethod.POST)
+	public String signin(HttpServletRequest request, ModelMap map) {
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
+		String error = "Invalid Email or Password";
+		TblUser user = (TblUser)MainService.checkUser(email,password);
+		
+		if(user!=null){
+			map.addAttribute("userID",user.getUserId());
+			map.addAttribute("fname",user.getUserFname());
+			map.addAttribute("lname",user.getUserLname());
+			map.addAttribute("usertype",user.getUserType());
+			if(user.getUserType().equals("administrator"))
+				return "adminAll";
+			else
+				return "userAll";
+			}
+		else{
+			map.addAttribute("error",error);
+			return "signin";
+		}
+	}
 	
+	@RequestMapping("/userAll")
+	public String loadUserAll(){
+		return "userAll";
+
 	@RequestMapping(value="/userUpcoming", method=RequestMethod.GET)
 	public String userUpcoming(HttpServletRequest request, ModelMap map) {
 		return "TrainGator/userUpcoming";
+
 	}
 	
 //	@RequestMapping(value="/tnaform",method=RequestMethod.GET)
