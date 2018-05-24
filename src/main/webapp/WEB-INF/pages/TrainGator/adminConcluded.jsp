@@ -121,7 +121,7 @@
                           </td>
                           <td class="align-middle text-right">
                             <div class="btn-group">
-                              <button class="btn btn-primary" style="height:100px" type="submit">Edit Facilitator's <br> Feedback <br> Form Questions</button>
+                              <button class="btn btn-primary" style="height:100px" type="submit" onclick="window.location = 'adminFff.html'">Edit Facilitator's <br> Feedback <br> Form Questions</button>
                             </div>
                           </td>
                           <td class="align-middle text-right">

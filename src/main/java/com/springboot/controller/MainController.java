@@ -1,17 +1,19 @@
 package com.springboot.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
-
 import java.util.List;
-
+import com.springboot.entities.TblCat;
 import com.springboot.entities.TblSubcat;
 import com.springboot.entities.TblUser;
 import com.springboot.service.MainService;
@@ -52,6 +54,11 @@ public class MainController {
 	@RequestMapping(value="/adminFacilitatorComments", method=RequestMethod.GET)
 	public String adminFacilitatorComments(HttpServletRequest request, ModelMap map) {
 		return "TrainGator/adminFacilitatorComments";
+	}
+	
+	@RequestMapping(value="/adminFff", method=RequestMethod.GET)
+	public String adminFff(HttpServletRequest request, ModelMap map) {
+		return "TrainGator/adminFff";
 	}
 	
 	@RequestMapping(value="/adminOngoing", method=RequestMethod.GET)
@@ -137,6 +144,11 @@ public class MainController {
 		return "TrainGator/userCff";
 	}
 	
+	@RequestMapping(value="/userFff", method=RequestMethod.GET)
+	public String userFff(HttpServletRequest request, ModelMap map) {
+		return "TrainGator/userFff";
+	}
+	
 	@RequestMapping(value="/userJoined", method=RequestMethod.GET)
 	public String userJoined(HttpServletRequest request, ModelMap map) {
 		return "TrainGator/userJoined";
@@ -178,14 +190,12 @@ public class MainController {
 		return "TrainGator/userTna";
 	}
 
-
 	@RequestMapping(value="/signin",method=RequestMethod.POST)
 	public String signin(HttpServletRequest request, ModelMap map) {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		String error = "Invalid Email or Password";
 		TblUser user = (TblUser)MainService.checkUser(email,password);
-		
 		if(user!=null){
 			map.addAttribute("userID",user.getUserId());
 			map.addAttribute("fname",user.getUserFname());
@@ -206,10 +216,10 @@ public class MainController {
 	public String loadUserAll(){
 		return "userAll";
 	}
+
 	@RequestMapping(value="/userUpcoming", method=RequestMethod.GET)
 	public String userUpcoming(HttpServletRequest request, ModelMap map) {
 		return "TrainGator/userUpcoming";
-
 	}
 	
 //	@RequestMapping(value="/tnaform",method=RequestMethod.GET)
