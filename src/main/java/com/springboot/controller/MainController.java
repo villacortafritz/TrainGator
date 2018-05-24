@@ -177,8 +177,7 @@ public class MainController {
 	public String userTna(HttpServletRequest request, ModelMap map) {
 		return "TrainGator/userTna";
 	}
-<<<<<<< HEAD
-=======
+
 
 	@RequestMapping(value="/signin",method=RequestMethod.POST)
 	public String signin(HttpServletRequest request, ModelMap map) {
@@ -202,18 +201,11 @@ public class MainController {
 			return "signin";
 		}
 	}
->>>>>>> 06c7a7eaae9d2b0ab01dcda8938f84bd532b1c39
 	
 	@RequestMapping("/userAll")
 	public String loadUserAll(){
 		return "userAll";
-<<<<<<< HEAD
 	}
-=======
-		
-	}
-
->>>>>>> 06c7a7eaae9d2b0ab01dcda8938f84bd532b1c39
 	@RequestMapping(value="/userUpcoming", method=RequestMethod.GET)
 	public String userUpcoming(HttpServletRequest request, ModelMap map) {
 		return "TrainGator/userUpcoming";
