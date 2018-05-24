@@ -1,6 +1,9 @@
 package com.springboot.controller;
 
-
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +19,7 @@ import java.util.List;
 import java.text.ParseException;
 import java.util.Locale;
 
+import com.springboot.entities.TblCat;
 import com.springboot.entities.TblSubcat;
 import com.springboot.entities.TblUser;
 import com.springboot.service.MainService;
@@ -27,6 +31,16 @@ public class MainController {
 	
 	@Autowired
 	private MainService MainService;
+	
+	@RequestMapping(value="/adminAddFacilitator", method=RequestMethod.GET)
+	public String adminAddFacilitator(HttpServletRequest request, ModelMap map) {
+		return "TrainGator/adminAddFacilitator";
+	}
+	
+	@RequestMapping(value="/adminAddParticipant", method=RequestMethod.GET)
+	public String adminAddParticipant(HttpServletRequest request, ModelMap map) {
+		return "TrainGator/adminAddParticipant";
+	}
 	
 	@RequestMapping(value="/adminAttendance", method=RequestMethod.GET)
 	public String adminAttendance(HttpServletRequest request, ModelMap map) {

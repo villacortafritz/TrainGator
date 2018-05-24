@@ -28,7 +28,7 @@
                         <span class="oi oi-magnifying-glass"></span>
                       </span>
                     </div>
-                    <input type="text" class="form-control" aria-label="Search" placeholder="Search"> </div>
+                    <input type="text" class="form-control" aria-label="Search" placeholder="Search for a specific person"> </div>
                 </div>
               </div>
               <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
@@ -61,13 +61,13 @@
                       <img src="/images/avatars/profile.jpg" alt="">
                     </span>
                     <span class="account-summary pr-lg-4 d-none d-lg-block">
-                      <span class="account-name">${fname} ${lname}</span>
-                      <span class="account-description">${usertype}</span>
+                      <span class="account-name">Name of Admin</span>
+                      <span class="account-description">Administrator</span>
                     </span>
                   </button>
                   <div class="dropdown-arrow dropdown-arrow-left"></div>
                   <div class="dropdown-menu">
-                    <h6 class="dropdown-header d-none d-md-block d-lg-none">${fname} ${lname}</h6>
+                    <h6 class="dropdown-header d-none d-md-block d-lg-none"> Name of User </h6>
                     <a class="dropdown-item" href="generalSignin.html">
                       <span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
                       <div class="dropdown-divider"></div>
@@ -119,6 +119,9 @@
                       </form>
                     </div>
                   </section>
+                </div>
+                <div class="form-actions" style="padding-left:40%">
+                  <button class="btn btn-primary" type="submit" style="width:200px" onclick="window.location.href='adminOngoing.html'">Confirm</button>
                 </div>
           </div>
         </div>
