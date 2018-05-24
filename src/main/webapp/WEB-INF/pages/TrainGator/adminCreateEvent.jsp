@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -87,42 +90,52 @@
                 <h1 class="page-title" style="padding-left:35%"> Create Training Event </h1>
               </header>
               <div class="page-section">
+                <form method="post" action="http://localhost:8080/adminCreateEvent">
                 <div class="section-deck">
                   <section class="card card-fluid">
                     <div class="card-body">
-                      <form method="post" action="http://localhost:8080/adminCreateEvent">
                         <div class="form-group">
-                          <label class="control-label" for="flatpickr01">Input Starting Date</label>
+                          <label class="control-label">Training Name</label>
+                          <input type="text" class="form-control" name="train_name" required=""> 
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label">Training Category</label>
+                          <select name="train_cat" class="form-control" required>
+                            <option>------------</option>
+                            <c:forEach items="${list}" var="listVar">
+                              <option value="${listVar.subDesc}">${listVar.subDesc}</option>
+                            </c:forEach>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label" for="flatpickr01">Starting Date</label>
                           <input id="flatpickr01" type="text" class="form-control" name="train_datestart" required=""> 
                         </div>
                         <div class="form-group">
-                          <label class="control-label" for="flatpickr01">Input Ending Date</label>
+                          <label class="control-label" for="flatpickr01">Ending Date</label>
                           <input id="flatpickr01" type="text" class="form-control" name="train_dateend" required=""> 
                         </div>
                         <div class="form-group">
-                          <label class="control-label" for="flatpickr08">Input Start Time</label>
+                          <label class="control-label" for="flatpickr08">Start Time</label>
                           <input id="flatpickr08" type="text" class="form-control" name="train_timestart"> </div>
                         <div class="form-group">
-                          <label class="control-label" for="flatpickr08">Input End Time</label>
+                          <label class="control-label" for="flatpickr08">End Time</label>
                           <input id="flatpickr08" type="text" class="form-control" name="train_timeend"> </div>
                         <div class="form-group">
-                          <label for="exampleTextarea">Input Course Objective and Course Outline for Training Event</label>
+                          <label for="exampleTextarea">Course Objective and Course Outline for Training Event</label>
                           <textarea class="form-control" id="exampleTextarea" rows="3" name="train_courseobjective"></textarea>
                         </div>
-                        <div class="form-actions">
-                          <button class="btn btn-primary" type="submit">Confirm</button>
-                          <button type="button" class="btn btn-sm btn-secondary" onclick="window.location.href='adminOngoing.html'">
-                            <i class="far fa-trash-alt"></i>
-                            <span>Remove</span>
-                          </button>
+                        <div>
+                          <button class="btn btn-primary" type="button" style="width:49%" onclick="window.location.href='adminAddFacilitator.html'">Assign Facilitator/s for Training</button>
+                          <button class="btn btn-primary" type="button" style="width:50%" onclick="window.location.href='adminAddParticipant.html'">Assign Participant/s for Training</button>
                         </div>
-                      </form>
                     </div>
                   </section>
                 </div>
                 <div class="form-actions" style="padding-left:40%">
                   <button class="btn btn-primary" type="submit" style="width:200px" onclick="window.location.href='adminOngoing.html'">Confirm</button>
                 </div>
+            </form>
           </div>
         </div>
       </main>

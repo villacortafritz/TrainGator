@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -83,20 +86,19 @@
                 <div class="page-inner">
                   <div class="page-section">
                     <div class="form-group">
-                      <div class="input-group input-group-alt">
+                    </div>
+                    <form method="post" action="http://localhost:8080/adminAddFacilitator">
+                    <input type="hidden" name="train_id" value="${trainID}">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div class="input-group input-group-alt">
                         <div class="input-group-prepend">
                           <span class="input-group-text">
                             <span class="oi oi-magnifying-glass"></span>
                           </span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Type name of person to be assigned as Facilitator...">
-                        <div class="input-group-append">
-                          <button class="btn btn-secondary">Add</button>
+                        <input type="text" class="form-control" placeholder="Type name of person to be assigned as Facilitator..." id="faci" onkeyup="faci()">
                         </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-lg-12">
                           <div class="card card-fluid">
                         <div class="card-body">
                             <h2 class="section-title"> Assign a Facilitator </h2>
@@ -104,34 +106,90 @@
                             <table class="table">
                               <thead>
                                 <tr>
-                                  <th style="width:62px">
+                                  <th>
+                                  <!-- <th style="width:62px"> -->
                                   </th>
-                                  <th style="min-width:280px"> Name </th>
+                                  <th> Name </th>
+                                  <!-- <th style="min-width:280px"> Name </th> -->
                                   <th> Company Position </th>
                                   <th> Email </th>
-                                  <th style="width: 50px;"> &nbsp; </th>
+                                  <th> Check </th>
+                                  <!-- <th style="width: 50px;"> &nbsp; </th> -->
                                 </tr>
                               </thead>
-                              <tbody>
-                                <tr>
+                              <tbody id="list">
+                                <c:forEach items="${users}" var="user">
+                                <tr class="item">
                                   <td class="align-middle">
                                     <div class="table-custom-control custom-control custom-checkbox">
                                     </div>
                                   </td>
-                                  <td>
-                                    <a>Tomato - Green</a>
-                                  </td>
-                                  <td class="align-middle"> Senior Java Developer </td>
-                                  <td class="align-middle"> thisistheuseremail@gmail.com </td>
+                                  <td>${user.userLname}, ${user.userFname}</td>
+                                  <td class="align-middle">${user.userType}</td>
+                                  <td class="align-middle">${user.userEmail}</td>
                                   <td class="align-middle text-right">
                                     <div class="btn-group">
                                       <label class="list-group-item custom-control custom-checkbox">
-                                        <input name="listcheckbox" type="checkbox" class="custom-control-input" unchecked>
+                                        <input name="facilist" type="checkbox" class="custom-control-input" value="${user.userId}">
                                         <span class="custom-control-label"></span>
                                       </label>
                                     </div>
                                   </td>
                                 </tr>
+                                </c:forEach>
+                              </tbody>
+                            </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="input-group input-group-alt">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <span class="oi oi-magnifying-glass"></span>
+                          </span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Type name of person to be assigned as Facilitator..." id="part" onkeyup="part()">
+                        </div>
+                          <div class="card card-fluid">
+                        <div class="card-body">
+                            <h2 class="section-title"> Assign a Participant </h2>
+                          <div class="table-responsive">
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  <!-- <th style="width:62px"> -->
+                                  <th>
+                                  </th>
+                                  <!-- <th style="min-width:280px"> Name </th> -->
+                                  <th> Name </th>
+                                  <th> Company Position </th>
+                                  <th> Email </th>
+                                  <!-- <th style="width: 50px;"> &nbsp; </th> -->
+                                  <th> Check </th>
+                                </tr>
+                              </thead>
+                              <tbody id="list1">
+                                <c:forEach items="${users}" var="user">
+                                <tr class="item1">
+                                  <td class="align-middle">
+                                    <div class="table-custom-control custom-control custom-checkbox">
+                                    </div>
+                                  </td>
+                                  <td>${user.userLname}, ${user.userFname}</td>
+                                  <td class="align-middle">${user.userType}</td>
+                                  <td class="align-middle">${user.userEmail}</td>
+                                  <td class="align-middle text-right">
+                                    <div class="btn-group">
+                                      <label class="list-group-item custom-control custom-checkbox">
+                                        <input name="partlist" type="checkbox" class="custom-control-input" value="${user.userId}">
+                                        <span class="custom-control-label"></span>
+                                      </label>
+                                    </div>
+                                  </td>
+                                </tr>
+                                </c:forEach>
                               </tbody>
                             </table>
                           </div>
@@ -139,10 +197,10 @@
                       </div>
                     </div>
                     </div>
-                  </div>
                   <div class="form-actions" style="padding-left:45%">
-                    <button class="btn btn-primary" type="submit" onclick="window.location.href='adminCreateEvent.html'">Confirm</button>
+                    <button class="btn btn-primary" type="submit">Confirm</button>
                   </div>
+                  </form>
                 </div>
             </div>
           </div>
@@ -156,4 +214,34 @@
       <script src="/js/main.min.js"></script>
       </script>
     </body>
+    <script>
+function faci() {
+    var input, filter, list, item, a, i;
+    input = document.getElementById("faci");
+    filter = input.value.toUpperCase();
+    list = document.getElementById("list");
+    item = list.getElementsByClassName("item");
+    for (i = 0; i < item.length; i++) {
+        if (item[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+            item[i].style.display = "";
+        } else {
+            item[i].style.display = "none";
+        }
+    }
+}
+function part() {
+    var input, filter, list, item, a, i;
+    input = document.getElementById("part");
+    filter = input.value.toUpperCase();
+    list = document.getElementById("list1");
+    item = list.getElementsByClassName("item1");
+    for (i = 0; i < item.length; i++) {
+        if (item[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+            item[i].style.display = "";
+        } else {
+            item[i].style.display = "none";
+        }
+    }
+}
+</script>
     </html>

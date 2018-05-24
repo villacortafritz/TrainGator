@@ -2,8 +2,10 @@ package com.springboot.controller;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
-import java.util.Locale;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,27 +15,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.text.ParseException;
-import java.util.Locale;
-
-import com.springboot.entities.TblCat;
 import com.springboot.entities.TblSubcat;
 import com.springboot.entities.TblUser;
 import com.springboot.service.MainService;
 
 @Controller
 @RequestMapping("")
-@SessionAttributes({"userID","fname","lname","usertype"})//mapped variables that is declared here will auto acquire the data, can be accessed every page
+@SessionAttributes({"userID","fname","lname","usertype","trainID"})//mapped variables that is declared here will auto acquire the data, can be accessed every page
 public class MainController {
 	
 	@Autowired
 	private MainService MainService;
 	
-	@RequestMapping(value="/adminAddFacilitator", method=RequestMethod.GET)
-	public String adminAddFacilitator(HttpServletRequest request, ModelMap map) {
+	@RequestMapping("/adminAddFacilitator")
+	public String loadadminAddFacilitator(ModelMap map) {
+		return "TrainGator/adminAddFacilitator";
+	}
+	@RequestMapping(value="/adminAddFacilitator", method=RequestMethod.POST)
+	public String adminAddFacilitator(HttpServletRequest request,ModelMap map) {
+		int trainId = Integer.parseInt(request.getParameter("train_id"));
+		String[] facilist = request.getParameterValues("facilist");
+		String[] partlist = request.getParameterValues("partlist");
+		System.out.println(Arrays.toString(facilist));
+		System.out.println(Arrays.toString(partlist));
+		MainService.addParticipant2(partlist,trainId);//for clarification
+		MainService.addFacilitator(facilist,trainId);
 		return "TrainGator/adminAddFacilitator";
 	}
 	
@@ -57,22 +63,29 @@ public class MainController {
 		return "TrainGator/adminConcluded";
 	}
 	
-	@RequestMapping("/adminCreateEvent")
-	public String loadadminCreateEvent() {
+	@RequestMapping(value="/adminCreateEvent", method=RequestMethod.GET)
+	public String loadadminCreateEvent(ModelMap map) {
+		List<TblSubcat> list = MainService.getSubCategoriesByFormId(1);
+		map.addAttribute("list",list);
 		return "TrainGator/adminCreateEvent";
 	}
 	@RequestMapping(value="/adminCreateEvent", method=RequestMethod.POST)
 	public String adminCreateEvent(HttpServletRequest request, ModelMap map) throws ParseException {
+		
 		Date train_datestart = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("train_datestart"));
 		Date train_dateend = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("train_dateend"));
 		String train_timestart = request.getParameter("train_timestart");
 		String train_timeend = request.getParameter("train_timeend");
 		String train_courseobjective = request.getParameter("train_courseobjective");
-		
-		MainService.addTraining(train_datestart, train_dateend, train_timestart, train_timeend, train_courseobjective);
-
-		return "TrainGator/adminCreateEvent";
+		String train_cat = request.getParameter("train_cat");
+		String train_name = request.getParameter("train_name");
+		int train =  MainService.addTraining(train_name,train_cat,train_datestart, train_dateend, train_timestart, train_timeend, train_courseobjective);
+		List<TblUser> users = MainService.getUsers();
+		map.addAttribute("users",users);
+		map.addAttribute("trainID",train);
+		return "TrainGator/adminAddFacilitator";
 	}
+	
 	
 	@RequestMapping(value="/adminEventComments", method=RequestMethod.GET)
 	public String adminEventComments(HttpServletRequest request, ModelMap map) {
@@ -141,20 +154,20 @@ public class MainController {
 		}
 	}
 	
-	@RequestMapping(value="/generalSignup", method=RequestMethod.GET)
-	public String generalSignupGet(HttpServletRequest request, ModelMap map) {
+	@RequestMapping("/generalSignup")
+	public String loadgeneralSignup() {
 		return "TrainGator/generalSignup";
 	}
 	
 	@RequestMapping(value="/generalSignup", method=RequestMethod.POST)
-	public String generalSignupPost(HttpServletRequest request, ModelMap map) {
+	public String generalSignup(HttpServletRequest request, ModelMap map) {
 		String fname = request.getParameter("fname");
 		String lname = request.getParameter("lname");
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		String type = request.getParameter("role");
 		MainService.addUser(fname,lname,email,password,type);
-		return "signup";
+		return "TrainGator/generalSignup";
 	}
 	
 	@RequestMapping(value="/userAccomplished", method=RequestMethod.GET)

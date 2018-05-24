@@ -6,11 +6,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
-
-import org.apache.commons.logging.Log;
 import org.springframework.stereotype.Repository;
 
 import com.springboot.entities.TblCat;
+import com.springboot.entities.TblFacilitator;
 import com.springboot.entities.TblFormresult;
 import com.springboot.entities.TblSubcat;
 import com.springboot.entities.TblTraining;
@@ -27,10 +26,10 @@ public class MainRepository {
 		return result;
 	}
 	
-	public Object addTraining(EntityManager em, TblTraining training) {
-		boolean result = false;
+	public int addTraining(EntityManager em, TblTraining training) {
+		
 		em.persist(training);
-		return result;
+		return training.getTrainId();
 	}
 
 	public boolean addParticipant(EntityManager em, TblParticipant participant) {
@@ -108,6 +107,24 @@ public class MainRepository {
 	public void addSAF(EntityManager em, TblFormresult form) {
 		// TODO Auto-generated method stub
 		em.persist(form);
+	}
+
+	public List<TblUser> getUsers(EntityManager em) {	
+		StringBuilder uquery = new StringBuilder("FROM TblUser WHERE userType != :type");
+		Query query = em.createQuery(uquery.toString());
+		query.setParameter("type", "administrator");
+		List<TblUser> users = query.getResultList();
+		return users;
+	}
+
+	public void addParticipant2(EntityManager em, TblParticipant participant) {
+		em.persist(participant);
+		
+	}
+
+	public void addFacilitator(EntityManager em, TblFacilitator facilitator) {
+		em.persist(facilitator);
+		
 	}
 	
 }

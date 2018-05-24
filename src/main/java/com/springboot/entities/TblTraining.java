@@ -16,6 +16,7 @@ public class TblTraining implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue
 	@Column(name="train_id")
 	private int trainId;
 
@@ -35,6 +36,28 @@ public class TblTraining implements Serializable {
 	
 	@Column(name="train_courseoutline")
 	private String trainCourseoutline;
+	
+	@Column(name="train_cat")
+	private String trainCat;
+	
+	@Column(name="train_name")
+	private String trainName;
+
+	public String getTrainCat() {
+		return trainCat;
+	}
+
+	public void setTrainCat(String trainCat) {
+		this.trainCat = trainCat;
+	}
+
+	public String getTrainName() {
+		return trainName;
+	}
+
+	public void setTrainName(String trainName) {
+		this.trainName = trainName;
+	}
 
 	public TblTraining() {
 	}

@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1126,49 +1129,6 @@
                         <h3 class="card-title" style="text-align:Center"> Technical </h3>
                           <font size="2px"style="padding-left:503px" > 1 &emsp; &emsp; 2 &emsp; &emsp;3 &emsp; &emsp; 4 &emsp; &emsp;5 &emsp; &emsp; 6 &emsp; &emsp; 7 &emsp; &emsp;8 &emsp; &emsp; 9 &emsp; &emsp;10  </font><br>
                           <br>
-                        <span class="rating rating-primary">
-                          <font style="padding-left:200px" size="3px"> Communication skill as expert on the field </font>
-                          <input type="radio" name="23" id="csExpTrophy10" value="10">
-                          <label style="padding-left:20px" for="csExpTrophy10">
-                            <span class="fa fa-trophy"></span>
-                          </label>
-                          <input type="radio" name="23" id="csExpTrophy9" value="9">
-                          <label style="padding-left:20px" for="csExpTrophy9">
-                            <span class="fa fa-trophy"></span>
-                          </label>
-                          <input type="radio" name="23" id="csExpTrophy8" value="8" checked>
-                          <label style="padding-left:20px" for="csExpTrophy8">
-                            <span class="fa fa-trophy"></span>
-                          </label>
-                          <input type="radio" name="23" id="csExpTrophy7" value="7">
-                          <label style="padding-left:20px" for="csExpTrophy7">
-                            <span class="fa fa-trophy"></span>
-                          </label>
-                          <input type="radio" name="23" id="csExpTrophy6" value="6">
-                          <label style="padding-left:20px" for="csExpTrophy6">
-                            <span class="fa fa-trophy"></span>
-                          </label>
-                          <input type="radio" name="23" id="csExpTrophy5" value="5">
-                          <label style="padding-left:20px" for="csExpTrophy5">
-                            <span class="fa fa-trophy"></span>
-                          </label>
-                          <input type="radio" name="23" id="csExpTrophy4" value="4">
-                          <label style="padding-left:20px" for="csExpTrophy4">
-                            <span class="fa fa-trophy"></span>
-                          </label>
-                          <input type="radio" name="23" id="csExpTrophy3" value="3" checked>
-                          <label style="padding-left:20px" for="csExpTrophy3">
-                            <span class="fa fa-trophy"></span>
-                          </label>
-                          <input type="radio" name="23" id="csExpTrophy2" value="2">
-                          <label style="padding-left:20px" for="csExpTrophy2">
-                            <span class="fa fa-trophy"></span>
-                          </label>
-                          <input type="radio" name="23" id="csExpTrophy1" value="1">
-                          <label style="padding-left:0px" for="csExpTrophy1">
-                            <span class="fa fa-trophy"></span>
-                          </label>
-                        </span>
 
                         <br>
                         <span class="rating rating-primary">

@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,34 +22,32 @@
           <a href="signin.html">Sign In</a>
         </p>
       </header>
-      <form class="auth-form">
+      <form class="auth-form" method="post" action="http://localhost:8080/generalSignup">
         <div class="form-group">
           <div class="form-label-group">
-            <input type="email" id="inputEmail" class="form-control" placeholder="Email" required="" autofocus="">
+            <input type="email" id="inputEmail" class="form-control" placeholder="Email" name="email" required="" autofocus="">
             <label for="inputEmail">Email</label>
           </div>
         </div>
         <div class="form-row">
-          <div class="col-md-6 mb-3">
+          <div class="col-md-6 mb-3 form-label-group">
+            <input type="text" class="form-control" id="validationTooltip01" placeholder="First name" name="fname" required="">
             <label for="validationTooltip01">First name</label>
-            <input type="text" class="form-control" id="validationTooltip01" placeholder="First name" value="" required="">
-            <div class="valid-tooltip"> Looks good! </div>
           </div>
-          <div class="col-md-6 mb-3">
+          <div class="col-md-6 mb-3 form-label-group">
+            <input type="text" class="form-control" id="validationTooltip02" placeholder="Last name" name="lname" required="">
             <label for="validationTooltip02">Last name</label>
-            <input type="text" class="form-control" id="validationTooltip02" placeholder="Last name" value="" required="">
-            <div class="valid-tooltip"> Looks good! </div>
           </div>
         </div>
         <div class="form-group">
           <div class="form-label-group">
-            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required="">
             <label for="inputPassword">Password</label>
           </div>
         </div>
         <div class="form-group">
           <label for="exampleSelect1">Position in the company</label>
-          <select id="exampleSelect1" class="custom-select">
+          <select id="exampleSelect1" class="custom-select" name="role">
             <option selected> Select role </option>
             <option value="1"> Regular Employee </option>
             <option value="2"> Supervisor/Manager </option>
@@ -54,7 +55,7 @@
           </select>
         </div>
         <div class="form-group">
-          <button class="btn btn-lg btn-primary btn-block" type="submit" formaction="generalSignin.html">Sign Up</button>
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
         </div>
     </main>
   </body>
