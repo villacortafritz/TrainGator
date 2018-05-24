@@ -140,5 +140,45 @@ public class MainService {
 		
 		
 	}
+
+	public void submitTeafQuestions(String question1, String question2,
+			String question3, String question4, String question5,
+			String question6, String question7) {
+		// TODO Auto-generated method stub
+		
+		TblCat quesTeaf[] = new TblCat[7];
+		
+		for(int i = 0; i < 7 ; i++)
+		{
+			quesTeaf[i] = new TblCat();
+		}
+		
+		quesTeaf[0].setFormId(4);
+		quesTeaf[0].setCatDesc(question1);
+		quesTeaf[1].setFormId(4);
+		quesTeaf[1].setCatDesc(question2);
+		quesTeaf[2].setFormId(4);
+		quesTeaf[2].setCatDesc(question3);
+		quesTeaf[3].setFormId(4);
+		quesTeaf[3].setCatDesc(question4);
+		quesTeaf[4].setFormId(4);
+		quesTeaf[4].setCatDesc(question5);
+		quesTeaf[5].setFormId(4);
+		quesTeaf[5].setCatDesc(question6);
+		quesTeaf[6].setFormId(4);
+		quesTeaf[6].setCatDesc(question7);
+		
+		
+		
+		MainRepository.submitTeafQuestions(em,quesTeaf);
+		
+
+	}
+
+	public List<TblCat> getTeafQuestions() {
+		return MainRepository.getTeafQuestions(em);
+		
+	}
+
 }
 	

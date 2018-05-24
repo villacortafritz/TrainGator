@@ -91,11 +91,11 @@
                   <form>
                     <fieldset>
                       <div class="form-group">
-                        <label for="exampleInputEmail1">1. Question 1</label>
+                        <label for="exampleInputEmail1">1. ${questions.get(0).catDesc}</label>
                         <div class="col-lg-9" style="padding-top: 10px;">
                           <section class="text-center text-sm-left">
                             <div class="visual-picker visual-picker-sm has-peek px-3">
-                              <input type="radio" id="vpr01" name="vprSM">
+                              <input type="radio" id="vpr01" name="q1teaf" value="5">
                               <label class="visual-picker-figure" for="vpr01">
                                 <span class="visual-picker-content">
                                   <strong>Strongly Agree</strong>
@@ -103,7 +103,7 @@
                               </label>
                             </div>
                             <div class="visual-picker visual-picker-sm has-peek px-3">
-                              <input type="radio" id="vpr02" name="vprSM" checked>
+                              <input type="radio" id="vpr02" name="q1teaf" value="4">
                               <label class="visual-picker-figure" for="vpr02">
                                 <span class="visual-picker-content" style="padding-bottom:15px;">
                                   <strong>Agree</strong>
@@ -111,7 +111,7 @@
                               </label>
                             </div>
                             <div class="visual-picker visual-picker-sm has-peek px-3">
-                              <input type="radio" id="vpr03" name="vprSM">
+                              <input type="radio" id="vpr03" name="q1teaf" value="3">
                               <label class="visual-picker-figure" for="vpr03">
                                 <span class="visual-picker-content" style="padding-bottom:15px;">
                                   <strong>Neutral</strong>
@@ -119,7 +119,7 @@
                               </label>
                             </div>
                             <div class="visual-picker visual-picker-sm has-peek px-3">
-                              <input type="radio" id="vpr04" name="vprSM">
+                              <input type="radio" id="vpr04" name="q1teaf" value="2">
                               <label class="visual-picker-figure" for="vpr04">
                                 <span class="visual-picker-content" style="padding-bottom:15px;">
                                   <strong>Disagree</strong>
@@ -127,7 +127,7 @@
                               </label>
                             </div>
                             <div class="visual-picker visual-picker-sm has-peek px-3">
-                              <input type="radio" id="vpr05" name="vprSM">
+                              <input type="radio" id="vpr05" name="q1teaf" value="1">
                               <label class="visual-picker-figure" for="vpr05">
                                 <span class="visual-picker-content" style="padding-top: 5px;">
                                   <strong>Strongly Disagree</strong>
@@ -142,11 +142,11 @@
                   <form>
                   </fieldset>
                       <div class="form-group">
-                        <label for="exampleInputEmail1">2. Question 2</label>
+                        <label for="exampleInputEmail1">2. ${questions.get(1).catDesc}</label>
                         <div class="col-lg-9" style="padding-top: 10px;">
                           <section class="text-center text-sm-left">
                             <div class="visual-picker visual-picker-sm has-peek px-3">
-                              <input type="radio" id="vpr06" name="vprSM">
+                              <input type="radio" id="vpr06" name="q2teaf" value="5" >
                               <label class="visual-picker-figure" for="vpr06">
                                 <span class="visual-picker-content">
                                   <strong>Strongly Agree</strong>
@@ -154,7 +154,7 @@
                               </label>
                             </div>
                             <div class="visual-picker visual-picker-sm has-peek px-3">
-                              <input type="radio" id="vpr07" name="vprSM" checked>
+                              <input type="radio" id="vpr07" name="vprSM" name="q2teaf" value="4">
                               <label class="visual-picker-figure" for="vpr07">
                                 <span class="visual-picker-content" style="padding-bottom:15px;">
                                   <strong>Agree</strong>
@@ -162,7 +162,7 @@
                               </label>
                             </div>
                             <div class="visual-picker visual-picker-sm has-peek px-3">
-                              <input type="radio" id="vpr08" name="vprSM">
+                              <input type="radio" id="vpr08" name="q2teaf" value="3">
                               <label class="visual-picker-figure" for="vpr08">
                                 <span class="visual-picker-content" style="padding-bottom:15px;">
                                   <strong>Neutral</strong>
@@ -170,7 +170,7 @@
                               </label>
                             </div>
                             <div class="visual-picker visual-picker-sm has-peek px-3">
-                              <input type="radio" id="vpr09" name="vprSM">
+                              <input type="radio" id="vpr09" name="q2teaf" value="2">
                               <label class="visual-picker-figure" for="vpr09">
                                 <span class="visual-picker-content" style="padding-bottom:15px;">
                                   <strong>Disagree</strong>
@@ -178,7 +178,7 @@
                               </label>
                             </div>
                             <div class="visual-picker visual-picker-sm has-peek px-3">
-                              <input type="radio" id="vpr10" name="vprSM">
+                              <input type="radio" id="vpr10" name="q2teaf" value="1">
                               <label class="visual-picker-figure" for="vpr10">
                                 <span class="visual-picker-content" style="padding-top: 5px;">
                                   <strong>Strongly Disagree</strong>
@@ -193,11 +193,11 @@
                   <form>
                     <fieldset>
                       <div class="form-group">
-                        <label for="exampleInputEmail1">3. Question 3</label>
+                        <label for="exampleInputEmail1">3. ${questions.get(2).catDesc}</label>
                         <div class="col-lg-9" style="padding-top: 10px;">
                           <section class="text-center text-sm-left">
                             <div class="visual-picker visual-picker-sm has-peek px-3">
-                              <input type="radio" id="vpr11" name="vprSM">
+                              <input type="radio" id="vpr11" name="q3teaf" value="5">
                               <label class="visual-picker-figure" for="vpr11">
                                 <span class="visual-picker-content">
                                   <strong>Strongly Agree</strong>
@@ -205,7 +205,7 @@
                               </label>
                             </div>
                             <div class="visual-picker visual-picker-sm has-peek px-3">
-                              <input type="radio" id="vpr12" name="vprSM" checked>
+                              <input type="radio" id="vpr12" name="q3teaf" value="4">
                               <label class="visual-picker-figure" for="vpr12">
                                 <span class="visual-picker-content" style="padding-bottom:15px;">
                                   <strong>Agree</strong>
@@ -213,7 +213,7 @@
                               </label>
                             </div>
                             <div class="visual-picker visual-picker-sm has-peek px-3">
-                              <input type="radio" id="vpr13" name="vprSM">
+                              <input type="radio" id="vpr13" name="q3teaf" value="3">
                               <label class="visual-picker-figure" for="vpr13">
                                 <span class="visual-picker-content" style="padding-bottom:15px;">
                                   <strong>Neutral</strong>
@@ -221,7 +221,7 @@
                               </label>
                             </div>
                             <div class="visual-picker visual-picker-sm has-peek px-3">
-                              <input type="radio" id="vpr14" name="vprSM">
+                              <input type="radio" id="vpr14" name="q3teaf" value="2">
                               <label class="visual-picker-figure" for="vpr14">
                                 <span class="visual-picker-content" style="padding-bottom:15px;">
                                   <strong>Disagree</strong>
@@ -229,7 +229,7 @@
                               </label>
                             </div>
                             <div class="visual-picker visual-picker-sm has-peek px-3">
-                              <input type="radio" id="vpr15" name="vprSM">
+                              <input type="radio" id="vpr15" name="q3teaf" value="1">
                               <label class="visual-picker-figure" for="vpr15">
                                 <span class="visual-picker-content" style="padding-top: 5px;">
                                   <strong>Strongly Disagree</strong>
@@ -244,11 +244,11 @@
                   <form>
                     <fieldset>
                       <div class="form-group">
-                        <label for="exampleInputEmail1">4. Question 4</label>
+                        <label for="exampleInputEmail1">4. ${questions.get(3).catDesc}</label>
                         <div class="col-lg-9" style="padding-top: 10px;">
                           <section class="text-center text-sm-left">
                             <div class="visual-picker visual-picker-sm has-peek px-3">
-                              <input type="radio" id="vpr16" name="vprSM">
+                              <input type="radio" id="vpr16" name="q4teaf" value="5">
                               <label class="visual-picker-figure" for="vpr16">
                                 <span class="visual-picker-content">
                                   <strong>Strongly Agree</strong>
@@ -256,7 +256,7 @@
                               </label>
                             </div>
                             <div class="visual-picker visual-picker-sm has-peek px-3">
-                              <input type="radio" id="vpr17" name="vprSM" checked>
+                              <input type="radio" id="vpr17" name="q4teaf" value="4" >
                               <label class="visual-picker-figure" for="vpr17">
                                 <span class="visual-picker-content" style="padding-bottom:15px;">
                                   <strong>Agree</strong>
@@ -264,7 +264,7 @@
                               </label>
                             </div>
                             <div class="visual-picker visual-picker-sm has-peek px-3">
-                              <input type="radio" id="vpr18" name="vprSM">
+                              <input type="radio" id="vpr18" name="q4teaf" value="3">
                               <label class="visual-picker-figure" for="vpr18">
                                 <span class="visual-picker-content" style="padding-bottom:15px;">
                                   <strong>Neutral</strong>
@@ -272,7 +272,7 @@
                               </label>
                             </div>
                             <div class="visual-picker visual-picker-sm has-peek px-3">
-                              <input type="radio" id="vpr19" name="vprSM">
+                              <input type="radio" id="vpr19" name="q4teaf" value="2">
                               <label class="visual-picker-figure" for="vpr19">
                                 <span class="visual-picker-content" style="padding-bottom:15px;">
                                   <strong>Disagree</strong>
@@ -280,7 +280,7 @@
                               </label>
                             </div>
                             <div class="visual-picker visual-picker-sm has-peek px-3">
-                              <input type="radio" id="vpr20" name="vprSM">
+                              <input type="radio" id="vpr20" name="q4teaf" value="1">
                               <label class="visual-picker-figure" for="vpr20">
                                 <span class="visual-picker-content" style="padding-top: 5px;">
                                   <strong>Strongly Disagree</strong>
@@ -295,11 +295,11 @@
                   <form>
                   <fieldset>
                       <div class="form-group">
-                        <label for="exampleInputEmail1">5. Question 5</label>
+                        <label for="exampleInputEmail1">5. ${questions.get(4).catDesc}</label>
                         <div class="col-lg-9" style="padding-top: 10px;">
                           <section class="text-center text-sm-left">
                             <div class="visual-picker visual-picker-sm has-peek px-3">
-                              <input type="radio" id="vpr21" name="vprSM">
+                              <input type="radio" id="vpr21" name="q5teaf" value="5">
                               <label class="visual-picker-figure" for="vpr21">
                                 <span class="visual-picker-content">
                                   <strong>Strongly Agree</strong>
@@ -307,7 +307,7 @@
                               </label>
                             </div>
                             <div class="visual-picker visual-picker-sm has-peek px-3">
-                              <input type="radio" id="vpr22" name="vprSM" checked>
+                              <input type="radio" id="vpr22" name="q5teaf" value="4">
                               <label class="visual-picker-figure" for="vpr22">
                                 <span class="visual-picker-content" style="padding-bottom:15px;">
                                   <strong>Agree</strong>
@@ -315,7 +315,7 @@
                               </label>
                             </div>
                             <div class="visual-picker visual-picker-sm has-peek px-3">
-                              <input type="radio" id="vpr23" name="vprSM">
+                              <input type="radio" id="vpr23" name="q5teaf" value="3">
                               <label class="visual-picker-figure" for="vpr23">
                                 <span class="visual-picker-content" style="padding-bottom:15px;">
                                   <strong>Neutral</strong>
@@ -323,7 +323,7 @@
                               </label>
                             </div>
                             <div class="visual-picker visual-picker-sm has-peek px-3">
-                              <input type="radio" id="vpr24" name="vprSM">
+                              <input type="radio" id="vpr24" name="q5teaf" value="2">
                               <label class="visual-picker-figure" for="vpr24">
                                 <span class="visual-picker-content" style="padding-bottom:15px;">
                                   <strong>Disagree</strong>
@@ -331,7 +331,7 @@
                               </label>
                             </div>
                             <div class="visual-picker visual-picker-sm has-peek px-3">
-                              <input type="radio" id="vpr25" name="vprSM">
+                              <input type="radio" id="vpr25" name="q5teaf" value="1">
                               <label class="visual-picker-figure" for="vpr25">
                                 <span class="visual-picker-content" style="padding-top: 5px;">
                                   <strong>Strongly Disagree</strong>
@@ -346,11 +346,11 @@
                   <form>
                     <fieldset>
                       <div class="form-group">
-                        <label for="exampleInputEmail1">6. Question 6</label>
+                        <label for="exampleInputEmail1">6. ${questions.get(5).catDesc}</label>
                         <div class="col-lg-9" style="padding-top: 10px;">
                           <section class="text-center text-sm-left">
                             <div class="visual-picker visual-picker-sm has-peek px-3">
-                              <input type="radio" id="vpr26" name="vprSM">
+                              <input type="radio" id="vpr26" name="q6teaf" value="5">
                               <label class="visual-picker-figure" for="vpr26">
                                 <span class="visual-picker-content">
                                   <strong>Strongly Agree</strong>
@@ -358,7 +358,7 @@
                               </label>
                             </div>
                             <div class="visual-picker visual-picker-sm has-peek px-3">
-                              <input type="radio" id="vpr27" name="vprSM" checked>
+                              <input type="radio" id="vpr27" name="q6teaf" value="4">
                               <label class="visual-picker-figure" for="vpr27">
                                 <span class="visual-picker-content" style="padding-bottom:15px;">
                                   <strong>Agree</strong>
@@ -366,7 +366,7 @@
                               </label>
                             </div>
                             <div class="visual-picker visual-picker-sm has-peek px-3">
-                              <input type="radio" id="vpr28" name="vprSM">
+                              <input type="radio" id="vpr28" name="q6teaf" value="3">
                               <label class="visual-picker-figure" for="vpr28">
                                 <span class="visual-picker-content" style="padding-bottom:15px;">
                                   <strong>Neutral</strong>
@@ -374,7 +374,7 @@
                               </label>
                             </div>
                             <div class="visual-picker visual-picker-sm has-peek px-3">
-                              <input type="radio" id="vpr29" name="vprSM">
+                              <input type="radio" id="vpr29" name="q6teaf" value="2">
                               <label class="visual-picker-figure" for="vpr29">
                                 <span class="visual-picker-content" style="padding-bottom:15px;">
                                   <strong>Disagree</strong>
@@ -382,7 +382,7 @@
                               </label>
                             </div>
                             <div class="visual-picker visual-picker-sm has-peek px-3">
-                              <input type="radio" id="vpr30" name="vprSM">
+                              <input type="radio" id="vpr30" name="q6teaf" value="1">
                               <label class="visual-picker-figure" for="vpr30">
                                 <span class="visual-picker-content" style="padding-top: 5px;">
                                   <strong>Strongly Disagree</strong>
@@ -393,12 +393,12 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="exampleTextarea">7. Question 7</label>
-                        <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+                        <label for="exampleTextarea">7. ${questions.get(6).catDesc}</label>
+                        <textarea class="form-control" name="q7teaf" rows="3"></textarea>
                       </div>
                       <div class="form-group">
                         <label for="exampleTextarea">8. Other comments?</label>
-                        <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+                        <textarea class="form-control" name="q8teaf" rows="3"></textarea>
                       </div>
                     </fieldset>
                   </form>

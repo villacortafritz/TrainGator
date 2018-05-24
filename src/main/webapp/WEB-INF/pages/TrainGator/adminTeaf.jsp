@@ -85,6 +85,7 @@
             <h1 class="page-title" style="text-align:center;"> Training Effectiveness Assessment Form </h1>
           </header>
           <div class="page-section">
+          <form action="http://localhost:8080/submitQuestions" method="post">
             <div class="section-deck">
                 <section class="card card-fluid">
                   <div class="card-body">
@@ -93,49 +94,49 @@
                         Input for Question 1
                       </tr>
                       <tr style="padding: 10px; margin: 10px;">
-                        <textarea class="form-control" placeholder="Enter question here"></textarea>
+                        <textarea name="ques1" class="form-control" placeholder="Enter question here"></textarea>
                         </br>
                       </tr>
                       <tr style="padding: 10px; margin: 10px;">
                         Input for Question 2
                       </tr>
                       <tr style="padding: 10px; margin: 10px;">
-                        <textarea class="form-control" placeholder="Enter question here"></textarea>
+                        <textarea name="ques2" class="form-control" placeholder="Enter question here"></textarea>
                         </br>
                       </tr>
                       <tr style="padding: 10px; margin: 10px;">
                         Input for Question 3
                       </tr>
                       <tr style="padding: 10px; margin: 10px;">
-                        <textarea class="form-control" placeholder="Enter question here"></textarea>
+                        <textarea name="ques3" class="form-control" placeholder="Enter question here"></textarea>
                         </br>
                       </tr>
                       <tr style="padding: 10px; margin: 10px;">
                         Input for Question 4
                       </tr>
                       <tr style="padding: 10px; margin: 10px;">
-                        <textarea class="form-control" placeholder="Enter question here"></textarea>
+                        <textarea name="ques4" class="form-control" placeholder="Enter question here"></textarea>
                         </br>
                       </tr>
                       <tr style="padding: 10px; margin: 10px;">
                         Input for Question 5
                       </tr>
                       <tr style="padding: 10px; margin: 10px;">
-                        <textarea class="form-control" placeholder="Enter question here"></textarea>
+                        <textarea name="ques5" class="form-control" placeholder="Enter question here"></textarea>
                         </br>
                       </tr>
                       <tr style="padding: 10px; margin: 10px;">
                         Input for Question 6
                       </tr>
                       <tr style="padding: 10px; margin: 10px;">
-                        <textarea class="form-control" placeholder="Enter question here"></textarea>
+                        <textarea name="ques6" class="form-control" placeholder="Enter question here"></textarea>
                         </br>
                       </tr>
                       <tr style="padding: 10px; margin: 10px;">
                         Input for Question 7
                       </tr>
                       <tr style="padding: 10px; margin: 10px;">
-                        <textarea class="form-control" placeholder="Enter question here"></textarea>
+                        <textarea name="ques7" class="form-control" placeholder="Enter question here"></textarea>
                         </br>
                       </tr>
                     </table>
@@ -143,8 +144,9 @@
                 </section>
             </div>
             <div class="form-actions" style="padding-left:45%">
-              <button class="btn btn-primary" type="submit" onclick="window.location.href='adminConcluded.html'">Submit form</button>
+              <button class="btn btn-primary" type="submit">Submit form</button>
             </div>
+           </form> 
           </div>
       </div>
     </div>

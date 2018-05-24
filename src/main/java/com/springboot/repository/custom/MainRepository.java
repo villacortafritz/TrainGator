@@ -139,5 +139,21 @@ public class MainRepository {
 		em.persist(participant);
 		
 	}
+
+	public void submitTeafQuestions(EntityManager em, TblCat[] quesTeaf) {
+		// TODO Auto-generated method stub
+		
+		for(int i=0; i<quesTeaf.length; i++){
+			em.persist(quesTeaf[i]);
+		}
+		
+	}
+
+	public List<TblCat> getTeafQuestions(EntityManager em) {
+		StringBuilder studentQuery = new StringBuilder("FROM TblCat WHERE form_id = 4");	
+		Query query = em.createQuery(studentQuery.toString());
+		List<TblCat> questionsList = query.getResultList();
+		return questionsList;
+	}
 	
 }
