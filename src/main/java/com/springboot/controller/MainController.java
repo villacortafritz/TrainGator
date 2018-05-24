@@ -1,13 +1,8 @@
 package com.springboot.controller;
-<<<<<<< HEAD
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-=======
-
-
->>>>>>> c23a3a8b2f38539d6560ab995d3bdc1f3d6122d5
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,11 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import java.util.List;
-<<<<<<< HEAD
 import com.springboot.entities.TblCat;
-=======
-
->>>>>>> c23a3a8b2f38539d6560ab995d3bdc1f3d6122d5
 import com.springboot.entities.TblSubcat;
 import com.springboot.entities.TblUser;
 import com.springboot.service.MainService;
@@ -32,6 +23,16 @@ public class MainController {
 	
 	@Autowired
 	private MainService MainService;
+	
+	@RequestMapping(value="/adminAddFacilitator", method=RequestMethod.GET)
+	public String adminAddFacilitator(HttpServletRequest request, ModelMap map) {
+		return "TrainGator/adminAddFacilitator";
+	}
+	
+	@RequestMapping(value="/adminAddParticipant", method=RequestMethod.GET)
+	public String adminAddParticipant(HttpServletRequest request, ModelMap map) {
+		return "TrainGator/adminAddParticipant";
+	}
 	
 	@RequestMapping(value="/adminAttendance", method=RequestMethod.GET)
 	public String adminAttendance(HttpServletRequest request, ModelMap map) {
@@ -196,11 +197,6 @@ public class MainController {
 	public String userTna(HttpServletRequest request, ModelMap map) {
 		return "TrainGator/userTna";
 	}
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> c23a3a8b2f38539d6560ab995d3bdc1f3d6122d5
 
 	@RequestMapping(value="/signin",method=RequestMethod.POST)
 	public String signin(HttpServletRequest request, ModelMap map) {
@@ -223,21 +219,12 @@ public class MainController {
 			return "signin";
 		}
 	}
->>>>>>> 06c7a7eaae9d2b0ab01dcda8938f84bd532b1c39
 	
 	@RequestMapping("/userAll")
 	public String loadUserAll(){
 		return "userAll";
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-	}
-=======
-		
->>>>>>> c23a3a8b2f38539d6560ab995d3bdc1f3d6122d5
 	}
 
->>>>>>> 06c7a7eaae9d2b0ab01dcda8938f84bd532b1c39
 	@RequestMapping(value="/userUpcoming", method=RequestMethod.GET)
 	public String userUpcoming(HttpServletRequest request, ModelMap map) {
 		return "TrainGator/userUpcoming";

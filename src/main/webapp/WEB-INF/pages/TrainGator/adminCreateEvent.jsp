@@ -28,7 +28,7 @@
                         <span class="oi oi-magnifying-glass"></span>
                       </span>
                     </div>
-                    <input type="text" class="form-control" aria-label="Search" placeholder="Search"> </div>
+                    <input type="text" class="form-control" aria-label="Search" placeholder="Search for a specific person"> </div>
                 </div>
               </div>
               <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
@@ -61,13 +61,13 @@
                       <img src="/images/avatars/profile.jpg" alt="">
                     </span>
                     <span class="account-summary pr-lg-4 d-none d-lg-block">
-                      <span class="account-name">${fname} ${lname}</span>
-                      <span class="account-description">${usertype}</span>
+                      <span class="account-name">Name of Admin</span>
+                      <span class="account-description">Administrator</span>
                     </span>
                   </button>
                   <div class="dropdown-arrow dropdown-arrow-left"></div>
                   <div class="dropdown-menu">
-                    <h6 class="dropdown-header d-none d-md-block d-lg-none">${fname} ${lname}</h6>
+                    <h6 class="dropdown-header d-none d-md-block d-lg-none"> Name of User </h6>
                     <a class="dropdown-item" href="generalSignin.html">
                       <span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
                       <div class="dropdown-divider"></div>
@@ -97,6 +97,7 @@
                         <div class="form-group">
                           <label class="control-label" for="flatpickr01">Input Ending Date</label>
                           <input id="flatpickr01" type="text" class="form-control" name="train_dateend" required=""> </div>
+                        <div class="form-group">
                           <label class="control-label" for="flatpickr08">Input Start Time</label>
                           <input id="flatpickr08" type="text" class="form-control"> </div>
                         <div class="form-group">
@@ -106,24 +107,16 @@
                           <label for="exampleTextarea">Input Course Objective and Course Outline for Training Event</label>
                           <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
                         </div>
-                        <div class="form-group">
-                          <label class="control-label" for="select2-tagging">Add Facilitator/s for the Training Event</label>
-                          <select id="select2-tagging" class="form-control" multiple="multiple"></select>
-                        </div>
-                        <div class="form-group">
-                          <label class="control-label" for="select2-tagging">Add Participant/s for the Training Event</label>
-                          <select id="select2Facilitator-tagging" class="form-control" multiple="multiple"></select>
-                        </div>
-                        <div class="form-actions">
-                          <button class="btn btn-primary" type="button" onclick="window.location = 'adminOngoing.html'">Confirm</button>
-                          <button type="button" class="btn btn-sm btn-secondary" onclick="window.location.href='adminOngoing.html'">
-                            <i class="far fa-trash-alt"></i>
-                            <span>Remove</span>
-                          </button>
+                        <div>
+                          <button class="btn btn-primary" type="button" style="width:49%" onclick="window.location.href='adminAddFacilitator.html'">Assign Facilitator/s for Training</button>
+                          <button class="btn btn-primary" type="button" style="width:50%" onclick="window.location.href='adminAddParticipant.html'">Assign Participant/s for Training</button>
                         </div>
                       </form>
                     </div>
                   </section>
+                </div>
+                <div class="form-actions" style="padding-left:40%">
+                  <button class="btn btn-primary" type="submit" style="width:200px" onclick="window.location.href='adminOngoing.html'">Confirm</button>
                 </div>
           </div>
         </div>
