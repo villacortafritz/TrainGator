@@ -83,29 +83,22 @@ public class MainService {
 		return MainRepository.getSubCategoriesByFormId(em,id);
 	}
 
-//	public boolean addTrainingParticipantRating(int trainParVal) {
-//		
-//		boolean result = false;
-//		TblFormdetail formDetail = new TblFormdetail();
-//		formDetail.setUserId(userId);
-//		
-//		
-//		return result;
-//		
-//		
-//
-//
-//		
-//	}
-	public List<TblUser> getParticipants() {
+
+	public List<TblUser> getRecommendedParticipants() {
 		
-			return MainRepository.getParticipants(em);
+			return MainRepository.getRecommendedParticipants(em);
 		
+	}
+	
+	public List<TblUser> getConfirmedParticipants() {
+		
+		return MainRepository.getConfirmedParticipants(em);
+	
 	}
 
 
 		
-	public List<TblUser> removeParticipantById(int id) {
+	public List<TblUser> removeParticipantById(String[] id) {
 			return MainRepository.removeParticipantById(em, id);
 			
 	}
