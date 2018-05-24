@@ -44,7 +44,7 @@ public class MainService {
 	}
 
 	public Object addTraining(Date train_datestart, Date train_dateend, String train_timestart, String train_timeend,
-		String train_courseoutline, String train_courseobjective, int train_faci, int train_sv, int train_pt) {
+		String train_courseoutline) {
 		Object result = false;
 		TblTraining training = new TblTraining();
 		training.setTrainDatestart(train_datestart);
@@ -52,9 +52,6 @@ public class MainService {
 		training.setTrainTimestart(train_timestart);
 		training.setTrainTimeend(train_timeend);
 		training.setTrainCourseoutline(train_courseoutline);
-		training.setTrainCourseobjective(train_courseobjective);
-		training.setTrainFaci(train_faci);
-		training.setTrainSv(train_sv);
 
 		result = MainRepository.addTraining(em,training);
 		

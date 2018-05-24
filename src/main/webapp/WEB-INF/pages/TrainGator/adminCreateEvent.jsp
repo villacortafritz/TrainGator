@@ -90,32 +90,27 @@
                 <div class="section-deck">
                   <section class="card card-fluid">
                     <div class="card-body">
-                      <form>
+                      <form method="post" action="http://localhost:8080/adminCreateEvent">
                         <div class="form-group">
                           <label class="control-label" for="flatpickr01">Input Starting Date</label>
-                          <input id="flatpickr01" type="text" class="form-control" name="train_datestart" required=""> </div>
+                          <input id="flatpickr01" type="text" class="form-control" name="train_datestart" required=""> 
+                        </div>
                         <div class="form-group">
                           <label class="control-label" for="flatpickr01">Input Ending Date</label>
-                          <input id="flatpickr01" type="text" class="form-control" name="train_dateend" required=""> </div>
+                          <input id="flatpickr01" type="text" class="form-control" name="train_dateend" required=""> 
+                        </div>
+                        <div class="form-group">
                           <label class="control-label" for="flatpickr08">Input Start Time</label>
-                          <input id="flatpickr08" type="text" class="form-control"> </div>
+                          <input id="flatpickr08" type="text" class="form-control" name="train_timestart"> </div>
                         <div class="form-group">
                           <label class="control-label" for="flatpickr08">Input End Time</label>
-                          <input id="flatpickr08" type="text" class="form-control"> </div>
+                          <input id="flatpickr08" type="text" class="form-control" name="train_timeend"> </div>
                         <div class="form-group">
                           <label for="exampleTextarea">Input Course Objective and Course Outline for Training Event</label>
-                          <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-                        </div>
-                        <div class="form-group">
-                          <label class="control-label" for="select2-tagging">Add Facilitator/s for the Training Event</label>
-                          <select id="select2-tagging" class="form-control" multiple="multiple"></select>
-                        </div>
-                        <div class="form-group">
-                          <label class="control-label" for="select2-tagging">Add Participant/s for the Training Event</label>
-                          <select id="select2Facilitator-tagging" class="form-control" multiple="multiple"></select>
+                          <textarea class="form-control" id="exampleTextarea" rows="3" name="train_courseobjective"></textarea>
                         </div>
                         <div class="form-actions">
-                          <button class="btn btn-primary" type="button" onclick="window.location = 'adminOngoing.html'">Confirm</button>
+                          <button class="btn btn-primary" type="submit">Confirm</button>
                           <button type="button" class="btn btn-sm btn-secondary" onclick="window.location.href='adminOngoing.html'">
                             <i class="far fa-trash-alt"></i>
                             <span>Remove</span>

@@ -1,19 +1,21 @@
 package com.springboot.controller;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
-import com.springboot.entities.TblCat;
+import java.text.ParseException;
+import java.util.Locale;
+
 import com.springboot.entities.TblSubcat;
 import com.springboot.entities.TblUser;
 import com.springboot.service.MainService;
@@ -41,8 +43,20 @@ public class MainController {
 		return "TrainGator/adminConcluded";
 	}
 	
-	@RequestMapping(value="/adminCreateEvent", method=RequestMethod.GET)
-	public String adminCreateEvent(HttpServletRequest request, ModelMap map) {
+	@RequestMapping("/adminCreateEvent")
+	public String loadadminCreateEvent() {
+		return "TrainGator/adminCreateEvent";
+	}
+	@RequestMapping(value="/adminCreateEvent", method=RequestMethod.POST)
+	public String adminCreateEvent(HttpServletRequest request, ModelMap map) throws ParseException {
+		Date train_datestart = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("train_datestart"));
+		Date train_dateend = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("train_dateend"));
+		String train_timestart = request.getParameter("train_timestart");
+		String train_timeend = request.getParameter("train_timeend");
+		String train_courseobjective = request.getParameter("train_courseobjective");
+		
+		MainService.addTraining(train_datestart, train_dateend, train_timestart, train_timeend, train_courseobjective);
+
 		return "TrainGator/adminCreateEvent";
 	}
 	

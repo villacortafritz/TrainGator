@@ -10,14 +10,14 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@Table(name="tbl_participant")
-@NamedQuery(name="TblParticipant.findAll", query="SELECT t FROM TblParticipant t")
-public class TblParticipant implements Serializable {
+@Table(name="tbl_facilitator")
+@NamedQuery(name="TblFacilitator.findAll", query="SELECT t FROM TblFacilitator t")
+public class TblFacilitator implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="part_id")
-	private int partId;
+	@Column(name="faci_id")
+	private int faciId;
 
 	@Column(name="train_id")
 	private int trainId;
@@ -38,15 +38,15 @@ public class TblParticipant implements Serializable {
 	@Column(name="user_type")
 	private String userType;*/
 
-	public TblParticipant() {
+	public TblFacilitator() {
 	}
 
-	public int getPartId() {
-		return this.partId;
+	public int getfaciId() {
+		return this.faciId;
 	}
 
-	public void setPartId(int partId) {
-		this.partId = partId;
+	public void setfaciId(int faciId) {
+		this.faciId = faciId;
 	}
 
 	public int getTrainId() {
@@ -65,7 +65,7 @@ public class TblParticipant implements Serializable {
 		this.userId = userId;
 	}
 	
-/*	public String getUserEmail() {
+	/*public String getUserEmail() {
 		return this.userEmail;
 	}
 
