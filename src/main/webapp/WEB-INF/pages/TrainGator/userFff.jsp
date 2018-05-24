@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title> Home | TrainGator </title>
+  <title> Facilitator's Feedback Form | TrainGator </title>
   <link rel="shortcut icon" href="/icon.png">
   <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="/vendor/font-awesome/css/fontawesome-all.min.css">
@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="/vendor/open-iconic/css/open-iconic-bootstrap.min.css">
 </head>
 <body>
-  <div class="app has-fullwidth">
+<div class="app has-fullwidth">
   <header class="app-header">
         <div class="top-bar">
           <div class="top-bar-brand">
@@ -78,58 +78,62 @@
         </div>
       </header>
   <main class="app-main">
-    <header class="page-cover">
-      <div class="text-center">
-        <h2 class="h4 mt-3 mb-0"> Name of User </h2>
-        <p class="text-muted"> Participant/Supervisor </p>
-      </div>
-    </header>
-    <nav class="page-navs">
-      <div class="nav-scroller">
-        <div class="nav nav-center nav-tabs">
-          <a class="nav-link" href="userJoined.html">Joined Trainings</a>
-          <a class="nav-link" href="userUpcoming.html">Upcoming Trainings</a>
-          <a class="nav-link" href="userRecommended.html">Recommended Trainings</a>
-          <a class="nav-link active" href="userAccomplished.html">Accomplished Trainings</a>
-        </div>
-      </div>
-    </nav>
-        <div class="page-inner">
+    <div class="wrapper">
+      <div class="page">
+        <div class="page-inner" style="padding-left:15%; padding-right:15%;">
+          <header class="page-title-bar">
+            <h1 class="page-title" style="text-align:center;"> Facilitator's Feedback Form </h1>
+          </header>
           <div class="page-section">
-          <section class="card card-fluid">
-            <div class="card-body">
-              <div class="table-responsive">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th style="width:55px"></th>
-                      <th style="min-width:205px">Accomplished Training List</th>
-                      <th>Answer Course Feedback Form</th>
-                      <th>Answer Facilitator's Feedback Form</th>
-                      <th>Answer Training Effectiveness Assessment Form</th>
-                      <th style="width: 50px;"> &nbsp; </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                    <td class="align-middle"></td>
-                    <td>
-                    <a>Name of Training</a>
-                    </td>
-                    <td class="align-middle"><button class="btn btn-primary" type="submit" onclick="window.location.href='userCff.html'">Answer Course Feedback Form</button></td>
-                    <td class="align-middle"><button class="btn btn-primary" type="submit" onclick="window.location.href='userFff.html'">Answer Facilitator's Feedback Form</button></td>
-                    <td class="align-middle"><button class="btn btn-primary" type="submit" onclick="window.location.href='userTeaf.html'">Answer Training Effectiveness Assessment Form</button></td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="section-deck">
+                <section class="card card-fluid">
+                  <div class="card-body">
+                    <table>
+                      <tr style="padding: 10px; margin: 10px;">
+                        Question 1
+                      </tr>
+                      <tr style="padding: 10px; margin: 10px;">
+                        <textarea class="form-control" placeholder="Enter comment here"></textarea>
+                        </br>
+                      </tr>
+                      <tr style="padding: 10px; margin: 10px;">
+                        Question 2
+                      </tr>
+                      <tr style="padding: 10px; margin: 10px;">
+                        <textarea class="form-control" placeholder="Enter comment here"></textarea>
+                        </br>
+                      </tr>
+                      <tr style="padding: 10px; margin: 10px;">
+                        HQuestion 3
+                      </tr>
+                      <tr style="padding: 10px; margin: 10px;">
+                        <textarea class="form-control" placeholder="Enter comment here"></textarea>
+                        </br>
+                      </tr>
+                      <tr style="padding: 10px; margin: 10px;">
+                        Question 4
+                      </tr>
+                      <tr style="padding: 10px; margin: 10px;">
+                        <textarea class="form-control" placeholder="Enter comment here"></textarea>
+                        </br>
+                      </tr>
+                    </table>
+                  </div>
+                </section>
+            </div>
+            <div class="form-actions" style="padding-left:45%">
+              <button class="btn btn-primary" type="submit" onclick="window.location.href='userAccomplished.html'">Submit form</button>
             </div>
           </div>
-        </div>
       </div>
-    </main>
+    </div>
+  </main>
+  </div>
   <script src="/vendor/jquery/jquery.min.js"></script>
   <script src="/vendor/bootstrap/js/popper.min.js"></script>
   <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/vendor/stacked-menu/stacked-menu.min.js"></script>
+  <script src="/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
   <script src="/js/main.min.js"></script>
 </body>
 </html>
