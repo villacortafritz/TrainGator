@@ -1,10 +1,5 @@
 package com.springboot.controller;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -17,7 +12,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import java.util.List;
 
-import com.springboot.entities.TblCat;
 import com.springboot.entities.TblSubcat;
 import com.springboot.entities.TblUser;
 import com.springboot.service.MainService;
@@ -85,7 +79,7 @@ public class MainController {
 		return "TrainGator/generalRecoverPassword";
 	}
 	
-	@RequestMapping(value="/generalSignin", method=RequestMethod.GET)
+	@RequestMapping("/generalSignin")
 	public String generalSigninGet(HttpServletRequest request, ModelMap map) {
 		return "TrainGator/generalSignin";
 	}
@@ -162,13 +156,14 @@ public class MainController {
 		int id = 1;
 		int ansId = Integer.parseInt(request.getParameter("ansId"));
 		int userId = Integer.parseInt(request.getParameter("userId"));
+		String restype = request.getParameter("restype");
 		String[] results = new String[60];
 		for(int i=1;i<54;i++){
 			if(request.getParameter(Integer.toString(i))!=null)
 			results[i] = request.getParameter(Integer.toString(i));
 		}
 		List<TblSubcat> SubCatList = MainService.getSubCategoriesByFormId(id);
-		MainService.addSAF(SubCatList,results,ansId,userId);
+		MainService.addSAF(SubCatList,results,ansId,userId,restype);
 		
 		return "TrainGator/userSaf";
 	}	
@@ -181,28 +176,6 @@ public class MainController {
 	@RequestMapping(value="/userTna", method=RequestMethod.GET)
 	public String userTna(HttpServletRequest request, ModelMap map) {
 		return "TrainGator/userTna";
-	}
-	@RequestMapping(value="/signin",method=RequestMethod.POST)
-	public String signin(HttpServletRequest request, ModelMap map) {
-		String email = request.getParameter("email");
-		String password = request.getParameter("password");
-		String error = "Invalid Email or Password";
-		TblUser user = (TblUser)MainService.checkUser(email,password);
-		
-		if(user!=null){
-			map.addAttribute("userID",user.getUserId());
-			map.addAttribute("fname",user.getUserFname());
-			map.addAttribute("lname",user.getUserLname());
-			map.addAttribute("usertype",user.getUserType());
-			if(user.getUserType().equals("administrator"))
-				return "adminAll";
-			else
-				return "userAll";
-			}
-		else{
-			map.addAttribute("error",error);
-			return "signin";
-		}
 	}
 	
 	@RequestMapping("/userAll")

@@ -59,13 +59,13 @@
                       <img src="/images/avatars/profile.jpg" alt="">
                     </span>
                     <span class="account-summary pr-lg-4 d-none d-lg-block">
-                      <span class="account-name">Name of User</span>
-                      <span class="account-description">Participant/Supervisor</span>
+                      <span class="account-name">${fname} ${lname}</span>
+                      <span class="account-description">${usertype}</span>
                     </span>
                   </button>
                   <div class="dropdown-arrow dropdown-arrow-left"></div>
                   <div class="dropdown-menu">
-                    <h6 class="dropdown-header d-none d-md-block d-lg-none"> Name of User </h6>
+                    <h6 class="dropdown-header d-none d-md-block d-lg-none"> ${fname} ${lname} </h6>
                     <a class="dropdown-item" href="generalSignin.html">
                       <span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
                       <div class="dropdown-divider"></div>
@@ -84,7 +84,7 @@
             <header class="page-title-bar">
                 <h1 class="page-title" style="text-align:Center;"> Skills Assessment Form </h1>
             </header>
-          <div class="page-section">
+          <div class="page-section">  
             <div  class="section-deck">
 
               <form method="post" action="http://localhost:8080/userSaf"> <!-- change the action -->
@@ -2462,11 +2462,10 @@
                   <div class="col-lg-12">
                     <section class="card card-fluid">
                       <div class="card-body">
-                        <select id="exampleSelect1" class="custom-select">
-                          <option selected> Submit as ...</option>
-                          <option value="1"> Peer </option>
-                          <option value="2"> Supervisor </option>
-                          <option value="3"> Self </option>
+                        <select id="exampleSelect1" class="custom-select" name="restype">
+                          <option value="peer">Submit as Peer </option>
+                          <option value="supervisor">Submit as Supervisor </option>
+                          <option value="self">Submit as Self </option>
                         </select>
                       </div>
                     </section>

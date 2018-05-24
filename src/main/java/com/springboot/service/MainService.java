@@ -2,8 +2,6 @@ package com.springboot.service;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 
@@ -118,8 +116,8 @@ public class MainService {
 		
 	}
 
-	public void addSAF(List<TblSubcat> subCatList, String[] results, int ansId, int userId) {	
-		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	public void addSAF(List<TblSubcat> subCatList, String[] results, int ansId, int userId, String restype) {	
+//		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Date date = new Date();
 		for(TblSubcat sub: subCatList) 
 		{
@@ -128,7 +126,7 @@ public class MainService {
 		form.setQuestId(sub.getSubId());
 		form.setResData(results[sub.getSubId()]);
 		form.setResDate(date);
-		form.setResType("self");
+		form.setResType(restype);
 		form.setTrainId(0);//0 if di kinanglan e specify para asa na training
 		form.setUserId(userId);//para ka kinsa iyang gi answeran,para ni sa peer
 		MainRepository.addSAF(em,form);

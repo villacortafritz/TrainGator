@@ -19,21 +19,21 @@
           <a href="generalSignup.html">Create One</a>
         </p>
       </header>
-      <form class="auth-form">
+      <form class="auth-form" method="post" action="http://localhost:8080/generalSignin">
         <div class="form-group">
           <div class="form-label-group">
-            <input type="text" id="inputUser" class="form-control" placeholder="Username" required="" autofocus="">
+            <input type="email" id="inputUser" class="form-control" name="email" placeholder="email" required="" autofocus="">
             <label for="inputUser">Email</label>
           </div>
         </div>
         <div class="form-group">
           <div class="form-label-group">
-            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+            <input type="password" id="inputPassword" class="form-control" name="password" placeholder="password" required="">
             <label for="inputPassword">Password</label>
           </div>
         </div>
         <div class="form-group">
-          <button class="btn btn-lg btn-primary btn-block" type="submit" formaction="userJoined.html">Sign In</button>
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Sign In</button>
         </div>
         <div class="text-center pt-3">
           <a href="generalRecoverPassword.html" class="link">Forgot Password?</a>
