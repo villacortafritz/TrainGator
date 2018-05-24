@@ -29,7 +29,7 @@
                       <span class="oi oi-magnifying-glass"></span>
                     </span>
                   </div>
-                  <input type="text" class="form-control" aria-label="Search" placeholder="Search"> </div>
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search for a specific person"> </div>
               </div>
             </div>
             <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
