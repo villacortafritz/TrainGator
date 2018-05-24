@@ -59,13 +59,13 @@
                     <img src="/images/avatars/profile.jpg" alt="">
                   </span>
                   <span class="account-summary pr-lg-4 d-none d-lg-block">
-                    <span class="account-name">Name of User</span>
-                    <span class="account-description">Participant/Supervisor</span>
+                    <span class="account-name">${fname} ${lname}</span>
+                    <span class="account-description">${usertype}</span>
                   </span>
                 </button>
                 <div class="dropdown-arrow dropdown-arrow-left"></div>
                 <div class="dropdown-menu">
-                  <h6 class="dropdown-header d-none d-md-block d-lg-none"> Name of User </h6>
+                  <h6 class="dropdown-header d-none d-md-block d-lg-none">${fname} ${lname}</h6>
                   <a class="dropdown-item" href="generalSignin.html">
                     <span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
                     <div class="dropdown-divider"></div>
@@ -80,8 +80,8 @@
   <main class="app-main">
     <header class="page-cover">
       <div class="text-center">
-        <h2 class="h4 mt-3 mb-0"> Name of User </h2>
-        <p class="text-muted"> Participant/Supervisor </p>
+        <h2 class="h4 mt-3 mb-0">${fname} ${lname}</h2>
+        <p class="text-muted">${usertype}</p>
       </div>
     </header>
     <nav class="page-navs">

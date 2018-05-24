@@ -1,8 +1,13 @@
 package com.springboot.controller;
+<<<<<<< HEAD
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+=======
+
+
+>>>>>>> c23a3a8b2f38539d6560ab995d3bdc1f3d6122d5
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,7 +16,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import java.util.List;
+<<<<<<< HEAD
 import com.springboot.entities.TblCat;
+=======
+
+>>>>>>> c23a3a8b2f38539d6560ab995d3bdc1f3d6122d5
 import com.springboot.entities.TblSubcat;
 import com.springboot.entities.TblUser;
 import com.springboot.service.MainService;
@@ -84,7 +93,7 @@ public class MainController {
 		return "TrainGator/generalRecoverPassword";
 	}
 	
-	@RequestMapping(value="/generalSignin", method=RequestMethod.GET)
+	@RequestMapping("/generalSignin")
 	public String generalSigninGet(HttpServletRequest request, ModelMap map) {
 		return "TrainGator/generalSignin";
 	}
@@ -157,10 +166,26 @@ public class MainController {
 		return "TrainGator/userRecommended";
 	}
 	
-	@RequestMapping(value="/userSaf", method=RequestMethod.GET)
+	@RequestMapping("/userSaf")
 	public String userSaf(HttpServletRequest request, ModelMap map) {
 		return "TrainGator/userSaf";
 	}
+	@RequestMapping(value="/userSaf",method=RequestMethod.POST)
+	public String skillsAssessment(HttpServletRequest request, ModelMap map) {
+		int id = 1;
+		int ansId = Integer.parseInt(request.getParameter("ansId"));
+		int userId = Integer.parseInt(request.getParameter("userId"));
+		String restype = request.getParameter("restype");
+		String[] results = new String[60];
+		for(int i=1;i<54;i++){
+			if(request.getParameter(Integer.toString(i))!=null)
+			results[i] = request.getParameter(Integer.toString(i));
+		}
+		List<TblSubcat> SubCatList = MainService.getSubCategoriesByFormId(id);
+		MainService.addSAF(SubCatList,results,ansId,userId,restype);
+		
+		return "TrainGator/userSaf";
+	}	
 	
 	@RequestMapping(value="/userTeaf", method=RequestMethod.GET)
 	public String userTeaf(HttpServletRequest request, ModelMap map) {
@@ -171,6 +196,11 @@ public class MainController {
 	public String userTna(HttpServletRequest request, ModelMap map) {
 		return "TrainGator/userTna";
 	}
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> c23a3a8b2f38539d6560ab995d3bdc1f3d6122d5
 
 	@RequestMapping(value="/signin",method=RequestMethod.POST)
 	public String signin(HttpServletRequest request, ModelMap map) {
@@ -193,12 +223,21 @@ public class MainController {
 			return "signin";
 		}
 	}
+>>>>>>> 06c7a7eaae9d2b0ab01dcda8938f84bd532b1c39
 	
 	@RequestMapping("/userAll")
 	public String loadUserAll(){
 		return "userAll";
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+	}
+=======
+		
+>>>>>>> c23a3a8b2f38539d6560ab995d3bdc1f3d6122d5
 	}
 
+>>>>>>> 06c7a7eaae9d2b0ab01dcda8938f84bd532b1c39
 	@RequestMapping(value="/userUpcoming", method=RequestMethod.GET)
 	public String userUpcoming(HttpServletRequest request, ModelMap map) {
 		return "TrainGator/userUpcoming";

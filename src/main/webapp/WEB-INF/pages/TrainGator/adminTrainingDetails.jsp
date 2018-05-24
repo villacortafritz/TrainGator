@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,13 +62,13 @@
                     <img src="/images/avatars/profile.jpg" alt="">
                   </span>
                   <span class="account-summary pr-lg-4 d-none d-lg-block">
-                    <span class="account-name">Name of Admin</span>
-                    <span class="account-description">Administrator</span>
+                    <span class="account-name">${fname} ${lname}</span>
+                    <span class="account-description">${usertype}</span>
                   </span>
                 </button>
                 <div class="dropdown-arrow dropdown-arrow-left"></div>
                 <div class="dropdown-menu">
-                  <h6 class="dropdown-header d-none d-md-block d-lg-none"> Name of User </h6>
+                  <h6 class="dropdown-header d-none d-md-block d-lg-none">${fname} ${lname}</h6>
                   <a class="dropdown-item" href="generalSignin.html">
                     <span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
                     <div class="dropdown-divider"></div>
@@ -101,6 +104,29 @@
                           <br>
                         </section>
                       </div>
+<<<<<<< HEAD
+                      	<div class="col-lg-6">
+                           <!-- .card -->
+                           <div class="card card-fluid">
+                             <!-- .list-group -->
+                            	<form action="http://localhost:8080/insertParticipant" method="post">
+	                               <div class="list-group list-group-flush list-group-bordered">
+	                                 <div class="list-group-header"> Recommended Participants </div>
+	                                 	<c:forEach items="${recommendedList}" var="recVar">
+											<label class="list-group-item custom-control custom-checkbox">                               
+	                                       		<input name="userRecommended" type="checkbox" class="custom-control-input" value="${recVar.userId}" >
+	                                       		<span class="custom-control-label">${recVar.userFname} ${recVar.userLname}</span>
+	                                   		</label>
+										</c:forEach>	
+	                              	</div><hr>
+	                              	<div style="padding-left:40%"><button  type="submit">Add Participant</button></div>
+	                              	<hr>
+								</form>
+                             <!-- /.list-group -->
+                           </div>
+                           <!-- /.card -->
+                      	</div>                    
+=======
                       <div class="col-lg-6">
                         <div class="card card-fluid">
                           <div class="list-group list-group-flush list-group-bordered">
@@ -112,6 +138,7 @@
                           </div>
                         </div>
                       </div>
+>>>>>>> e6c4166c2d8a3add0ea7035b96122a18addbf9f2
                       <div class="col-lg-6">
                         <div class="card card-fluid">
                           <div class="list-group list-group-flush list-group-bordered">
@@ -128,41 +155,49 @@
                       <div class="col-lg-12">
                           <div class="card card-fluid">
                         <div class="card-body">
-                            <h2 class="section-title"> Confirmed Participants </h2>
-                          <div class="table-responsive">
-                            <table class="table">
-                              <thead>
-                                <tr>
-                                  <th style="width:62px">
-                                  </th>
-                                  <th style="min-width:280px">  Participant Name </th>
-                                  <th> Company Position </th>
-                                  <th> Email </th>
-                                  <th style="width: 50px;"> &nbsp; </th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <td class="align-middle">
-                                    <div class="table-custom-control custom-control custom-checkbox">
-                                    </div>
-                                  </td>
-                                  <td>
-                                    <a>Tomato - Green</a>
-                                  </td>
-                                  <td class="align-middle"> Senior Java Developer </td>
-                                  <td class="align-middle"> thisistheuseremail@gmail.com </td>
-									<td class="align-middle text-right">
-                                    <div class="btn-group">
-                                      <label class="list-group-item custom-control custom-checkbox">
-                                        <input name="listcheckbox" type="checkbox" class="custom-control-input" unchecked>
-                                        <span class="custom-control-label"></span>
-                                      </label>
-                                    </div>
-                                  </td>
-                                </tr>
-                              </tbody>
-                            </table>
+
+                           <h2 class="section-title"> Confirmed Participants </h2>
+                           <table class="table">
+                           	<thead>
+                           		<tr>
+                                	<th style="width:62px"></th>
+                                    <th style="min-width:200px">  Participant Name </th>
+                                    <th> Email </th>
+                                    <th> Job Position </th>
+                                    <th style="width: 50px;"> &nbsp; </th>
+                                    </tr>
+                           	</thead>
+                           	 <tbody>
+                           		<form action="http://localhost:8080/participant/deleteParticipant" method="post">
+	                           	                            	
+	                            	<c:forEach items="${confirmedList}" var="confVar">
+										<label class="list-group-item custom-control custom-checkbox">
+											<tr>                             				                                 	
+	                                   			<td style="width:62px"></td>
+	                                   			<td>
+	                                   				<span>${confVar.userFname} ${confVar.userLname}</span>
+	                                   			</td>	
+	                                   	 		<td>
+	                                   	 			<span> ${confVar.userEmail}</span>
+	                                   	 		</td>
+	                                   	 		<td>				                                                      
+	                                   	 			<span> ${confVar.userType}</span>	                                   	 		
+	                                   	 		</td>
+	                                   	 		<td class="align-middle text-right">				                                   
+				                                     <label class="list-group-item custom-control custom-checkbox">
+				                                       <input name="confirmedUser" type="checkbox" class="custom-control-input" value="${confVar.userId}">
+				                                       <span class="custom-control-label"></span>
+				                                     </label>				                                  
+				                                 </td>	
+	                                   	 	</tr>
+	                               		</label>
+									</c:forEach>		                     
+	                           		<button type="submit">Delete</button>
+                           		</form>	
+                           	</tbody> 
+                           </table>
+                           
+
                           </div>
                         </div>
                       </div>

@@ -60,8 +60,8 @@
                       <img src="/images/avatars/profile.jpg" alt="">
                     </span>
                     <span class="account-summary pr-lg-4 d-none d-lg-block">
-                      <span class="account-name">Name of User</span>
-                      <span class="account-description">Participant/Supervisor</span>
+                      <span class="account-name">${fname} ${lname}</span>
+                      <span class="account-description">${usertype}</span>
                     </span>
                   </button>
                   <div class="dropdown-arrow dropdown-arrow-left"></div>

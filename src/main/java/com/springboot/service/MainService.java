@@ -1,5 +1,7 @@
 package com.springboot.service;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -10,10 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.springboot.entities.TblCat;
+import com.springboot.entities.TblFormresult;
+import com.springboot.entities.TblParticipant;
 import com.springboot.entities.TblSubcat;
 import com.springboot.entities.TblTraining;
-import com.springboot.entities.TblFormdetail;
-import com.springboot.entities.TblParticipant;
 import com.springboot.entities.TblUser;
 import com.springboot.repository.custom.MainRepository;
 
@@ -81,29 +83,22 @@ public class MainService {
 		return MainRepository.getSubCategoriesByFormId(em,id);
 	}
 
-//	public boolean addTrainingParticipantRating(int trainParVal) {
-//		
-//		boolean result = false;
-//		TblFormdetail formDetail = new TblFormdetail();
-//		formDetail.setUserId(userId);
-//		
-//		
-//		return result;
-//		
-//		
-//
-//
-//		
-//	}
-	public List<TblUser> getParticipants() {
+
+	public List<TblUser> getRecommendedParticipants() {
 		
-			return MainRepository.getParticipants(em);
+			return MainRepository.getRecommendedParticipants(em);
 		
+	}
+	
+	public List<TblUser> getConfirmedParticipants() {
+		
+		return MainRepository.getConfirmedParticipants(em);
+	
 	}
 
 
 		
-	public List<TblUser> removeParticipantById(int id) {
+	public List<TblUser> removeParticipantById(String[] id) {
 			return MainRepository.removeParticipantById(em, id);
 			
 	}
@@ -112,6 +107,23 @@ public class MainService {
 		// TODO Auto-generated method stub
 		return MainRepository.checkuser(em,email,password);
 		
+	}
+
+	public void addSAF(List<TblSubcat> subCatList, String[] results, int ansId, int userId, String restype) {	
+//		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		Date date = new Date();
+		for(TblSubcat sub: subCatList) 
+		{
+		TblFormresult form = new TblFormresult();
+		form.setAnsId(ansId);//id sa kung kinsay ga answer, para rani sa peer ug sv
+		form.setQuestId(sub.getSubId());
+		form.setResData(results[sub.getSubId()]);
+		form.setResDate(date);
+		form.setResType(restype);
+		form.setTrainId(0);//0 if di kinanglan e specify para asa na training
+		form.setUserId(userId);//para ka kinsa iyang gi answeran,para ni sa peer
+		MainRepository.addSAF(em,form);
+		}
 	}
 
 

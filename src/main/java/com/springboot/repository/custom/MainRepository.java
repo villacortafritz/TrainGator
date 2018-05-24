@@ -11,6 +11,7 @@ import org.apache.commons.logging.Log;
 import org.springframework.stereotype.Repository;
 
 import com.springboot.entities.TblCat;
+import com.springboot.entities.TblFormresult;
 import com.springboot.entities.TblSubcat;
 import com.springboot.entities.TblTraining;
 import com.springboot.entities.TblParticipant;
@@ -53,35 +54,38 @@ public class MainRepository {
 		List<TblSubcat> SubCatList = query.getResultList();
 		return SubCatList;
 	}
-	public List<TblUser> getParticipants(EntityManager em) {
+	public List<TblUser> getRecommendedParticipants(EntityManager em) {
 		
-//		StringBuilder studentQuery = new StringBuilder("FROM TblUser u, TblParticipant p WHERE u.userId=p.userId");	
-//		Query query = em.createQuery(studentQuery.toString());
-//		List<TblUser> participantList = query.getResultList();
-//		return participantList;
-//		
-//		
-//		StringBuilder studentQuery = new StringBuilder("FROM TblUser u INNER JOIN FETCH TblParticipant p WHERE u.userId = p.userId");	
-//		Query query = em.createQuery(studentQuery.toString());
-//		List<TblUser> participantList = query.getResultList();
-//		return participantList;
-
 		StringBuilder studentQuery = new StringBuilder("FROM TblUser");	
 		Query query = em.createQuery(studentQuery.toString());
-		List<TblUser> participantList = query.getResultList();
-		return participantList;
+		List<TblUser> recommendedList = query.getResultList();
+		return recommendedList;
 		
+
+	}
+	
+	public List<TblUser> getConfirmedParticipants(EntityManager em) {
 		
-		//session.createQuery("from Role as role INNER JOIN Involvement as involvement WHERE involvement.id = X").list();
-		//em.createQuery(studentQuery.toString());
+		StringBuilder studentQuery = new StringBuilder("FROM TblParticipant");	
+		Query query = em.createQuery(studentQuery.toString());
+		List<TblUser> confirmedList = query.getResultList();
+		return confirmedList;
+		
+
 	}
 
 
-	public List<TblUser> removeParticipantById(EntityManager em, int id) {
-		StringBuilder studentQuery = new StringBuilder("DELETE FROM TblUser WHERE user_id =:id");
+	public List<TblUser> removeParticipantById(EntityManager em, String[] id) {
+		ArrayList<Integer> participants = new ArrayList<Integer>();
+
+		for(String ids : id){
+			Integer n = new Integer(Integer.parseInt(ids));
+			System.out.println(n);
+			participants.add(n);
+		}
+		StringBuilder studentQuery = new StringBuilder("DELETE FROM TblParticipant WHERE userId IN :id");
 		Query query = em.createQuery(studentQuery.toString());
-		
-		query.setParameter("id",id);
+		query.setParameter("id",participants);
 		query.executeUpdate();
 		return null;
 	}
@@ -99,6 +103,11 @@ public class MainRepository {
 		catch (NoResultException e){}
 		return user;
 
+	}
+
+	public void addSAF(EntityManager em, TblFormresult form) {
+		// TODO Auto-generated method stub
+		em.persist(form);
 	}
 	
 }
