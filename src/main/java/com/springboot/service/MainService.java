@@ -63,12 +63,12 @@ public class MainService {
 
 
 	public List<TblCat> getCategoriesByFormId(int id) {
-		// TODO Auto-generated method stub
+		
 		return MainRepository.getCategoriesByFormId(em,id);
 	}
 
 	public List<TblSubcat> getSubCategoriesByFormId(int id) {	
-		// TODO Auto-generated method stub
+		
 		return MainRepository.getSubCategoriesByFormId(em,id);
 	}
 
@@ -90,7 +90,7 @@ public class MainService {
 	
 
 	public Object checkUser(String email, String password) {	
-		// TODO Auto-generated method stub
+		
 		return MainRepository.checkuser(em,email,password);
 		
 	}
