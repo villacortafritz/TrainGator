@@ -257,9 +257,18 @@ public class MainController {
 		return "TrainGator/userTeaf";
 	}
 	
-	@RequestMapping(value="/submitAnswerTeaf", method=RequestMethod.GET)
+	@RequestMapping(value="/submitAnswerTeaf", method=RequestMethod.POST)
 	public String submitAnswerTeaf(HttpServletRequest request, ModelMap map) {
+		int q1Answer = Integer.parseInt(request.getParameter("q1teaf"));
+		int q2Answer = Integer.parseInt(request.getParameter("q2teaf"));
+		int q3Answer = Integer.parseInt(request.getParameter("q3teaf"));
+		int q4Answer = Integer.parseInt(request.getParameter("q4teaf"));
+		int q5Answer = Integer.parseInt(request.getParameter("q5teaf"));
+		int q6Answer = Integer.parseInt(request.getParameter("q6teaf"));
+		String q7Answer = request.getParameter("q7teaf");
+		String q8Answer = request.getParameter("q8teaf");
 		
+		MainService.submitAnswerTeaf(q1Answer,q2Answer,q3Answer,q4Answer,q5Answer,q6Answer,q7Answer,q8Answer);		
 		return "TrainGator/userTeaf";
 	}
 	

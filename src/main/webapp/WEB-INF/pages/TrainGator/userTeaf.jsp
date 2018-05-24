@@ -91,9 +91,10 @@
             <div class="section-deck">
               <section class="card card-fluid">
                 <div class="card-body" style="padding-top: 50px;">
-                  <form>
+                  <form action="http://localhost:8080/submitAnswerTeaf" method="post">
                     <fieldset>
                       <div class="form-group">
+                      	
                         <label for="exampleInputEmail1">1. ${questions.get(0).catDesc}</label>
                         <div class="col-lg-9" style="padding-top: 10px;">
                           <section class="text-center text-sm-left">
@@ -141,8 +142,7 @@
                         </div>
                       </div>
                     </fieldset>
-                  </form>
-                  <form>
+                  
                   </fieldset>
                       <div class="form-group">
                         <label for="exampleInputEmail1">2. ${questions.get(1).catDesc}</label>
@@ -192,8 +192,7 @@
                         </div>
                       </div>
                     </fieldset>
-                  </form>
-                  <form>
+                  
                     <fieldset>
                       <div class="form-group">
                         <label for="exampleInputEmail1">3. ${questions.get(2).catDesc}</label>
@@ -243,8 +242,7 @@
                         </div>
                       </div>
                     </fieldset>
-                  </form>
-                  <form>
+                  
                     <fieldset>
                       <div class="form-group">
                         <label for="exampleInputEmail1">4. ${questions.get(3).catDesc}</label>
@@ -294,8 +292,7 @@
                         </div>
                       </div>
                     </fieldset>
-                  </form>
-                  <form>
+                  
                   <fieldset>
                       <div class="form-group">
                         <label for="exampleInputEmail1">5. ${questions.get(4).catDesc}</label>
@@ -345,8 +342,7 @@
                         </div>
                       </div>
                     </fieldset>
-                  </form>
-                  <form>
+                  
                     <fieldset>
                       <div class="form-group">
                         <label for="exampleInputEmail1">6. ${questions.get(5).catDesc}</label>
@@ -404,13 +400,14 @@
                         <textarea class="form-control" name="q8teaf" rows="3"></textarea>
                       </div>
                     </fieldset>
+                    <div class="form-actions" style="margin-left:45%">
+		              <button class="btn btn-primary" type="submit" onclick="window.location.href='userAccomplished.html'">Submit form</button>
+		            </div>
                   </form>
                 </div>
               </section>
             </div>
-            <div class="form-actions" style="margin-left:45%">
-              <button class="btn btn-primary" type="submit" onclick="window.location.href='userAccomplished.html'">Submit form</button>
-            </div>
+            
           </div>
         </div>
       </div>

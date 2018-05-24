@@ -158,10 +158,17 @@ public class MainRepository {
 	}
 
 	public void submitTeafQuestions(EntityManager em, TblCat[] quesTeaf) {
-		// TODO Auto-generated method stub
 		
 		for(int i=0; i<quesTeaf.length; i++){
 			em.persist(quesTeaf[i]);
+		}
+		
+	}
+	
+	public void submitTeafAnswers(EntityManager em, TblFormresult[] ansTeaf) {
+
+		for(int i=0; i<ansTeaf.length; i++){
+			em.persist(ansTeaf[i]);
 		}
 		
 	}
@@ -172,5 +179,15 @@ public class MainRepository {
 		List<TblCat> questionsList = query.getResultList();
 		return questionsList;
 	}
+
+	
+	
+//	public void submitTeafAnswer(EntityManager em, TblFormresult form) {
+//		// TODO Auto-generated method stub
+//		em.persist(form);
+//	}
+	
+	
+	
 	
 }
