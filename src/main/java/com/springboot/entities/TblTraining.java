@@ -16,6 +16,7 @@ public class TblTraining implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue
 	@Column(name="train_id")
 	private int trainId;
 
@@ -33,23 +34,30 @@ public class TblTraining implements Serializable {
 	@Column(name="train_timeend")
 	private String trainTimeend;
 	
-	@Column(name="train_courseobjective")
-	private String trainCourseobjective;
-	
 	@Column(name="train_courseoutline")
 	private String trainCourseoutline;
 	
-	@Column(name="train_faci")
-	private int trainFaci;
+	@Column(name="train_cat")
+	private String trainCat;
 	
-	@Column(name="train_sv")
-	private int trainSv;
-	
-	@Column(name="train_pt")
-	private int trainPt;
+	@Column(name="train_name")
+	private String trainName;
 
-	@Column(name="train_status")
-	private int trainStatus;
+	public String getTrainCat() {
+		return trainCat;
+	}
+
+	public void setTrainCat(String trainCat) {
+		this.trainCat = trainCat;
+	}
+
+	public String getTrainName() {
+		return trainName;
+	}
+
+	public void setTrainName(String trainName) {
+		this.trainName = trainName;
+	}
 
 	public TblTraining() {
 	}
@@ -93,14 +101,6 @@ public class TblTraining implements Serializable {
 	public void setTrainTimeend(String trainTimeend) {
 		this.trainTimeend = trainTimeend;
 	}
-
-	public String getTrainCourseobjective() {
-		return this.trainCourseobjective;
-	}
-
-	public void setTrainCourseobjective(String trainCourseobjective) {
-		this.trainCourseobjective = trainCourseobjective;
-	}
 	
 	public String getTrainCourseoutline() {
 		return this.trainCourseoutline;
@@ -108,37 +108,5 @@ public class TblTraining implements Serializable {
 
 	public void setTrainCourseoutline(String trainCourseoutline) {
 		this.trainCourseoutline = trainCourseoutline;
-	}
-
-	public int getTrainFaci() {
-		return this.trainFaci;
-	}
-
-	public void setTrainFaci(int trainFaci) {
-		this.trainFaci = trainFaci;
-	}
-	
-	public int getTrainSv() {
-		return this.trainSv;
-	}
-
-	public void setTrainSv(int trainSv) {
-		this.trainSv = trainSv;
-	}
-	
-	public int getTrainPt() {
-		return this.trainPt;
-	}
-
-	public void setTrainPt(int trainPt) {
-		this.trainPt = trainPt;
-	}
-
-	public int getTrainStatus() {
-		return this.trainStatus;
-	}
-
-	public void setTrainStatus(int trainStatus) {
-		this.trainStatus = trainStatus;
 	}
 }
