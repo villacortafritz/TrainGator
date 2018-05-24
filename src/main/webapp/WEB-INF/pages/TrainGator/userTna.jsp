@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,8 +59,8 @@
                       <img src="/images/avatars/profile.jpg" alt="">
                     </span>
                     <span class="account-summary pr-lg-4 d-none d-lg-block">
-                      <span class="account-name">${fname} ${lname}</span>
-                      <span class="account-description">${usertype}</span>
+                      <span class="account-name">Name of User</span>
+                      <span class="account-description">Participant/Supervisor</span>
                     </span>
                   </button>
                   <div class="dropdown-arrow dropdown-arrow-left"></div>
@@ -85,27 +84,27 @@
               <header class="page-title-bar">
                 <h1 class="page-title" style="text-align:Center;"> Training Needs Analysis Form</h1>
               </header>
-<!--               <div class="page-section"> -->
-<!--                 <div class="section-deck"> -->
-<!--                   <section class="card card-fluid"> -->
-<!--                     <div class="card-body"> -->
-<!--                       <table> -->
-<!--                           <tr> -->
-<!--                             <td colspan="3"  style="padding: 10px; width:40%">Name: -->
-<!--                               <input type="text" name="" class="form-control form-control-sm"> -->
-<!--                             </td> -->
-<!--                             <td colspan="2" style="padding: 10px; width:20%">Position: -->
-<!--                               <input type="text" name="" class="form-control form-control-sm"> -->
-<!--                             </td> -->
-<!--                             <td colspan="2" style="padding: 10px; width:35%">TNA done by: -->
-<!--                               <input type="text" name="" class="form-control form-control-sm"> -->
-<!--                             </td> -->
-<!--                           </tr> -->
-<!--                         </table> -->
-<!--                     </div> -->
-<!--                   </section> -->
-<!--                 </div> -->
-<!--               </div> -->
+              <!-- <div class="page-section">
+                <div class="section-deck">
+                  <section class="card card-fluid">
+                    <div class="card-body">
+                      <table>
+                          <tr>
+                            <td colspan="3"  style="padding: 10px; width:40%">Name:
+                              <input type="text" name="" class="form-control form-control-sm">
+                            </td>
+                            <td colspan="2" style="padding: 10px; width:20%">Position:
+                              <input type="text" name="" class="form-control form-control-sm">
+                            </td>
+                            <td colspan="2" style="padding: 10px; width:35%">TNA done by:
+                              <input type="text" name="" class="form-control form-control-sm">
+                            </td>
+                          </tr>
+                        </table>
+                    </div>
+                  </section>
+                </div>
+              </div> -->
               <div class="page-section">
                 <div class="section-deck">
                   <section class="card card-fluid">
@@ -114,7 +113,7 @@
                         <tr>
                           <td rowspan="2"><center>Major tasks of position </center></td>
                           <td colspan="2"><center>Training required?</center></td>
-                          <td rowspan="2"><center>If yes, identify what training needs exist</center></td>
+                          <td rowspan="2"><center>Training Category</center></td>
                           <td rowspan="2"><center>How will this be achieved?(e.g. on the job, external training)</center></td>
                           <td rowspan="2"><center>When?</center></td>
                           <td rowspan="2"><center>Who to organise?  Training provider?</center></td>
@@ -126,12 +125,66 @@
                         <tr>
                           <td width="20%" style="padding: 10px;"><input type="text" name="" class="form-control form-control-sm"></td>
                           <td style="padding: 10px;">
-                            <input type="radio"  class="form-control" name="">
+                            <input type="radio"  class="form-control" name="radioButton1">
                           </td>
                           <td style="padding: 10px;">
-                            <input type="radio"  class="form-control" name="">
+                            <input type="radio"  class="form-control" name="radioButton1">
                           </td>
-                          <td style="padding: 10px;"><input type="text" name="" class="form-control form-control-sm"></td>
+                          <td style="padding: 10px; padding-top:25px"><div class="form-group">
+                            <select id="exampleSelect1" class="custom-select">
+                              <option selected> --------------------- </option>
+                              <option value="1"> Scope Management </option>
+                              <option value="2"> Schedule Management </option>
+                              <option value="3"> Quality Management </option>
+                              <option value="4"> Manpower Management </option>
+                              <option value="5"> Cost Management </option>
+                              <option value="6"> Communication Management </option>
+                              <option value="7"> Problem Management </option>
+                              <option value="8"> Risk Management </option>
+                              <option value="9"> Making of the recovery CD </option>
+                              <option value="10"> Setup </option>
+                              <option value="11"> Operations </option>
+                              <option value="12"> Setup of Simulator </option>
+                              <option value="13"> Simulator Operations </option>
+                              <option value="14"> HOST Simulator Operations </option>
+                              <option value="15"> Japanese </option>
+                              <option value="16"> English </option>
+                              <option value="17"> Development Process </option>
+                              <option value="18"> Devise Development Plan </option>
+                              <option value="19"> Bug Analysis </option>
+                              <option value="20"> Test / SIT / UAT Issue Management </option>
+                              <option value="21"> Grasp of Technology Trends </option>
+                              <option value="22"> Communication Skill As Expert On The Field </option>
+                              <option value="23"> Estimation of the Development </option>
+                              <option value="24"> Review Specification </option>
+                              <option value="25"> Review Source Code </option>
+                              <option value="26"> Making of Test Cases </option>
+                              <option value="27"> Review Test Cases </option>
+                              <option value="28"> Log Analysis </option>
+                              <option value="29"> C / C++ </option>
+                              <option value="30"> C# </option>
+                              <option value="31"> .NET </option>
+                              <option value="32"> MySQL </option>
+                              <option value="33"> HTML </option>
+                              <option value="34"> VBS </option>
+                              <option value="35"> JAVA / J2EE </option>
+                              <option value="36"> Windows 7 Specs </option>
+                              <option value="37"> Windows 7 Development </option>
+                              <option value="38"> Linux Spec </option>
+                              <option value="39"> Linux Development </option>
+                              <option value="40"> NDC </option>
+                              <option value="41"> DDC </option>
+                              <option value="42"> ISO </option>
+                              <option value="43"> IFX </option>
+                              <option value="44"> EMZ </option>
+                              <option value="45"> PCI </option>
+                              <option value="46"> CEN / XFS </option>
+                              <option value="47"> BIO API </option>
+                              <option value="48"> Leadership </option>
+                              <option value="49"> Competitive Human Resources </option>
+                              <option value="50"> Communication Skill </option>
+                            </select>
+                          </div></td>
                           <td style="padding: 10px;" width="20%"><input type="text" name="" class="form-control form-control-sm"></td>
                           <td style="padding: 10px;"><input type="date" name="" class="form-control form-control-sm"></td>
                           <td style="padding: 10px;"><input type="text" name="" class="form-control form-control-sm"></td>
@@ -139,12 +192,66 @@
                         <tr>
                           <td width="20%" style="padding: 10px;"><input type="text" name="" class="form-control form-control-sm"></td>
                           <td style="padding: 10px;">
-                            <input type="radio"  class="form-control" name="">
+                            <input type="radio"  class="form-control" name="radioButton2">
                           </td>
                           <td style="padding: 10px;">
-                            <input type="radio"  class="form-control" name="">
+                            <input type="radio"  class="form-control" name="radioButton2">
                           </td>
-                          <td style="padding: 10px;"><input type="text" name="" class="form-control form-control-sm"></td>
+                          <td style="padding: 10px; padding-top:25px"><div class="form-group">
+                            <select id="exampleSelect1" class="custom-select">
+                              <option selected> --------------------- </option>
+                              <option value="1"> Scope Management </option>
+                              <option value="2"> Schedule Management </option>
+                              <option value="3"> Quality Management </option>
+                              <option value="4"> Manpower Management </option>
+                              <option value="5"> Cost Management </option>
+                              <option value="6"> Communication Management </option>
+                              <option value="7"> Problem Management </option>
+                              <option value="8"> Risk Management </option>
+                              <option value="9"> Making of the recovery CD </option>
+                              <option value="10"> Setup </option>
+                              <option value="11"> Operations </option>
+                              <option value="12"> Setup of Simulator </option>
+                              <option value="13"> Simulator Operations </option>
+                              <option value="14"> HOST Simulator Operations </option>
+                              <option value="15"> Japanese </option>
+                              <option value="16"> English </option>
+                              <option value="17"> Development Process </option>
+                              <option value="18"> Devise Development Plan </option>
+                              <option value="19"> Bug Analysis </option>
+                              <option value="20"> Test / SIT / UAT Issue Management </option>
+                              <option value="21"> Grasp of Technology Trends </option>
+                              <option value="22"> Communication Skill As Expert On The Field </option>
+                              <option value="23"> Estimation of the Development </option>
+                              <option value="24"> Review Specification </option>
+                              <option value="25"> Review Source Code </option>
+                              <option value="26"> Making of Test Cases </option>
+                              <option value="27"> Review Test Cases </option>
+                              <option value="28"> Log Analysis </option>
+                              <option value="29"> C / C++ </option>
+                              <option value="30"> C# </option>
+                              <option value="31"> .NET </option>
+                              <option value="32"> MySQL </option>
+                              <option value="33"> HTML </option>
+                              <option value="34"> VBS </option>
+                              <option value="35"> JAVA / J2EE </option>
+                              <option value="36"> Windows 7 Specs </option>
+                              <option value="37"> Windows 7 Development </option>
+                              <option value="38"> Linux Spec </option>
+                              <option value="39"> Linux Development </option>
+                              <option value="40"> NDC </option>
+                              <option value="41"> DDC </option>
+                              <option value="42"> ISO </option>
+                              <option value="43"> IFX </option>
+                              <option value="44"> EMZ </option>
+                              <option value="45"> PCI </option>
+                              <option value="46"> CEN / XFS </option>
+                              <option value="47"> BIO API </option>
+                              <option value="48"> Leadership </option>
+                              <option value="49"> Competitive Human Resources </option>
+                              <option value="50"> Communication Skill </option>
+                            </select>
+                          </div></td>
                           <td style="padding: 10px;" width="20%"><input type="text" name="" class="form-control form-control-sm"></td>
                           <td style="padding: 10px;"><input type="date" name="" class="form-control form-control-sm"></td>
                           <td style="padding: 10px;"><input type="text" name="" class="form-control form-control-sm"></td>
@@ -152,12 +259,66 @@
                         <tr>
                           <td width="20%" style="padding: 10px;"><input type="text" name="" class="form-control form-control-sm"></td>
                           <td style="padding: 10px;">
-                            <input type="radio"  class="form-control" name="">
+                            <input type="radio"  class="form-control" name="radioButton3">
                           </td>
                           <td style="padding: 10px;">
-                            <input type="radio"  class="form-control" name="">
+                            <input type="radio"  class="form-control" name="radioButton3">
                           </td>
-                          <td style="padding: 10px;"><input type="text" name="" class="form-control form-control-sm"></td>
+                          <td style="padding: 10px; padding-top:25px"><div class="form-group">
+                            <select id="exampleSelect1" class="custom-select">
+                              <option selected> --------------------- </option>
+                              <option value="1"> Scope Management </option>
+                              <option value="2"> Schedule Management </option>
+                              <option value="3"> Quality Management </option>
+                              <option value="4"> Manpower Management </option>
+                              <option value="5"> Cost Management </option>
+                              <option value="6"> Communication Management </option>
+                              <option value="7"> Problem Management </option>
+                              <option value="8"> Risk Management </option>
+                              <option value="9"> Making of the recovery CD </option>
+                              <option value="10"> Setup </option>
+                              <option value="11"> Operations </option>
+                              <option value="12"> Setup of Simulator </option>
+                              <option value="13"> Simulator Operations </option>
+                              <option value="14"> HOST Simulator Operations </option>
+                              <option value="15"> Japanese </option>
+                              <option value="16"> English </option>
+                              <option value="17"> Development Process </option>
+                              <option value="18"> Devise Development Plan </option>
+                              <option value="19"> Bug Analysis </option>
+                              <option value="20"> Test / SIT / UAT Issue Management </option>
+                              <option value="21"> Grasp of Technology Trends </option>
+                              <option value="22"> Communication Skill As Expert On The Field </option>
+                              <option value="23"> Estimation of the Development </option>
+                              <option value="24"> Review Specification </option>
+                              <option value="25"> Review Source Code </option>
+                              <option value="26"> Making of Test Cases </option>
+                              <option value="27"> Review Test Cases </option>
+                              <option value="28"> Log Analysis </option>
+                              <option value="29"> C / C++ </option>
+                              <option value="30"> C# </option>
+                              <option value="31"> .NET </option>
+                              <option value="32"> MySQL </option>
+                              <option value="33"> HTML </option>
+                              <option value="34"> VBS </option>
+                              <option value="35"> JAVA / J2EE </option>
+                              <option value="36"> Windows 7 Specs </option>
+                              <option value="37"> Windows 7 Development </option>
+                              <option value="38"> Linux Spec </option>
+                              <option value="39"> Linux Development </option>
+                              <option value="40"> NDC </option>
+                              <option value="41"> DDC </option>
+                              <option value="42"> ISO </option>
+                              <option value="43"> IFX </option>
+                              <option value="44"> EMZ </option>
+                              <option value="45"> PCI </option>
+                              <option value="46"> CEN / XFS </option>
+                              <option value="47"> BIO API </option>
+                              <option value="48"> Leadership </option>
+                              <option value="49"> Competitive Human Resources </option>
+                              <option value="50"> Communication Skill </option>
+                            </select>
+                          </div></td>
                           <td style="padding: 10px;" width="20%"><input type="text" name="" class="form-control form-control-sm"></td>
                           <td style="padding: 10px;"><input type="date" name="" class="form-control form-control-sm"></td>
                           <td style="padding: 10px;"><input type="text" name="" class="form-control form-control-sm"></td>
@@ -165,12 +326,66 @@
                         <tr>
                           <td width="20%" style="padding: 10px;"><input type="text" name="" class="form-control form-control-sm"></td>
                           <td style="padding: 10px;">
-                            <input type="radio"  class="form-control" name="">
+                            <input type="radio"  class="form-control" name="radioButton4">
                           </td>
                           <td style="padding: 10px;">
-                            <input type="radio"  class="form-control" name="">
+                            <input type="radio"  class="form-control" name="radioButton4">
                           </td>
-                          <td style="padding: 10px;"><input type="text" name="" class="form-control form-control-sm"></td>
+                          <td style="padding: 10px; padding-top:25px"><div class="form-group">
+                            <select id="exampleSelect1" class="custom-select">
+                              <option selected> --------------------- </option>
+                              <option value="1"> Scope Management </option>
+                              <option value="2"> Schedule Management </option>
+                              <option value="3"> Quality Management </option>
+                              <option value="4"> Manpower Management </option>
+                              <option value="5"> Cost Management </option>
+                              <option value="6"> Communication Management </option>
+                              <option value="7"> Problem Management </option>
+                              <option value="8"> Risk Management </option>
+                              <option value="9"> Making of the recovery CD </option>
+                              <option value="10"> Setup </option>
+                              <option value="11"> Operations </option>
+                              <option value="12"> Setup of Simulator </option>
+                              <option value="13"> Simulator Operations </option>
+                              <option value="14"> HOST Simulator Operations </option>
+                              <option value="15"> Japanese </option>
+                              <option value="16"> English </option>
+                              <option value="17"> Development Process </option>
+                              <option value="18"> Devise Development Plan </option>
+                              <option value="19"> Bug Analysis </option>
+                              <option value="20"> Test / SIT / UAT Issue Management </option>
+                              <option value="21"> Grasp of Technology Trends </option>
+                              <option value="22"> Communication Skill As Expert On The Field </option>
+                              <option value="23"> Estimation of the Development </option>
+                              <option value="24"> Review Specification </option>
+                              <option value="25"> Review Source Code </option>
+                              <option value="26"> Making of Test Cases </option>
+                              <option value="27"> Review Test Cases </option>
+                              <option value="28"> Log Analysis </option>
+                              <option value="29"> C / C++ </option>
+                              <option value="30"> C# </option>
+                              <option value="31"> .NET </option>
+                              <option value="32"> MySQL </option>
+                              <option value="33"> HTML </option>
+                              <option value="34"> VBS </option>
+                              <option value="35"> JAVA / J2EE </option>
+                              <option value="36"> Windows 7 Specs </option>
+                              <option value="37"> Windows 7 Development </option>
+                              <option value="38"> Linux Spec </option>
+                              <option value="39"> Linux Development </option>
+                              <option value="40"> NDC </option>
+                              <option value="41"> DDC </option>
+                              <option value="42"> ISO </option>
+                              <option value="43"> IFX </option>
+                              <option value="44"> EMZ </option>
+                              <option value="45"> PCI </option>
+                              <option value="46"> CEN / XFS </option>
+                              <option value="47"> BIO API </option>
+                              <option value="48"> Leadership </option>
+                              <option value="49"> Competitive Human Resources </option>
+                              <option value="50"> Communication Skill </option>
+                            </select>
+                          </div></td>
                           <td style="padding: 10px;" width="20%"><input type="text" name="" class="form-control form-control-sm"></td>
                           <td style="padding: 10px;"><input type="date" name="" class="form-control form-control-sm"></td>
                           <td style="padding: 10px;"><input type="text" name="" class="form-control form-control-sm"></td>
@@ -178,12 +393,66 @@
                         <tr>
                           <td width="20%" style="padding: 10px;"><input type="text" name="" class="form-control form-control-sm"></td>
                           <td style="padding: 10px;">
-                            <input type="radio"  class="form-control" name="">
+                            <input type="radio"  class="form-control" name="radioButton5">
                           </td>
                           <td style="padding: 10px;">
-                            <input type="radio"  class="form-control" name="">
+                            <input type="radio"  class="form-control" name="radioButton5">
                           </td>
-                          <td style="padding: 10px;"><input type="text" name="" class="form-control form-control-sm"></td>
+                          <td style="padding: 10px; padding-top:25px"><div class="form-group">
+                            <select id="exampleSelect1" class="custom-select">
+                              <option selected> --------------------- </option>
+                              <option value="1"> Scope Management </option>
+                              <option value="2"> Schedule Management </option>
+                              <option value="3"> Quality Management </option>
+                              <option value="4"> Manpower Management </option>
+                              <option value="5"> Cost Management </option>
+                              <option value="6"> Communication Management </option>
+                              <option value="7"> Problem Management </option>
+                              <option value="8"> Risk Management </option>
+                              <option value="9"> Making of the recovery CD </option>
+                              <option value="10"> Setup </option>
+                              <option value="11"> Operations </option>
+                              <option value="12"> Setup of Simulator </option>
+                              <option value="13"> Simulator Operations </option>
+                              <option value="14"> HOST Simulator Operations </option>
+                              <option value="15"> Japanese </option>
+                              <option value="16"> English </option>
+                              <option value="17"> Development Process </option>
+                              <option value="18"> Devise Development Plan </option>
+                              <option value="19"> Bug Analysis </option>
+                              <option value="20"> Test / SIT / UAT Issue Management </option>
+                              <option value="21"> Grasp of Technology Trends </option>
+                              <option value="22"> Communication Skill As Expert On The Field </option>
+                              <option value="23"> Estimation of the Development </option>
+                              <option value="24"> Review Specification </option>
+                              <option value="25"> Review Source Code </option>
+                              <option value="26"> Making of Test Cases </option>
+                              <option value="27"> Review Test Cases </option>
+                              <option value="28"> Log Analysis </option>
+                              <option value="29"> C / C++ </option>
+                              <option value="30"> C# </option>
+                              <option value="31"> .NET </option>
+                              <option value="32"> MySQL </option>
+                              <option value="33"> HTML </option>
+                              <option value="34"> VBS </option>
+                              <option value="35"> JAVA / J2EE </option>
+                              <option value="36"> Windows 7 Specs </option>
+                              <option value="37"> Windows 7 Development </option>
+                              <option value="38"> Linux Spec </option>
+                              <option value="39"> Linux Development </option>
+                              <option value="40"> NDC </option>
+                              <option value="41"> DDC </option>
+                              <option value="42"> ISO </option>
+                              <option value="43"> IFX </option>
+                              <option value="44"> EMZ </option>
+                              <option value="45"> PCI </option>
+                              <option value="46"> CEN / XFS </option>
+                              <option value="47"> BIO API </option>
+                              <option value="48"> Leadership </option>
+                              <option value="49"> Competitive Human Resources </option>
+                              <option value="50"> Communication Skill </option>
+                            </select>
+                          </div></td>
                           <td style="padding: 10px;" width="20%"><input type="text" name="" class="form-control form-control-sm"></td>
                           <td style="padding: 10px;"><input type="date" name="" class="form-control form-control-sm"></td>
                           <td style="padding: 10px;"><input type="text" name="" class="form-control form-control-sm"></td>
