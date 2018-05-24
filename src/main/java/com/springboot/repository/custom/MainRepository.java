@@ -6,6 +6,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
+import org.apache.commons.logging.Log;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.springboot.entities.TblCat;
@@ -15,10 +17,14 @@ import com.springboot.entities.TblSubcat;
 import com.springboot.entities.TblTraining;
 import com.springboot.entities.TblParticipant;
 import com.springboot.entities.TblUser;
+import com.springboot.service.MainService;
 
 @Repository
 @Transactional
 public class MainRepository {
+	
+	@Autowired
+	private MainService MainService;
 
 	public boolean addUser(EntityManager em, TblUser user) {	
 		boolean result = false;
@@ -32,11 +38,7 @@ public class MainRepository {
 		return training.getTrainId();
 	}
 
-	public boolean addParticipant(EntityManager em, TblParticipant participant) {
-		boolean result = false;
-		em.persist(participant);
-		return result;
-	}
+
 
 	public List<TblCat> getCategoriesByFormId(EntityManager em, int id) {
 		StringBuilder CatQuery = new StringBuilder("FROM TblCat WHERE form_id = :id");
@@ -71,6 +73,28 @@ public class MainRepository {
 		return confirmedList;
 		
 
+	}
+	
+	public boolean addParticipant(EntityManager em, String[] id) {
+		boolean result = false;
+		
+		ArrayList<Integer> participants = new ArrayList<Integer>();
+		for(String ids : id){
+			Integer n = new Integer(Integer.parseInt(ids));
+			System.out.println(n);
+			participants.add(n);
+		}
+		
+		for(int i=0; i<id.length; i++){
+			StringBuilder addquery = new StringBuilder("FROM TblUser WHERE user_id = :id");
+			Query query = em.createQuery(addquery.toString());
+			query.setParameter("id", participants.get(i));
+			List<TblUser> addParticipant = query.getResultList();
+			MainService.addParticipantPhase2(addParticipant);
+		}
+		
+		
+		return result;
 	}
 
 
@@ -124,6 +148,12 @@ public class MainRepository {
 
 	public void addFacilitator(EntityManager em, TblFacilitator facilitator) {
 		em.persist(facilitator);
+		
+	}
+	public void addParticipantPhase2(EntityManager em, TblParticipant participant) {
+		// TODO Auto-generated method stub
+
+		em.persist(participant);
 		
 	}
 	

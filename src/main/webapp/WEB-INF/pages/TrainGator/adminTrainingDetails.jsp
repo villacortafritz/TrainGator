@@ -104,12 +104,12 @@
                           <br>
                         </section>
                       </div>
-<<<<<<< HEAD
+
                       	<div class="col-lg-6">
                            <!-- .card -->
                            <div class="card card-fluid">
                              <!-- .list-group -->
-                            	<form action="http://localhost:8080/insertParticipant" method="post">
+                            	<form action="http://localhost:8080/participant/insertParticipant" method="post">
 	                               <div class="list-group list-group-flush list-group-bordered">
 	                                 <div class="list-group-header"> Recommended Participants </div>
 	                                 	<c:forEach items="${recommendedList}" var="recVar">
@@ -126,19 +126,8 @@
                            </div>
                            <!-- /.card -->
                       	</div>                    
-=======
-                      <div class="col-lg-6">
-                        <div class="card card-fluid">
-                          <div class="list-group list-group-flush list-group-bordered">
-                            <div class="list-group-header"> Recommended Participants </div>
-                            <label class="list-group-item custom-control custom-checkbox">
-                              <input name="listcheckbox" type="checkbox" class="custom-control-input" unchecked>
-                              <span class="custom-control-label">Bunny Barros</span>
-                            </label>
-                          </div>
-                        </div>
-                      </div>
->>>>>>> e6c4166c2d8a3add0ea7035b96122a18addbf9f2
+
+
                       <div class="col-lg-6">
                         <div class="card card-fluid">
                           <div class="list-group list-group-flush list-group-bordered">

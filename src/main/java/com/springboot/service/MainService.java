@@ -58,25 +58,14 @@ public class MainService {
 		return MainRepository.addTraining(em,training);
 	}
 
-	public boolean addParticipant(int userID) {
-		// TODO Auto-generated method stub
-		boolean result = false;
-		TblParticipant participant = new TblParticipant();
-		participant.setUserId(userID);
-		
-		result = MainRepository.addParticipant(em, participant);
-		
-		return result;
-		
-	}
 
 	public List<TblCat> getCategoriesByFormId(int id) {
-		// TODO Auto-generated method stub
+		
 		return MainRepository.getCategoriesByFormId(em,id);
 	}
 
 	public List<TblSubcat> getSubCategoriesByFormId(int id) {	
-		// TODO Auto-generated method stub
+		
 		return MainRepository.getSubCategoriesByFormId(em,id);
 	}
 
@@ -98,7 +87,7 @@ public class MainService {
 	}
 
 	public Object checkUser(String email, String password) {	
-		// TODO Auto-generated method stub
+		
 		return MainRepository.checkuser(em,email,password);
 		
 	}
@@ -119,6 +108,8 @@ public class MainService {
 		MainRepository.addSAF(em,form);
 		}
 	}
+	
+
 
 	public List<TblUser> getUsers() {
 		// TODO Auto-generated method stub
@@ -162,7 +153,20 @@ public class MainService {
 		}
 		
 	}
-
-
+	public void addParticipant(String[] userId) {
+		MainRepository.addParticipant(em, userId);
+		
+	}
+	
+	public void addParticipantPhase2(List<TblUser> part){
+		for(TblUser par: part){
+			TblParticipant participant = new TblParticipant();
+			// TO BE CHANGE IF MANA ANG CONNECTION
+			participant.setUserId(par.getUserId());
+			participant.setTrainId(101);  // TO BE CHANGE IF MANA ANG CONNECTION
+			MainRepository.addParticipantPhase2(em,participant);
+		}
+		
+	}
 }
 	
