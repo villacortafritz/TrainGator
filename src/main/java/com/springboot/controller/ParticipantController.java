@@ -34,7 +34,17 @@ public class ParticipantController {
 		String[] id = request.getParameterValues("confirmedUser");
 		MainService.removeParticipantById(id);
 
-		return loadTrainingDetailsScreen(request, map);
+		return loadTrainingDetailsScreen(request,map);
+	}
+	
+	@RequestMapping(value="/insertParticipant",method=RequestMethod.POST)
+	public String addParticipant(HttpServletRequest request, ModelMap map) {
+				
+		String[] userId =  request.getParameterValues("userRecommended");
+	
+		MainService.addParticipant(userId);
+				
+		return  loadTrainingDetailsScreen(request, map);
 	}
 	
 
