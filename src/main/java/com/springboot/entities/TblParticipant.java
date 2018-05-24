@@ -16,13 +16,14 @@ public class TblParticipant implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue
 	@Column(name="part_id")
 	private int partId;
 
 	@Column(name="train_id")
 	private int trainId;
 	
-
+	
 	@Column(name="user_id")
 	private int userId;
 	

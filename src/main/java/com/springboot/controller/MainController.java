@@ -1,8 +1,16 @@
 package com.springboot.controller;
+
+
+
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+
+
+
+
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,7 +19,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import java.util.List;
+
+
 import com.springboot.entities.TblCat;
+
+
+
+
+import com.springboot.entities.TblCat;
+
 import com.springboot.entities.TblSubcat;
 import com.springboot.entities.TblUser;
 import com.springboot.service.MainService;
@@ -198,6 +214,10 @@ public class MainController {
 		return "TrainGator/userTna";
 	}
 
+
+
+
+
 	@RequestMapping(value="/signin",method=RequestMethod.POST)
 	public String signin(HttpServletRequest request, ModelMap map) {
 		String email = request.getParameter("email");
@@ -219,11 +239,23 @@ public class MainController {
 			return "signin";
 		}
 	}
+
+
+
+
 	
 	@RequestMapping("/userAll")
 	public String loadUserAll(){
 		return "userAll";
+
+
 	}
+
+
+
+
+	
+
 
 	@RequestMapping(value="/userUpcoming", method=RequestMethod.GET)
 	public String userUpcoming(HttpServletRequest request, ModelMap map) {
