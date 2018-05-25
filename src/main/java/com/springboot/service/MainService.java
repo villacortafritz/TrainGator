@@ -55,6 +55,7 @@ public class MainService {
 		training.setTrainCourseoutline(train_courseoutline);	
 		training.setTrainCat(train_cat);
 		training.setTrainName(train_name);
+		training.setTrainStatus(1);
 		return MainRepository.addTraining(em,training);
 	}
 
@@ -81,8 +82,8 @@ public class MainService {
 		return MainRepository.getConfirmedParticipants(em);
 	
 	}
-	public List<TblUser> removeParticipantById(String[] id) {
-			return MainRepository.removeParticipantById(em, id);
+	public List<TblUser> removeParticipantById(String[] id, int trainid) {
+			return MainRepository.removeParticipantById(em, id,trainid);
 			
 	}
 
@@ -164,9 +165,30 @@ public class MainService {
 			// TO BE CHANGE IF MANA ANG CONNECTION
 			participant.setUserId(par.getUserId());
 			participant.setTrainId(101);  // TO BE CHANGE IF MANA ANG CONNECTION
+//			participant.setUserFname(par.getUserFname());
+//			participant.setUserLname(par.getUserLname());
+//			participant.setUserEmail(par.getUserEmail());
+//			participant.setUserType(par.getUserType());
 			MainRepository.addParticipantPhase2(em,participant);
 		}
-		
+	}
+
+	public List<Object> getUpcomingTraining() {
+		return MainRepository.getUpcomingTraining(em);
+	}
+
+	public Object getTrainingById(int trainId) {
+		return MainRepository.getTrainingById(em,trainId);
+	}
+
+	public List<Object> getParticipantsById(int trainId) {
+		// TODO Auto-generated method stub
+		return MainRepository.getParticipantsById(em,trainId);
+	}
+
+	public List<Object> getFacilitatorsById(int trainId) {
+		// TODO Auto-generated method stub
+		return MainRepository.getFacilitatorsById(em,trainId);
 	}
 }
 	

@@ -42,6 +42,17 @@ public class TblTraining implements Serializable {
 	
 	@Column(name="train_name")
 	private String trainName;
+	
+	@Column(name="train_status")
+	private int trainStatus;
+	
+	public int getTrainStatus() {
+		return trainStatus;
+	}
+
+	public void setTrainStatus(int trainStatus) {
+		this.trainStatus = trainStatus;
+	}
 
 	public String getTrainCat() {
 		return trainCat;

@@ -6,7 +6,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
+
 import org.apache.commons.logging.Log;
+import org.hibernate.SQLQuery;
+import org.hibernate.Session;
+import org.hibernate.transform.Transformers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -98,7 +102,7 @@ public class MainRepository {
 	}
 
 
-	public List<TblUser> removeParticipantById(EntityManager em, String[] id) {
+	public List<TblUser> removeParticipantById(EntityManager em, String[] id, int trainid) {
 		ArrayList<Integer> participants = new ArrayList<Integer>();
 
 		for(String ids : id){
@@ -106,9 +110,10 @@ public class MainRepository {
 			System.out.println(n);
 			participants.add(n);
 		}
-		StringBuilder studentQuery = new StringBuilder("DELETE FROM TblParticipant WHERE userId IN :id");
+		StringBuilder studentQuery = new StringBuilder("DELETE FROM TblParticipant WHERE userId IN :userid AND trainId = :trainid");
 		Query query = em.createQuery(studentQuery.toString());
-		query.setParameter("id",participants);
+		query.setParameter("userid",participants);
+		query.setParameter("trainid",trainid);
 		query.executeUpdate();
 		return null;
 	}
@@ -134,8 +139,8 @@ public class MainRepository {
 	}
 
 	public List<TblUser> getUsers(EntityManager em) {	
-		StringBuilder uquery = new StringBuilder("FROM TblUser WHERE userType != :type");
-		Query query = em.createQuery(uquery.toString());
+		StringBuilder userquery = new StringBuilder("FROM TblUser WHERE userType != :type");
+		Query query = em.createQuery(userquery.toString());
 		query.setParameter("type", "administrator");
 		List<TblUser> users = query.getResultList();
 		return users;
@@ -155,6 +160,65 @@ public class MainRepository {
 
 		em.persist(participant);
 		
+	}
+
+	public List<Object> getUpcomingTraining(EntityManager em) {	
+//		StringBuilder trainquery = new StringBuilder();
+//		Query query = em.createQuery(
+//				"SELECT t.trainName, COUNT(p.userId) as partNo "
+//				+"FROM TblTraining t FULL JOIN TblParticipant p "
+//				+"ON t.trainId = p.trainId "
+//				+"WHERE trainStatus = 1"
+//				);
+//		List<Object[]> list = query.getResultList();
+//		return list;
+		Session session = em.unwrap(Session.class);
+		StringBuilder stringQuery = new StringBuilder(
+				"SELECT t.train_name, COUNT(p.user_id) as partNo, t.train_id "
+				+"FROM tbl_training t JOIN tbl_participant p "
+				+"ON t.train_id = p.train_id "
+				+"WHERE train_status = 1 "
+				+"GROUP BY t.train_id");
+		SQLQuery query = session.createSQLQuery(stringQuery.toString());
+//		query.setResultTransformer(Transformers.aliasToBean(User.class));
+		List<Object> list = query.list();
+		return list;
+	}
+
+	public Object getTrainingById(EntityManager em, int trainId) {
+		StringBuilder trainquery = new StringBuilder("FROM TblTraining WHERE trainId = :id");
+		Query query = em.createQuery(trainquery.toString());
+		query.setParameter("id", trainId);
+		Object trainDetail = query.getSingleResult();
+		return trainDetail;
+	}
+
+	public List<Object> getParticipantsById(EntityManager em, int trainId) {
+		Session session = em.unwrap(Session.class);
+		StringBuilder stringQuery = new StringBuilder(
+				"SELECT u.* "
+				+"FROM tbl_participant p JOIN tbl_user u "
+				+"ON p.user_id = u.user_id "
+				+"WHERE p.train_id = :id ");
+		SQLQuery query = session.createSQLQuery(stringQuery.toString());
+		query.setParameter("id", trainId);
+//		query.setResultTransformer(Transformers.aliasToBean(User.class));
+		List<Object> list = query.list();
+		return list;
+	}
+
+	public List<Object> getFacilitatorsById(EntityManager em, int trainId) {
+		Session session = em.unwrap(Session.class);
+		StringBuilder stringQuery = new StringBuilder(
+				"SELECT u.* "
+				+"FROM tbl_facilitator f JOIN tbl_user u "
+				+"ON f.user_id = u.user_id "
+				+"WHERE f.train_id = :id ");
+		SQLQuery query = session.createSQLQuery(stringQuery.toString());
+		query.setParameter("id", trainId);
+//		query.setResultTransformer(Transformers.aliasToBean(User.class));
+		List<Object> list = query.list();
+		return list;
 	}
 	
 }

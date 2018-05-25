@@ -1,6 +1,7 @@
 package com.springboot.controller;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Locale;
@@ -13,19 +14,19 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
+
 import java.util.List;
 
-
 import com.springboot.entities.TblCat;
-
-
+import com.springboot.entities.TblParticipant;
 import com.springboot.entities.TblSubcat;
+import com.springboot.entities.TblTraining;
 import com.springboot.entities.TblUser;
 import com.springboot.service.MainService;
 
 @Controller
 @RequestMapping("")
-@SessionAttributes({"userID","fname","lname","usertype","trainID"})//mapped variables that is declared here will auto acquire the data, can be accessed every page
+@SessionAttributes({"userID","fname","lname","usertype","trainId"})//mapped variables that is declared here will auto acquire the data, can be accessed every page
 public class MainController {
 	
 	@Autowired
@@ -40,11 +41,11 @@ public class MainController {
 		int trainId = Integer.parseInt(request.getParameter("train_id"));
 		String[] facilist = request.getParameterValues("facilist");
 		String[] partlist = request.getParameterValues("partlist");
-		System.out.println(Arrays.toString(facilist));
-		System.out.println(Arrays.toString(partlist));
+//		System.out.println(Arrays.toString(facilist));
+//		System.out.println(Arrays.toString(partlist));
 		MainService.addParticipant2(partlist,trainId);//for clarification
 		MainService.addFacilitator(facilist,trainId);
-		return "TrainGator/adminAddFacilitator";
+		return "TrainGator/adminUpcoming";
 	}
 	
 	@RequestMapping(value="/adminAddParticipant", method=RequestMethod.GET)
@@ -117,11 +118,54 @@ public class MainController {
 	}
 	
 	@RequestMapping(value="/adminTrainingDetails", method=RequestMethod.GET)
-	public String adminTrainingDetails(HttpServletRequest request, ModelMap map) {
+	public String loadTrainingDetailsScreen(HttpServletRequest request, ModelMap map) {
+//		List<TblUser> recommendedList = MainService.getRecommendedParticipants();
+		String trainId = request.getParameter("trainId");
+		Object trainingdetails = MainService.getTrainingById(Integer.parseInt(trainId));
+		List<Object> participants = MainService.getParticipantsById(Integer.parseInt(trainId));
+		List<Object> facilitators = MainService.getFacilitatorsById(Integer.parseInt(trainId));
+		map.addAttribute("trainId",trainId);
+		map.addAttribute("trainingdetails", trainingdetails);
+		map.addAttribute("participants", participants);
+		map.addAttribute("facilitators", facilitators);
+//		map.addAttribute("recommendedList", recommendedList);	
+		return "TrainGator/adminTrainingDetails";	
+	}
+	
+	@RequestMapping(value="/removeParticipant",method=RequestMethod.POST)
+	public String removeParticipantById(HttpServletRequest request, ModelMap map) {
+		String[] id = request.getParameterValues("partipantId");
+//		System.out.println(request.getParameter("trainid")+ "aaaaaaaaaaaaaa");
+		String trainId = request.getParameter("trainId");
+		MainService.removeParticipantById(id,Integer.parseInt(trainId));
+		//remove then display again the details
+		Object trainingdetails = MainService.getTrainingById(Integer.parseInt(trainId));
+		List<Object> participants = MainService.getParticipantsById(Integer.parseInt(trainId));
+		List<Object> facilitators = MainService.getFacilitatorsById(Integer.parseInt(trainId));
+		map.addAttribute("trainId",trainId);
+		map.addAttribute("trainingdetails", trainingdetails);
+		map.addAttribute("participants", participants);
+		map.addAttribute("facilitators", facilitators);
+		map.addAttribute("trainId",trainId);
+		
 		return "TrainGator/adminTrainingDetails";
 	}
 	
-	@RequestMapping(value="/adminUpcoming", method=RequestMethod.GET)
+	@RequestMapping(value="/insertParticipant",method=RequestMethod.POST)
+	public String addParticipant(HttpServletRequest request, ModelMap map) {
+		String[] userId =  request.getParameterValues("userRecommended");
+		MainService.addParticipant(userId);
+		return  loadTrainingDetailsScreen(request, map);
+	}
+	
+	@RequestMapping("/adminUpcoming")
+	public String loadadminUpcoming(ModelMap map) {
+		List<Object> list = new ArrayList<>();
+		list = MainService.getUpcomingTraining();
+		map.addAttribute("list",list);
+		return "TrainGator/adminUpcoming";
+	}
+	@RequestMapping(value="/adminUpcoming", method=RequestMethod.POST)
 	public String adminUpcoming(HttpServletRequest request, ModelMap map) {
 		return "TrainGator/adminUpcoming";
 	}
@@ -235,10 +279,6 @@ public class MainController {
 		return "TrainGator/userTna";
 	}
 
-
-
-
-
 	@RequestMapping(value="/signin",method=RequestMethod.POST)
 	public String signin(HttpServletRequest request, ModelMap map) {
 		String email = request.getParameter("email");
@@ -260,24 +300,10 @@ public class MainController {
 			return "signin";
 		}
 	}
-
-
-
-
-	
 	@RequestMapping("/userAll")
 	public String loadUserAll(){
 		return "userAll";
-
-
 	}
-
-
-
-
-	
-
-
 	@RequestMapping(value="/userUpcoming", method=RequestMethod.GET)
 	public String userUpcoming(HttpServletRequest request, ModelMap map) {
 		return "TrainGator/userUpcoming";

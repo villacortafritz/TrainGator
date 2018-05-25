@@ -49,9 +49,9 @@
           <label for="exampleSelect1">Position in the company</label>
           <select id="exampleSelect1" class="custom-select" name="role">
             <option selected> Select role </option>
-            <option value="1"> Regular Employee </option>
-            <option value="2"> Supervisor/Manager </option>
-            <option value="3"> Senior Employee </option>
+            <option value="Regular Employee"> Regular Employee </option>
+            <option value="Supervisor/Manager"> Supervisor/Manager </option>
+            <option value="Senior Employe"> Senior Employee </option>
           </select>
         </div>
         <div class="form-group">
