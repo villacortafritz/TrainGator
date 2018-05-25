@@ -168,5 +168,117 @@ public class MainService {
 		}
 		
 	}
+
+	public void submitTeafQuestions(String question1, String question2,
+			String question3, String question4, String question5,
+			String question6, String question7) {
+		// TODO Auto-generated method stub
+		
+		TblCat quesTeaf[] = new TblCat[7];
+		
+		for(int i = 0; i < 7 ; i++)
+		{
+			quesTeaf[i] = new TblCat();
+		}
+		
+		quesTeaf[0].setFormId(4);
+		quesTeaf[0].setCatDesc(question1);
+		quesTeaf[1].setFormId(4);
+		quesTeaf[1].setCatDesc(question2);
+		quesTeaf[2].setFormId(4);
+		quesTeaf[2].setCatDesc(question3);
+		quesTeaf[3].setFormId(4);
+		quesTeaf[3].setCatDesc(question4);
+		quesTeaf[4].setFormId(4);
+		quesTeaf[4].setCatDesc(question5);
+		quesTeaf[5].setFormId(4);
+		quesTeaf[5].setCatDesc(question6);
+		quesTeaf[6].setFormId(4);
+		quesTeaf[6].setCatDesc(question7);
+		
+		
+		
+		MainRepository.submitTeafQuestions(em,quesTeaf);
+		
+
+	}
+
+	public List<TblCat> getTeafQuestions() {
+		return MainRepository.getTeafQuestions(em);
+		
+	}
+
+	public void submitAnswerTeaf(int q1Answer, int q2Answer, int q3Answer,
+			int q4Answer, int q5Answer, int q6Answer, String q7Answer,
+			String q8Answer) {
+		Date date = new Date();
+		TblFormresult ansTeaf[] = new TblFormresult[8];
+		for(int i = 0; i < 8 ; i++)
+		{
+			ansTeaf[i] = new TblFormresult();
+		}
+		
+		ansTeaf[0].setResData(Integer.toString(q1Answer));
+		ansTeaf[0].setQuestId(1);
+		ansTeaf[0].setAnsId(1); // ILISAN PA NI BASTA NANA ANG ACTIVE USER NA AMBOT LANG
+		ansTeaf[0].setResDate(date);
+		ansTeaf[0].setTrainId(101); // ILISANAN PANI HUHU
+		
+		ansTeaf[1].setResData(Integer.toString(q2Answer));
+		ansTeaf[1].setQuestId(2);
+		ansTeaf[1].setAnsId(1); 
+		ansTeaf[1].setResDate(date);
+		ansTeaf[1].setTrainId(101); 
+		
+		ansTeaf[2].setResData(Integer.toString(q3Answer));
+		ansTeaf[2].setQuestId(3);
+		ansTeaf[2].setAnsId(1); 
+		ansTeaf[2].setResDate(date);
+		ansTeaf[2].setTrainId(101);
+		
+		ansTeaf[3].setResData(Integer.toString(q4Answer));
+		ansTeaf[3].setQuestId(4);
+		ansTeaf[3].setAnsId(1); 
+		ansTeaf[3].setResDate(date);
+		ansTeaf[3].setTrainId(101); 
+		
+		ansTeaf[4].setResData(Integer.toString(q5Answer));
+		ansTeaf[4].setQuestId(5);
+		ansTeaf[4].setAnsId(1); 
+		ansTeaf[4].setResDate(date);
+		ansTeaf[4].setTrainId(101); 
+		
+		ansTeaf[5].setResData(Integer.toString(q6Answer));
+		ansTeaf[5].setQuestId(6);
+		ansTeaf[5].setAnsId(1); 
+		ansTeaf[5].setResDate(date);
+		ansTeaf[5].setTrainId(101);
+		
+		ansTeaf[6].setResData(q7Answer);
+		ansTeaf[6].setQuestId(7);
+		ansTeaf[6].setAnsId(1); 
+		ansTeaf[6].setResDate(date);
+		ansTeaf[6].setTrainId(101);
+		
+		ansTeaf[7].setResData(q8Answer);
+		ansTeaf[7].setQuestId(8);
+		ansTeaf[7].setAnsId(1); 
+		ansTeaf[7].setResDate(date);
+		ansTeaf[7].setTrainId(101);
+		
+		
+		MainRepository.submitTeafAnswers(em, ansTeaf);
+		
+
+
+		
+		
+		
+		
+		
+		
+		
+	}
+
 }
 	

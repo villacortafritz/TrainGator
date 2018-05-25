@@ -176,20 +176,25 @@
 				                                     <label class="list-group-item custom-control custom-checkbox">
 				                                       <input name="confirmedUser" type="checkbox" class="custom-control-input" value="${confVar.userId}">
 				                                       <span class="custom-control-label"></span>
+				                                      
 				                                     </label>				                                  
 				                                 </td>	
 	                                   	 	</tr>
+	                                   	 	
 	                               		</label>
 									</c:forEach>		                     
-	                           		<button type="submit">Delete</button>
+	                           		<tr> <button type="submit">Delete</button></tr>
                            		</form>	
                            	</tbody> 
+                           	
                            </table>
                            
 
                           </div>
+                          
                         </div>
                       </div>
+                      
                     </div>
                     </div>
                   </div>

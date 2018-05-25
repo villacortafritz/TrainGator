@@ -156,5 +156,38 @@ public class MainRepository {
 		em.persist(participant);
 		
 	}
+
+	public void submitTeafQuestions(EntityManager em, TblCat[] quesTeaf) {
+		
+		for(int i=0; i<quesTeaf.length; i++){
+			em.persist(quesTeaf[i]);
+		}
+		
+	}
+	
+	public void submitTeafAnswers(EntityManager em, TblFormresult[] ansTeaf) {
+
+		for(int i=0; i<ansTeaf.length; i++){
+			em.persist(ansTeaf[i]);
+		}
+		
+	}
+
+	public List<TblCat> getTeafQuestions(EntityManager em) {
+		StringBuilder studentQuery = new StringBuilder("FROM TblCat WHERE form_id = 4");	
+		Query query = em.createQuery(studentQuery.toString());
+		List<TblCat> questionsList = query.getResultList();
+		return questionsList;
+	}
+
+	
+	
+//	public void submitTeafAnswer(EntityManager em, TblFormresult form) {
+//		// TODO Auto-generated method stub
+//		em.persist(form);
+//	}
+	
+	
+	
 	
 }
