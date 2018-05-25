@@ -43,7 +43,7 @@ public class MainController {
 		System.out.println(Arrays.toString(facilist));
 		System.out.println(Arrays.toString(partlist));
 		MainService.addParticipant2(partlist,trainId);//for clarification
-		MainService.addFacilitator(facilist,trainId);
+//		MainService.addFacilitator(facilist,trainId);
 		return "TrainGator/adminAddFacilitator";
 	}
 	
