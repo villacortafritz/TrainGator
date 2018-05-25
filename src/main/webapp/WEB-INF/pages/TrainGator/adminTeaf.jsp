@@ -33,26 +33,6 @@
               </div>
             </div>
             <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
-              <ul class="header-nav nav">
-                <li class="nav-item dropdown header-nav-dropdown has-notified">
-                  <a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="oi oi-pulse"></span>
-                  </a>
-                  <div class="dropdown-arrow"></div>
-                  <div class="dropdown-menu dropdown-menu-rich dropdown-menu-right">
-                    <h6 class="dropdown-header stop-propagation">
-                      <span>Activities
-                        <span class="badge">(1)</span>
-                      </span>
-                    </h6>
-                    <div class="dropdown-scroll has-scrollable">
-                      <a href="#" class="dropdown-item unread">
-                        <div class="user-avatar"><img src="/images/avatars/uifaces15.jpg" alt=""></div>
-                        <div class="dropdown-item-body"><p class="text"> Jeffrey Wells created a schedule </p></div>
-                      </a>
-                  </div>
-                </li>
-              </ul>
               <button class="btn btn-primary" style="height:55px" onclick="window.location = 'adminOngoing.html'">
                 <span class="oi oi-home ml-1"></span>
               </button>
@@ -88,6 +68,7 @@
             <h1 class="page-title" style="text-align:center;"> Training Effectiveness Assessment Form </h1>
           </header>
           <div class="page-section">
+          <form action="http://localhost:8080/submitQuestions" method="post">
             <div class="section-deck">
                 <section class="card card-fluid">
                   <div class="card-body">
@@ -96,49 +77,49 @@
                         Input for Question 1
                       </tr>
                       <tr style="padding: 10px; margin: 10px;">
-                        <textarea class="form-control" placeholder="Enter question here"></textarea>
+                        <textarea name="ques1" class="form-control" placeholder="Enter question here"></textarea>
                         </br>
                       </tr>
                       <tr style="padding: 10px; margin: 10px;">
                         Input for Question 2
                       </tr>
                       <tr style="padding: 10px; margin: 10px;">
-                        <textarea class="form-control" placeholder="Enter question here"></textarea>
+                        <textarea name="ques2" class="form-control" placeholder="Enter question here"></textarea>
                         </br>
                       </tr>
                       <tr style="padding: 10px; margin: 10px;">
                         Input for Question 3
                       </tr>
                       <tr style="padding: 10px; margin: 10px;">
-                        <textarea class="form-control" placeholder="Enter question here"></textarea>
+                        <textarea name="ques3" class="form-control" placeholder="Enter question here"></textarea>
                         </br>
                       </tr>
                       <tr style="padding: 10px; margin: 10px;">
                         Input for Question 4
                       </tr>
                       <tr style="padding: 10px; margin: 10px;">
-                        <textarea class="form-control" placeholder="Enter question here"></textarea>
+                        <textarea name="ques4" class="form-control" placeholder="Enter question here"></textarea>
                         </br>
                       </tr>
                       <tr style="padding: 10px; margin: 10px;">
                         Input for Question 5
                       </tr>
                       <tr style="padding: 10px; margin: 10px;">
-                        <textarea class="form-control" placeholder="Enter question here"></textarea>
+                        <textarea name="ques5" class="form-control" placeholder="Enter question here"></textarea>
                         </br>
                       </tr>
                       <tr style="padding: 10px; margin: 10px;">
                         Input for Question 6
                       </tr>
                       <tr style="padding: 10px; margin: 10px;">
-                        <textarea class="form-control" placeholder="Enter question here"></textarea>
+                        <textarea name="ques6" class="form-control" placeholder="Enter question here"></textarea>
                         </br>
                       </tr>
                       <tr style="padding: 10px; margin: 10px;">
                         Input for Question 7
                       </tr>
                       <tr style="padding: 10px; margin: 10px;">
-                        <textarea class="form-control" placeholder="Enter question here"></textarea>
+                        <textarea name="ques7" class="form-control" placeholder="Enter question here"></textarea>
                         </br>
                       </tr>
                     </table>
@@ -146,8 +127,9 @@
                 </section>
             </div>
             <div class="form-actions" style="padding-left:45%">
-              <button class="btn btn-primary" type="submit" onclick="window.location.href='adminConcluded.html'">Submit form</button>
+              <button class="btn btn-primary" type="submit">Submit form</button>
             </div>
+           </form> 
           </div>
       </div>
     </div>

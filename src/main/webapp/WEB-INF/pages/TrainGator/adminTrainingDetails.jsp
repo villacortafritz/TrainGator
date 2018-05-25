@@ -173,20 +173,30 @@
                                                <input name="partipantId" id="partipantId" type="checkbox" onclick="hide()" class="custom-control-input" value="${partVar[0]}">
 				                                       <input name="trainid" type="hidden" value="${trainId}">
 				                                       <span class="custom-control-label"></span>
+				                                      
 				                                     </label>				                                  
 				                                 </td>	
 	                                   	 	</tr>
+	                                   	 	
 	                               		</label>
+<<<<<<< HEAD
               									</c:forEach>
                                         <tr>
                                           <td colspan="4"><button type="submit" id="deletebtn"  class="btn btn-primary btn-block">Delete</button></td>
                                         </tr>		                     
+=======
+									</c:forEach>		                     
+	                           		<tr> <button type="submit">Delete</button></tr>
+>>>>>>> 82e06b0a282a88a1b47661708d81d3683c4dc45e
                            		</form>	
                            	</tbody> 
+                           	
                            </table>
                           </div>
+                          
                         </div>
                       </div>
+                      
                     </div>
                     </div>
                   </div>

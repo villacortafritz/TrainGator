@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.Locale;
 
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import java.util.List;
+
 
 import com.springboot.entities.TblCat;
 import com.springboot.entities.TblParticipant;
@@ -46,6 +48,8 @@ public class MainController {
 		MainService.addParticipant2(partlist,trainId);//for clarification
 		MainService.addFacilitator(facilist,trainId);
 		return "TrainGator/adminUpcoming";
+////		MainService.addFacilitator(facilist,trainId);
+//		return "TrainGator/adminAddFacilitator";
 	}
 	
 	@RequestMapping(value="/adminAddParticipant", method=RequestMethod.GET)
@@ -112,10 +116,29 @@ public class MainController {
 		return "TrainGator/adminOngoing";
 	}
 	
-	@RequestMapping(value="/adminTeaf", method=RequestMethod.GET)
-	public String adminTeaf(HttpServletRequest request, ModelMap map) {
+	@RequestMapping("/adminTeaf")
+	public String loadAdminTeaf(HttpServletRequest request, ModelMap map) {
 		return "TrainGator/adminTeaf";
 	}
+	
+
+	@RequestMapping(value="/submitQuestions", method=RequestMethod.POST)
+	public String submitQuestions(HttpServletRequest request, ModelMap map) {
+		String question1 = request.getParameter("ques1");
+		String question2 = request.getParameter("ques2");
+		String question3 = request.getParameter("ques3");
+		String question4 = request.getParameter("ques4");
+		String question5 = request.getParameter("ques5");
+		String question6 = request.getParameter("ques6");
+		String question7 = request.getParameter("ques7");
+		
+		MainService.submitTeafQuestions(question1,question2,question3,question4,question5,question6,question7);
+		return "TrainGator/adminTeaf";
+	}
+	
+	
+	
+	
 	
 	@RequestMapping(value="/adminTrainingDetails", method=RequestMethod.GET)
 	public String loadTrainingDetailsScreen(HttpServletRequest request, ModelMap map) {
@@ -270,9 +293,28 @@ public class MainController {
 	}	
 	
 	@RequestMapping(value="/userTeaf", method=RequestMethod.GET)
-	public String userTeaf(HttpServletRequest request, ModelMap map) {
+	public String loadUserTeaf(HttpServletRequest request, ModelMap map) {
+		List<TblCat> teafQuestions = MainService.getTeafQuestions();
+		map.addAttribute("questions", teafQuestions);
 		return "TrainGator/userTeaf";
 	}
+	
+	@RequestMapping(value="/submitAnswerTeaf", method=RequestMethod.POST)
+	public String submitAnswerTeaf(HttpServletRequest request, ModelMap map) {
+		int q1Answer = Integer.parseInt(request.getParameter("q1teaf"));
+		int q2Answer = Integer.parseInt(request.getParameter("q2teaf"));
+		int q3Answer = Integer.parseInt(request.getParameter("q3teaf"));
+		int q4Answer = Integer.parseInt(request.getParameter("q4teaf"));
+		int q5Answer = Integer.parseInt(request.getParameter("q5teaf"));
+		int q6Answer = Integer.parseInt(request.getParameter("q6teaf"));
+		String q7Answer = request.getParameter("q7teaf");
+		String q8Answer = request.getParameter("q8teaf");
+		
+		MainService.submitAnswerTeaf(q1Answer,q2Answer,q3Answer,q4Answer,q5Answer,q6Answer,q7Answer,q8Answer);		
+		return "TrainGator/userTeaf";
+	}
+	
+
 	
 	@RequestMapping(value="/userTna", method=RequestMethod.GET)
 	public String userTna(HttpServletRequest request, ModelMap map) {
@@ -308,6 +350,12 @@ public class MainController {
 	public String userUpcoming(HttpServletRequest request, ModelMap map) {
 		return "TrainGator/userUpcoming";
 	}
+	
+	
+	
+	
+	
+	
 	
 //	@RequestMapping(value="/tnaform",method=RequestMethod.GET)
 //	public String tnaform(HttpServletRequest request, ModelMap map) {
