@@ -1,11 +1,7 @@
 Manifest-Version: 1.0
 Implementation-Title: Spring Boot Web JSP Example
 Implementation-Version: 1.0
-<<<<<<< HEAD
 Built-By: user
-=======
-Built-By: ruzieljonm
->>>>>>> c45f479a0d37254236c4f3fece088bdd6368646b
 Implementation-Vendor-Id: org.springframework.boot
 Build-Jdk: 1.8.0_171
 Implementation-URL: https://www.mkyong.com
