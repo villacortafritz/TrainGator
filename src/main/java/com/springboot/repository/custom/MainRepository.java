@@ -7,11 +7,13 @@ import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
+import org.apache.commons.logging.Log;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.springboot.entities.TblAttendance;
 import com.springboot.entities.TblCat;
 import com.springboot.entities.TblFacilitator;
 //import com.springboot.entities.TblFacilitator;
@@ -70,10 +72,15 @@ public class MainRepository {
 	
 	public List<TblUser> getConfirmedParticipants(EntityManager em) {
 		
-		StringBuilder studentQuery = new StringBuilder("FROM TblParticipant");	
-		Query query = em.createQuery(studentQuery.toString());
-		List<TblUser> confirmedList = query.getResultList();
-		return confirmedList;
+		
+		Session session = em.unwrap(Session.class);
+		StringBuilder stringQuery = new StringBuilder(
+				"SELECT u.* "
+				+ "FROM tbl_participant p JOIN tbl_user u "
+				+ "ON p.user_id = u.user_id ");
+		SQLQuery query = session.createSQLQuery(stringQuery.toString());
+		List<TblUser> list = query.list();
+		return list;
 		
 
 	}
@@ -149,7 +156,6 @@ public class MainRepository {
 		em.persist(participant);
 		
 	}
-
 	public void addFacilitator(EntityManager em, TblFacilitator facilitator) {
 		em.persist(facilitator);
 		
@@ -179,20 +185,6 @@ public class MainRepository {
 		query.setParameter("id", trainId);
 		Object trainDetail = query.getSingleResult();
 		return trainDetail;
-	}
-
-	public List<Object> getParticipantsById(EntityManager em, int trainId) {
-		Session session = em.unwrap(Session.class);
-		StringBuilder stringQuery = new StringBuilder(
-				"SELECT u.* "
-				+"FROM tbl_participant p JOIN tbl_user u "
-				+"ON p.user_id = u.user_id "
-				+"WHERE p.train_id = :id ");
-		SQLQuery query = session.createSQLQuery(stringQuery.toString());
-		query.setParameter("id", trainId);
-//		query.setResultTransformer(Transformers.aliasToBean(User.class));
-		List<Object> list = query.list();
-		return list;
 	}
 
 	public List<Object> getFacilitatorsById(EntityManager em, int trainId) {
@@ -231,6 +223,7 @@ public class MainRepository {
 		return questionsList;
 	}
 
+
 //	public List<Object> getConcludedTraining(EntityManager em) {
 //		Session session = em.unwrap(Session.class);
 //		StringBuilder stringQuery = new StringBuilder(
@@ -250,5 +243,24 @@ public class MainRepository {
 //		// TODO Auto-generated method stub
 //		em.persist(form);
 //	}
+	
+
+	public List<Object> getParticipantsById(EntityManager em, int trainId) {
+		Session session = em.unwrap(Session.class);
+		StringBuilder stringQuery = new StringBuilder(
+				"SELECT u.* "
+				+ "FROM tbl_participant p JOIN tbl_user u "
+				+ "ON p.user_id = u.user_id "
+				+ "WHERE p.train_id = :id ");
+		SQLQuery query = session.createSQLQuery(stringQuery.toString());
+		query.setParameter("id", trainId);
+		List<Object> list = query.list();
+		return list;
+	}
+
+	public void submitAttendance(EntityManager em, TblAttendance attend) {
+			em.persist(attend);	
+			
+	}
 	
 }

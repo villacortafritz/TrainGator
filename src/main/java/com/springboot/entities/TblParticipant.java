@@ -27,7 +27,7 @@ public class TblParticipant implements Serializable {
 	@Column(name="user_id")
 	private int userId;
 	
-/*	@Column(name="user_email")
+	@Column(name="user_email")
 	private String userEmail;
 
 	@Column(name="user_fname")
@@ -37,7 +37,7 @@ public class TblParticipant implements Serializable {
 	private String userLname;
 
 	@Column(name="user_type")
-	private String userType;*/
+	private String userType;
 
 	public TblParticipant() {
 	}
@@ -66,7 +66,7 @@ public class TblParticipant implements Serializable {
 		this.userId = userId;
 	}
 	
-/*	public String getUserEmail() {
+	public String getUserEmail() {
 		return this.userEmail;
 	}
 
@@ -96,6 +96,6 @@ public class TblParticipant implements Serializable {
 
 	public void setUserType(String userType) {
 		this.userType = userType;
-	}*/
+	}
 
 }

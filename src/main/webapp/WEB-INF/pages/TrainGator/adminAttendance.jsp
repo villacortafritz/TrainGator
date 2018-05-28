@@ -36,7 +36,11 @@
                 </div>
               </div>
               <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
+<<<<<<< HEAD
+                <button class="btn btn-primary" style="height:55px" onclick="window.location = 'userJoined.html'">
+=======
                 <button class="btn btn-primary" style="height:55px" onclick="window.location = 'adminOngoing.html'">
+>>>>>>> 82e06b0a282a88a1b47661708d81d3683c4dc45e
                   <span class="oi oi-home ml-1"></span>
                 </button>
                 <div class="dropdown">
@@ -80,6 +84,7 @@
             <section class="card card-fluid">
             <div class="card-body">
               <div class="table-responsive">
+              <form action="http://localhost:8080/submitAttendance" method="post">
                 <table class="table">
                   <thead>
                     <tr>
@@ -89,6 +94,24 @@
                     </tr>
                   </thead>
                   <tbody>
+<<<<<<< HEAD
+                  
+                  	<c:forEach items="${confirmedList}" var="partAttend">
+	                  	<tr>
+	                      <td class="align-middle"></td>
+	                      <td>
+	                        <a>${partAttend[1]} ${partAttend[2]}</a>
+	                      </td>
+	                      <td class="align-middle">
+	                        <label class="switcher-control" style="margin-left:8px">
+	                        <input type="checkbox" name="confirmedAttend" class="switcher-input" value="${partAttend[0]}">
+	                        <span class="switcher-indicator"></span>
+	                        </label>
+	                     </td>
+	                  	</tr>                		
+					</c:forEach>	
+					                   
+=======
                     <tr>
                       <td class="align-middle"></td>
                       <td>
@@ -101,15 +124,24 @@
                         </label>
                      </td>
                   </tr>
+>>>>>>> 82e06b0a282a88a1b47661708d81d3683c4dc45e
                 </tbody>
               </table>
+              <div class="form-actions" style="padding-left:45%">
+		        <button class="btn btn-primary" type="submit">Confirm</button>
+		      </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
+<<<<<<< HEAD
+      
+=======
       <div class="form-actions" style="padding-left:45%">
         <button class="btn btn-primary" type="submit" onclick="window.location.href='adminOngoing.html'">Confirm</button>
       </div>
+>>>>>>> 82e06b0a282a88a1b47661708d81d3683c4dc45e
     </main>
   <script src="/vendor/jquery/jquery.min.js"></script>
   <script src="/vendor/bootstrap/js/popper.min.js"></script>
