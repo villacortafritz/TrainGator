@@ -18,11 +18,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import java.util.List;
 
-
-
-
 import com.springboot.entities.TblCat;
-
 
 
 import com.springboot.entities.TblCat;
@@ -50,7 +46,7 @@ public class MainController {
 		System.out.println(Arrays.toString(facilist));
 		System.out.println(Arrays.toString(partlist));
 		MainService.addParticipant2(partlist,trainId);//for clarification
-		MainService.addFacilitator(facilist,trainId);
+//		MainService.addFacilitator(facilist,trainId);
 		return "TrainGator/adminAddFacilitator";
 	}
 	

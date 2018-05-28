@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 
 import com.springboot.entities.TblAttendance;
 import com.springboot.entities.TblCat;
-import com.springboot.entities.TblFacilitator;
+//import com.springboot.entities.TblFacilitator;
 import com.springboot.entities.TblFormresult;
 import com.springboot.entities.TblSubcat;
 import com.springboot.entities.TblTraining;
@@ -155,10 +155,7 @@ public class MainRepository {
 		
 	}
 
-	public void addFacilitator(EntityManager em, TblFacilitator facilitator) {
-		em.persist(facilitator);
-		
-	}
+
 	public void addParticipantPhase2(EntityManager em, TblParticipant participant) {
 		// TODO Auto-generated method stub
 

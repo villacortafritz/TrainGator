@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Course Feedback Form | TrainGator </title>
+  <title> Course Feedback Form | TrainGator </title>
   <link rel="shortcut icon" href="/icon.png">
   <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="/vendor/font-awesome/css/fontawesome-all.min.css">
@@ -34,26 +34,6 @@
               </div>
             </div>
             <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
-              <ul class="header-nav nav">
-                <li class="nav-item dropdown header-nav-dropdown has-notified">
-                  <a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="oi oi-pulse"></span>
-                  </a>
-                  <div class="dropdown-arrow"></div>
-                  <div class="dropdown-menu dropdown-menu-rich dropdown-menu-right">
-                    <h6 class="dropdown-header stop-propagation">
-                      <span>Activities
-                        <span class="badge">(1)</span>
-                      </span>
-                    </h6>
-                    <div class="dropdown-scroll has-scrollable">
-                      <a href="#" class="dropdown-item unread">
-                        <div class="user-avatar"><img src="/images/avatars/uifaces15.jpg" alt=""></div>
-                        <div class="dropdown-item-body"><p class="text"> Jeffrey Wells created a schedule </p></div>
-                      </a>
-                  </div>
-                </li>
-              </ul>
               <button class="btn btn-primary" style="height:55px" onclick="window.location = 'userJoined.html'">
                 <span class="oi oi-home ml-1"></span>
               </button>
@@ -63,13 +43,13 @@
                     <img src="/images/avatars/profile.jpg" alt="">
                   </span>
                   <span class="account-summary pr-lg-4 d-none d-lg-block">
-                    <span class="account-name">N${fname} ${lname}</span>
-                    <span class="account-description">${usertype}</span>
+                    <span class="account-name">Name of User</span>
+                    <span class="account-description">Participant/Supervisor</span>
                   </span>
                 </button>
                 <div class="dropdown-arrow dropdown-arrow-left"></div>
                 <div class="dropdown-menu">
-                  <h6 class="dropdown-header d-none d-md-block d-lg-none">${fname} ${lname}</h6>
+                  <h6 class="dropdown-header d-none d-md-block d-lg-none"> Name of User </h6>
                   <a class="dropdown-item" href="generalSignin.html">
                     <span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
                     <div class="dropdown-divider"></div>
@@ -92,36 +72,103 @@
             <div class="section-deck">
                 <section class="card card-fluid">
                   <div class="card-body">
-                    <table>
-                      <tr style="padding: 10px; margin: 10px;">
-                        Question 1
-                      </tr>
-                      <tr style="padding: 10px; margin: 10px;">
-                        <textarea class="form-control" placeholder="Enter comment here"></textarea>
-                        </br>
-                      </tr>
-                      <tr style="padding: 10px; margin: 10px;">
-                        Question 2
-                      </tr>
-                      <tr style="padding: 10px; margin: 10px;">
-                        <textarea class="form-control" placeholder="Enter comment here"></textarea>
-                        </br>
-                      </tr>
-                      <tr style="padding: 10px; margin: 10px;">
-                        Question 3
-                      </tr>
-                      <tr style="padding: 10px; margin: 10px;">
-                        <textarea class="form-control" placeholder="Enter comment here"></textarea>
-                        </br>
-                      </tr>
-                      <tr style="padding: 10px; margin: 10px;">
-                        Question 4
-                      </tr>
-                      <tr style="padding: 10px; margin: 10px;">
-                        <textarea class="form-control" placeholder="Enter comment here"></textarea>
-                        </br>
-                      </tr>
-                    </table>
+                    <div class="form-group">
+                      <strong><label for="customCheck1">1. Comprehension of the Subject. (This question pertains to how the comprehension of the student improved,<br>&nbsp;&nbsp;&nbsp; by comparing their comprehension before the class and after the class.) </label></strong><br>
+                      <div class="custom-control custom-checkbox" style="margin-left:20px">
+                        <input type="checkbox" class="custom-control-input" id="1CheckBox1">
+                        <label class="custom-control-label" for="1CheckBox1">3 or more Levels</label>
+                      </div>
+                      <div class="custom-control custom-checkbox" style="margin-left:20px">
+                        <input type="checkbox" class="custom-control-input" id="1CheckBox2">
+                        <label class="custom-control-label" for="1CheckBox2">2 Levels</label>
+                      </div>
+                      <div class="custom-control custom-checkbox" style="margin-left:20px">
+                        <input type="checkbox" class="custom-control-input" id="1CheckBox3">
+                        <label class="custom-control-label" for="1CheckBox3">1 Level</label>
+                      </div>
+                      <div class="custom-control custom-checkbox" style="margin-left:20px">
+                        <input type="checkbox" class="custom-control-input" id="1CheckBox4">
+                        <label class="custom-control-label" for="1CheckBox4">No Improvement</label>
+                      </div>
+                      <div class="custom-control custom-checkbox" style="margin-left:20px">
+                        <input type="checkbox" class="custom-control-input" id="1CheckBox5">
+                        <label class="custom-control-label" for="1CheckBox5">Regressed</label>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <strong><label for="customCheck1">2. If your answer to #1 is either "No improvement" or "Regressed", give your reason(s) by choosing one or several of the items below:  </label></strong><br>
+                      <div class="custom-control custom-checkbox" style="margin-left:20px">
+                        <input type="checkbox" class="custom-control-input" id="2CheckBox1">
+                        <label class="custom-control-label" for="2CheckBox1">The textbooks/manuals were too difficult.</label>
+                      </div>
+                      <div class="custom-control custom-checkbox" style="margin-left:20px">
+                        <input type="checkbox" class="custom-control-input" id="2CheckBox2">
+                        <label class="custom-control-label" for="2CheckBox2">The textbooks/manuals were inadequate.</label>
+                      </div>
+                      <div class="custom-control custom-checkbox" style="margin-left:20px">
+                        <input type="checkbox" class="custom-control-input" id="2CheckBox3">
+                        <label class="custom-control-label" for="2CheckBox3">The explanation of the instructor was insufficient.</label>
+                      </div>
+                      <div class="custom-control custom-checkbox" style="margin-left:20px">
+                        <input type="checkbox" class="custom-control-input" id="2CheckBox4">
+                        <label class="custom-control-label" for="2CheckBox4">The content of the lectures was too difficult.</label>
+                      </div>
+                      <div class="custom-control custom-checkbox" style="margin-left:20px">
+                        <input type="checkbox" class="custom-control-input" id="2CheckBox5">
+                        <label class="custom-control-label" for="2CheckBox5">The size of the class was too big.</label>
+                      </div>
+                      <div class="custom-control custom-checkbox" style="margin-left:20px">
+                        <input type="checkbox" class="custom-control-input" id="2CheckBox6">
+                        <label class="custom-control-label" for="2CheckBox6">I did not have enough time to finish the exercise.</label>
+                      </div>
+                      <div class="custom-control custom-checkbox" style="margin-left:20px">
+                        <input type="checkbox" class="custom-control-input" id="2CheckBox7">
+                        <label class="custom-control-label" for="2CheckBox7">I did not have pre-knowledge of this subject.</label>
+                      </div>
+                      <div class="custom-control custom-checkbox" style="margin-left:20px">
+                        <input type="checkbox" class="custom-control-input" id="2CheckBox8">
+                        <label class="custom-control-label" for="2CheckBox8">I was absent during critical period of the subject.</label>
+                      </div>
+                      <div class="custom-control custom-checkbox" style="margin-left:20px">
+                        <input type="checkbox" class="custom-control-input" id="2CheckBox9">
+                        <label class="custom-control-label" for="2CheckBox9">I did not pay sufficient attention to instructor.</label>
+                      </div>
+                      <div class="custom-control custom-checkbox" style="margin-left:20px">
+                        <input type="checkbox" class="custom-control-input" id="2CheckBox10">
+                        <label class="custom-control-label" for="2CheckBox10">My computer experience was insufficient.</label>
+                      </div>
+                      <div class="custom-control custom-checkbox" style="margin-left:20px">
+                        <input type="checkbox" class="custom-control-input" id="2CheckBox11">
+                        <label class="custom-control-label" for="2CheckBox11">Other  </label>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <strong><label for="customCheck1">3. How well did you understand each objective given by the instructor? </label></strong><br>
+                      <div class="custom-control custom-checkbox" style="margin-left:20px">
+                        <input type="checkbox" class="custom-control-input" id="3CheckBox1">
+                        <label class="custom-control-label" for="3CheckBox1">Very Well</label>
+                      </div>
+                      <div class="custom-control custom-checkbox" style="margin-left:20px">
+                        <input type="checkbox" class="custom-control-input" id="3CheckBox2">
+                        <label class="custom-control-label" for="3CheckBox2">Well</label>
+                      </div>
+                      <div class="custom-control custom-checkbox" style="margin-left:20px">
+                        <input type="checkbox" class="custom-control-input" id="3CheckBox3">
+                        <label class="custom-control-label" for="3CheckBox3">Fair</label>
+                      </div>
+                      <div class="custom-control custom-checkbox" style="margin-left:20px">
+                        <input type="checkbox" class="custom-control-input" id="3CheckBox4">
+                        <label class="custom-control-label" for="3CheckBox4">Little</label>
+                      </div>
+                      <div class="custom-control custom-checkbox" style="margin-left:20px">
+                        <input type="checkbox" class="custom-control-input" id="3CheckBox5">
+                        <label class="custom-control-label" for="3CheckBox5">Very Little.</label>
+                      </div>
+                      <div class="custom-control custom-checkbox" style="margin-left:20px">
+                        <input type="checkbox" class="custom-control-input" id="3CheckBox6">
+                        <label class="custom-control-label" for="3CheckBox6">No Response</label>
+                      </div>
+                    </div>
                   </div>
                 </section>
             </div>

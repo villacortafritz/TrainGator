@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 
 import com.springboot.entities.TblAttendance;
 import com.springboot.entities.TblCat;
-import com.springboot.entities.TblFacilitator;
+//import com.springboot.entities.TblFacilitator;
 import com.springboot.entities.TblFormresult;
 import com.springboot.entities.TblParticipant;
 import com.springboot.entities.TblSubcat;
@@ -137,23 +137,23 @@ public class MainService {
 		
 	}
 
-	public void addFacilitator(String[] facilist, int trainId) {
-		ArrayList<Integer> faciId = new ArrayList<Integer>();
-		//convert String[] to int[]
-		for(String faci: facilist) 
-		{
-			Integer id = new Integer(Integer.parseInt(faci));
-			faciId.add(id);
-		}
-		for(int faci: faciId) 
-		{
-			TblFacilitator facilitator = new TblFacilitator();
-			facilitator.setUserId(faci);
-			facilitator.setTrainId(trainId);
-			MainRepository.addFacilitator(em, facilitator);
-		}
-		
-	}
+//	public void addFacilitator(String[] facilist, int trainId) {
+//		ArrayList<Integer> faciId = new ArrayList<Integer>();
+//		//convert String[] to int[]
+//		for(String faci: facilist) 
+//		{
+//			Integer id = new Integer(Integer.parseInt(faci));
+//			faciId.add(id);
+//		}
+//		for(int faci: faciId) 
+//		{
+//			TblFacilitator facilitator = new TblFacilitator();
+//			facilitator.setUserId(faci);
+//			facilitator.setTrainId(trainId);
+//			MainRepository.addFacilitator(em, facilitator);
+//		}
+//	}
+	
 	public void addParticipant(String[] userId) {
 		MainRepository.addParticipant(em, userId);
 		
