@@ -2,9 +2,8 @@ package com.springboot.controller;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
-import java.util.Locale;
+
 
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import java.util.List;
+
 
 
 import com.springboot.entities.TblCat;
@@ -34,10 +34,7 @@ public class MainController {
 	@Autowired
 	private MainService MainService;
 	
-	@RequestMapping("/adminAddFacilitator")
-	public String loadadminAddFacilitator(ModelMap map) {
-		return "TrainGator/adminAddFacilitator";
-	}
+
 	@RequestMapping(value="/adminAddFacilitator", method=RequestMethod.POST)
 	public String adminAddFacilitator(HttpServletRequest request,ModelMap map) {
 		int trainId = Integer.parseInt(request.getParameter("train_id"));
@@ -45,11 +42,14 @@ public class MainController {
 		String[] partlist = request.getParameterValues("partlist");
 //		System.out.println(Arrays.toString(facilist));
 //		System.out.println(Arrays.toString(partlist));
-		MainService.addParticipant2(partlist,trainId);//for clarification
+		MainService.addParticipant(partlist,trainId);//for clarification
 		MainService.addFacilitator(facilist,trainId);
+		
+		//redirected to adminupcoming with mapped datas
+		List<Object> list = new ArrayList<>();
+		list = MainService.getUpcomingTraining();
+		map.addAttribute("list",list);
 		return "TrainGator/adminUpcoming";
-////		MainService.addFacilitator(facilist,trainId);
-//		return "TrainGator/adminAddFacilitator";
 	}
 	
 	@RequestMapping(value="/adminAddParticipant", method=RequestMethod.GET)
@@ -67,7 +67,12 @@ public class MainController {
 		return "TrainGator/adminCff";
 	}
 	
-	@RequestMapping(value="/adminConcluded", method=RequestMethod.GET)
+	@RequestMapping("/adminConcluded")
+	public String loadadminConcluded( ModelMap map) {
+//		List<Object> trainlist = MainService.getConcludedTraining();
+		return "TrainGator/adminConcluded";
+	}
+	@RequestMapping(value="/adminConcluded", method=RequestMethod.POST)
 	public String adminConcluded(HttpServletRequest request, ModelMap map) {
 		return "TrainGator/adminConcluded";
 	}
@@ -135,11 +140,7 @@ public class MainController {
 		MainService.submitTeafQuestions(question1,question2,question3,question4,question5,question6,question7);
 		return "TrainGator/adminTeaf";
 	}
-	
-	
-	
-	
-	
+		
 	@RequestMapping(value="/adminTrainingDetails", method=RequestMethod.GET)
 	public String loadTrainingDetailsScreen(HttpServletRequest request, ModelMap map) {
 //		List<TblUser> recommendedList = MainService.getRecommendedParticipants();
@@ -151,7 +152,7 @@ public class MainController {
 		map.addAttribute("trainingdetails", trainingdetails);
 		map.addAttribute("participants", participants);
 		map.addAttribute("facilitators", facilitators);
-//		map.addAttribute("recommendedList", recommendedList);	
+//		map.addAttribute("recommendedList", recommendedList);	 to work on
 		return "TrainGator/adminTrainingDetails";	
 	}
 	
@@ -177,14 +178,18 @@ public class MainController {
 	@RequestMapping(value="/insertParticipant",method=RequestMethod.POST)
 	public String addParticipant(HttpServletRequest request, ModelMap map) {
 		String[] userId =  request.getParameterValues("userRecommended");
-		MainService.addParticipant(userId);
+		int trainId =  Integer.parseInt(request.getParameter("train_id"));
+//		MainService.addParticipant(userId, trainId); // to work on
 		return  loadTrainingDetailsScreen(request, map);
 	}
 	
 	@RequestMapping("/adminUpcoming")
 	public String loadadminUpcoming(ModelMap map) {
-		List<Object> list = new ArrayList<>();
-		list = MainService.getUpcomingTraining();
+		List<Object> list = MainService.getUpcomingTraining();
+//		for(Object i:list){
+//			System.out.println(i);
+//		}
+//		list = MainService.getUpcomingTraining();
 		map.addAttribute("list",list);
 		return "TrainGator/adminUpcoming";
 	}
@@ -313,9 +318,6 @@ public class MainController {
 		MainService.submitAnswerTeaf(q1Answer,q2Answer,q3Answer,q4Answer,q5Answer,q6Answer,q7Answer,q8Answer);		
 		return "TrainGator/userTeaf";
 	}
-	
-
-	
 	@RequestMapping(value="/userTna", method=RequestMethod.GET)
 	public String userTna(HttpServletRequest request, ModelMap map) {
 		return "TrainGator/userTna";
@@ -351,12 +353,7 @@ public class MainController {
 		return "TrainGator/userUpcoming";
 	}
 	
-	
-	
-	
-	
-	
-	
+
 //	@RequestMapping(value="/tnaform",method=RequestMethod.GET)
 //	public String tnaform(HttpServletRequest request, ModelMap map) {
 //		return "tnaform";

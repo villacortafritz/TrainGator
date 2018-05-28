@@ -145,7 +145,7 @@ public class MainRepository {
 		return users;
 	}
 
-	public void addParticipant2(EntityManager em, TblParticipant participant) {
+	public void addParticipant(EntityManager em, TblParticipant participant) {
 		em.persist(participant);
 		
 	}
@@ -161,15 +161,6 @@ public class MainRepository {
 		
 	}
 	public List<Object> getUpcomingTraining(EntityManager em) {	
-//		StringBuilder trainquery = new StringBuilder();
-//		Query query = em.createQuery(
-//				"SELECT t.trainName, COUNT(p.userId) as partNo "
-//				+"FROM TblTraining t FULL JOIN TblParticipant p "
-//				+"ON t.trainId = p.trainId "
-//				+"WHERE trainStatus = 1"
-//				);
-//		List<Object[]> list = query.getResultList();
-//		return list;
 		Session session = em.unwrap(Session.class);
 		StringBuilder stringQuery = new StringBuilder(
 				"SELECT t.train_name, COUNT(p.user_id) as partNo, t.train_id "
@@ -178,7 +169,6 @@ public class MainRepository {
 				+"WHERE train_status = 1 "
 				+"GROUP BY t.train_id");
 		SQLQuery query = session.createSQLQuery(stringQuery.toString());
-//		query.setResultTransformer(Transformers.aliasToBean(User.class));
 		List<Object> list = query.list();
 		return list;
 	}
@@ -235,11 +225,24 @@ public class MainRepository {
 	}
 
 	public List<TblCat> getTeafQuestions(EntityManager em) {
-		StringBuilder studentQuery = new StringBuilder("FROM TblCat WHERE form_id = 4");	
+		StringBuilder studentQuery = new StringBuilder("FROM TblCat WHERE form_id = 2");	
 		Query query = em.createQuery(studentQuery.toString());
 		List<TblCat> questionsList = query.getResultList();
 		return questionsList;
 	}
+
+//	public List<Object> getConcludedTraining(EntityManager em) {
+//		Session session = em.unwrap(Session.class);
+//		StringBuilder stringQuery = new StringBuilder(
+//				"SELECT t.train_name, COUNT(p.user_id) as partNo, t.train_id "
+//				+"FROM tbl_training t JOIN tbl_participant p "
+//				+"ON t.train_id = p.train_id "
+//				+"WHERE train_status = 3 "
+//				+"GROUP BY t.train_id");
+//		SQLQuery query = session.createSQLQuery(stringQuery.toString());
+//		List<Object> list = query.list();
+//		return list;
+//	}
 
 	
 	

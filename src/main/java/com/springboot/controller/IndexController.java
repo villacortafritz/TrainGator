@@ -12,13 +12,13 @@ public class IndexController {
 	@Value("${welcome.message:test}")
 	private String message = "Hello World";
 
-	@RequestMapping("/")
+	@RequestMapping("/ee")
 	public String welcome(ModelMap model) {
 		model.put("message", this.message);
-		return "index";
+		return "login/index";
 	}
 
-	@RequestMapping("/test")
+	@RequestMapping("/testee")
 	public String loadTest(ModelMap model) {
 		model.put("message", this.message);
 		return "test";

@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -90,10 +92,10 @@
                         <section class="card">
                           <header class="card-header" style="text-align:center"> ${trainingdetails.trainName} </header>
                           <div class="card-footer-content text-muted">Duration of Training </div>
-                          <p class="card-text" style="text-align:center">${trainingdetails.trainDatestart} - ${trainingdetails.trainDateend}
+                          <p class="card-text" style="text-align:center">${trainingdetails.trainDatestart} to ${trainingdetails.trainDateend}
                           </p>
                           <div class="card-footer-content text-muted">Schedule of Training </div>
-                          <p class="card-text" style="text-align:center"> ${trainingdetails.trainTimestart} - ${trainingdetails.trainTimeend} 
+                          <p class="card-text" style="text-align:center"> ${trainingdetails.trainTimestart} to ${trainingdetails.trainTimeend} 
                           </p>
                             <div class="card-footer-content text-muted">Training Facilitator </div>
                             <c:forEach items="${facilitators}" var="faciVar">
@@ -110,18 +112,19 @@
                            <div class="card card-fluid">
                              <!-- .list-group -->
                             	<form action="http://localhost:8080/insertParticipant" method="post">
+                                <input type="hidden" name="train_id" value="${trainId}">
 	                               <div class="list-group list-group-flush list-group-bordered">
 	                                 <div class="list-group-header"> Recommended Participants </div>
 	                                 	<c:forEach items="${recommendedList}" var="recVar">
-											<label class="list-group-item custom-control custom-checkbox">                               
+                  											<label class="list-group-item custom-control custom-checkbox">                               
 	                                       		<input name="userRecommended" type="checkbox" class="custom-control-input" value="${recVar.userId}" >
 	                                       		<span class="custom-control-label">${recVar.userFname} ${recVar.userLname}</span>
 	                                   		</label>
-										</c:forEach>	
+                										</c:forEach>	
 	                              	</div><hr>
 	                              	<div style="padding-left:40%"><button  type="submit">Add Participant</button></div>
 	                              	<hr>
-								</form>
+              								</form>
                              <!-- /.list-group -->
                            </div>
                            <!-- /.card -->
@@ -179,15 +182,10 @@
 	                                   	 	</tr>
 	                                   	 	
 	                               		</label>
-<<<<<<< HEAD
               									</c:forEach>
                                         <tr>
                                           <td colspan="4"><button type="submit" id="deletebtn"  class="btn btn-primary btn-block">Delete</button></td>
-                                        </tr>		                     
-=======
-									</c:forEach>		                     
-	                           		<tr> <button type="submit">Delete</button></tr>
->>>>>>> 82e06b0a282a88a1b47661708d81d3683c4dc45e
+                                        </tr>		   
                            		</form>	
                            	</tbody> 
                            	

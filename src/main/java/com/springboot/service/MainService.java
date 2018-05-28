@@ -118,7 +118,7 @@ public class MainService {
 		return MainRepository.getUsers(em);
 	}
 
-	public void addParticipant2(String[] partlist, int trainId) {
+	public void addParticipant(String[] partlist, int trainId) {
 		ArrayList<Integer> partId = new ArrayList<Integer>();
 		//convert String[] to int[]
 		for(String part: partlist) 
@@ -131,11 +131,8 @@ public class MainService {
 			TblParticipant participant = new TblParticipant();
 			participant.setUserId(part);
 			participant.setTrainId(trainId);
-			MainRepository.addParticipant2(em, participant);
+			MainRepository.addParticipant(em, participant);
 		}
-				
-		
-		
 	}
 
 	public void addFacilitator(String[] facilist, int trainId) {
@@ -155,10 +152,7 @@ public class MainService {
 		}
 	}
 	
-	public void addParticipant(String[] userId) {
-		MainRepository.addParticipant(em, userId);
-		
-	}
+
 	
 	public void addParticipantPhase2(List<TblUser> part){
 		for(TblUser par: part){
@@ -242,66 +236,70 @@ public class MainService {
 		}
 		
 		ansTeaf[0].setResData(Integer.toString(q1Answer));
+//		ansTeaf[0].setUserId(1);
 		ansTeaf[0].setQuestId(1);
 		ansTeaf[0].setAnsId(1); // ILISAN PA NI BASTA NANA ANG ACTIVE USER NA AMBOT LANG
 		ansTeaf[0].setResDate(date);
+		ansTeaf[0].setResType("self");
 		ansTeaf[0].setTrainId(101); // ILISANAN PANI HUHU
 		
 		ansTeaf[1].setResData(Integer.toString(q2Answer));
 		ansTeaf[1].setQuestId(2);
 		ansTeaf[1].setAnsId(1); 
 		ansTeaf[1].setResDate(date);
+		ansTeaf[1].setResType("self");
 		ansTeaf[1].setTrainId(101); 
 		
 		ansTeaf[2].setResData(Integer.toString(q3Answer));
 		ansTeaf[2].setQuestId(3);
 		ansTeaf[2].setAnsId(1); 
 		ansTeaf[2].setResDate(date);
+		ansTeaf[2].setResType("self");
 		ansTeaf[2].setTrainId(101);
 		
 		ansTeaf[3].setResData(Integer.toString(q4Answer));
 		ansTeaf[3].setQuestId(4);
 		ansTeaf[3].setAnsId(1); 
 		ansTeaf[3].setResDate(date);
+		ansTeaf[3].setResType("self");
 		ansTeaf[3].setTrainId(101); 
 		
 		ansTeaf[4].setResData(Integer.toString(q5Answer));
 		ansTeaf[4].setQuestId(5);
 		ansTeaf[4].setAnsId(1); 
 		ansTeaf[4].setResDate(date);
+		ansTeaf[4].setResType("self");
 		ansTeaf[4].setTrainId(101); 
 		
 		ansTeaf[5].setResData(Integer.toString(q6Answer));
 		ansTeaf[5].setQuestId(6);
 		ansTeaf[5].setAnsId(1); 
 		ansTeaf[5].setResDate(date);
+		ansTeaf[5].setResType("self");
 		ansTeaf[5].setTrainId(101);
 		
 		ansTeaf[6].setResData(q7Answer);
 		ansTeaf[6].setQuestId(7);
 		ansTeaf[6].setAnsId(1); 
 		ansTeaf[6].setResDate(date);
+		ansTeaf[6].setResType("self");
 		ansTeaf[6].setTrainId(101);
 		
 		ansTeaf[7].setResData(q8Answer);
 		ansTeaf[7].setQuestId(8);
 		ansTeaf[7].setAnsId(1); 
 		ansTeaf[7].setResDate(date);
+		ansTeaf[7].setResType("self");
 		ansTeaf[7].setTrainId(101);
 		
 		
 		MainRepository.submitTeafAnswers(em, ansTeaf);
-		
-
-
-		
-		
-		
-		
-		
-		
-		
+	
 	}
+
+//	public List<Object> getConcludedTraining() {
+//		return MainRepository.getConcludedTraining(em);
+//	}
 
 }
 	
