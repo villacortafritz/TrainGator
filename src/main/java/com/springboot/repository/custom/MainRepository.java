@@ -224,18 +224,22 @@ public class MainRepository {
 	}
 
 
-//	public List<Object> getConcludedTraining(EntityManager em) {
-//		Session session = em.unwrap(Session.class);
-//		StringBuilder stringQuery = new StringBuilder(
-//				"SELECT t.train_name, COUNT(p.user_id) as partNo, t.train_id "
-//				+"FROM tbl_training t JOIN tbl_participant p "
-//				+"ON t.train_id = p.train_id "
-//				+"WHERE train_status = 3 "
-//				+"GROUP BY t.train_id");
-//		SQLQuery query = session.createSQLQuery(stringQuery.toString());
-//		List<Object> list = query.list();
-//		return list;
-//	}
+	public List<Object> getConcludedTraining(EntityManager em) {
+		Session session = em.unwrap(Session.class);
+		StringBuilder stringQuery = new StringBuilder(
+			"SELECT t.train_name, COUNT(p.user_id) as partNo, t.train_id, "
+																		+"(SELECT cast((SUM(cast(res_data as int))/30*100)/(100*count(DISTINCT(user_id)))*100 as int) as total " 
+																		+"  FROM `tbl_formresults` "
+																		+" WHERE quest_id BETWEEN 1 AND 6 AND train_id = t.train_id) as percent "
+			+"FROM tbl_training t JOIN tbl_participant p "
+			+"ON t.train_id = p.train_id " 
+			+"WHERE train_status = 3 "
+			+"GROUP BY t.train_id "
+		);
+		SQLQuery query = session.createSQLQuery(stringQuery.toString());
+		List<Object> list = query.list();
+		return list;
+	}
 
 	
 	
@@ -261,6 +265,15 @@ public class MainRepository {
 	public void submitAttendance(EntityManager em, TblAttendance attend) {
 			em.persist(attend);	
 			
+	}
+
+	public void updateTeaf(EntityManager em, int ids, String quest) {
+		StringBuilder teafquery = new StringBuilder("UPDATE TblCat set catDesc = :quest WHERE catId = :id");
+		Query query = em.createQuery(teafquery.toString());
+		query.setParameter("quest", quest);
+		query.setParameter("id", ids);
+		query.executeUpdate();	
+		
 	}
 	
 }

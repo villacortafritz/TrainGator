@@ -62,7 +62,7 @@
           </div>
         </div>
       </header>
-  <main class="app-main">
+    <main class="app-main">
     <div class="wrapper">
       <div class="page">
         <div class="page-inner" style="padding-left:15%; padding-right:15%;">
@@ -70,66 +70,31 @@
             <h1 class="page-title" style="text-align:center;"> Training Effectiveness Assessment Form </h1>
           </header>
           <div class="page-section">
-          <form action="http://localhost:8080/submitQuestions" method="post">
+          <form action="http://localhost:8080/adminTeaf" method="post">
             <div class="section-deck">
                 <section class="card card-fluid">
                   <div class="card-body">
-                    <table>
-                      <tr style="padding: 10px; margin: 10px;">
-                        Input for Question 1
+                    <table class="table">
+                      <c:forEach items="${teafs}" var="teafVar">
+                      <tr>
+                          <td>
+                          <b class="float-left">${teafVar.catDesc}</b>
+                          <input type="button"  onclick="enable(${teafVar.catId})" class="btn btn-primary btn-small float-right" value="Edit">
+                          <input type="hidden" id="id${teafVar.catId}" name="catid" value="${teafVar.catId}" disabled="">
+                          </td>
                       </tr>
-                      <tr style="padding: 10px; margin: 10px;">
-                        <textarea name="ques1" class="form-control" placeholder="Enter question here"></textarea>
-                        </br>
+                      <tr>
+                          <td>
+                          <input type="text" name="question" id="edit${teafVar.catId}" class="form-control " placeholder="Enter question here" value="${teafVar.catDesc}" disabled="" style="display: none;" required="">
+                          </td>
                       </tr>
-                      <tr style="padding: 10px; margin: 10px;">
-                        Input for Question 2
-                      </tr>
-                      <tr style="padding: 10px; margin: 10px;">
-                        <textarea name="ques2" class="form-control" placeholder="Enter question here"></textarea>
-                        </br>
-                      </tr>
-                      <tr style="padding: 10px; margin: 10px;">
-                        Input for Question 3
-                      </tr>
-                      <tr style="padding: 10px; margin: 10px;">
-                        <textarea name="ques3" class="form-control" placeholder="Enter question here"></textarea>
-                        </br>
-                      </tr>
-                      <tr style="padding: 10px; margin: 10px;">
-                        Input for Question 4
-                      </tr>
-                      <tr style="padding: 10px; margin: 10px;">
-                        <textarea name="ques4" class="form-control" placeholder="Enter question here"></textarea>
-                        </br>
-                      </tr>
-                      <tr style="padding: 10px; margin: 10px;">
-                        Input for Question 5
-                      </tr>
-                      <tr style="padding: 10px; margin: 10px;">
-                        <textarea name="ques5" class="form-control" placeholder="Enter question here"></textarea>
-                        </br>
-                      </tr>
-                      <tr style="padding: 10px; margin: 10px;">
-                        Input for Question 6
-                      </tr>
-                      <tr style="padding: 10px; margin: 10px;">
-                        <textarea name="ques6" class="form-control" placeholder="Enter question here"></textarea>
-                        </br>
-                      </tr>
-                      <tr style="padding: 10px; margin: 10px;">
-                        Input for Question 7
-                      </tr>
-                      <tr style="padding: 10px; margin: 10px;">
-                        <textarea name="ques7" class="form-control" placeholder="Enter question here"></textarea>
-                        </br>
-                      </tr>
+                      </c:forEach>
                     </table>
                   </div>
                 </section>
             </div>
             <div class="form-actions" style="padding-left:45%">
-              <button class="btn btn-primary" type="submit">Submit form</button>
+              <button class="btn btn-primary" type="submit" id="submit" disabled="">Submit form</button>
             </div>
            </form> 
           </div>
@@ -137,6 +102,23 @@
     </div>
   </main>
   </div>
+  <script type="text/javascript">
+    function enable(id) {
+      if (document.getElementById("edit" + id.toString()).disabled) {
+        document.getElementById("edit" + id.toString()).disabled = false;
+        document.getElementById("id" + id.toString()).disabled = false;
+        document.getElementById("submit").disabled = false;
+        document.getElementById("edit" + id.toString()).style.display = 'block';
+      }else{
+        document.getElementById("edit" + id.toString()).disabled = true;
+        document.getElementById("id" + id.toString()).disabled = true;
+        document.getElementById("submit").disabled = true;
+        document.getElementById("edit" + id.toString()).style.display = 'none';
+      }
+      
+    }
+    
+  </script>
   <script src="/vendor/jquery/jquery.min.js"></script>
   <script src="/vendor/bootstrap/js/popper.min.js"></script>
   <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>

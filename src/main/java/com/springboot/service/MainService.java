@@ -1,7 +1,5 @@
 package com.springboot.service;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -233,7 +231,7 @@ public class MainService {
 		
 
 		TblAttendance attend = new TblAttendance();
-		attend.setStatus("Present");
+		attend.setStatus(1);
 		attend.setAttDate(date);
 		attend.setTrainId(101); //to be changed based on the activity
 		attend.setUserId(Integer.parseInt(userId));
@@ -245,9 +243,25 @@ public class MainService {
 
 	}
 
-//	public List<Object> getConcludedTraining() {
-//		return MainRepository.getConcludedTraining(em);
-//	}
+	public List<Object> getConcludedTraining() {
+		return MainRepository.getConcludedTraining(em);
+	}
+
+	public void updateTeaf(String[] id, String[] quest) {
+		Integer[] ids=new Integer[id.length];
+	    int i=0;
+	    for(String str:id){
+	    	ids[i]=Integer.parseInt(str.trim());
+	        i++;
+	    }
+	    int j=0;
+	    for(int questid:ids){
+	    	MainRepository.updateTeaf(em,questid,quest[j]);
+	        j++;
+	    }
+	    
+		
+	}
 
 }
 	

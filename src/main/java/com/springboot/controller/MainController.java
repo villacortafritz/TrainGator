@@ -2,7 +2,9 @@ package com.springboot.controller;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+
 
 
 
@@ -83,7 +85,8 @@ public class MainController {
 	
 	@RequestMapping("/adminConcluded")
 	public String loadadminConcluded( ModelMap map) {
-//		List<Object> trainlist = MainService.getConcludedTraining();
+		List<Object> trainlist = MainService.getConcludedTraining();
+		map.addAttribute("list",trainlist);
 		return "TrainGator/adminConcluded";
 	}
 	@RequestMapping(value="/adminConcluded", method=RequestMethod.POST)
@@ -136,8 +139,17 @@ public class MainController {
 	}
 	
 	@RequestMapping("/adminTeaf")
-	public String loadAdminTeaf(HttpServletRequest request, ModelMap map) {
+	public String loadAdminTeaf(ModelMap map) {
+		List<TblCat> teaf = MainService.getCategoriesByFormId(2);
+		map.addAttribute("teafs",teaf);
 		return "TrainGator/adminTeaf";
+	}
+	@RequestMapping(value="/adminTeaf", method=RequestMethod.POST)
+	public String AdminTeaf(HttpServletRequest request, ModelMap map) {
+		String[] id = request.getParameterValues("catid");
+		String[] quest = request.getParameterValues("question");
+		MainService.updateTeaf(id,quest);
+		return loadAdminTeaf(map);
 	}
 	
 
