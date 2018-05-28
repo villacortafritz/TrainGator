@@ -88,8 +88,8 @@
                 <div class="page-inner">
                   <header class="page-title-bar">
                     <div>
-                      <button class="btn btn-primary" type="submit" style="width:49%" onclick="window.location.href='userTna.html'">Answer Training Needs Analysis Form</button>
-                      <button class="btn btn-primary" type="submit" style="width:50%" onclick="window.location.href='userSaf.html'">Answer Skills Assessment Form</button>
+                      <button class="btn btn-primary" type="submit" style="width:100%" onclick="window.location.href='userTna.html'">Answer Training Needs Analysis Form</button>
+                      <button class="btn btn-primary" type="submit" style="width:100%" onclick="window.location.href='userSaf.html'">Answer Skills Assessment Form</button>
                     </div>
                   </header>
                   <div class="page-section">
