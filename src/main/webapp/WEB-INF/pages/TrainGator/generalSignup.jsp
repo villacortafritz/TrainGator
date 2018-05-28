@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -49,9 +51,9 @@
           <label for="exampleSelect1">Position in the company</label>
           <select id="exampleSelect1" class="custom-select" name="role">
             <option selected> Select role </option>
-            <option value="1"> Regular Employee </option>
-            <option value="2"> Supervisor/Manager </option>
-            <option value="3"> Senior Employee </option>
+            <option value="Regular Employee"> Regular Employee </option>
+            <option value="Supervisor/Manager"> Supervisor/Manager </option>
+            <option value="Senior Employe"> Senior Employee </option>
           </select>
         </div>
         <div class="form-group">

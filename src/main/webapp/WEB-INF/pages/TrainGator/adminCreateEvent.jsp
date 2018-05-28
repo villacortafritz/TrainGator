@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -124,10 +126,6 @@
                         <div class="form-group">
                           <label for="exampleTextarea">Course Objective and Course Outline for Training Event</label>
                           <textarea class="form-control" id="exampleTextarea" rows="3" name="train_courseobjective"></textarea>
-                        </div>
-                        <div>
-                          <button class="btn btn-primary" type="button" style="width:49%" onclick="window.location.href='adminAddFacilitator.html'">Assign Facilitator/s for Training</button>
-                          <button class="btn btn-primary" type="button" style="width:50%" onclick="window.location.href='adminAddParticipant.html'">Assign Participant/s for Training</button>
                         </div>
                     </div>
                   </section>

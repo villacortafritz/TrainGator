@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -91,20 +93,20 @@
                             <th style="width: 50px;"> &nbsp; </th>
                           </tr>
                         </thead>
-                        <tbody>
-                          <tr>
+                      <tbody>
+                        <c:forEach items="${list}" var="listVar">
+                        <tr>
                           <td class="align-middle"></td>
-                          <td>
-                          <a>Name of Training</a>
-                          </td>
-                          <td class="align-middle"> 10 </td>
+                          <td>${listVar[0]}</td>
+                          <td class="align-middle"> ${listVar[1]} </td>
                           <td class="align-middle"> 20 </td>
                           <td class="align-middle text-right">
                             <div class="btn-group">
-                              <button class="btn btn-primary" type="submit" onclick="window.location.href='adminTrainingDetails.html'">View Details</button>
+                              <a class="btn btn-primary" href="adminTrainingDetails?trainId=${listVar[2]}">View Details</a>
                             </div>
                           </td>
                         </tr>
+                        </c:forEach>
                       </tbody>
                     </table>
                   </div>

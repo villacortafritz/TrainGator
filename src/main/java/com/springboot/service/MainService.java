@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import com.springboot.entities.TblAttendance;
 import com.springboot.entities.TblCat;
+import com.springboot.entities.TblFacilitator;
 //import com.springboot.entities.TblFacilitator;
 import com.springboot.entities.TblFormresult;
 import com.springboot.entities.TblParticipant;
@@ -56,6 +57,7 @@ public class MainService {
 		training.setTrainCourseoutline(train_courseoutline);	
 		training.setTrainCat(train_cat);
 		training.setTrainName(train_name);
+		training.setTrainStatus(1);
 		return MainRepository.addTraining(em,training);
 	}
 
@@ -82,8 +84,8 @@ public class MainService {
 		return MainRepository.getConfirmedParticipants(em);
 	
 	}
-	public List<TblUser> removeParticipantById(String[] id) {
-			return MainRepository.removeParticipantById(em, id);
+	public List<TblUser> removeParticipantById(String[] id, int trainid) {
+			return MainRepository.removeParticipantById(em, id,trainid);
 			
 	}
 
@@ -117,7 +119,7 @@ public class MainService {
 		return MainRepository.getUsers(em);
 	}
 
-	public void addParticipant2(String[] partlist, int trainId) {
+	public void addParticipant(String[] partlist, int trainId) {
 		ArrayList<Integer> partId = new ArrayList<Integer>();
 		//convert String[] to int[]
 		for(String part: partlist) 
@@ -130,34 +132,28 @@ public class MainService {
 			TblParticipant participant = new TblParticipant();
 			participant.setUserId(part);
 			participant.setTrainId(trainId);
-			MainRepository.addParticipant2(em, participant);
+			MainRepository.addParticipant(em, participant);
 		}
-				
-		
-		
 	}
 
-//	public void addFacilitator(String[] facilist, int trainId) {
-//		ArrayList<Integer> faciId = new ArrayList<Integer>();
-//		//convert String[] to int[]
-//		for(String faci: facilist) 
-//		{
-//			Integer id = new Integer(Integer.parseInt(faci));
-//			faciId.add(id);
-//		}
-//		for(int faci: faciId) 
-//		{
-//			TblFacilitator facilitator = new TblFacilitator();
-//			facilitator.setUserId(faci);
-//			facilitator.setTrainId(trainId);
-//			MainRepository.addFacilitator(em, facilitator);
-//		}
-//	}
-	
-	public void addParticipant(String[] userId) {
-		MainRepository.addParticipant(em, userId);
-		
+	public void addFacilitator(String[] facilist, int trainId) {
+		ArrayList<Integer> faciId = new ArrayList<Integer>();
+		//convert String[] to int[]
+		for(String faci: facilist) 
+		{
+			Integer id = new Integer(Integer.parseInt(faci));
+			faciId.add(id);
+		}
+		for(int faci: faciId) 
+		{
+			TblFacilitator facilitator = new TblFacilitator();
+			facilitator.setUserId(faci);
+			facilitator.setTrainId(trainId);
+			MainRepository.addFacilitator(em, facilitator);
+		}
 	}
+	
+
 	
 	public void addParticipantPhase2(List<TblUser> part){
 		for(TblUser par: part){
@@ -165,9 +161,30 @@ public class MainService {
 			// TO BE CHANGE IF MANA ANG CONNECTION
 			participant.setUserId(par.getUserId());
 			participant.setTrainId(101);  // TO BE CHANGE IF MANA ANG CONNECTION
+//			participant.setUserFname(par.getUserFname());
+//			participant.setUserLname(par.getUserLname());
+//			participant.setUserEmail(par.getUserEmail());
+//			participant.setUserType(par.getUserType());
 			MainRepository.addParticipantPhase2(em,participant);
 		}
-		
+	}
+
+	public List<Object> getUpcomingTraining() {
+		return MainRepository.getUpcomingTraining(em);
+	}
+
+	public Object getTrainingById(int trainId) {
+		return MainRepository.getTrainingById(em,trainId);
+	}
+
+	public List<Object> getParticipantsById(int trainId) {
+		// TODO Auto-generated method stub
+		return MainRepository.getParticipantsById(em,trainId);
+	}
+
+	public List<Object> getFacilitatorsById(int trainId) {
+		// TODO Auto-generated method stub
+		return MainRepository.getFacilitatorsById(em,trainId);
 	}
 
 	public void submitTeafQuestions(String[] ques) {
@@ -206,8 +223,6 @@ public class MainService {
 			ansTeaf[i].setTrainId(101); //SUBJECT TO CHANGE
 			ansTeaf[i].setResData(teafAnswer[i]);
 		}
-		
-		
 		MainRepository.submitTeafAnswers(em, ansTeaf);
 
 	}
@@ -230,15 +245,9 @@ public class MainService {
 
 	}
 
-	
-
-	public Object getTrainingById(int trainId) {
-        return MainRepository.getTrainingById(em,trainId);
-    }
-
-	public List<Object> getParticipantsById(int trainId) {
-		return MainRepository.getParticipantsById(em, trainId);
-	}
+//	public List<Object> getConcludedTraining() {
+//		return MainRepository.getConcludedTraining(em);
+//	}
 
 }
 	

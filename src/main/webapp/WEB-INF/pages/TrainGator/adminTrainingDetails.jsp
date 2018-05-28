@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,13 +64,13 @@
                     <img src="/images/avatars/profile.jpg" alt="">
                   </span>
                   <span class="account-summary pr-lg-4 d-none d-lg-block">
-                    <span class="account-name">${fname} ${lname}</span>
-                    <span class="account-description">${usertype}</span>
+                    <!-- <span class="account-name">${fname} ${lname}</span> -->
+                    <!-- <span class="account-description">${usertype}</span> -->
                   </span>
                 </button>
                 <div class="dropdown-arrow dropdown-arrow-left"></div>
                 <div class="dropdown-menu">
-                  <h6 class="dropdown-header d-none d-md-block d-lg-none">${fname} ${lname}</h6>
+                  <!-- <h6 class="dropdown-header d-none d-md-block d-lg-none">${fname} ${lname}</h6> -->
                   <a class="dropdown-item" href="generalSignin.html">
                     <span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
                     <div class="dropdown-divider"></div>
@@ -88,19 +90,19 @@
                     <div class="row">
                       <div class="col-lg-12">
                         <section class="card">
-                          <header class="card-header" style="text-align:center"> Game of Codes 2017 </header>
+                          <header class="card-header" style="text-align:center"> ${trainingdetails.trainName} </header>
                           <div class="card-footer-content text-muted">Duration of Training </div>
-                          <p class="card-text" style="text-align:center">December 04, 2018 - December 06, 2018
+                          <p class="card-text" style="text-align:center">${trainingdetails.trainDatestart} to ${trainingdetails.trainDateend}
                           </p>
                           <div class="card-footer-content text-muted">Schedule of Training </div>
-                          <p class="card-text" style="text-align:center"> 8:00 AM - 12:30 PM
+                          <p class="card-text" style="text-align:center"> ${trainingdetails.trainTimestart} to ${trainingdetails.trainTimeend} 
                           </p>
                             <div class="card-footer-content text-muted">Training Facilitator </div>
-                            <p class="card-text" style="text-align:center"> Facilitator's Name
-                            </p>
+                            <c:forEach items="${facilitators}" var="faciVar">
+                              <p class="card-text" style="text-align:center"> ${faciVar[1]} ${faciVar[2]}</p>
+                            </c:forEach>
                           <div class="card-footer-content text-muted">Training Course Objective and Outline </div>
-                          <p class="card-text" style="text-align:center"> Blanditiis architecto quaerat fugit sit ab veritatis ipsam assumenda doloremque repellendus expedita.
-                          </p>
+                          <p class="card-text" style="text-align:center"> ${trainingdetails.trainCourseoutline} </p>
                           <br>
                         </section>
                       </div>
@@ -109,19 +111,20 @@
                            <!-- .card -->
                            <div class="card card-fluid">
                              <!-- .list-group -->
-                            	<form action="http://localhost:8080/participant/insertParticipant" method="post">
+                            	<form action="http://localhost:8080/insertParticipant" method="post">
+                                <input type="hidden" name="train_id" value="${trainId}">
 	                               <div class="list-group list-group-flush list-group-bordered">
 	                                 <div class="list-group-header"> Recommended Participants </div>
 	                                 	<c:forEach items="${recommendedList}" var="recVar">
-											<label class="list-group-item custom-control custom-checkbox">                               
+                  											<label class="list-group-item custom-control custom-checkbox">                               
 	                                       		<input name="userRecommended" type="checkbox" class="custom-control-input" value="${recVar.userId}" >
 	                                       		<span class="custom-control-label">${recVar.userFname} ${recVar.userLname}</span>
 	                                   		</label>
-										</c:forEach>	
+                										</c:forEach>	
 	                              	</div><hr>
 	                              	<div style="padding-left:40%"><button  type="submit">Add Participant</button></div>
 	                              	<hr>
-								</form>
+              								</form>
                              <!-- /.list-group -->
                            </div>
                            <!-- /.card -->
@@ -144,37 +147,34 @@
                       <div class="col-lg-12">
                           <div class="card card-fluid">
                         <div class="card-body">
-
-                           <h2 class="section-title"> Confirmed Participants </h2>
+                           <h2 class="section-title"> Training Participants </h2>
                            <table class="table">
                            	<thead>
                            		<tr>
-                                	<th style="width:62px"></th>
                                     <th style="min-width:200px">  Participant Name </th>
                                     <th> Email </th>
                                     <th> Job Position </th>
-                                    <th style="width: 50px;"> &nbsp; </th>
+                                    <th> Action </th>
                                     </tr>
                            	</thead>
                            	 <tbody>
-                           		<form action="http://localhost:8080/participant/deleteParticipant" method="post">
-	                           	                            	
-	                            	<c:forEach items="${confirmedList}" var="confVar">
-										<label class="list-group-item custom-control custom-checkbox">
-											<tr>                             				                                 	
-	                                   			<td style="width:62px"></td>
+                           		<form action="http://localhost:8080/removeParticipant?trainId=${trainId}" method="post">
+	                            	<c:forEach items="${participants}" var="partVar">
+            										<label class="list-group-item custom-control custom-checkbox">
+                  											<tr>
 	                                   			<td>
-	                                   				<span>${confVar.userFname} ${confVar.userLname}</span>
+	                                   				<span>${partVar[1]} ${partVar[2]}</span>
 	                                   			</td>	
 	                                   	 		<td>
-	                                   	 			<span> ${confVar.userEmail}</span>
+	                                   	 			<span> ${partVar[4]}</span>
 	                                   	 		</td>
 	                                   	 		<td>				                                                      
-	                                   	 			<span> ${confVar.userType}</span>	                                   	 		
+	                                   	 			<span> ${partVar[5]}</span>	                                   	 		
 	                                   	 		</td>
 	                                   	 		<td class="align-middle text-right">				                                   
 				                                     <label class="list-group-item custom-control custom-checkbox">
-				                                       <input name="confirmedUser" type="checkbox" class="custom-control-input" value="${confVar.userId}">
+                                               <input name="partipantId" id="partipantId" type="checkbox" onclick="hide()" class="custom-control-input" value="${partVar[0]}">
+				                                       <input name="trainid" type="hidden" value="${trainId}">
 				                                       <span class="custom-control-label"></span>
 				                                      
 				                                     </label>				                                  
@@ -182,14 +182,14 @@
 	                                   	 	</tr>
 	                                   	 	
 	                               		</label>
-									</c:forEach>		                     
-	                           		<tr> <button type="submit">Delete</button></tr>
+              									</c:forEach>
+                                        <tr>
+                                          <td colspan="4"><button type="submit" id="deletebtn"  class="btn btn-primary btn-block">Delete</button></td>
+                                        </tr>		   
                            		</form>	
                            	</tbody> 
                            	
                            </table>
-                           
-
                           </div>
                           
                         </div>
@@ -199,13 +199,26 @@
                     </div>
                   </div>
                   <div class="form-actions" style="padding-left:42%">
-                    <button class="btn btn-primary" type="submit" onclick="window.location.href='adminUpcoming.html'">Back to Upcoming Trainings List</button>
+                    <button class="btn btn-primary" type="submit" onclick="window.location.href='adminUpcoming'">Back to Upcoming Trainings List</button>
                   </div>
                 </div>
             </div>
           </div>
         </main>
       </div>
+      <script type="text/javascript">
+        // function hide() {
+        //   for (var i = 0; i < document.getElementsByName("partipantId").length; i++) {
+        //     console.log(document.getElementsByName("partipantId")[i].checked);
+        //     if (document.getElementsByName("partipantId")[i].checked) {
+        //       document.getElementById("deletebtn").style.display = 'block';
+        //     }else{
+        //         document.getElementById("deletebtn").style.display = 'none';
+        //     }
+        //   }
+        // }
+        
+      </script>
       <script src="/vendor/jquery/jquery.min.js"></script>
       <script src="/vendor/bootstrap/js/popper.min.js"></script>
       <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>

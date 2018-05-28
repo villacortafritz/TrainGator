@@ -1,3 +1,4 @@
+
 package com.springboot.controller;
 
 import javax.servlet.http.HttpServletRequest;
@@ -38,7 +39,7 @@ public class ParticipantController {
 	@RequestMapping(value="/deleteParticipant",method=RequestMethod.POST)
 	public String removeParticipantById(HttpServletRequest request, ModelMap map) {
 		String[] id = request.getParameterValues("confirmedUser");
-		MainService.removeParticipantById(id);
+//		MainService.removeParticipantById(id);
 
 		return loadTrainingDetailsScreen(request,map);
 	}
@@ -48,21 +49,10 @@ public class ParticipantController {
 				
 		String[] userId =  request.getParameterValues("userRecommended");
 	
-		MainService.addParticipant(userId);
+//		MainService.addParticipant(userId);
 				
 		return  loadTrainingDetailsScreen(request, map);
 	}
-	
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
 
 }
+
