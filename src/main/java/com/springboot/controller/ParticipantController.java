@@ -22,10 +22,16 @@ public class ParticipantController {
 	
 	@RequestMapping(value="/adminTrainingDetails", method=RequestMethod.GET)
 	public String loadTrainingDetailsScreen(HttpServletRequest request, ModelMap map) {
-		List<TblUser> recommendedList = MainService.getRecommendedParticipants();
-		List<TblUser> confirmedList = MainService.getConfirmedParticipants();
-		map.addAttribute("recommendedList", recommendedList);	
-		map.addAttribute("confirmedList", confirmedList);	
+//		List<TblUser> recommendedList = MainService.getRecommendedParticipants();
+//		List<TblUser> confirmedList = MainService.getConfirmedParticipants();
+		String trainId = request.getParameter("trainId");
+		Object trainingdetails = MainService.getTrainingById(Integer.parseInt(trainId));
+		List<Object> participants = MainService.getParticipantsById(Integer.parseInt(trainId));
+		map.addAttribute("trainId", trainId);
+		map.addAttribute("trainingdetails", trainingdetails);
+		map.addAttribute("participants", participants);
+//		map.addAttribute("recommendedList", recommendedList);	
+//		map.addAttribute("confirmedList", confirmedList);	
 		return "TrainGator/adminTrainingDetails";	
 	}
 	
@@ -46,6 +52,8 @@ public class ParticipantController {
 				
 		return  loadTrainingDetailsScreen(request, map);
 	}
+	
+	
 	
 
 	

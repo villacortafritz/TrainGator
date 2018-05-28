@@ -6,10 +6,14 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
+
 import org.apache.commons.logging.Log;
+import org.hibernate.SQLQuery;
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.springboot.entities.TblAttendance;
 import com.springboot.entities.TblCat;
 import com.springboot.entities.TblFacilitator;
 import com.springboot.entities.TblFormresult;
@@ -67,10 +71,15 @@ public class MainRepository {
 	
 	public List<TblUser> getConfirmedParticipants(EntityManager em) {
 		
-		StringBuilder studentQuery = new StringBuilder("FROM TblParticipant");	
-		Query query = em.createQuery(studentQuery.toString());
-		List<TblUser> confirmedList = query.getResultList();
-		return confirmedList;
+		
+		Session session = em.unwrap(Session.class);
+		StringBuilder stringQuery = new StringBuilder(
+				"SELECT u.* "
+				+ "FROM tbl_participant p JOIN tbl_user u "
+				+ "ON p.user_id = u.user_id ");
+		SQLQuery query = session.createSQLQuery(stringQuery.toString());
+		List<TblUser> list = query.list();
+		return list;
 		
 
 	}
@@ -174,20 +183,39 @@ public class MainRepository {
 	}
 
 	public List<TblCat> getTeafQuestions(EntityManager em) {
-		StringBuilder studentQuery = new StringBuilder("FROM TblCat WHERE form_id = 4");	
+		StringBuilder studentQuery = new StringBuilder("FROM TblCat WHERE form_id = 2");	
 		Query query = em.createQuery(studentQuery.toString());
 		List<TblCat> questionsList = query.getResultList();
 		return questionsList;
 	}
 
-	
-	
-//	public void submitTeafAnswer(EntityManager em, TblFormresult form) {
-//		// TODO Auto-generated method stub
-//		em.persist(form);
-//	}
-	
-	
+
+
+	public Object getTrainingById(EntityManager em, int trainId) {
+        StringBuilder trainquery = new StringBuilder("FROM TblTraining WHERE trainId = :id");
+        Query query = em.createQuery(trainquery.toString());
+        query.setParameter("id", trainId);
+        Object trainDetail = query.getSingleResult();
+        return trainDetail;
+    }
+
+	public List<Object> getParticipantsById(EntityManager em, int trainId) {
+		Session session = em.unwrap(Session.class);
+		StringBuilder stringQuery = new StringBuilder(
+				"SELECT u.* "
+				+ "FROM tbl_participant p JOIN tbl_user u "
+				+ "ON p.user_id = u.user_id "
+				+ "WHERE p.train_id = :id ");
+		SQLQuery query = session.createSQLQuery(stringQuery.toString());
+		query.setParameter("id", trainId);
+		List<Object> list = query.list();
+		return list;
+	}
+
+	public void submitAttendance(EntityManager em, TblAttendance attend) {
+			em.persist(attend);	
+			
+	}
 	
 	
 }

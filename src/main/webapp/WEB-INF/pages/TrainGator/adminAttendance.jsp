@@ -15,72 +15,52 @@
 <body>
   <div class="app has-fullwidth">
     <header class="app-header">
-        <div class="top-bar">
-          <div class="top-bar-brand">
-            <a href="adminOngoing.html">
-              <img src="/images/rect-logo.png" height="45" alt="">
-            </a>
-          </div>
-          <div class="top-bar-list">
-            <div class="top-bar-item top-bar-item-full">
-              <div class="top-bar-search">
-                <div class="input-group input-group-search">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">
-                      <span class="oi oi-magnifying-glass"></span>
-                    </span>
-                  </div>
-                  <input type="text" class="form-control" aria-label="Search" placeholder="Search for a specific person"> </div>
-              </div>
+          <div class="top-bar">
+            <div class="top-bar-brand">
+              <a href="userJoined.html">
+                <img src="/images/rect-logo.png" height="45" alt="">
+              </a>
             </div>
-            <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
-              <ul class="header-nav nav">
-                <li class="nav-item dropdown header-nav-dropdown has-notified">
-                  <a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="oi oi-pulse"></span>
-                  </a>
-                  <div class="dropdown-arrow"></div>
-                  <div class="dropdown-menu dropdown-menu-rich dropdown-menu-right">
-                    <h6 class="dropdown-header stop-propagation">
-                      <span>Activities
-                        <span class="badge">(1)</span>
+            <div class="top-bar-list">
+              <div class="top-bar-item top-bar-item-full">
+                <div class="top-bar-search">
+                  <div class="input-group input-group-search">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <span class="oi oi-magnifying-glass"></span>
                       </span>
-                    </h6>
-                    <div class="dropdown-scroll has-scrollable">
-                      <a href="#" class="dropdown-item unread">
-                        <div class="user-avatar"><img src="/images/avatars/uifaces15.jpg" alt=""></div>
-                        <div class="dropdown-item-body"><p class="text"> Jeffrey Wells created a schedule </p></div>
-                      </a>
-                  </div>
-                </li>
-              </ul>
-              <button class="btn btn-primary" style="height:55px" onclick="window.location = 'adminOngoing.html'">
-                <span class="oi oi-home ml-1"></span>
-              </button>
-              <div class="dropdown">
-                <button class="btn-account d-none d-md-flex" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <span class="user-avatar">
-                    <img src="/images/avatars/profile.jpg" alt="">
-                  </span>
-                  <span class="account-summary pr-lg-4 d-none d-lg-block">
-                    <span class="account-name">${fname} ${lname}</span>
-                    <span class="account-description">${usertype}</span>
-                  </span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Search" placeholder="Search for a specific person"> </div>
+                </div>
+              </div>
+              <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
+                <button class="btn btn-primary" style="height:55px" onclick="window.location = 'userJoined.html'">
+                  <span class="oi oi-home ml-1"></span>
                 </button>
-                <div class="dropdown-arrow dropdown-arrow-left"></div>
-                <div class="dropdown-menu">
-                  <h6 class="dropdown-header d-none d-md-block d-lg-none">${fname} ${lname}</h6>
-                  <a class="dropdown-item" href="generalSignin.html">
-                    <span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
-                    <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Help Center</a>
-                  <a class="dropdown-item" href="#">Ask Forum</a>
+                <div class="dropdown">
+                  <button class="btn-account d-none d-md-flex" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="user-avatar">
+                      <img src="/images/avatars/profile.jpg" alt="">
+                    </span>
+                    <span class="account-summary pr-lg-4 d-none d-lg-block">
+                      <span class="account-name">Name of User</span>
+                      <span class="account-description">Participant/Supervisor</span>
+                    </span>
+                  </button>
+                  <div class="dropdown-arrow dropdown-arrow-left"></div>
+                  <div class="dropdown-menu">
+                    <h6 class="dropdown-header d-none d-md-block d-lg-none"> Name of User </h6>
+                    <a class="dropdown-item" href="generalSignin.html">
+                      <span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
+                      <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Help Center</a>
+                    <a class="dropdown-item" href="#">Ask Forum</a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </header>
+        </header>
     <main class="app-main">
       <div class="wrapper">
         <div class="page">
@@ -91,77 +71,50 @@
             </button>
           <div class="d-sm-flex align-items-sm-center">
             <h1 class="page-title mr-sm-auto mb-0" style="padding-left:45%"> Attendance </h1>
-            <div class="btn-toolbar">
-              <button type="button" class="btn btn-outline-secondary">
-                <i class="oi oi-data-transfer-download"></i>
-                <span class="ml-1">Export</span>
-              </button>
-            </div>
           </div>
         </header>
         <div class="page-section">
-          <div class="section-deck">
-            <section class="card card-fluid">
-              <div class="card-body">
-                <form action="adminOngoing.html">
-                  <div class="form-group">
-                    <label class="control-label" for="flatpickr08">Input Start Time</label>
-                    <input id="flatpickr08" type="text" class="form-control">
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label" for="flatpickr08">Input End Time</label>
-                    <input id="flatpickr08" type="text" class="form-control">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleTextarea">Input Contact Number</label>
-                    <textarea class="form-control" id="exampleTextarea" rows="1"></textarea>
-                  </div>
-                  <div class="form-actions">
-                    <button class="btn btn-primary" type="submit"> Confirm </button>
-                  </div>
-                  </form>
-                </div>
-              </section>
-            </div>
             <div class="page-section">
             <section class="card card-fluid">
             <div class="card-body">
               <div class="table-responsive">
+              <form action="http://localhost:8080/submitAttendance" method="post">
                 <table class="table">
                   <thead>
                     <tr>
                       <th style="width:62px"></th>
                       <th style="min-width:280px"> Name of Participant </th>
-                      <th> Time-In </th>
-                      <th> Time-Out </th>
-                      <th> Contact Number </th>
-                      <th style="width: 50px;"> &nbsp; </th>
+                      <th> Present </th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td class="align-middle"></td>
-                      <td>
-                        <a>Name of Participant</a>
-                      </td>
-                      <td class="align-middle"> Time-In </td>
-                      <td class="align-middle"> Time-Put </td>
-                      <td class="align-middle"> Contact Number </td>
-                      <td class="align-middle text-right">
-                        <div class="btn-group">
-                          <button type="button" class="btn btn-sm btn-secondary">
-                            <i class="far fa-trash-alt"></i>
-                          <span class="sr-only">Remove</span>
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
+                  
+                  	<c:forEach items="${confirmedList}" var="partAttend">
+	                  	<tr>
+	                      <td class="align-middle"></td>
+	                      <td>
+	                        <a>${partAttend[1]} ${partAttend[2]}</a>
+	                      </td>
+	                      <td class="align-middle">
+	                        <label class="switcher-control" style="margin-left:8px">
+	                        <input type="checkbox" name="confirmedAttend" class="switcher-input" value="${partAttend[0]}">
+	                        <span class="switcher-indicator"></span>
+	                        </label>
+	                     </td>
+	                  	</tr>                		
+					</c:forEach>	
+					                   
                 </tbody>
               </table>
+              <div class="form-actions" style="padding-left:45%">
+		        <button class="btn btn-primary" type="submit">Confirm</button>
+		      </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
+      
     </main>
   <script src="/vendor/jquery/jquery.min.js"></script>
   <script src="/vendor/bootstrap/js/popper.min.js"></script>

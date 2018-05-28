@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.Locale;
 
 
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +20,12 @@ import java.util.List;
 
 
 
-import com.springboot.entities.TblCat;
-
-
 
 import com.springboot.entities.TblCat;
 
+
+
+import com.springboot.entities.TblCat;
 import com.springboot.entities.TblSubcat;
 import com.springboot.entities.TblUser;
 import com.springboot.service.MainService;
@@ -60,7 +61,22 @@ public class MainController {
 	
 	@RequestMapping(value="/adminAttendance", method=RequestMethod.GET)
 	public String adminAttendance(HttpServletRequest request, ModelMap map) {
+		List<TblUser> confirmedList = MainService.getConfirmedParticipants();	
+		map.addAttribute("confirmedList", confirmedList);	
 		return "TrainGator/adminAttendance";
+	}
+	
+	@RequestMapping(value="/submitAttendance", method=RequestMethod.POST)
+	public String adminConfirmAttendance(HttpServletRequest request, ModelMap map) {
+		String[] userId =  request.getParameterValues("confirmedAttend");
+		for(int i=0; i<userId.length; i++){
+			MainService.confirmAttendance(userId[i]); 
+		}
+		
+		MainService.removeParticipantById(userId);
+		
+		return adminAttendance(request,map);
+		
 	}
 	
 	@RequestMapping(value="/adminCff", method=RequestMethod.GET)
@@ -125,15 +141,18 @@ public class MainController {
 
 	@RequestMapping(value="/submitQuestions", method=RequestMethod.POST)
 	public String submitQuestions(HttpServletRequest request, ModelMap map) {
-		String question1 = request.getParameter("ques1");
-		String question2 = request.getParameter("ques2");
-		String question3 = request.getParameter("ques3");
-		String question4 = request.getParameter("ques4");
-		String question5 = request.getParameter("ques5");
-		String question6 = request.getParameter("ques6");
-		String question7 = request.getParameter("ques7");
+		String[] ques = new String[7];
+		ques[0] = request.getParameter("ques1");
+		ques[1] = request.getParameter("ques2");
+		ques[2] = request.getParameter("ques3");
+		ques[3] = request.getParameter("ques4");
+		ques[4] = request.getParameter("ques5");
+		ques[5] = request.getParameter("ques6");
+		ques[6] = request.getParameter("ques7");
 		
-		MainService.submitTeafQuestions(question1,question2,question3,question4,question5,question6,question7);
+
+		
+		MainService.submitTeafQuestions(ques);
 		return "TrainGator/adminTeaf";
 	}
 	
@@ -206,6 +225,7 @@ public class MainController {
 	
 	@RequestMapping(value="/userAttendance", method=RequestMethod.GET)
 	public String userAttendance(HttpServletRequest request, ModelMap map) {
+		
 		return "TrainGator/userAttendance";
 	}
 	
@@ -259,16 +279,18 @@ public class MainController {
 	
 	@RequestMapping(value="/submitAnswerTeaf", method=RequestMethod.POST)
 	public String submitAnswerTeaf(HttpServletRequest request, ModelMap map) {
-		int q1Answer = Integer.parseInt(request.getParameter("q1teaf"));
-		int q2Answer = Integer.parseInt(request.getParameter("q2teaf"));
-		int q3Answer = Integer.parseInt(request.getParameter("q3teaf"));
-		int q4Answer = Integer.parseInt(request.getParameter("q4teaf"));
-		int q5Answer = Integer.parseInt(request.getParameter("q5teaf"));
-		int q6Answer = Integer.parseInt(request.getParameter("q6teaf"));
-		String q7Answer = request.getParameter("q7teaf");
-		String q8Answer = request.getParameter("q8teaf");
+		String[] teafAnswer = new String[8];
 		
-		MainService.submitAnswerTeaf(q1Answer,q2Answer,q3Answer,q4Answer,q5Answer,q6Answer,q7Answer,q8Answer);		
+		teafAnswer[0] = request.getParameter("q1teaf");
+		teafAnswer[1] = request.getParameter("q2teaf");
+		teafAnswer[2] = request.getParameter("q3teaf");
+		teafAnswer[3] = request.getParameter("q4teaf");
+		teafAnswer[4] = request.getParameter("q5teaf");
+		teafAnswer[5] = request.getParameter("q6teaf");
+		teafAnswer[6] = request.getParameter("q7teaf");
+		teafAnswer[7] = request.getParameter("q8teaf");
+		
+		MainService.submitAnswerTeaf(teafAnswer);		
 		return "TrainGator/userTeaf";
 	}
 	
