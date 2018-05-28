@@ -110,11 +110,11 @@
                           </select>
                         </div>
                         <div class="form-group">
-                          <label class="control-label" for="flatpickr01">Starting Date</label>
+                          <label class="control-label" for="flatpickr01">Start Date</label>
                           <input id="flatpickr01" type="text" class="form-control" name="train_datestart" required=""> 
                         </div>
                         <div class="form-group">
-                          <label class="control-label" for="flatpickr01">Ending Date</label>
+                          <label class="control-label" for="flatpickr01">End Date</label>
                           <input id="flatpickr01" type="text" class="form-control" name="train_dateend" required=""> 
                         </div>
                         <div class="form-group">

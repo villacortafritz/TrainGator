@@ -21,7 +21,7 @@
         </h1>
 
         <p> Already have an account? please
-          <a href="signin.html">Sign In</a>
+          <a href="generalSignin.html">Sign In</a>
         </p>
       </header>
       <form class="auth-form" method="post" action="http://localhost:8080/generalSignup">
@@ -53,7 +53,7 @@
         </div><br>
         <div class="form-group">
           <select id="exampleSelect1" class="custom-select" name="supervisorName">
-            <option value="Regular Employee"> If not a supervisor, select a supervisor. </option>
+            <option value="Regular Employee"> Select a supervisor </option>
           </select>
         </div>
         <div class="form-group">
