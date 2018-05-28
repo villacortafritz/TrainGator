@@ -16,7 +16,6 @@ import org.springframework.stereotype.Repository;
 import com.springboot.entities.TblAttendance;
 import com.springboot.entities.TblCat;
 import com.springboot.entities.TblFacilitator;
-//import com.springboot.entities.TblFacilitator;
 import com.springboot.entities.TblFormresult;
 import com.springboot.entities.TblSubcat;
 import com.springboot.entities.TblTraining;

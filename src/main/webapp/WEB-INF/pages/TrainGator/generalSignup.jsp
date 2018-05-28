@@ -21,7 +21,7 @@
         </h1>
 
         <p> Already have an account? please
-          <a href="signin.html">Sign In</a>
+          <a href="generalSignin.html">Sign In</a>
         </p>
       </header>
       <form class="auth-form" method="post" action="http://localhost:8080/generalSignup">
@@ -47,13 +47,13 @@
             <label for="inputPassword">Password</label>
           </div>
         </div>
+        <div class="custom-control custom-checkbox">
+          	<input type="checkbox" class="custom-control-input" id="customCheck1" name="supervisorStatus" required="">
+         	<label class="custom-control-label" for="customCheck1">I am a supervisor</label>
+        </div><br>
         <div class="form-group">
-          <label for="exampleSelect1">Position in the company</label>
-          <select id="exampleSelect1" class="custom-select" name="role">
-            <option selected> Select role </option>
-            <option value="Regular Employee"> Regular Employee </option>
-            <option value="Supervisor/Manager"> Supervisor/Manager </option>
-            <option value="Senior Employe"> Senior Employee </option>
+          <select id="exampleSelect1" class="custom-select" name="supervisorName">
+            <option value="Regular Employee"> Select a supervisor </option>
           </select>
         </div>
         <div class="form-group">
