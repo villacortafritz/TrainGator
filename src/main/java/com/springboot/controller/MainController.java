@@ -68,7 +68,7 @@ public class MainController {
 		String[] userId =  request.getParameterValues("confirmedAttend");
 		String[] participantId = MainService.getAllParticipantsId(40);
 		
-		
+		//KALIMOT KO BUTANG TITLE LAST PUUSH SO MAO KUNO NI CHANGE HEHE
 		
 		System.out.println("BOGOOOOOOOO");
 		boolean found = false;
