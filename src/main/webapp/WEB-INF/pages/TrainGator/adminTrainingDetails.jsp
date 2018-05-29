@@ -104,9 +104,13 @@
                           <div class="card-footer-content text-muted">Training Course Objective and Outline </div>
                           <p class="card-text" style="text-align:center"> ${trainingdetails.trainCourseoutline} </p>
                           <br>
+                          <div class="form-actions" style="padding-left:45%">
+	                    		<button class="btn btn-primary" type="submit" onclick="window.location.href='adminCreateEvent'">Edit Training</button>
+	                  		</div><br>
                         </section>
                       </div>
-
+                      
+                      
                       	<div class="col-lg-6">
                            <!-- .card -->
                            <div class="card card-fluid">
@@ -144,7 +148,7 @@
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-lg-12">
+                      <div class="col-lg-6">
                           <div class="card card-fluid">
                         <div class="card-body">
                            <h2 class="section-title"> Training Participants </h2>
@@ -188,18 +192,65 @@
                                         </tr>		   
                            		</form>	
                            	</tbody> 
-                           	
                            </table>
                           </div>
-                          
                         </div>
                       </div>
                       
+                      <div class="col-lg-6">
+                          <div class="card card-fluid">
+                        <div class="card-body">
+                           <h2 class="section-title"> Training Facilitators </h2>
+                           <table class="table">
+                           	<thead>
+                           		<tr>
+                                    <th style="min-width:200px">  Facilitator Name </th>
+                                    <th> Email </th>
+                                    <th> Job Position </th>
+                                    <th> Action </th>
+                                    </tr>
+                           	</thead>
+                           	 <tbody>
+                           		<form action="http://localhost:8080/removeParticipant?trainId=${trainId}" method="post">
+	                            	<c:forEach items="${participants}" var="partVar">
+            										<label class="list-group-item custom-control custom-checkbox">
+                  											<tr>
+	                                   			<td>
+	                                   				<span>${partVar[1]} ${partVar[2]}</span>
+	                                   			</td>	
+	                                   	 		<td>
+	                                   	 			<span> ${partVar[4]}</span>
+	                                   	 		</td>
+	                                   	 		<td>				                                                      
+	                                   	 			<span> ${partVar[5]}</span>	                                   	 		
+	                                   	 		</td>
+	                                   	 		<td class="align-middle text-right">				                                   
+				                                     <label class="list-group-item custom-control custom-checkbox">
+                                               <input name="partipantId" id="partipantId" type="checkbox" onclick="hide()" class="custom-control-input" value="${partVar[0]}">
+				                                       <input name="trainid" type="hidden" value="${trainId}">
+				                                       <span class="custom-control-label"></span>
+				                                      
+				                                     </label>				                                  
+				                                 </td>	
+	                                   	 	</tr>
+	                                   	 	
+	                               		</label>
+              									</c:forEach>
+                                        <tr>
+                                          <td colspan="4"><button type="submit" id="deletebtn"  class="btn btn-primary btn-block">Delete</button></td>
+                                        </tr>		   
+                           		</form>	
+                           	</tbody> 
+                           </table>
+                          </div>
+                        </div>
+                      </div>
                     </div>
+                    
                     </div>
-                  </div>
-                  <div class="form-actions" style="padding-left:42%">
-                    <button class="btn btn-primary" type="submit" onclick="window.location.href='adminUpcoming'">Back to Upcoming Trainings List</button>
+                    <div class="form-actions" style="padding-left:42%">
+                    	<button class="btn btn-primary" type="submit" onclick="window.location.href='adminUpcoming'">Back to Upcoming Trainings List</button>
+                  	</div>
                   </div>
                 </div>
             </div>
