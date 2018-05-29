@@ -257,11 +257,6 @@ public class MainController {
 		return "TrainGator/adminUpcoming";
 	}
 	
-	@RequestMapping(value="/generalRecoverPassword", method=RequestMethod.GET)
-	public String generalRecoverPassword(HttpServletRequest request, ModelMap map) {
-		return "TrainGator/generalRecoverPassword";
-	}
-	
 	@RequestMapping("/generalSignin")
 	public String generalSigninGet(HttpServletRequest request, ModelMap map) {
 		return "TrainGator/generalSignin";
