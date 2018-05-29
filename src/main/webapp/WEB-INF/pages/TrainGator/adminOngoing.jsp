@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -140,10 +140,6 @@
                                     <a href="#">Name of Training</a>
                                   </h4>
                                   <h6 class="card-subtitle text-muted">
-                                    <span class="due-date">Progress: </span>
-                                    <time class="text-muted">Day 4</time> /
-                                    <time class="text-muted">Day 6</time>
-                                    <br>
                                     <span class="due-date">Date: 2018-01-01 to 2018-01-06</span>
                                     <br>
                                     <span class="due-date">Facilitator: Name of Facilitator</span>
