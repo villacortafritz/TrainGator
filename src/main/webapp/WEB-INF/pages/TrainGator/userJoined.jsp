@@ -95,10 +95,11 @@
                 <nav class="page-navs">
                   <div class="nav-scroller">
                     <div class="nav nav-center nav-tabs">
-                      <a class="nav-link active" href="userJoined">Joined Trainings</a>
-                      <a class="nav-link" href="userUpcoming">Upcoming Trainings</a>
-                      <a class="nav-link" href="userRecommended">Recommended Trainings</a>
-                      <a class="nav-link" href="userAccomplished">Accomplished Trainings</a>
+                      <a class="nav-link active" href="userJoined.html">Joined Trainings</a>
+                      <a class="nav-link" href="userUpcoming.html">Upcoming Trainings</a>
+                      <a class="nav-link" href="userRecommended.html">Recommended Trainings</a>
+                      <a class="nav-link" href="userAccomplished.html">Accomplished Trainings</a>
+                      <a class="nav-link" href="userAnswerableSaf.html">Answerable Skills Assessment Form</a>
                     </div>
                   </div>
                 </nav>
@@ -132,6 +133,7 @@
                                           <br>
                                           <span class="due-date">Facilitator: Name of Facilitator</span>
                                           <br>
+                                          <button class="btn btn-primary" type="submit" style="width:80%" onclick="window.location.href='adminAttendance.html'">Attendance</button>
                                         </h6>
                                       </header>
                                       <div class="card-body">
