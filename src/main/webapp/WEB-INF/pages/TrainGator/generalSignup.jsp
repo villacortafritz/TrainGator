@@ -1,10 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-    <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<!-- generalSignup is where the user can register for an account. -->
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <!DOCTYPE html>
 <html lang="en">
+<!-- Basic information about the page (eg. name of page) is reflected within the head tag. -->
+<!-- start implementation for the head tag. -->
   <head>
     <title> Sign Up | TrainGator </title>
     <link rel="shortcut icon" href="/icon.png">
@@ -13,6 +15,7 @@
     <link rel="stylesheet" href="/css/main.min.css">
     <link rel="stylesheet" href="/css/custom.css">
   </head>
+<!-- end implementation for the head tag. -->
   <body>
     <main class="auth">
       <header id="auth-header" class="auth-header" style="background-image: url(/images/illustration/img-1.png);">
@@ -21,7 +24,7 @@
         </h1>
 
         <p> Already have an account? please
-          <a href="signin.html">Sign In</a>
+          <a href="generalSignin.html">Sign In</a>
         </p>
       </header>
       <form class="auth-form" method="post" action="http://localhost:8080/generalSignup">
@@ -47,13 +50,16 @@
             <label for="inputPassword">Password</label>
           </div>
         </div>
+        <div class="custom-control custom-checkbox">
+          	<input type="checkbox" class="custom-control-input" id="supervisorcheck" name="supervisorStatus" onclick="check()">
+         	<label class="custom-control-label" for="supervisorcheck">I am a supervisor</label>
+        </div><br>
         <div class="form-group">
-          <label for="exampleSelect1">Position in the company</label>
-          <select id="exampleSelect1" class="custom-select" name="role">
-            <option selected> Select role </option>
-            <option value="Regular Employee"> Regular Employee </option>
-            <option value="Supervisor/Manager"> Supervisor/Manager </option>
-            <option value="Senior Employe"> Senior Employee </option>
+          <select id="supervisorselect" class="custom-select" name="supervisor">
+            <option selected=""> Select a supervisor </option>
+            <c:forEach items="${supervisor}" var="supervisorVar">
+              <option value="${supervisorVar.userId}"> ${supervisorVar.userFname} ${supervisorVar.userLname} </option>
+            </c:forEach>
           </select>
         </div>
         <div class="form-group">
@@ -62,3 +68,13 @@
     </main>
   </body>
 </html>
+<script type="text/javascript">
+  function check() {
+    if (document.getElementById('supervisorcheck').checked) {
+        document.getElementById('supervisorselect').value = null;
+        document.getElementById('supervisorselect').style.display = 'none';
+    }else{
+        document.getElementById('supervisorselect').style.display = 'block';
+    }
+  }
+</script>

@@ -6,11 +6,6 @@ import java.util.Arrays;
 import java.util.Date;
 
 
-
-
-
-
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -102,7 +97,8 @@ public class MainController {
 	
 	@RequestMapping("/adminConcluded")
 	public String loadadminConcluded( ModelMap map) {
-//		List<Object> trainlist = MainService.getConcludedTraining();
+		List<Object> trainlist = MainService.getConcludedTraining();
+		map.addAttribute("list",trainlist);
 		return "TrainGator/adminConcluded";
 	}
 	@RequestMapping(value="/adminConcluded", method=RequestMethod.POST)
@@ -110,27 +106,45 @@ public class MainController {
 		return "TrainGator/adminConcluded";
 	}
 	
-	@RequestMapping(value="/adminCreateEvent", method=RequestMethod.GET)
+	@RequestMapping("/adminloadCreateEvent")
 	public String loadadminCreateEvent(ModelMap map) {
 		List<TblSubcat> list = MainService.getSubCategoriesByFormId(1);
 		map.addAttribute("list",list);
 		return "TrainGator/adminCreateEvent";
 	}
+	@RequestMapping(value="/adminCreateEvent",method=RequestMethod.GET)
+	public String editadminCreateEvent(HttpServletRequest request,ModelMap map) {
+		int trainId = Integer.parseInt(request.getParameter("trainId"));
+		TblTraining train =  (TblTraining) MainService.getTrainingById(trainId);
+		List<TblSubcat> list = MainService.getSubCategoriesByFormId(1);
+		map.addAttribute("train",train);
+		map.addAttribute("list",list);
+		return "TrainGator/adminCreateEvent";
+	}
 	@RequestMapping(value="/adminCreateEvent", method=RequestMethod.POST)
-	public String adminCreateEvent(HttpServletRequest request, ModelMap map) throws ParseException {
-		
+	public String adminCreateEvent(HttpServletRequest request, ModelMap map) throws ParseException {		
 		Date train_datestart = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("train_datestart"));
 		Date train_dateend = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("train_dateend"));
 		String train_timestart = request.getParameter("train_timestart");
 		String train_timeend = request.getParameter("train_timeend");
-		String train_courseobjective = request.getParameter("train_courseobjective");
+		String train_courseoutline = request.getParameter("train_courseoutline");
 		String train_cat = request.getParameter("train_cat");
 		String train_name = request.getParameter("train_name");
-		int train =  MainService.addTraining(train_name,train_cat,train_datestart, train_dateend, train_timestart, train_timeend, train_courseobjective);
-		List<TblUser> users = MainService.getUsers();
-		map.addAttribute("users",users);
-		map.addAttribute("trainID",train);
-		return "TrainGator/adminAddFacilitator";
+		
+		if(request.getParameter("trainId")==""){//if trainid is empty, means it is a new entry
+			int train =  MainService.addTraining(train_name,train_cat,train_datestart, train_dateend, train_timestart, train_timeend, train_courseoutline);
+			List<TblUser> users = MainService.getUsers();
+			map.addAttribute("users",users);
+			map.addAttribute("trainID",train);
+			return "TrainGator/adminAddFacilitator";
+		}else{//update training
+			int trainId = Integer.parseInt(request.getParameter("trainId"));
+			MainService.updateTraining(train_name,train_cat,train_datestart, train_dateend, train_timestart, train_timeend, train_courseoutline,trainId);
+			List<TblUser> users = MainService.getUsers();
+			map.addAttribute("users",users);
+			map.addAttribute("trainID",trainId);
+			return "TrainGator/adminAddFacilitator";
+		}
 	}
 	
 	
@@ -155,8 +169,17 @@ public class MainController {
 	}
 	
 	@RequestMapping("/adminTeaf")
-	public String loadAdminTeaf(HttpServletRequest request, ModelMap map) {
+	public String loadAdminTeaf(ModelMap map) {
+		List<TblCat> teaf = MainService.getCategoriesByFormId(2);
+		map.addAttribute("teafs",teaf);
 		return "TrainGator/adminTeaf";
+	}
+	@RequestMapping(value="/adminTeaf", method=RequestMethod.POST)
+	public String AdminTeaf(HttpServletRequest request, ModelMap map) {
+		String[] id = request.getParameterValues("catid");
+		String[] quest = request.getParameterValues("question");
+		MainService.updateTeaf(id,quest);
+		return loadAdminTeaf(map);
 	}
 	
 
@@ -267,7 +290,9 @@ public class MainController {
 	}
 	
 	@RequestMapping("/generalSignup")
-	public String loadgeneralSignup() {
+	public String loadgeneralSignup(ModelMap map) {
+		List<TblUser> sv = MainService.getSupeprvisor();
+		map.addAttribute("supervisor",sv);
 		return "TrainGator/generalSignup";
 	}
 	
@@ -277,8 +302,8 @@ public class MainController {
 		String lname = request.getParameter("lname");
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
-		String type = request.getParameter("role");
-		MainService.addUser(fname,lname,email,password,type);
+		String supervisor  = (request.getParameter("supervisor")==null) ? "" : request.getParameter("supervisor");
+		MainService.addUser(fname,lname,email,password,supervisor);
 		return "TrainGator/generalSignup";
 	}
 	

@@ -1,10 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-    <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<!-- generalRecoveryPassword is where the user can reset his password by using it's email address. -->
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <!DOCTYPE html>
 <html lang="en">
+<!-- Basic information about the page (eg. name of page) is reflected within the head tag. -->
+<!-- start implementation for the head tag. -->
 <head>
   <title> Password Recovery | TrainGator </title>
   <link rel="shortcut icon" href="/icon.png">
@@ -13,6 +15,7 @@
   <link rel="stylesheet" href="/css/main.min.css">
   <link rel="stylesheet" href="/css/custom.css">
 </head>
+<!-- end implementation for the head tag. -->
   <body>
     <main class="auth">
       <form class="auth-form auth-form-reflow">

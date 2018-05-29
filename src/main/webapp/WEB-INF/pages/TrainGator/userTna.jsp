@@ -67,19 +67,18 @@
               <header class="page-title-bar">
                 <h1 class="page-title" style="text-align:Center;"> Training Needs Analysis Form</h1>
               </header>
-              <!-- <div class="page-section">
+              <div class="page-section">
                 <div class="section-deck">
                   <section class="card card-fluid">
                     <div class="card-body">
                       <table>
                           <tr>
-                            <td colspan="3"  style="padding: 10px; width:40%">Name:
+                            <td colspan="2"  style="padding: 10px; width:1000px">Name of Employee:
                               <input type="text" name="" class="form-control form-control-sm">
                             </td>
-                            <td colspan="2" style="padding: 10px; width:20%">Position:
-                              <input type="text" name="" class="form-control form-control-sm">
-                            </td>
-                            <td colspan="2" style="padding: 10px; width:35%">TNA done by:
+                          </tr>
+                          <tr>
+                            <td colspan="2" style="padding: 10px; width:1000px">Name of Supervisor:
                               <input type="text" name="" class="form-control form-control-sm">
                             </td>
                           </tr>
@@ -87,7 +86,7 @@
                     </div>
                   </section>
                 </div>
-              </div> -->
+              </div>
               <div class="page-section">
                 <div class="section-deck">
                   <section class="card card-fluid">
@@ -96,10 +95,10 @@
                         <tr>
                           <td rowspan="2"><center>Major tasks of position </center></td>
                           <td colspan="2"><center>Training required?</center></td>
-                          <td rowspan="2"><center>Training Category</center></td>
+                          <td rowspan="2"><center>If yes, Identify what <br>training is needed.</center></td>
                           <td rowspan="2"><center>How will this be achieved?(e.g. on the job, external training)</center></td>
                           <td rowspan="2"><center>When?</center></td>
-                          <td rowspan="2"><center>Who to organise?  Training provider?</center></td>
+                          <td rowspan="2"><center>Who to organize?  Training provider?</center></td>
                         </tr>
                         <tr>
                           <td><center>Yes</center></td>

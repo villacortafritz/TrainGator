@@ -1,7 +1,5 @@
 package com.springboot.service;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -20,6 +18,7 @@ import com.springboot.entities.TblFacilitator;
 import com.springboot.entities.TblFormresult;
 import com.springboot.entities.TblParticipant;
 import com.springboot.entities.TblSubcat;
+import com.springboot.entities.TblSupervisor;
 import com.springboot.entities.TblTraining;
 import com.springboot.entities.TblUser;
 import com.springboot.repository.custom.MainRepository;
@@ -33,18 +32,30 @@ public class MainService {
 	@PersistenceContext
 	private EntityManager em;
 
-	public boolean addUser(String fname, String lname, String email,
-			String password, String type) {
-		boolean result = false;
-		TblUser user = new TblUser();
-		user.setUserFname(fname);
-		user.setUserLname(lname);
-		user.setUserEmail(email);
-		user.setUserPassword(password);
-		user.setUserType(type);
-		result = MainRepository.addUser(em,user);
-		
-		return result;
+	public void addUser(String fname, String lname, String email,
+			String password, String svId) {
+		if(svId!="")
+		{//if naay gi select nga supervisor
+			TblUser user = new TblUser();
+			user.setUserFname(fname);
+			user.setUserLname(lname);
+			user.setUserEmail(email);
+			user.setUserPassword(password);
+			user.setUserType("Regular Employee");
+			int userId = MainRepository.addUser(em,user);
+			TblSupervisor sv = new TblSupervisor();
+			sv.setSupervisorId(Integer.parseInt(svId));
+			sv.setUserId(userId);
+			MainRepository.addSupervisor(em,sv);
+		}else {
+			TblUser user = new TblUser();
+			user.setUserFname(fname);
+			user.setUserLname(lname);
+			user.setUserEmail(email);
+			user.setUserPassword(password);
+			user.setUserType("Supervisor");
+			int userId = MainRepository.addUser(em,user);
+		}
 		
 	}
 
@@ -247,35 +258,47 @@ public class MainService {
 		return partIds;
 	}
 
-//	public void checkIfAbsent(String[] userId, int trainId) {
-//		 List<String> confirmed = MainRepository.getIds(em,trainId); // contains participant
-//		System.out.println("BOGO SA CHECK ABSENT");
-//		 Arrays.toString(confirmed.toArray());
-//
-//		for(int i=0; i<userId.length; i++){
-//			
-//				if(!confirmed.contains(userId[i])){
-//					Date date = new Date();		
-//					TblAttendance attend = new TblAttendance();
-//					attend.setStatus(1);
-//					attend.setAttDate(date);
-//					attend.setTrainId(trainId); 
-//					attend.setUserId(Integer.parseInt(userId[i]));
-//					MainRepository.submitAttendance(em,attend);
-//			
-//			}
-//		}
-//
-//	}
-//	
-//	public static boolean contains(String[] arr, String item) {
-//	      for (String n : arr) {
-//	         if (item == n) {
-//	            return true;
-//	         }
-//	      }
-//	      return false;
-//	   }
+
+	public List<Object> getConcludedTraining() {
+		return MainRepository.getConcludedTraining(em);
+	}
+
+	public void updateTeaf(String[] id, String[] quest) {
+		Integer[] ids=new Integer[id.length];
+	    int i=0;
+	    for(String str:id){
+	    	ids[i]=Integer.parseInt(str.trim());
+	        i++;
+	    }
+	    int j=0;
+	    for(int questid:ids){
+	    	MainRepository.updateTeaf(em,questid,quest[j]);
+	        j++;
+	    }
+	    
+		
+	}
+
+	public void updateTraining(String train_name, String train_cat,
+			Date train_datestart, Date train_dateend, String train_timestart,
+			String train_timeend, String train_courseoutline, int trainId) {
+			TblTraining train = new TblTraining();
+			train.setTrainId(trainId);
+			train.setTrainCat(train_cat);
+			train.setTrainCourseoutline(train_courseoutline);
+			train.setTrainDateend(train_dateend);
+			train.setTrainDatestart(train_datestart);
+			train.setTrainName(train_name);
+			train.setTrainTimeend(train_timeend);
+			train.setTrainTimestart(train_timestart);
+			train.setTrainStatus(1);
+			MainRepository.updateTraining(em,train);
+			
+	}
+
+	public List<TblUser> getSupeprvisor() {
+		return MainRepository.getSupervisor(em);
+	}
 
 
 }

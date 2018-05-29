@@ -20,9 +20,9 @@ import org.springframework.stereotype.Repository;
 import com.springboot.entities.TblAttendance;
 import com.springboot.entities.TblCat;
 import com.springboot.entities.TblFacilitator;
-//import com.springboot.entities.TblFacilitator;
 import com.springboot.entities.TblFormresult;
 import com.springboot.entities.TblSubcat;
+import com.springboot.entities.TblSupervisor;
 import com.springboot.entities.TblTraining;
 import com.springboot.entities.TblParticipant;
 import com.springboot.entities.TblUser;
@@ -35,10 +35,10 @@ public class MainRepository {
 	@Autowired
 	private MainService MainService;
 
-	public boolean addUser(EntityManager em, TblUser user) {	
+	public int addUser(EntityManager em, TblUser user) {	
 		boolean result = false;
 		em.persist(user);
-		return result;
+		return user.getUserId();
 	}
 	
 	public int addTraining(EntityManager em, TblTraining training) {
@@ -229,18 +229,22 @@ public class MainRepository {
 	}
 
 
-//	public List<Object> getConcludedTraining(EntityManager em) {
-//		Session session = em.unwrap(Session.class);
-//		StringBuilder stringQuery = new StringBuilder(
-//				"SELECT t.train_name, COUNT(p.user_id) as partNo, t.train_id "
-//				+"FROM tbl_training t JOIN tbl_participant p "
-//				+"ON t.train_id = p.train_id "
-//				+"WHERE train_status = 3 "
-//				+"GROUP BY t.train_id");
-//		SQLQuery query = session.createSQLQuery(stringQuery.toString());
-//		List<Object> list = query.list();
-//		return list;
-//	}
+	public List<Object> getConcludedTraining(EntityManager em) {
+		Session session = em.unwrap(Session.class);
+		StringBuilder stringQuery = new StringBuilder(
+			"SELECT t.train_name, COUNT(p.user_id) as partNo, t.train_id, "
+																		+"(SELECT cast((SUM(cast(res_data as int))/30*100)/(100*count(DISTINCT(user_id)))*100 as int) as total " 
+																		+"  FROM `tbl_formresults` "
+																		+" WHERE quest_id BETWEEN 1 AND 6 AND train_id = t.train_id) as percent "
+			+"FROM tbl_training t JOIN tbl_participant p "
+			+"ON t.train_id = p.train_id " 
+			+"WHERE train_status = 3 "
+			+"GROUP BY t.train_id "
+		);
+		SQLQuery query = session.createSQLQuery(stringQuery.toString());
+		List<Object> list = query.list();
+		return list;
+	}
 
 	
 	
@@ -294,47 +298,33 @@ public class MainRepository {
 		return array ;
 	}
 
-//	public List<String> getIds(EntityManager em, int trainId) {
-////		 List idList = new ArrayList<String>();
-//		 List<String> idList = new ArrayList<>();
-//
-//		Session session = em.unwrap(Session.class);
-//		StringBuilder stringQuery = new StringBuilder(
-//				"SELECT u.user_id "
-//				+ "FROM tbl_participant p JOIN tbl_user u "
-//				+ "ON p.user_id = u.user_id "
-//				+ "WHERE p.train_id = :id ");
-//		SQLQuery query = session.createSQLQuery(stringQuery.toString());
-//		query.setParameter("id", trainId);
-//		idList = query.list();	
-//		System.out.println("BOGO");
-//		 Arrays.toString(idList.toArray());
-//
-//		
-//
-//
-////		String[] ids = new String[1];
-//		
-//		return idList;
-//	}
 
-//	public String[] getAllId(EntityManager em, int trainId) {
-//		List<String> list = new ArrayList<String>();
-//		Session session = em.unwrap(Session.class);
-//		StringBuilder stringQuery = new StringBuilder(
-//				"SELECT u.user_id "
-//				+ "FROM tbl_participant p JOIN tbl_user u "
-//				+ "ON p.user_id = u.user_id "
-//				+ "WHERE p.train_id = :id ");
-//		SQLQuery query = session.createSQLQuery(stringQuery.toString());
-//		query.setParameter("id", trainId);
-//		list = query.list();
-////		System.out.println(list.toString());
-//
-//		
-//		String[] stockArr = new String[list.size()];
-//		stockArr = list.toArray(stockArr);
-//		return stockArr;
-//	}
+	public void updateTeaf(EntityManager em, int ids, String quest) {
+		StringBuilder teafquery = new StringBuilder("UPDATE TblCat set catDesc = :quest WHERE catId = :id");
+		Query query = em.createQuery(teafquery.toString());
+		query.setParameter("quest", quest);
+		query.setParameter("id", ids);
+		query.executeUpdate();	
+		
+	}
+
+	public void updateTraining(EntityManager em, TblTraining train) {
+		em.merge(train);
+		
+	}
+
+	public List<TblUser> getSupervisor(EntityManager em) {
+		StringBuilder svquery = new StringBuilder("FROM TblUser WHERE userType = 'Supervisor/Manager'");
+		Query query = em.createQuery(svquery.toString());
+		List<TblUser> list = query.getResultList();
+		return list;
+	}
+
+	public void addSupervisor(EntityManager em, TblSupervisor sv) {
+		em.persist(sv);
+		
+	}
+
+
 	
 }
