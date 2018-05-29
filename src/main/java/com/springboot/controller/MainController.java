@@ -281,6 +281,7 @@ public class MainController {
 			if(user.getUserType().equals("administrator"))
 				return "TrainGator/adminOngoing";
 			else
+				MainService.
 				return "TrainGator/userJoined";
 			}
 		else{

@@ -95,18 +95,18 @@
                 <nav class="page-navs">
                   <div class="nav-scroller">
                     <div class="nav nav-center nav-tabs">
-                      <a class="nav-link active" href="userJoined.html">Joined Trainings</a>
-                      <a class="nav-link" href="userUpcoming.html">Upcoming Trainings</a>
-                      <a class="nav-link" href="userRecommended.html">Recommended Trainings</a>
-                      <a class="nav-link" href="userAccomplished.html">Accomplished Trainings</a>
+                      <a class="nav-link active" href="userJoined">Joined Trainings</a>
+                      <a class="nav-link" href="userUpcoming">Upcoming Trainings</a>
+                      <a class="nav-link" href="userRecommended">Recommended Trainings</a>
+                      <a class="nav-link" href="userAccomplished">Accomplished Trainings</a>
                     </div>
                   </div>
                 </nav>
                 <div class="page-inner">
                   <header class="page-title-bar">
                     <div>
-                      <button class="btn btn-primary" type="submit" style="width:100%" onclick="window.location.href='userTna.html'">Answer Training Needs Analysis Form</button>
-                      <button class="btn btn-primary" type="submit" style="width:100%" onclick="window.location.href='userSaf.html'">Answer Skills Assessment Form</button>
+                      <button class="btn btn-primary" type="submit" style="width:100%" onclick="window.location.href='userTna'">Answer Training Needs Analysis Form</button>
+                      <button class="btn btn-primary" type="submit" style="width:100%" onclick="window.location.href='userSaf'">Answer Skills Assessment Form</button>
                     </div>
                   </header>
                   <div class="page-section">

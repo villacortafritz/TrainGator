@@ -24,40 +24,6 @@
 <!-- There are 4 components within the header tag: TrainGator logo, user search bar, home button, user options. -->
 <!-- start implementation for the header. -->
     <header class="app-header">
-<<<<<<< HEAD
-          <div class="top-bar">
-            <div class="top-bar-brand">
-              <a href="userJoined.html">
-                <img src="/images/rect-logo.png" height="45" alt="">
-              </a>
-            </div>
-            <div class="top-bar-list">
-              <div class="top-bar-item top-bar-item-full">
-                <div class="top-bar-search">
-                  <div class="input-group input-group-search">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">
-                        <span class="oi oi-magnifying-glass"></span>
-                      </span>
-                    </div>
-                    <input type="text" class="form-control" aria-label="Search" placeholder="Search for a specific person"> </div>
-                </div>
-              </div>
-              <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
-
-                <button class="btn btn-primary" style="height:55px" onclick="window.location = 'userJoined.html'">
-
-                  <span class="oi oi-home ml-1"></span>
-                </button>
-                <div class="dropdown">
-                  <button class="btn-account d-none d-md-flex" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="user-avatar">
-                      <img src="/images/avatars/profile.jpg" alt="">
-                    </span>
-                    <span class="account-summary pr-lg-4 d-none d-lg-block">
-                      <span class="account-name">Name of User</span>
-                      <span class="account-description">Participant/Supervisor</span>
-=======
         <div class="top-bar">
 <!-- The TrainGator logo is seen at the left-most side of the header, it is used for redirecting the user to it's default landing page. -->
 <!-- start implementation for the TrainGator logo. -->
@@ -74,7 +40,6 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text">
                       <span class="oi oi-magnifying-glass"></span>
->>>>>>> 3d4ee8733ed80df0e27cdb3c38ccb65e8cc054c1
                     </span>
 <!-- The search bar at the header has the purpose of searching the users within the database. -->
 <!-- start implentation for the search bar. -->
@@ -122,9 +87,6 @@
         <div class="page">
           <div class="page-inner">
           <header class="page-title-bar">
-            <button type="button" class="btn btn-success btn-floated">
-              <span class="fa fa-plus"></span>
-            </button>
           <div class="d-sm-flex align-items-sm-center">
             <h1 class="page-title mr-sm-auto mb-0" style="padding-left:45%"> Attendance </h1>
           </div>
@@ -144,10 +106,6 @@
                     </tr>
                   </thead>
                   <tbody>
-<<<<<<< HEAD
-                 
-=======
->>>>>>> 3d4ee8733ed80df0e27cdb3c38ccb65e8cc054c1
                   	<c:forEach items="${confirmedList}" var="partAttend">
 	                  	<tr>
 	                      <td class="align-middle"></td>
@@ -161,10 +119,7 @@
 	                        </label>
 	                     </td>
 	                  	</tr>                		
-<<<<<<< HEAD
-					</c:forEach>	
-=======
-					</c:forEach>           
+          					</c:forEach>           
                     <tr>
                       <td class="align-middle"></td>
                       <td>
@@ -177,7 +132,6 @@
                         </label>
                      </td>
                   </tr>
->>>>>>> 3d4ee8733ed80df0e27cdb3c38ccb65e8cc054c1
                 </tbody>
               </table>
               <div class="form-actions" style="padding-left:45%">
@@ -188,15 +142,6 @@
           </div>
         </div>
       </div>
-<<<<<<< HEAD
-
-      
-
-=======
-      <div class="form-actions" style="padding-left:45%">
-        <button class="btn btn-primary" type="submit" onclick="window.location.href='adminOngoing.html'">Confirm</button>
-      </div>
->>>>>>> 3d4ee8733ed80df0e27cdb3c38ccb65e8cc054c1
     </main>
   <script src="/vendor/jquery/jquery.min.js"></script>
   <script src="/vendor/bootstrap/js/popper.min.js"></script>
