@@ -48,12 +48,15 @@
           </div>
         </div>
         <div class="custom-control custom-checkbox">
-          	<input type="checkbox" class="custom-control-input" id="customCheck1" name="supervisorStatus" required="">
-         	<label class="custom-control-label" for="customCheck1">I am a supervisor</label>
+          	<input type="checkbox" class="custom-control-input" id="supervisorcheck" name="supervisorStatus" onclick="check()">
+         	<label class="custom-control-label" for="supervisorcheck">I am a supervisor</label>
         </div><br>
         <div class="form-group">
-          <select id="exampleSelect1" class="custom-select" name="supervisorName">
-            <option value="Regular Employee"> Select a supervisor </option>
+          <select id="supervisorselect" class="custom-select" name="supervisor">
+            <option selected=""> Select a supervisor </option>
+            <c:forEach items="${supervisor}" var="supervisorVar">
+              <option value="${supervisorVar.userId}"> ${supervisorVar.userFname} ${supervisorVar.userLname} </option>
+            </c:forEach>
           </select>
         </div>
         <div class="form-group">
@@ -62,3 +65,13 @@
     </main>
   </body>
 </html>
+<script type="text/javascript">
+  function check() {
+    if (document.getElementById('supervisorcheck').checked) {
+        document.getElementById('supervisorselect').value = null;
+        document.getElementById('supervisorselect').style.display = 'none';
+    }else{
+        document.getElementById('supervisorselect').style.display = 'block';
+    }
+  }
+</script>

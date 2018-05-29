@@ -278,7 +278,9 @@ public class MainController {
 	}
 	
 	@RequestMapping("/generalSignup")
-	public String loadgeneralSignup() {
+	public String loadgeneralSignup(ModelMap map) {
+		List<TblUser> sv = MainService.getSupeprvisor();
+		map.addAttribute("supervisor",sv);
 		return "TrainGator/generalSignup";
 	}
 	
@@ -288,8 +290,8 @@ public class MainController {
 		String lname = request.getParameter("lname");
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
-		String type = request.getParameter("role");
-		MainService.addUser(fname,lname,email,password,type);
+		String supervisor  = (request.getParameter("supervisor")==null) ? "" : request.getParameter("supervisor");
+		MainService.addUser(fname,lname,email,password,supervisor);
 		return "TrainGator/generalSignup";
 	}
 	
