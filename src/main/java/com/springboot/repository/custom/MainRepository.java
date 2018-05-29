@@ -18,6 +18,7 @@ import com.springboot.entities.TblCat;
 import com.springboot.entities.TblFacilitator;
 import com.springboot.entities.TblFormresult;
 import com.springboot.entities.TblSubcat;
+import com.springboot.entities.TblSupervisor;
 import com.springboot.entities.TblTraining;
 import com.springboot.entities.TblParticipant;
 import com.springboot.entities.TblUser;
@@ -30,10 +31,10 @@ public class MainRepository {
 	@Autowired
 	private MainService MainService;
 
-	public boolean addUser(EntityManager em, TblUser user) {	
+	public int addUser(EntityManager em, TblUser user) {	
 		boolean result = false;
 		em.persist(user);
-		return result;
+		return user.getUserId();
 	}
 	
 	public int addTraining(EntityManager em, TblTraining training) {
@@ -274,5 +275,24 @@ public class MainRepository {
 		query.executeUpdate();	
 		
 	}
+
+	public void updateTraining(EntityManager em, TblTraining train) {
+		em.merge(train);
+		
+	}
+
+	public List<TblUser> getSupervisor(EntityManager em) {
+		StringBuilder svquery = new StringBuilder("FROM TblUser WHERE userType = 'Supervisor/Manager'");
+		Query query = em.createQuery(svquery.toString());
+		List<TblUser> list = query.getResultList();
+		return list;
+	}
+
+	public void addSupervisor(EntityManager em, TblSupervisor sv) {
+		em.persist(sv);
+		
+	}
+
+
 	
 }

@@ -49,6 +49,7 @@
 <!-- end implementation for the search bar. -->
               </div>
             </div>
+<<<<<<< HEAD
 <!-- The home button is located at the header since it has the purpose of redirecting the user back to it's default landing page. -->
 <!-- start implementation for the search bar. -->
             <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
@@ -74,6 +75,77 @@
                   <a class="dropdown-item" href="generalSignin.html">
                     <span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
                     <div class="dropdown-divider"></div>
+=======
+          </div>
+        </header>
+      <main class="app-main">
+        <div class="wrapper">
+          <div class="page">
+            <div class="page-inner">
+              <header class="page-title-bar">
+                <h1 class="page-title" style="padding-left:35%"> Create Training Event </h1>
+              </header>
+              <div class="page-section">
+                <form method="post" action="http://localhost:8080/adminCreateEvent">
+                  <input type="hidden" name="trainId" value="${train.trainId}">
+                <div class="section-deck">
+                  <section class="card card-fluid">
+                    <div class="card-body">
+                        <div class="form-group">
+                          <label class="control-label">Training Name</label>
+                          <input type="text" class="form-control" name="train_name" required="" value="${train.trainName}"> 
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label">Training Category</label>
+                          <select name="train_cat" class="form-control" required>
+                            <option>------------</option>
+                            <c:forEach items="${list}" var="listVar">
+                              <c:choose>
+                                <c:when test="${listVar.subDesc==train.trainCat}">
+                                  <option value="${listVar.subDesc}" selected="">${listVar.subDesc}</option>
+                                </c:when>
+                                <c:otherwise>
+                                  <option value="${listVar.subDesc}">${listVar.subDesc}</option>
+                                </c:otherwise>
+                              </c:choose>
+                            </c:forEach>
+                          </select>
+                        </div>
+                        <fieldset class="text-center"><legend>START</legend>
+                          <div class="row">
+                            <div class="form-group col-md-6">
+                              <label class="text-center" >Date</label>
+                              <input id="flatpickr01" type="text" class="form-control"  value="${train.trainDatestart}" name="train_datestart" required=""> 
+                            </div>
+                            <div class="form-group col-md-6">
+                            <label class="text-center" >Time</label>
+                            <input id="flatpickr08" type="text" class="form-control" value="${train.trainTimestart}" name="train_timestart" required=""> 
+                          </div>
+                          </div>
+                        </fieldset>
+                        <fieldset class="text-center"><legend>END</legend>
+                        <div class="row">
+                          <div class="form-group col-md-6">
+                            <label class="text-center" >Date</label>
+                            <input id="flatpickr01" type="text" class="form-control" value="${train.trainDateend}" name="train_dateend" required=""> 
+                          </div>
+                          
+                          <div class="form-group col-md-6">
+                            <label class="text-center" >Time</label>
+                            <input id="flatpickr08" type="text" class="form-control" value="${train.trainDateend}" name="train_timeend" required=""> 
+                          </div>
+                        </div>
+                        </fieldset>
+                        <div class="form-group">
+                          <label for="exampleTextarea">Course Objective and Course Outline for Training Event</label>
+                          <textarea class="form-control" id="exampleTextarea" rows="3" name="train_courseoutline" required="">${train.trainCourseoutline}</textarea>
+                        </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="form-actions" style="padding-left:40%">
+                  <button class="btn btn-primary" type="submit" style="width:200px">Next</button>
+>>>>>>> 0ef9c6e58dc1678bc222769d29009ea4e81f7a13
                 </div>
               </div>
 <!-- end implementation for the user option. -->

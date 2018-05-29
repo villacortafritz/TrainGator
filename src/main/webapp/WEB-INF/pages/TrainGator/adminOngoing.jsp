@@ -131,7 +131,7 @@
               </div>
             </div>
               <div>
-                <button class="btn btn-primary" type="submit" style="width:100%" onclick="window.location.href='adminCreateEvent.html'">Create Training</button>
+                <button class="btn btn-primary" type="submit" style="width:100%" onclick="window.location.href='adminloadCreateEvent'">Create Training</button>
 <!--                 <button class="btn btn-primary" type="submit" style="width:50%">View Calendar</button> -->
               </div>
             <button type="button" class="btn btn-success btn-floated d-block d-sm-none">
