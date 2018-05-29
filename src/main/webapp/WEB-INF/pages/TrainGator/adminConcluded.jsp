@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-    <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
   <!DOCTYPE html>
 <html lang="en">
@@ -94,11 +94,12 @@
                           </tr>
                         </thead>
                         <tbody>
+                        <c:forEach items="${list}" var="listVar">
                           <tr>
                           <td class="align-middle"></td>
-                          <td><a><br>Name of Training</a></td>
-                          <td class="align-middle"> 10 </td>
-                          <td class="align-middle"> 90% </td>
+                          <td>${listVar[0]}</td>
+                          <td class="align-middle"> ${listVar[1]} </td>
+                          <td class="align-middle"> ${listVar[3]}% </td>
                           <td class="align-middle text-right">
                             <div class="btn-group">
                               <button class="btn btn-primary" style="width:200px" type="submit" onclick="window.location = 'adminTeaf.html'">Edit Training Effectiveness <br>Assessment Form Questions</button>
@@ -110,6 +111,7 @@
                             </div>
                           </td>
                         </tr>
+                        </c:forEach>
                       </tbody>
                     </table>
                   </div>

@@ -24,7 +24,7 @@ public class TblAttendance implements Serializable {
 	@Column(name="att_date")
 	private Date attDate;
 
-	private String status;
+	private int status;
 
 	@Column(name="train_id")
 	private int trainId;
@@ -51,11 +51,11 @@ public class TblAttendance implements Serializable {
 		this.attDate = attDate;
 	}
 
-	public String getStatus() {
+	public int getStatus() {
 		return this.status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(int status) {
 		this.status = status;
 	}
 
