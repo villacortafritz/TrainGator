@@ -2,7 +2,11 @@ package com.springboot.controller;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+
+
+
 
 
 
@@ -17,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import java.util.List;
+import java.util.stream.IntStream;
 
 import com.springboot.entities.TblCat;
 import com.springboot.entities.TblParticipant;
@@ -66,14 +71,28 @@ public class MainController {
 	@RequestMapping(value="/submitAttendance", method=RequestMethod.POST)
 	public String adminConfirmAttendance(HttpServletRequest request, ModelMap map) {
 		String[] userId =  request.getParameterValues("confirmedAttend");
-		for(int i=0; i<userId.length; i++){
-			MainService.confirmAttendance(userId[i]); 
+		String[] participantId = MainService.getAllParticipantsId(40);
+		
+		
+		
+		System.out.println("BOGOOOOOOOO");
+		boolean found = false;
+		
+		
+		for(String find:participantId){		
+			for (String element:userId) {
+			    if (element.equals(find)) {
+			        found = true;
+			        System.out.println( "The value is found!");
+			        MainService.confirmAttendance(find, 40, 2);     
+			    }
+			}
+			if (found==false) { 
+			    System.out.println( "The value is not found!" );
+			    MainService.confirmAttendance(find, 40, 1); 
+			}
 		}
-		
-//		MainService.removeParticipantById(userId);
-		
-		return adminAttendance(request,map);
-		
+		return adminAttendance(request,map);		
 	}
 	
 	@RequestMapping(value="/adminCff", method=RequestMethod.GET)

@@ -1,6 +1,10 @@
 package com.springboot.repository.custom;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+
+
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -77,7 +81,8 @@ public class MainRepository {
 		StringBuilder stringQuery = new StringBuilder(
 				"SELECT u.* "
 				+ "FROM tbl_participant p JOIN tbl_user u "
-				+ "ON p.user_id = u.user_id ");
+				+ "ON p.user_id = u.user_id "
+				+ "WHERE p.train_id = 40");
 		SQLQuery query = session.createSQLQuery(stringQuery.toString());
 		List<TblUser> list = query.list();
 		return list;
@@ -257,10 +262,79 @@ public class MainRepository {
 		List<Object> list = query.list();
 		return list;
 	}
+	
+	
+	
+	
+	
 
 	public void submitAttendance(EntityManager em, TblAttendance attend) {
-			em.persist(attend);	
+			em.persist(attend);
+			System.out.println("Bogooooooo");
 			
 	}
+
+	public String[] getAllParticipantsId(EntityManager em, int trainId) {
+
+		Session session = em.unwrap(Session.class);
+		StringBuilder stringQuery = new StringBuilder(
+				"SELECT u.user_id "
+				+ "FROM tbl_participant p JOIN tbl_user u "
+				+ "ON p.user_id = u.user_id "
+				+ "WHERE p.train_id = :id ");
+		SQLQuery query = session.createSQLQuery(stringQuery.toString());
+		query.setParameter("id", trainId);
+		List<String> list = query.list();
+		String[] array = new String[list.size()];
+		for(int i = 0; i < list.size(); i++){
+			array[i] = String.valueOf(list.get(i));
+		}
+		System.out.println("Bogooooooo ang getAllParticipantsId");
+		
+		return array ;
+	}
+
+//	public List<String> getIds(EntityManager em, int trainId) {
+////		 List idList = new ArrayList<String>();
+//		 List<String> idList = new ArrayList<>();
+//
+//		Session session = em.unwrap(Session.class);
+//		StringBuilder stringQuery = new StringBuilder(
+//				"SELECT u.user_id "
+//				+ "FROM tbl_participant p JOIN tbl_user u "
+//				+ "ON p.user_id = u.user_id "
+//				+ "WHERE p.train_id = :id ");
+//		SQLQuery query = session.createSQLQuery(stringQuery.toString());
+//		query.setParameter("id", trainId);
+//		idList = query.list();	
+//		System.out.println("BOGO");
+//		 Arrays.toString(idList.toArray());
+//
+//		
+//
+//
+////		String[] ids = new String[1];
+//		
+//		return idList;
+//	}
+
+//	public String[] getAllId(EntityManager em, int trainId) {
+//		List<String> list = new ArrayList<String>();
+//		Session session = em.unwrap(Session.class);
+//		StringBuilder stringQuery = new StringBuilder(
+//				"SELECT u.user_id "
+//				+ "FROM tbl_participant p JOIN tbl_user u "
+//				+ "ON p.user_id = u.user_id "
+//				+ "WHERE p.train_id = :id ");
+//		SQLQuery query = session.createSQLQuery(stringQuery.toString());
+//		query.setParameter("id", trainId);
+//		list = query.list();
+////		System.out.println(list.toString());
+//
+//		
+//		String[] stockArr = new String[list.size()];
+//		stockArr = list.toArray(stockArr);
+//		return stockArr;
+//	}
 	
 }

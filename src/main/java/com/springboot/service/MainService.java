@@ -3,6 +3,7 @@ package com.springboot.service;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -227,27 +228,55 @@ public class MainService {
 
 	}
 
-	public void confirmAttendance(String userId) {
-		// TODO Auto-generated method stub
-		Date date = new Date();
-		
+	public void confirmAttendance(String userId, int trainId, int status) {
 
+		Date date = new Date();		
 		TblAttendance attend = new TblAttendance();
-		attend.setStatus("Present");
+		attend.setStatus(status);
 		attend.setAttDate(date);
-		attend.setTrainId(101); //to be changed based on the activity
+		attend.setTrainId(trainId); 
 		attend.setUserId(Integer.parseInt(userId));
 		MainRepository.submitAttendance(em,attend);
-		
-
-		
-		
 
 	}
 
-//	public List<Object> getConcludedTraining() {
-//		return MainRepository.getConcludedTraining(em);
+	public String[] getAllParticipantsId(int trainId) {
+		
+		String[] partIds = MainRepository.getAllParticipantsId(em, trainId);
+		
+		return partIds;
+	}
+
+//	public void checkIfAbsent(String[] userId, int trainId) {
+//		 List<String> confirmed = MainRepository.getIds(em,trainId); // contains participant
+//		System.out.println("BOGO SA CHECK ABSENT");
+//		 Arrays.toString(confirmed.toArray());
+//
+//		for(int i=0; i<userId.length; i++){
+//			
+//				if(!confirmed.contains(userId[i])){
+//					Date date = new Date();		
+//					TblAttendance attend = new TblAttendance();
+//					attend.setStatus(1);
+//					attend.setAttDate(date);
+//					attend.setTrainId(trainId); 
+//					attend.setUserId(Integer.parseInt(userId[i]));
+//					MainRepository.submitAttendance(em,attend);
+//			
+//			}
+//		}
+//
 //	}
+//	
+//	public static boolean contains(String[] arr, String item) {
+//	      for (String n : arr) {
+//	         if (item == n) {
+//	            return true;
+//	         }
+//	      }
+//	      return false;
+//	   }
+
 
 }
 	
