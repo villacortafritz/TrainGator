@@ -26,18 +26,6 @@ public class TblFacilitator implements Serializable {
 
 	@Column(name="user_id")
 	private int userId;
-	
-/*	@Column(name="user_email")
-	private String userEmail;
-
-	@Column(name="user_fname")
-	private String userFname;
-
-	@Column(name="user_lname")
-	private String userLname;
-
-	@Column(name="user_type")
-	private String userType;*/
 
 	public TblFacilitator() {
 	}

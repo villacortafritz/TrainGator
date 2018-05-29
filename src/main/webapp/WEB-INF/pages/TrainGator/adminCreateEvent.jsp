@@ -93,45 +93,64 @@
               </header>
               <div class="page-section">
                 <form method="post" action="http://localhost:8080/adminCreateEvent">
+                  <input type="hidden" name="trainId" value="${train.trainId}">
                 <div class="section-deck">
                   <section class="card card-fluid">
                     <div class="card-body">
                         <div class="form-group">
                           <label class="control-label">Training Name</label>
-                          <input type="text" class="form-control" name="train_name" required=""> 
+                          <input type="text" class="form-control" name="train_name" required="" value="${train.trainName}"> 
                         </div>
                         <div class="form-group">
                           <label class="control-label">Training Category</label>
                           <select name="train_cat" class="form-control" required>
                             <option>------------</option>
                             <c:forEach items="${list}" var="listVar">
-                              <option value="${listVar.subDesc}">${listVar.subDesc}</option>
+                              <c:choose>
+                                <c:when test="${listVar.subDesc==train.trainCat}">
+                                  <option value="${listVar.subDesc}" selected="">${listVar.subDesc}</option>
+                                </c:when>
+                                <c:otherwise>
+                                  <option value="${listVar.subDesc}">${listVar.subDesc}</option>
+                                </c:otherwise>
+                              </c:choose>
                             </c:forEach>
                           </select>
                         </div>
-                        <div class="form-group">
-                          <label class="control-label" for="flatpickr01">Start Date</label>
-                          <input id="flatpickr01" type="text" class="form-control" name="train_datestart" required=""> 
+                        <fieldset class="text-center"><legend>START</legend>
+                          <div class="row">
+                            <div class="form-group col-md-6">
+                              <label class="text-center" >Date</label>
+                              <input id="flatpickr01" type="text" class="form-control"  value="${train.trainDatestart}" name="train_datestart" required=""> 
+                            </div>
+                            <div class="form-group col-md-6">
+                            <label class="text-center" >Time</label>
+                            <input id="flatpickr08" type="text" class="form-control" value="${train.trainTimestart}" name="train_timestart" required=""> 
+                          </div>
+                          </div>
+                        </fieldset>
+                        <fieldset class="text-center"><legend>END</legend>
+                        <div class="row">
+                          <div class="form-group col-md-6">
+                            <label class="text-center" >Date</label>
+                            <input id="flatpickr01" type="text" class="form-control" value="${train.trainDateend}" name="train_dateend" required=""> 
+                          </div>
+                          
+                          <div class="form-group col-md-6">
+                            <label class="text-center" >Time</label>
+                            <input id="flatpickr08" type="text" class="form-control" value="${train.trainDateend}" name="train_timeend" required=""> 
+                          </div>
                         </div>
-                        <div class="form-group">
-                          <label class="control-label" for="flatpickr01">End Date</label>
-                          <input id="flatpickr01" type="text" class="form-control" name="train_dateend" required=""> 
-                        </div>
-                        <div class="form-group">
-                          <label class="control-label" for="flatpickr08">Start Time</label>
-                          <input id="flatpickr08" type="text" class="form-control" name="train_timestart"> </div>
-                        <div class="form-group">
-                          <label class="control-label" for="flatpickr08">End Time</label>
-                          <input id="flatpickr08" type="text" class="form-control" name="train_timeend"> </div>
+                        </fieldset>
                         <div class="form-group">
                           <label for="exampleTextarea">Course Objective and Course Outline for Training Event</label>
-                          <textarea class="form-control" id="exampleTextarea" rows="3" name="train_courseobjective"></textarea>
+                          <textarea class="form-control" id="exampleTextarea" rows="3" name="train_courseoutline" required="">${train.trainCourseoutline}</textarea>
                         </div>
                     </div>
                   </section>
                 </div>
                 <div class="form-actions" style="padding-left:40%">
-                  <button class="btn btn-primary" type="submit" style="width:200px" onclick="window.location.href='adminOngoing.html'">Confirm</button>
+                  <button class="btn btn-primary" type="submit" style="width:200px">Next</button>
                 </div>
             </form>
           </div>

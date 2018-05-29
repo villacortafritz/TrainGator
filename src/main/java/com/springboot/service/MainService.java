@@ -263,5 +263,22 @@ public class MainService {
 		
 	}
 
+	public void updateTraining(String train_name, String train_cat,
+			Date train_datestart, Date train_dateend, String train_timestart,
+			String train_timeend, String train_courseoutline, int trainId) {
+			TblTraining train = new TblTraining();
+			train.setTrainId(trainId);
+			train.setTrainCat(train_cat);
+			train.setTrainCourseoutline(train_courseoutline);
+			train.setTrainDateend(train_dateend);
+			train.setTrainDatestart(train_datestart);
+			train.setTrainName(train_name);
+			train.setTrainTimeend(train_timeend);
+			train.setTrainTimestart(train_timestart);
+			train.setTrainStatus(1);
+			MainRepository.updateTraining(em,train);
+			
+	}
+
 }
 	

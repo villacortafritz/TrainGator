@@ -274,5 +274,10 @@ public class MainRepository {
 		query.executeUpdate();	
 		
 	}
+
+	public void updateTraining(EntityManager em, TblTraining train) {
+		em.merge(train);
+		
+	}
 	
 }

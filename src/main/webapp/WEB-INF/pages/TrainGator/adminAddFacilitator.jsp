@@ -201,6 +201,7 @@
                     </div>
                   <div class="form-actions" style="padding-left:45%">
                     <button class="btn btn-primary" type="submit">Confirm</button>
+                    <a class="btn btn-secondary" href="adminCreateEvent/?trainId=${trainID}">Back</a>
                   </div>
                   </form>
                 </div>
