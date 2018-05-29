@@ -1,9 +1,3 @@
-
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-    <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -75,100 +69,100 @@
                 <section class="card card-fluid">
                   <div class="card-body">
                     <div class="form-group">
-                      <strong><label for="customCheck1">1. Comprehension of the Subject. (This question pertains to how the comprehension of the student improved,<br>&nbsp;&nbsp;&nbsp; by comparing their comprehension before the class and after the class.) </label></strong><br>
-                      <div class="custom-control custom-checkbox" style="margin-left:20px">
-                        <input type="checkbox" class="custom-control-input" id="1CheckBox1">
-                        <label class="custom-control-label" for="1CheckBox1">3 or more Levels</label>
+                      <strong><label for="customRadio1" style="padding:30px">1. Comprehension of the Subject. (This question pertains to how the comprehension of the student improved,<br>&nbsp;&nbsp;&nbsp; by comparing their comprehension before the class and after the class.) </label></strong><br>
+                      <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
+                        <input type="radio" name="customRadio1" class="custom-control-input" id="customRadio1">
+                        <label class="custom-control-label" for="customRadio1">3 or more levels</label>
                       </div>
-                      <div class="custom-control custom-checkbox" style="margin-left:20px">
-                        <input type="checkbox" class="custom-control-input" id="1CheckBox2">
-                        <label class="custom-control-label" for="1CheckBox2">2 Levels</label>
+                      <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
+                        <input type="radio" name="customRadio1" class="custom-control-input" id="customRadio2">
+                        <label class="custom-control-label" for="customRadio2">2 Levels</label>
                       </div>
-                      <div class="custom-control custom-checkbox" style="margin-left:20px">
-                        <input type="checkbox" class="custom-control-input" id="1CheckBox3">
-                        <label class="custom-control-label" for="1CheckBox3">1 Level</label>
+                      <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
+                        <input type="radio" name="customRadio1" class="custom-control-input" id="customRadio3">
+                        <label class="custom-control-label" for="customRadio3">1 Level</label>
                       </div>
-                      <div class="custom-control custom-checkbox" style="margin-left:20px">
-                        <input type="checkbox" class="custom-control-input" id="1CheckBox4">
-                        <label class="custom-control-label" for="1CheckBox4">No Improvement</label>
+                      <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
+                        <input type="radio" name="customRadio1" class="custom-control-input" id="customRadio4">
+                        <label class="custom-control-label" for="customRadio4">No Improvement</label>
                       </div>
-                      <div class="custom-control custom-checkbox" style="margin-left:20px">
-                        <input type="checkbox" class="custom-control-input" id="1CheckBox5">
-                        <label class="custom-control-label" for="1CheckBox5">Regressed</label>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <strong><label for="customCheck1">2. If your answer to #1 is either "No improvement" or "Regressed", give your reason(s) by choosing one or several of the items below:  </label></strong><br>
-                      <div class="custom-control custom-checkbox" style="margin-left:20px">
-                        <input type="checkbox" class="custom-control-input" id="2CheckBox1">
-                        <label class="custom-control-label" for="2CheckBox1">The textbooks/manuals were too difficult.</label>
-                      </div>
-                      <div class="custom-control custom-checkbox" style="margin-left:20px">
-                        <input type="checkbox" class="custom-control-input" id="2CheckBox2">
-                        <label class="custom-control-label" for="2CheckBox2">The textbooks/manuals were inadequate.</label>
-                      </div>
-                      <div class="custom-control custom-checkbox" style="margin-left:20px">
-                        <input type="checkbox" class="custom-control-input" id="2CheckBox3">
-                        <label class="custom-control-label" for="2CheckBox3">The explanation of the instructor was insufficient.</label>
-                      </div>
-                      <div class="custom-control custom-checkbox" style="margin-left:20px">
-                        <input type="checkbox" class="custom-control-input" id="2CheckBox4">
-                        <label class="custom-control-label" for="2CheckBox4">The content of the lectures was too difficult.</label>
-                      </div>
-                      <div class="custom-control custom-checkbox" style="margin-left:20px">
-                        <input type="checkbox" class="custom-control-input" id="2CheckBox5">
-                        <label class="custom-control-label" for="2CheckBox5">The size of the class was too big.</label>
-                      </div>
-                      <div class="custom-control custom-checkbox" style="margin-left:20px">
-                        <input type="checkbox" class="custom-control-input" id="2CheckBox6">
-                        <label class="custom-control-label" for="2CheckBox6">I did not have enough time to finish the exercise.</label>
-                      </div>
-                      <div class="custom-control custom-checkbox" style="margin-left:20px">
-                        <input type="checkbox" class="custom-control-input" id="2CheckBox7">
-                        <label class="custom-control-label" for="2CheckBox7">I did not have pre-knowledge of this subject.</label>
-                      </div>
-                      <div class="custom-control custom-checkbox" style="margin-left:20px">
-                        <input type="checkbox" class="custom-control-input" id="2CheckBox8">
-                        <label class="custom-control-label" for="2CheckBox8">I was absent during critical period of the subject.</label>
-                      </div>
-                      <div class="custom-control custom-checkbox" style="margin-left:20px">
-                        <input type="checkbox" class="custom-control-input" id="2CheckBox9">
-                        <label class="custom-control-label" for="2CheckBox9">I did not pay sufficient attention to instructor.</label>
-                      </div>
-                      <div class="custom-control custom-checkbox" style="margin-left:20px">
-                        <input type="checkbox" class="custom-control-input" id="2CheckBox10">
-                        <label class="custom-control-label" for="2CheckBox10">My computer experience was insufficient.</label>
-                      </div>
-                      <div class="custom-control custom-checkbox" style="margin-left:20px">
-                        <input type="checkbox" class="custom-control-input" id="2CheckBox11">
-                        <label class="custom-control-label" for="2CheckBox11">Other  </label>
+                      <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
+                        <input type="radio" name="customRadio1" class="custom-control-input" id="customRadio5">
+                        <label class="custom-control-label" for="customRadio5">Regressed</label>
                       </div>
                     </div>
                     <div class="form-group">
-                      <strong><label for="customCheck1">3. How well did you understand each objective given by the instructor? </label></strong><br>
-                      <div class="custom-control custom-checkbox" style="margin-left:20px">
-                        <input type="checkbox" class="custom-control-input" id="3CheckBox1">
-                        <label class="custom-control-label" for="3CheckBox1">Very Well</label>
+                      <strong><label for="customRadio2" style="padding:30px">2. If your answer to #1 is either "No improvement" or "Regressed", give your reason(s) by choosing one or several of the items below:</label></strong><br>
+                      <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
+                        <input type="radio" name="customRadio2" class="custom-control-input" id="customRadio6">
+                        <label class="custom-control-label" for="customRadio6">The textbooks/manuals were too difficult.</label>
                       </div>
-                      <div class="custom-control custom-checkbox" style="margin-left:20px">
-                        <input type="checkbox" class="custom-control-input" id="3CheckBox2">
-                        <label class="custom-control-label" for="3CheckBox2">Well</label>
+                      <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
+                        <input type="radio" name="customRadio2" class="custom-control-input" id="customRadio7">
+                        <label class="custom-control-label" for="customRadio7">The textbooks/manuals were inadequate.</label>
                       </div>
-                      <div class="custom-control custom-checkbox" style="margin-left:20px">
-                        <input type="checkbox" class="custom-control-input" id="3CheckBox3">
-                        <label class="custom-control-label" for="3CheckBox3">Fair</label>
+                      <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
+                        <input type="radio" name="customRadio2" class="custom-control-input" id="customRadio8">
+                        <label class="custom-control-label" for="customRadio8">The explanation of the instructor was insufficient.</label>
                       </div>
-                      <div class="custom-control custom-checkbox" style="margin-left:20px">
-                        <input type="checkbox" class="custom-control-input" id="3CheckBox4">
-                        <label class="custom-control-label" for="3CheckBox4">Little</label>
+                      <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
+                        <input type="radio" name="customRadio2" class="custom-control-input" id="customRadio9">
+                        <label class="custom-control-label" for="customRadio9">The content of the lectures was too difficult.</label>
                       </div>
-                      <div class="custom-control custom-checkbox" style="margin-left:20px">
-                        <input type="checkbox" class="custom-control-input" id="3CheckBox5">
-                        <label class="custom-control-label" for="3CheckBox5">Very Little.</label>
+                      <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
+                        <input type="radio" name="customRadio2" class="custom-control-input" id="customRadio10">
+                        <label class="custom-control-label" for="customRadio10">The size of the class was too big.</label>
                       </div>
-                      <div class="custom-control custom-checkbox" style="margin-left:20px">
-                        <input type="checkbox" class="custom-control-input" id="3CheckBox6">
-                        <label class="custom-control-label" for="3CheckBox6">No Response</label>
+                      <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
+                        <input type="radio" name="customRadio2" class="custom-control-input" id="customRadio11">
+                        <label class="custom-control-label" for="customRadio12">I did not have enough time to finish the exercise.</label>
+                      </div>
+                      <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
+                        <input type="radio" name="customRadio2" class="custom-control-input" id="customRadio13">
+                        <label class="custom-control-label" for="customRadio13">I did not have pre-knowledge of this subject..</label>
+                      </div>
+                      <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
+                        <input type="radio" name="customRadio2" class="custom-control-input" id="customRadio14">
+                        <label class="custom-control-label" for="customRadio14">I was absent during critical period of the subject.</label>
+                      </div>
+                      <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
+                        <input type="radio" name="customRadio2" class="custom-control-input" id="customRadio15">
+                        <label class="custom-control-label" for="customRadio15">I did not pay sufficient attention to instructor.</label>
+                      </div>
+                      <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
+                        <input type="radio" name="customRadio2" class="custom-control-input" id="customRadio16">
+                        <label class="custom-control-label" for="customRadio16">My computer experience was insufficient.</label>
+                      </div>
+                      <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
+                        <input type="radio" name="customRadio2" class="custom-control-input" id="customRadio17">
+                        <label class="custom-control-label" for="customRadio18">Other</label>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <strong><label for="customRadio3" style="padding:30px">3. How well did you understand each objective given by the instructor?</label></strong><br>
+                      <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
+                        <input type="radio" name="customRadio3" class="custom-control-input" id="customRadio19">
+                        <label class="custom-control-label" for="customRadio19">Very Well</label>
+                      </div>
+                      <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
+                        <input type="radio" name="customRadio3" class="custom-control-input" id="customRadio20">
+                        <label class="custom-control-label" for="customRadio20">Well</label>
+                      </div>
+                      <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
+                        <input type="radio" name="customRadio3" class="custom-control-input" id="customRadio21">
+                        <label class="custom-control-label" for="customRadio21">Fair</label>
+                      </div>
+                      <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
+                        <input type="radio" name="customRadio3" class="custom-control-input" id="customRadio22">
+                        <label class="custom-control-label" for="customRadio22">Little</label>
+                      </div>
+                      <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
+                        <input type="radio" name="customRadio3" class="custom-control-input" id="customRadio23">
+                        <label class="custom-control-label" for="customRadio23">Very Little</label>
+                      </div>
+                      <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
+                        <input type="radio" name="customRadio3" class="custom-control-input" id="customRadio24">
+                        <label class="custom-control-label" for="customRadio24">No Response</label>
                       </div>
                     </div>
                   </div>
