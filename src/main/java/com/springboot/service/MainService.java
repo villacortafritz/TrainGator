@@ -1,6 +1,7 @@
 package com.springboot.service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -238,23 +239,25 @@ public class MainService {
 
 	}
 
-	public void confirmAttendance(String userId) {
-		// TODO Auto-generated method stub
-		Date date = new Date();
-		
+	public void confirmAttendance(String userId, int trainId, int status) {
 
+		Date date = new Date();		
 		TblAttendance attend = new TblAttendance();
-		attend.setStatus(1);
+		attend.setStatus(status);
 		attend.setAttDate(date);
-		attend.setTrainId(101); //to be changed based on the activity
+		attend.setTrainId(trainId); 
 		attend.setUserId(Integer.parseInt(userId));
 		MainRepository.submitAttendance(em,attend);
-		
-
-		
-		
 
 	}
+
+	public String[] getAllParticipantsId(int trainId) {
+		
+		String[] partIds = MainRepository.getAllParticipantsId(em, trainId);
+		
+		return partIds;
+	}
+
 
 	public List<Object> getConcludedTraining() {
 		return MainRepository.getConcludedTraining(em);
@@ -296,6 +299,7 @@ public class MainService {
 	public List<TblUser> getSupeprvisor() {
 		return MainRepository.getSupervisor(em);
 	}
+
 
 }
 	
