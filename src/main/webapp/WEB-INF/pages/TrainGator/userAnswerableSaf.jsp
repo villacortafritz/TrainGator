@@ -1,9 +1,5 @@
-<!-- userUpcoming page is only accessible by a user. -->
-<!-- userUpcoming page is where the user can view the upcoming training events. -->
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<!-- userAnswerableSaf page is only accessible by a user. -->
+<!-- userAnswerableSaf page is where the user can view the employee's being assigned for answering of SAF. -->
 <!DOCTYPE html>
 <html lang="en">
 <!-- Basic information about the page (eg. name of page) is reflected within the head tag. -->
@@ -82,18 +78,18 @@
   <main class="app-main">
     <header class="page-cover">
       <div class="text-center">
-        <h2 class="h4 mt-3 mb-0"> ${fname} ${lname} </h2>
-        <p class="text-muted"> ${usertype} </p>
+        <h2 class="h4 mt-3 mb-0"> Name of User </h2>
+        <p class="text-muted"> Participant/Supervisor </p>
       </div>
     </header>
     <nav class="page-navs">
       <div class="nav-scroller">
         <div class="nav nav-center nav-tabs">
           <a class="nav-link" href="userJoined.html">Joined Trainings</a>
-          <a class="nav-link active" href="userUpcoming.html">Upcoming Trainings</a>
+          <a class="nav-link" href="userUpcoming.html">Upcoming Trainings</a>
           <a class="nav-link" href="userRecommended.html">Recommended Trainings</a>
           <a class="nav-link" href="userAccomplished.html">Accomplished Trainings</a>
-          <a class="nav-link" href="userAnswerableSaf.html">Answerable Skills Assessment Form</a>
+          <a class="nav-link active" href="userAnswerableSaf.html">Answerable Skills Assessment Form</a>
         </div>
       </div>
     </nav>
@@ -105,26 +101,36 @@
                 <table class="table">
                   <thead>
                     <tr>
-                      <th style="width:62px"></th>
-                      <th style="min-width:280px">Upcoming Training List</th>
-                      <th> Name of Facilitator </th>
-                      <th> Date of Training </th>
-                      <th style="width: 50px;"> &nbsp; </th>
+                      <th style="width:55px"></th>
+                      <th style="min-width:150px;">Name of Employee</th>
+                      <th style="padding-left:55px">Assign Peer 1</th>
+                      <th style="padding-left:55px">Assign Peer 2</th>
+                      <th style="padding-left:55px">Assign Peer 3</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                     <td class="align-middle"></td>
-                    <td>
-                    <a>Name of Training</a>
+                    <td><a>Name of Employee</a></td>
+                    <td class="align-middle">
+                        <select id="exampleSelect1" class="custom-select" style="width:180px">
+                          <option selected>Select Peer </option>
+                          <option value="1"> One </option>
+                        </select>
                     </td>
-                    <td class="align-middle"> Name of Facilitator </td>
-                    <td class="align-middle"> Date of Training </td>
-                    <td class="align-middle text-right">
-                      <div class="btn-group">
-                        <button class="btn btn-primary" type="submit" onclick="window.location.href='userUpcoming.html'">Request to Join Training</button>
-                      </div>
+                    <td class="align-middle">
+                        <select id="exampleSelect1" class="custom-select" style="width:180px">
+                          <option selected>Select Peer </option>
+                          <option value="1"> One </option>
+                        </select>
                     </td>
+                    <td class="align-middle">
+                        <select id="exampleSelect1" class="custom-select" style="width:180px">
+                          <option selected>Select Peer </option>
+                          <option value="1"> One </option>
+                        </select>
+                    </td>
+                    <td class="align-middle"><button class="btn btn-primary" type="submit" onclick="window.location.href='userTeaf.html'">Answer as Supervisor</button></td>
                   </tr>
                 </tbody>
               </table>
@@ -132,6 +138,32 @@
           </div>
         </div>
       </div>
+
+      <div class="page-inner">
+        <div class="page-section">
+        <section class="card card-fluid">
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width:55px"></th>
+                    <th style="text-align:center;">Name of Employee</th>
+                    <th style="text-align:center;padding-left:90px">Answer Skills Assessment Form of Employee</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                  <td class="align-middle"></td>
+                  <td><a>Name of Employee</a></td>
+                  <td class="align-middle" style="padding-left:100px"><button class="btn btn-primary" type="submit" onclick="window.location.href='userSaf.html'" style="width:750px">Answer as Peer</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
     </main>
   <script src="/vendor/jquery/jquery.min.js"></script>
   <script src="/vendor/bootstrap/js/popper.min.js"></script>

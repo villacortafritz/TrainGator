@@ -99,6 +99,7 @@
                       <a class="nav-link" href="userUpcoming.html">Upcoming Trainings</a>
                       <a class="nav-link" href="userRecommended.html">Recommended Trainings</a>
                       <a class="nav-link" href="userAccomplished.html">Accomplished Trainings</a>
+                      <a class="nav-link" href="userAnswerableSaf.html">Answerable Skills Assessment Form</a>
                     </div>
                   </div>
                 </nav>
@@ -132,6 +133,7 @@
                                           <br>
                                           <span class="due-date">Facilitator: Name of Facilitator</span>
                                           <br>
+                                          <button class="btn btn-primary" type="submit" style="width:80%" onclick="window.location.href='adminAttendance.html'">Attendance</button>
                                         </h6>
                                       </header>
                                       <div class="card-body">

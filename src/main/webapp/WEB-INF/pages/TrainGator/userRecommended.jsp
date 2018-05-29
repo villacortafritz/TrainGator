@@ -93,6 +93,7 @@
           <a class="nav-link" href="userUpcoming.html">Upcoming Trainings</a>
           <a class="nav-link active" href="userRecommended.html">Recommended Trainings</a>
           <a class="nav-link" href="userAccomplished.html">Accomplished Trainings</a>
+          <a class="nav-link" href="userAnswerableSaf.html">Answerable Skills Assessment Form</a>
         </div>
       </div>
     </nav>
