@@ -6,6 +6,9 @@ import java.util.Arrays;
 import java.util.Date;
 
 
+
+
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +17,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import java.util.List;
 import java.util.stream.IntStream;
@@ -90,11 +94,6 @@ public class MainController {
 		return adminAttendance(request,map);		
 	}
 	
-	@RequestMapping(value="/adminCff", method=RequestMethod.GET)
-	public String adminCff(HttpServletRequest request, ModelMap map) {
-		return "TrainGator/adminCff";
-	}
-	
 	@RequestMapping("/adminConcluded")
 	public String loadadminConcluded( ModelMap map) {
 		List<Object> trainlist = MainService.getConcludedTraining();
@@ -150,17 +149,22 @@ public class MainController {
 	
 	@RequestMapping(value="/adminEventComments", method=RequestMethod.GET)
 	public String adminEventComments(HttpServletRequest request, ModelMap map) {
+		String trainId = "101"; // TO BE CHANGEEEE
+		List<Object> partComments = MainService.getParticipantComments(trainId);		
+		map.addAttribute("partComments",partComments);		
+		double facRating = MainService.getFacilitatorRating(trainId);		
+		map.addAttribute("facRating",facRating);
 		return "TrainGator/adminEventComments";
 	}
 	
 	@RequestMapping(value="/adminFacilitatorComments", method=RequestMethod.GET)
 	public String adminFacilitatorComments(HttpServletRequest request, ModelMap map) {
+		String trainId = "101"; // TO BE CHANGEEEE
+		List<Object> facComments = MainService.getCommentsforFaci(trainId);
+		double facRating = MainService.getFacilitatorRating(trainId);
+		map.addAttribute("facRating",facRating);
+		map.addAttribute("facComments",facComments);
 		return "TrainGator/adminFacilitatorComments";
-	}
-	
-	@RequestMapping(value="/adminFff", method=RequestMethod.GET)
-	public String adminFff(HttpServletRequest request, ModelMap map) {
-		return "TrainGator/adminFff";
 	}
 	
 	@RequestMapping(value="/adminOngoing", method=RequestMethod.GET)
@@ -257,13 +261,9 @@ public class MainController {
 		return "TrainGator/adminUpcoming";
 	}
 	
-	@RequestMapping(value="/generalRecoverPassword", method=RequestMethod.GET)
-	public String generalRecoverPassword(HttpServletRequest request, ModelMap map) {
-		return "TrainGator/generalRecoverPassword";
-	}
-	
 	@RequestMapping("/generalSignin")
-	public String generalSigninGet(HttpServletRequest request, ModelMap map) {
+	public String generalSigninGet(SessionStatus status) {
+		status.setComplete();
 		return "TrainGator/generalSignin";
 	}
 	
@@ -280,8 +280,12 @@ public class MainController {
 			map.addAttribute("usertype",user.getUserType());
 			if(user.getUserType().equals("administrator"))
 				return "TrainGator/adminOngoing";
-			else
+			else{
+				List<Object> joined = MainService.getJoinedTraining(user.getUserId());
+//				System.out.println(Arrays.deepToString(joined.toArray()));
+				map.addAttribute("joined",joined);
 				return "TrainGator/userJoined";
+				}
 			}
 		else{
 			map.addAttribute("error",error);
@@ -323,8 +327,44 @@ public class MainController {
 		return "TrainGator/userCff";
 	}
 	
+	@RequestMapping(value="/submitUserCff", method=RequestMethod.POST)
+	public String submitUserCff(HttpServletRequest request, ModelMap map) {
+		String[] cffAnswer = new String[3];
+		cffAnswer[0] = request.getParameter("customRadio1");
+		cffAnswer[1] = request.getParameter("customRadio2");
+		cffAnswer[2] = request.getParameter("customRadio3");
+		
+		MainService.submitUserCff(cffAnswer);
+
+		return "TrainGator/userCff";
+	}
+	
+	
+	
 	@RequestMapping(value="/userFff", method=RequestMethod.GET)
 	public String userFff(HttpServletRequest request, ModelMap map) {
+		return "TrainGator/userFff";
+	}
+	
+	@RequestMapping(value="/submitUserFff", method=RequestMethod.POST)
+	public String submitUserFff(HttpServletRequest request, ModelMap map) {
+		String[] userFffAnswer = new String[11];
+		userFffAnswer[0] = request.getParameter("Q12");
+		userFffAnswer[1] = request.getParameter("Q13");
+		userFffAnswer[2] = request.getParameter("Q14");
+		userFffAnswer[3] = request.getParameter("Q15");
+		userFffAnswer[4] = request.getParameter("Q16");
+		userFffAnswer[5] = request.getParameter("Q17");
+		userFffAnswer[6] = request.getParameter("Q18");
+		userFffAnswer[7] = request.getParameter("Q19");
+		userFffAnswer[8] = request.getParameter("Q20");
+		userFffAnswer[9] = request.getParameter("Q21");
+		userFffAnswer[10] = request.getParameter("Q22");
+		
+		MainService.submitFff(userFffAnswer);
+		
+		
+		
 		return "TrainGator/userFff";
 	}
 	
@@ -387,27 +427,6 @@ public class MainController {
 		return "TrainGator/userTna";
 	}
 
-	@RequestMapping(value="/signin",method=RequestMethod.POST)
-	public String signin(HttpServletRequest request, ModelMap map) {
-		String email = request.getParameter("email");
-		String password = request.getParameter("password");
-		String error = "Invalid Email or Password";
-		TblUser user = (TblUser)MainService.checkUser(email,password);
-		if(user!=null){
-			map.addAttribute("userID",user.getUserId());
-			map.addAttribute("fname",user.getUserFname());
-			map.addAttribute("lname",user.getUserLname());
-			map.addAttribute("usertype",user.getUserType());
-			if(user.getUserType().equals("administrator"))
-				return "adminAll";
-			else
-				return "userAll";
-			}
-		else{
-			map.addAttribute("error",error);
-			return "signin";
-		}
-	}
 	@RequestMapping("/userAll")
 	public String loadUserAll(){
 		return "userAll";
@@ -418,237 +437,5 @@ public class MainController {
 	}
 	
 
-//	@RequestMapping(value="/tnaform",method=RequestMethod.GET)
-//	public String tnaform(HttpServletRequest request, ModelMap map) {
-//		return "tnaform";
-//	}
-	
-//	@RequestMapping(value="/userDone",method=RequestMethod.GET)
-//	public String userDone(HttpServletRequest request, ModelMap map) {
-//		return "userDone";
-//	}
-	
-//	@RequestMapping(value="/userOngoing",method=RequestMethod.GET)
-//	public String userOngoing(HttpServletRequest request, ModelMap map) {
-//		return "userOngoing";
-//	}
-	
-//	@RequestMapping(value="/userRecommended",method=RequestMethod.GET)
-//	public String userRecommended(HttpServletRequest request, ModelMap map) {
-//		return "userRecommended";
-//	}
-	
-//	@RequestMapping(value="/userUpcoming",method=RequestMethod.GET)
-//	public String userUpcoming(HttpServletRequest request, ModelMap map) {
-//		return "userUpcoming";
-//	}
-	
-//	@RequestMapping(value="/userAll",method=RequestMethod.GET)
-//	public String userAll(HttpServletRequest request, ModelMap map) {
-//		return "userAll";
-//	}	
-	
-//	@RequestMapping(value="/trainingEvents",method=RequestMethod.GET)
-//	public String trainingEvents(HttpServletRequest request, ModelMap map) {
-//		return "adminAll";
-//	}
-	
-//	@RequestMapping(value="/adminAll",method=RequestMethod.GET)
-//	public String adminAll(HttpServletRequest request, ModelMap map) {
-//		return "adminAll";
-//	}
-	
-//	@RequestMapping(value="/adminConcluded",method=RequestMethod.GET)
-//	public String adminDone(HttpServletRequest request, ModelMap map) {
-//		return "TrainGator/adminConcluded";
-//	}
-	
-//	@RequestMapping(value="/adminOngoing",method=RequestMethod.GET)
-//	public String adminOngoing(HttpServletRequest request, ModelMap map) {
-//		return "adminOngoing";
-//	}
-	
-//	@RequestMapping(value="/adminUpcoming",method=RequestMethod.GET)
-//	public String adminUpcoming(HttpServletRequest request, ModelMap map) {
-//		return "adminUpcoming";
-//	}
-	
-//	@RequestMapping(value="adminAttendance",method=RequestMethod.GET)
-//	public String attendance(HttpServletRequest request, ModelMap map) {
-//		return "TrainGator/adminAttendance";
-//	}
-	
-//	@RequestMapping(value="/cff",method=RequestMethod.GET)
-//	public String cff(HttpServletRequest request, ModelMap map) {
-//		return "cff";
-//	}
-	
-//	@RequestMapping("/createEvent")
-//	public String loadcreateEvent() {
-//		return "createEvent";
-//	}
-	
-//	@RequestMapping(value="/adminCreateEvent",method=RequestMethod.POST)
-//	public String createEvent(HttpServletRequest request, ModelMap map) throws ParseException {
-//		Date train_datestart = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("train_datestart"));
-//		Date train_dateend = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("train_dateend"));
-//		String train_timestart = request.getParameter("train_timestart");
-//		String train_timeend = request.getParameter("train_timeend");
-//		String train_courseobjective = request.getParameter("train_courseobjective");
-//		String train_courseoutline = request.getParameter("train_courseoutline");
-//		int train_faci = Integer.parseInt(request.getParameter("train_faci"));
-//		int train_sv = Integer.parseInt(request.getParameter("train_sv"));
-//		int train_pt = Integer.parseInt(request.getParameter("train_pt"));
-//		
-//		MainService.addTraining(train_datestart, train_dateend, train_timestart, train_timeend, train_courseobjective,
-//				train_courseoutline, train_faci, train_sv, train_pt);
-//
-//		return "TrainGator/adminCreateEvent";
-//	}
-	
-//	@RequestMapping(value="/doneEvents",method=RequestMethod.GET)
-//	public String doneEvents(HttpServletRequest request, ModelMap map) {
-//		return "doneEvents";
-//	}
-	
-//	@RequestMapping(value="/faciComments",method=RequestMethod.GET)
-//	public String faciComments(HttpServletRequest request, ModelMap map) {
-//		return "faciComments";
-//	}
-	
-//	@RequestMapping(value="/profile",method=RequestMethod.GET)
-//	public String profile(HttpServletRequest request, ModelMap map) {
-//		return "profile";
-//	}
-	
-//	@RequestMapping(value="/recoverPassword",method=RequestMethod.GET)
-//	public String recoverPassword(HttpServletRequest request, ModelMap map) {
-//		return "recoverPassword";
-//	}
-	
-//	@RequestMapping(value="/recoverUsername",method=RequestMethod.GET)
-//	public String recoverUsername(HttpServletRequest request, ModelMap map) {
-//		return "recoverUsername";
-//	}
-	
-//	@RequestMapping("/signin")
-//	public String loadsignin(HttpServletRequest request, ModelMap map) {
-//		return "signin";
-//	}
-	
-//	@RequestMapping(value="/signin",method=RequestMethod.POST)
-//	public String signin(HttpServletRequest request, ModelMap map) {
-//		String email = request.getParameter("email");
-//		String password = request.getParameter("password");
-//		String error = "Invalid Email or Password";
-//		TblUser user = (TblUser)MainService.checkUser(email,password);
-//		
-//		if(user!=null){
-//			map.addAttribute("userID",user.getUserId());
-//			map.addAttribute("fname",user.getUserFname());
-//			map.addAttribute("lname",user.getUserLname());
-//			map.addAttribute("usertype",user.getUserType());
-//			if(user.getUserType().equals("administrator"))
-//				return "adminAll";
-//			else
-//				return "userAll";
-//			}
-//		else{
-//			map.addAttribute("error",error);
-//			return "signin";
-//		}
-//	}
-	
-//	@RequestMapping("/userAll")
-//	public String loadUserAll(){
-//		return "userAll";
-//	}
-	
-//	@RequestMapping(value="/userAll",method=RequestMethod.POST)
-//	public String loaduserall(HttpServletRequest request, ModelMap map) {
-//		
-//		String uname = request.getParameter("username");
-//		String pword = request.getParameter("password");
-//		
-//		if(uname.equals("admin") && pword.equals("admin")){
-//			return "userAll";
-//		}
-//		else {
-//			return "signin";
-//		}
-//		
-//	}
-	
-//	@RequestMapping("/signup")
-//	public String loadsignup() {
-//		return "signup";
-//	}
-	
-//	@RequestMapping(value="/signup",method=RequestMethod.POST)
-//	public String signup(HttpServletRequest request, ModelMap map) {
-//		String fname = request.getParameter("fname");
-//		String lname = request.getParameter("lname");
-//		String email = request.getParameter("email");
-//		String password = request.getParameter("password");
-//		String type = request.getParameter("role");
-//		MainService.addUser(fname,lname,email,password,type);
-//		
-//		return "signup";
-//	}
-	
-//	@RequestMapping(value="/skillsAssessment",method=RequestMethod.GET)
-//	public String skillsAssessment(HttpServletRequest request, ModelMap map) {
-//		int id = 1;
-//		List<TblCat> CatList = MainService.getCategoriesByFormId(id);
-//		List<TblSubcat> SubCatList = MainService.getSubCategoriesByFormId(id);
-//		map.addAttribute("CatList", CatList);
-//		map.addAttribute("SubCatList", SubCatList);
-//		return "skillsAssessment";
-//	}	
-	
-//	@RequestMapping(value="/teaf",method=RequestMethod.GET)
-//	public String teaf(HttpServletRequest request, ModelMap map) {
-//		int id = 2;
-//		List<TblCat> CatList = MainService.getCategoriesByFormId(id);
-//		List<TblSubcat> SubCatList = MainService.getSubCategoriesByFormId(id);
-//		map.addAttribute("CatList", CatList);
-//		map.addAttribute("SubCatList", SubCatList);
-//		return "teaf";
-//	}
-	
-//	@RequestMapping(value = "/trainingDetails", method = RequestMethod.GET)
-//	public String loadTrainingDetailsScreen(HttpServletRequest request, ModelMap map) {
-//		List<TblUser> participantList = MainService.getParticipants();
-//		map.addAttribute("participantList", participantList);	
-//		return "trainingDetails";
-//	}
-	
-//	@RequestMapping(value="/insertParticipant",method=RequestMethod.POST)
-//	public String addParticipant(HttpServletRequest request, ModelMap map) {
-//				
-//		int userID = Integer.parseInt(request.getParameter("userRecommended"));
-//	
-//		MainService.addParticipant(userID);
-//				
-//		return loadTrainingDetailsScreen(request,map);
-//	}
-	
 
-//	@RequestMapping(value="/deleteParticipant",method=RequestMethod.POST)
-//	public String deleteParticipant(HttpServletRequest request, ModelMap map) {
-//		String temp = request.getParameter("confirmedUser");		
-//		int userID = Integer.parseInt(temp);
-//		
-//		MainService.removeParticipantById(userID);
-//
-//		return loadTrainingDetailsScreen(request,map);
-//	}
-
-
-//	@RequestMapping("/list")
-//	public String listParticipant(ModelMap map) {
-//		List<TblUser> participantList = MainService.getParticipants();
-//		map.addAttribute("participantList", participantList);
-//		return "trainingDetails";
-//	}
 }

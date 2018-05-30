@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="/vendor/open-iconic/css/open-iconic-bootstrap.min.css">
 </head>
 <!-- end implementation for the head tag. -->
-<body>
+<body onload="percent(${joined[0][9]},${joined[0][10]})">
   <div class="app has-fullwidth">
 <!-- There are 4 components within the header tag: TrainGator logo, user search bar, home button, user options. -->
 <!-- start implementation for the header. -->
@@ -103,8 +103,8 @@
                 <div class="page-inner">
                   <header class="page-title-bar">
                     <div>
-                      <button class="btn btn-primary" type="submit" style="width:100%" onclick="window.location.href='userTna.html'">Answer Training Needs Analysis Form</button>
-                      <button class="btn btn-primary" type="submit" style="width:100%" onclick="window.location.href='userSaf.html'">Answer Skills Assessment Form</button>
+                      <button class="btn btn-primary" type="submit" style="width:100%" onclick="window.location.href='userTna'">Answer Training Needs Analysis Form</button>
+                      <button class="btn btn-primary" type="submit" style="width:100%" onclick="window.location.href='userSaf'">Answer Skills Assessment Form</button>
                     </div>
                   </header>
                   <div class="page-section">
@@ -116,20 +116,26 @@
                               <div class="board board-list">
                                 <section class="tasks">
                                   <header class="task-header">
-                                    <h1 class="task-title mr-auto"> Joined Training List
+                                    <h1 class="task-title mr-auto"> Joined Training
                                     </h1>
                                   </header>
                                   <div class="task-issue">
                                     <div class="card">
                                       <header class="card-header">
                                         <h4 class="card-title">
-                                          <a href="#">Name of Training</a>
+                                          ${joined[0][1]}
                                         </h4>
                                         <h6 class="card-subtitle text-muted">
+<<<<<<< HEAD
                                           <span class="due-date">Date: 2018-01-01 to 2018-01-06</span>
                                           <br>
                                           <span class="due-date">Facilitator: Name of Facilitator</span>
                                           <br>
+=======
+                                          <span class="due-date">${joined[0][2]} to ${joined[0][3]}</span>
+                                          <hr>
+                                          <button class="btn btn-primary btn-small" type="submit" style="width:80%" onclick="window.location.href='adminAttendance'">Attendance</button>
+>>>>>>> eefe32709fcb63cef3032eff6b208104a3046a00
                                         </h6>
                                       </header>
                                       <div class="card-body">
@@ -138,16 +144,34 @@
                                             <div class="list-group-item-body py-1 text-truncate">
                                             </div>
                                           </div>
-                                          <a href="#" class="list-group-item pt-0">
-                                            <div class="list-group-item-body">
-                                              <div class="progress progress-xs">
-                                                <div class="progress-bar bg-success" role="progressbar" style="width: 66.66666666666667%;" aria-valuenow="66.66666666666667" aria-valuemin="0" aria-valuemax="100"></div>
-                                              </div>
-                                            </div>
-                                            <div class="list-group-item-figure">
-                                              <span class="todos">Day 4 / Day 6</span>
-                                            </div>
-                                          </a>
+                                          <c:choose>
+                                              <c:when test="${joined[0][9]==null}">
+                                                <div class="list-group-item pt-0">
+                                                  <div class="list-group-item-body">
+                                                    <div class="progress progress-xs">
+                                                      
+                                                      <div class="progress-bar bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="list-group-item-figure">
+                                                    <span class="todos">Day 0 / Day ${joined[0][10]}</span>
+                                                  </div>
+                                                </div>
+                                              </c:when>
+                                              <c:otherwise>
+                                                  <div class="list-group-item pt-0">
+                                                  <div class="list-group-item-body">
+                                                    <div class="progress progress-xs">
+                                                      
+                                                      <div class="progress-bar bg-success" id="displaypercent" role="progressbar"   aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="list-group-item-figure">
+                                                    <span class="todos">Day ${joined[0][9]} / Day ${joined[0][10]}</span>
+                                                  </div>
+                                                </div>
+                                              </c:otherwise>
+                                          </c:choose>
                                         </div>
                                       </div>
                                     </div>
@@ -162,6 +186,12 @@
               </div>
             </div>
       </main>
+  <script type="text/javascript">
+    function percent(n1,n2) {
+      var x = (n1 / n2)*100;
+      document.getElementById('displaypercent').style.width = x + '%';
+    }
+  </script>
   <script src="/vendor/jquery/jquery.min.js"></script>
   <script src="/vendor/bootstrap/js/popper.min.js"></script>
   <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>

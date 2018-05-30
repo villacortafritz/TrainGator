@@ -58,6 +58,7 @@
 <!-- end implementation for the search bar. -->
 <!-- The user option consists of the log out button for the purpose of logging out the user in it's current session. -->
 <!-- start implementation for the user option. -->
+<<<<<<< HEAD
          <div class="dropdown">
            <button class="btn-account d-none d-md-flex" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              <span class="account-summary pr-lg-4 d-none d-lg-block">
@@ -74,6 +75,29 @@
           </div>
         </header>
 <!-- end implementation for the user option. -->
+=======
+              <div class="dropdown">
+                <button class="btn-account d-none d-md-flex" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span class="user-avatar">
+                    <img src="/images/avatars/profile.jpg" alt="">
+                  </span>
+                  <span class="account-summary pr-lg-4 d-none d-lg-block">
+                    <span class="account-name">Name of Admin</span>
+                    <span class="account-description">Administrator</span>
+                  </span>
+                </button>
+                <div class="dropdown-arrow dropdown-arrow-left"></div>
+                <div class="dropdown-menu">
+                  <h6 class="dropdown-header d-none d-md-block d-lg-none"> Name of Admin </h6>
+                  <a class="dropdown-item" href="generalSignin.html">
+                    <span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
+                    <div class="dropdown-divider"></div>
+          <!-- end implementation for the user option. -->
+            </div>
+          </div>
+        </div>
+      </header>
+>>>>>>> eefe32709fcb63cef3032eff6b208104a3046a00
 <!-- end implementation for the header. -->
       <main class="app-main">
         <div class="wrapper">
@@ -143,11 +167,19 @@
                 <div class="form-actions" style="padding-left:40%">
                   <button class="btn btn-primary" type="submit" style="width:200px">Next</button>
                 </div>
+               </form>
               </div>
+<<<<<<< HEAD
             </div>
           </div>
         </div>
    </div>
+=======
+         </div>
+    </div>
+  </div>
+  </main>
+>>>>>>> eefe32709fcb63cef3032eff6b208104a3046a00
    <script src="/vendor/jquery/jquery.min.js"></script>
    <script src="/vendor/bootstrap/js/popper.min.js"></script>
    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
