@@ -65,103 +65,101 @@
             <h1 class="page-title" style="text-align:center;"> Course Feedback Form</h1>
           </header>
           <div class="page-section">
+          <form action="http://localhost:8080/submitUserCff" method="post">
             <div class="section-deck">
                 <section class="card card-fluid">
                   <div class="card-body">
                     <div class="form-group">
                       <strong><label for="customRadio1" style="padding:30px">1. Comprehension of the Subject. (This question pertains to how the comprehension of the student improved,<br>&nbsp;&nbsp;&nbsp; by comparing their comprehension before the class and after the class.) </label></strong><br>
                       <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
-                        <input type="radio" name="customRadio1" class="custom-control-input" id="customRadio1">
+                        <input type="radio" name="customRadio1" class="custom-control-input" id="customRadio1" value="3 or more levels">
                         <label class="custom-control-label" for="customRadio1">3 or more levels</label>
                       </div>
                       <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
-                        <input type="radio" name="customRadio1" class="custom-control-input" id="customRadio2">
+                        <input type="radio" name="customRadio1" class="custom-control-input" id="customRadio2" value="2 Levels">
                         <label class="custom-control-label" for="customRadio2">2 Levels</label>
                       </div>
-                      <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
-                        <input type="radio" name="customRadio1" class="custom-control-input" id="customRadio3">
+                      <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px" >
+                        <input type="radio" name="customRadio1" class="custom-control-input" id="customRadio3" value="1 Level">
                         <label class="custom-control-label" for="customRadio3">1 Level</label>
                       </div>
                       <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
-                        <input type="radio" name="customRadio1" class="custom-control-input" id="customRadio4">
+                        <input type="radio" name="customRadio1" class="custom-control-input" id="customRadio4" value="No Improvement">
                         <label class="custom-control-label" for="customRadio4">No Improvement</label>
                       </div>
                       <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
-                        <input type="radio" name="customRadio1" class="custom-control-input" id="customRadio5">
+                        <input type="radio" name="customRadio1" class="custom-control-input" id="customRadio5" value="Regressed">
                         <label class="custom-control-label" for="customRadio5">Regressed</label>
                       </div>
                     </div>
                     <div class="form-group">
                       <strong><label for="customRadio2" style="padding:30px">2. If your answer to #1 is either "No improvement" or "Regressed", give your reason(s) by choosing one or several of the items below:</label></strong><br>
                       <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
-                        <input type="radio" name="customRadio2" class="custom-control-input" id="customRadio6">
+                        <input type="radio" name="customRadio2" class="custom-control-input" id="customRadio6" value="The textbooks/manuals were too difficult.">
                         <label class="custom-control-label" for="customRadio6">The textbooks/manuals were too difficult.</label>
                       </div>
-                      <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
-                        <input type="radio" name="customRadio2" class="custom-control-input" id="customRadio7">
+                      <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px" >
+                        <input type="radio" name="customRadio2" class="custom-control-input" id="customRadio7" value="The textbooks/manuals were inadequate.">
                         <label class="custom-control-label" for="customRadio7">The textbooks/manuals were inadequate.</label>
                       </div>
                       <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
-                        <input type="radio" name="customRadio2" class="custom-control-input" id="customRadio8">
+                        <input type="radio" name="customRadio2" class="custom-control-input" id="customRadio8" value="The explanation of the instructor was insufficient.">
                         <label class="custom-control-label" for="customRadio8">The explanation of the instructor was insufficient.</label>
                       </div>
-                      <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
-                        <input type="radio" name="customRadio2" class="custom-control-input" id="customRadio9">
+                      <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px" >
+                        <input type="radio" name="customRadio2" class="custom-control-input" id="customRadio9" value="The content of the lectures was too difficult.">
                         <label class="custom-control-label" for="customRadio9">The content of the lectures was too difficult.</label>
                       </div>
                       <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
-                        <input type="radio" name="customRadio2" class="custom-control-input" id="customRadio10">
+                        <input type="radio" name="customRadio2" class="custom-control-input" id="customRadio10" value="The size of the class was too big.">
                         <label class="custom-control-label" for="customRadio10">The size of the class was too big.</label>
                       </div>
                       <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
-                        <input type="radio" name="customRadio2" class="custom-control-input" id="customRadio11">
+                        <input type="radio" name="customRadio2" class="custom-control-input" id="customRadio11" value="I did not have enough time to finish the exercise.">
                         <label class="custom-control-label" for="customRadio12">I did not have enough time to finish the exercise.</label>
                       </div>
                       <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
-                        <input type="radio" name="customRadio2" class="custom-control-input" id="customRadio13">
+                        <input type="radio" name="customRadio2" class="custom-control-input" id="customRadio13" value="I did not have pre-knowledge of this subject.">
                         <label class="custom-control-label" for="customRadio13">I did not have pre-knowledge of this subject..</label>
                       </div>
                       <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
-                        <input type="radio" name="customRadio2" class="custom-control-input" id="customRadio14">
+                        <input type="radio" name="customRadio2" class="custom-control-input" id="customRadio14" value="I was absent during critical period of the subject.">
                         <label class="custom-control-label" for="customRadio14">I was absent during critical period of the subject.</label>
                       </div>
                       <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
-                        <input type="radio" name="customRadio2" class="custom-control-input" id="customRadio15">
+                        <input type="radio" name="customRadio2" class="custom-control-input" id="customRadio15" value="I did not pay sufficient attention to instructor.">
                         <label class="custom-control-label" for="customRadio15">I did not pay sufficient attention to instructor.</label>
                       </div>
                       <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
-                        <input type="radio" name="customRadio2" class="custom-control-input" id="customRadio16">
+                        <input type="radio" name="customRadio2" class="custom-control-input" id="customRadio16" value="My computer experience was insufficient.">
                         <label class="custom-control-label" for="customRadio16">My computer experience was insufficient.</label>
                       </div>
-                      <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
-                        <input type="radio" name="customRadio2" class="custom-control-input" id="customRadio17">
-                        <label class="custom-control-label" for="customRadio18">Other</label>
-                      </div>
+                     
                     </div>
                     <div class="form-group">
                       <strong><label for="customRadio3" style="padding:30px">3. How well did you understand each objective given by the instructor?</label></strong><br>
                       <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
-                        <input type="radio" name="customRadio3" class="custom-control-input" id="customRadio19">
+                        <input type="radio" name="customRadio3" class="custom-control-input" id="customRadio19" value="Very Well">
                         <label class="custom-control-label" for="customRadio19">Very Well</label>
                       </div>
                       <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
-                        <input type="radio" name="customRadio3" class="custom-control-input" id="customRadio20">
+                        <input type="radio" name="customRadio3" class="custom-control-input" id="customRadio20" value="Well">
                         <label class="custom-control-label" for="customRadio20">Well</label>
                       </div>
                       <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
-                        <input type="radio" name="customRadio3" class="custom-control-input" id="customRadio21">
+                        <input type="radio" name="customRadio3" class="custom-control-input" id="customRadio21" value="Fair">
                         <label class="custom-control-label" for="customRadio21">Fair</label>
                       </div>
                       <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
-                        <input type="radio" name="customRadio3" class="custom-control-input" id="customRadio22">
+                        <input type="radio" name="customRadio3" class="custom-control-input" id="customRadio22" value="Little">
                         <label class="custom-control-label" for="customRadio22">Little</label>
                       </div>
                       <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
-                        <input type="radio" name="customRadio3" class="custom-control-input" id="customRadio23">
+                        <input type="radio" name="customRadio3" class="custom-control-input" id="customRadio23" value="Very Little">
                         <label class="custom-control-label" for="customRadio23">Very Little</label>
                       </div>
                       <div class="custom-control custom-radio" style="margin-left:70px; margin-bottom:10px">
-                        <input type="radio" name="customRadio3" class="custom-control-input" id="customRadio24">
+                        <input type="radio" name="customRadio3" class="custom-control-input" id="customRadio24" value="No Response">
                         <label class="custom-control-label" for="customRadio24">No Response</label>
                       </div>
                     </div>
@@ -169,9 +167,11 @@
                 </section>
             </div>
             <div class="form-actions" style="padding-left:45%">
-              <button class="btn btn-primary" type="submit" onclick="window.location.href='userAccomplished.html'">Submit form</button>
+              <button class="btn btn-primary" type="submit">Submit form</button>
             </div>
+            </form>
           </div>
+          
       </div>
     </div>
   </main>

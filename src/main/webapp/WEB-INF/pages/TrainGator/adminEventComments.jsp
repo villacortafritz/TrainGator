@@ -127,7 +127,7 @@
                         <div class="col-12 col-sm-6 col-lg-3">
                           <div class="card-metric">
                             <div class="metric">
-                              <h1 class="value">70%</h1>
+                              <h1 class="value">${facRating} %</h1>
                               </p>
                               <h2 class="metric-label"> Facilitator's Rating </h2>
                             </div>
@@ -157,21 +157,26 @@
                              </div>
                            </div>
                          </nav>
+                         
+
+                         
                         <div class="list-group-item read">
                           <div class="list-group-item-body pl-md-2">
-                            <div class="row">
-                              <div class="col-12 col-lg-3 d-none d-lg-block">
-                                <h4 class="list-group-item-title text-truncate">
-                                  <a><br><br><br>Name of Participant</a>
-                                </h4>
-                              </div>
-                              <div class="col-12 col-lg-7">
-                                <p class="list-group-item-text text-truncate"> Answer 1: Answer </p><br>
-                                <p class="list-group-item-text text-truncate"> Answer 2: Answer </p><br>
-                                <p class="list-group-item-text text-truncate"> Answer 3: Answer </p><br>
-                                <p class="list-group-item-text text-truncate"> Answer 4: Answer </p>
-                              </div>
-                            </div>
+	                          <c:forEach items="${partComments}" var="pc">
+	                            <div class="row">
+	                              <div class="col-12 col-lg-3 d-none d-lg-block">
+	                                <h4 class="list-group-item-title text-truncate">
+	                                
+								     <font size="2"><i>${pc[0]} ${pc[1]}</i></font>
+								    
+	                                </h4>
+	                              </div>
+	                              <div class="col-12 col-lg-7">
+	                                <p class="list-group-item-text text-truncate"> ${pc[2]} </p><br>
+	                              
+	                              </div>
+	                            </div>
+	                            </c:forEach>
                           </div>
                         </div>
                       </div>
