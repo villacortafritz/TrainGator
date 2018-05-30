@@ -6,6 +6,9 @@ import java.util.List;
 
 
 
+
+
+
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
@@ -324,6 +327,68 @@ public class MainRepository {
 		em.persist(sv);
 		
 	}
+
+	public void submitUserCff(EntityManager em, TblFormresult[] ansCff) {
+		for(int i=0; i<ansCff.length; i++){
+			em.persist(ansCff[i]);
+		}
+		
+	}
+
+	public List<Object> getParticipantComments(EntityManager em, String trainId) {
+		
+		Session session = em.unwrap(Session.class);
+		StringBuilder stringQuery = new StringBuilder(
+				"SELECT u.user_fname, u.user_lname, f.res_data "
+				+ "FROM tbl_formresults f "
+				+ "JOIN tbl_user u " 
+				+ "ON f.user_id = u.user_id " 
+				+ "WHERE f.train_id = :id AND f.quest_id BETWEEN 31 AND 33 ");
+		SQLQuery query = session.createSQLQuery(stringQuery.toString());
+		query.setParameter("id", trainId);
+		List<Object> list = query.list();		
+		return list;
+	}
+
+	public void submitUserFff(EntityManager em, TblFormresult[] ansFff) {
+		for(int i=0; i<ansFff.length; i++){
+			em.persist(ansFff[i]);
+		}
+		
+		
+	}
+
+	public List<Object> getCommentsforFaci(EntityManager em, String trainId) {
+		Session session = em.unwrap(Session.class);
+		StringBuilder stringQuery = new StringBuilder(
+				"SELECT u.user_fname, u.user_lname, f.res_data "
+				+ "FROM tbl_formresults f "
+				+ "JOIN tbl_user u " 
+				+ "ON f.user_id = u.user_id " 
+				+ "WHERE f.train_id = :id AND f.quest_id = 44 ");
+		SQLQuery query = session.createSQLQuery(stringQuery.toString());
+		query.setParameter("id", trainId);
+		List<Object> list = query.list();		
+		return list;
+	}
+
+	public double getFacilatatorRating(EntityManager em, String trainId) {
+		Session session = em.unwrap(Session.class);
+		StringBuilder stringQuery = new StringBuilder(
+				"SELECT AVG(f.res_data) "
+				+ "FROM tbl_formresults f " 
+				+ "JOIN tbl_user u " 
+				+ "ON f.user_id = u.user_id " 
+				+ "WHERE f.train_id =:id AND f.quest_id BETWEEN 34 AND 43 ");
+		SQLQuery query = session.createSQLQuery(stringQuery.toString());
+		query.setParameter("id", trainId);
+		List<Double> list = query.list();
+		System.out.println(list.get(0).toString() + "BOGOG RATING");
+		double value =  Double.parseDouble(list.get(0).toString());
+		return value;
+	}
+	
+	
 
 
 	

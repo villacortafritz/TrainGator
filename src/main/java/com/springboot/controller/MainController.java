@@ -150,11 +150,21 @@ public class MainController {
 	
 	@RequestMapping(value="/adminEventComments", method=RequestMethod.GET)
 	public String adminEventComments(HttpServletRequest request, ModelMap map) {
+		String trainId = "101"; // TO BE CHANGEEEE
+		List<Object> partComments = MainService.getParticipantComments(trainId);		
+		map.addAttribute("partComments",partComments);		
+		double facRating = MainService.getFacilitatorRating(trainId);		
+		map.addAttribute("facRating",facRating);
 		return "TrainGator/adminEventComments";
 	}
 	
 	@RequestMapping(value="/adminFacilitatorComments", method=RequestMethod.GET)
 	public String adminFacilitatorComments(HttpServletRequest request, ModelMap map) {
+		String trainId = "101"; // TO BE CHANGEEEE
+		List<Object> facComments = MainService.getCommentsforFaci(trainId);
+		double facRating = MainService.getFacilitatorRating(trainId);
+		map.addAttribute("facRating",facRating);
+		map.addAttribute("facComments",facComments);
 		return "TrainGator/adminFacilitatorComments";
 	}
 	
@@ -323,8 +333,44 @@ public class MainController {
 		return "TrainGator/userCff";
 	}
 	
+	@RequestMapping(value="/submitUserCff", method=RequestMethod.POST)
+	public String submitUserCff(HttpServletRequest request, ModelMap map) {
+		String[] cffAnswer = new String[3];
+		cffAnswer[0] = request.getParameter("customRadio1");
+		cffAnswer[1] = request.getParameter("customRadio2");
+		cffAnswer[2] = request.getParameter("customRadio3");
+		
+		MainService.submitUserCff(cffAnswer);
+
+		return "TrainGator/userCff";
+	}
+	
+	
+	
 	@RequestMapping(value="/userFff", method=RequestMethod.GET)
 	public String userFff(HttpServletRequest request, ModelMap map) {
+		return "TrainGator/userFff";
+	}
+	
+	@RequestMapping(value="/submitUserFff", method=RequestMethod.POST)
+	public String submitUserFff(HttpServletRequest request, ModelMap map) {
+		String[] userFffAnswer = new String[11];
+		userFffAnswer[0] = request.getParameter("Q12");
+		userFffAnswer[1] = request.getParameter("Q13");
+		userFffAnswer[2] = request.getParameter("Q14");
+		userFffAnswer[3] = request.getParameter("Q15");
+		userFffAnswer[4] = request.getParameter("Q16");
+		userFffAnswer[5] = request.getParameter("Q17");
+		userFffAnswer[6] = request.getParameter("Q18");
+		userFffAnswer[7] = request.getParameter("Q19");
+		userFffAnswer[8] = request.getParameter("Q20");
+		userFffAnswer[9] = request.getParameter("Q21");
+		userFffAnswer[10] = request.getParameter("Q22");
+		
+		MainService.submitFff(userFffAnswer);
+		
+		
+		
 		return "TrainGator/userFff";
 	}
 	

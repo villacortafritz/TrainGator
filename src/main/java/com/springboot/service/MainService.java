@@ -300,6 +300,73 @@ public class MainService {
 		return MainRepository.getSupervisor(em);
 	}
 
+	public void submitUserCff(String[] cffAnswer) {
+		TblFormresult ansCff[] = new TblFormresult[3];	
+		Date date = new Date();
+		int questid = 31;
+
+		for(int i = 0; i <ansCff.length ; i++)
+		{
+			ansCff[i] = new TblFormresult();
+			ansCff[i].setAnsId(i+1);
+			ansCff[i].setUserId(1); //SUBJECT TO CHANGE
+			ansCff[i].setQuestId(questid);
+			ansCff[i].setResDate(date);
+			ansCff[i].setTrainId(101); //SUBJECT TO CHANGE
+			ansCff[i].setResData(cffAnswer[i]);
+			ansCff[i].setResType("Self");
+			questid++;
+			
+		}
+		MainRepository.submitUserCff(em,ansCff);
+		
+		
+	}
+
+	public List<Object> getParticipantComments(String trainId) {
+		return MainRepository.getParticipantComments(em, trainId);
+	}
+
+	public void submitFff(String[] userFffAnswer) {
+		TblFormresult ansFff[] = new TblFormresult[11];	
+		Date date = new Date();
+		
+		int questid = 34;
+		
+		for(int i = 0; i <ansFff.length ; i++)
+		{
+			ansFff[i] = new TblFormresult();
+			ansFff[i].setAnsId(i+1);
+			ansFff[i].setUserId(1); //SUBJECT TO CHANGE
+			ansFff[i].setQuestId(questid);
+			ansFff[i].setResDate(date);
+			ansFff[i].setTrainId(101); //SUBJECT TO CHANGE
+			ansFff[i].setResData(userFffAnswer[i]);
+			ansFff[i].setResType("Self");
+			questid++;
+			
+		}
+		
+		MainRepository.submitUserFff(em,ansFff);
+	
+	}
+
+	public List<Object> getCommentsforFaci(String trainId) {
+		
+		return MainRepository.getCommentsforFaci(em, trainId);
+	}
+
+	public double getFacilitatorRating(String trainId) {
+		// TODO Auto-generated method stub
+		
+		double value = MainRepository.getFacilatatorRating(em, trainId);
+		
+		value = ((5-value)/5)*100;
+		System.out.println(value + "VALUEEEE GAGUUUU");
+		return value;
+//		return MainRepository.getFacilatatorRating(em, trainId);
+	}
+
 
 }
 	
