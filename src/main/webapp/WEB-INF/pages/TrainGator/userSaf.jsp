@@ -16,7 +16,7 @@
     <header class="app-header">
           <div class="top-bar">
             <div class="top-bar-brand">
-              <a href="userJoined.html">
+              <a href="/useruserJoined">
                 <img src="/images/rect-logo.png" height="45" alt="">
               </a>
             </div>
@@ -33,7 +33,7 @@
                 </div>
               </div>
               <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
-                <button class="btn btn-primary" style="height:55px" onclick="window.location = 'userJoined.html'">
+                <button class="btn btn-primary" style="height:55px" onclick="window.location = '/user/userJoined'">
                   <span class="oi oi-home ml-1"></span>
                 </button>
                 <div class="dropdown">
@@ -49,7 +49,7 @@
                   <div class="dropdown-arrow dropdown-arrow-left"></div>
                   <div class="dropdown-menu">
                     <h6 class="dropdown-header d-none d-md-block d-lg-none"> Name of User </h6>
-                    <a class="dropdown-item" href="generalSignin.html">
+                    <a class="dropdown-item" href="/generalSignin">
                       <span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
                       <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Help Center</a>

@@ -52,7 +52,7 @@
 <!-- The home button is located at the header since it has the purpose of redirecting the user back to it's default landing page. -->
 <!-- start implementation for the search bar. -->
             <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
-              <button class="btn btn-primary" style="height:55px" onclick="window.location = 'adminOngoing'">
+              <button class="btn btn-primary" style="height:55px" onclick="window.location = '/admin/adminOngoing'">
                 <span class="oi oi-home ml-1"></span>
               </button>
 <!-- end implementation for the search bar. -->
@@ -88,7 +88,7 @@
                 <h1 class="page-title" style="padding-left:35%"> Create Training Event </h1>
               </header>
               <div class="page-section">
-                <form method="post" action="http://localhost:8080/adminCreateEvent">
+                <form method="post" action="http://localhost:8080/admin/adminCreateEvent">
                   <input type="hidden" name="trainId" value="${train.trainId}">
                 <div class="section-deck">
                   <section class="card card-fluid">

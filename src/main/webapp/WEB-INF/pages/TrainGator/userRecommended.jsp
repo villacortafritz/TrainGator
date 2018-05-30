@@ -26,7 +26,7 @@
 <!-- The TrainGator logo is seen at the left-most side of the header, it is used for redirecting the user to it's default landing page. -->
 <!-- start implementation for the TrainGator logo. -->
           <div class="top-bar-brand">
-            <a href="userJoined.html">
+            <a href="/user/userJoined">
               <img src="/images/rect-logo.png" height="45" alt="">
             </a>
           </div>
@@ -49,7 +49,7 @@
 <!-- The home button is located at the header since it has the purpose of redirecting the user back to it's default landing page. -->
 <!-- start implementation for the search bar. -->
             <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
-              <button class="btn btn-primary" style="height:55px" onclick="window.location = 'userJoined.html'">
+              <button class="btn btn-primary" style="height:55px" onclick="window.location = '/user/userJoined'">
                 <span class="oi oi-home ml-1"></span>
               </button>
 <!-- end implementation for the search bar. -->
@@ -68,7 +68,7 @@
                 <div class="dropdown-arrow dropdown-arrow-left"></div>
                 <div class="dropdown-menu">
                   <h6 class="dropdown-header d-none d-md-block d-lg-none">${fname} ${lname}</h6>
-                  <a class="dropdown-item" href="generalSignin.html">
+                  <a class="dropdown-item" href="/generalSignin">
                     <span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
                     <div class="dropdown-divider"></div>
                 </div>
@@ -89,11 +89,11 @@
     <nav class="page-navs">
       <div class="nav-scroller">
         <div class="nav nav-center nav-tabs">
-          <a class="nav-link" href="userJoined.html">Joined Trainings</a>
-          <a class="nav-link" href="userUpcoming.html">Upcoming Trainings</a>
-          <a class="nav-link active" href="userRecommended.html">Recommended Trainings</a>
-          <a class="nav-link" href="userAccomplished.html">Accomplished Trainings</a>
-          <a class="nav-link" href="userAnswerableSaf.html">Answerable Skills Assessment Form</a>
+          <a class="nav-link" href="/user/userJoined">Joined Trainings</a>
+          <a class="nav-link" href="/user/userUpcoming">Upcoming Trainings</a>
+          <a class="nav-link active" href="/user/userRecommended">Recommended Trainings</a>
+          <a class="nav-link" href="/user/userAccomplished">Accomplished Trainings</a>
+          <a class="nav-link" href="/user/userAnswerableSaf">Answerable Skills Assessment Form</a>
         </div>
       </div>
     </nav>
@@ -122,7 +122,7 @@
                     <td class="align-middle"> Date of Training </td>
                     <td class="align-middle text-right">
                       <div class="btn-group">
-                        <button class="btn btn-primary" type="submit" onclick="window.location.href='userRecommended.html'">Request to Join Training</button>
+                        <button class="btn btn-primary" type="submit">Request to Join Training</button>
                       </div>
                     </td>
                   </tr>

@@ -26,7 +26,7 @@
 <!-- The TrainGator logo is seen at the left-most side of the header, it is used for redirecting the user to it's default landing page. -->
 <!-- start implementation for the TrainGator logo. -->
           <div class="top-bar-brand">
-            <a href="adminOngoing.html">
+            <a href="/admin/adminOngoing">
               <img src="/images/rect-logo.png" height="45" alt="">
             </a>
           </div>
@@ -50,7 +50,7 @@
 <!-- The home button is located at the header since it has the purpose of redirecting the user back to it's default landing page. -->
 <!-- start implementation for the search bar. -->
             <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
-              <button class="btn btn-primary" style="height:55px" onclick="window.location = 'adminOngoing'">
+              <button class="btn btn-primary" style="height:55px" onclick="window.location = '/admin/adminOngoing'">
                 <span class="oi oi-home ml-1"></span>
               </button>
 <!-- end implementation for the search bar. -->
@@ -103,7 +103,7 @@
                           <p class="card-text" style="text-align:center"> ${trainingdetails.trainCourseoutline} </p>
                           <br>
                           <div class="form-actions" style="padding-left:45%">
-	                    		<button class="btn btn-primary" type="submit" onclick="window.location.href='adminCreateEvent'">Edit Training</button>
+	                    		<button class="btn btn-primary" type="submit" onclick="window.location.href='/admin/adminCreateEvent'">Edit Training</button>
 	                  		</div><br>
                         </section>
                       </div>
@@ -247,7 +247,7 @@
                     
                     </div>
                     <div class="form-actions" style="padding-left:42%">
-                    	<button class="btn btn-primary" type="submit" onclick="window.location.href='adminUpcoming'">Back to Upcoming Trainings List</button>
+                    	<button class="btn btn-primary" type="submit" onclick="window.location.href='/admin/adminUpcoming'">Back to Upcoming Trainings List</button>
                   	</div>
                   </div>
                 </div>

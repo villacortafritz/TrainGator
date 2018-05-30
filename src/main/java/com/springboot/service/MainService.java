@@ -345,11 +345,8 @@ public class MainService {
 			ansFff[i].setResData(userFffAnswer[i]);
 			ansFff[i].setResType("Self");
 			questid++;
-			
 		}
-		
 		MainRepository.submitUserFff(em,ansFff);
-	
 	}
 
 	public List<Object> getCommentsforFaci(String trainId) {
@@ -358,7 +355,6 @@ public class MainService {
 	}
 
 	public double getFacilitatorRating(String trainId) {
-		// TODO Auto-generated method stub
 		
 		double value = MainRepository.getFacilatatorRating(em, trainId);
 		

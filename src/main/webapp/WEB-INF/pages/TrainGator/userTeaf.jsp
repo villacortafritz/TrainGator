@@ -16,7 +16,7 @@
       <header class="app-header">
             <div class="top-bar">
               <div class="top-bar-brand">
-                <a href="userJoined.html">
+                <a href="/user/userJoined">
                   <img src="/images/rect-logo.png" height="45" alt="">
                 </a>
               </div>
@@ -33,7 +33,7 @@
                   </div>
                 </div>
                 <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
-                  <button class="btn btn-primary" style="height:55px" onclick="window.location = 'userJoined.html'">
+                  <button class="btn btn-primary" style="height:55px" onclick="window.location = '/user/userJoined'">
                     <span class="oi oi-home ml-1"></span>
                   </button>
                   <div class="dropdown">
@@ -71,7 +71,7 @@
             <div class="section-deck">
               <section class="card card-fluid">
                 <div class="card-body" style="padding-top: 50px;">
-                  <form action="http://localhost:8080/submitAnswerTeaf" method="post">
+                  <form action="http://localhost:8080/user/submitAnswerTeaf" method="post">
                     <fieldset>
                       <div class="form-group">
                       	
@@ -381,7 +381,7 @@
                       </div>
                     </fieldset>
                     <div class="form-actions" style="margin-left:45%">
-		              <button class="btn btn-primary" type="submit" onclick="window.location.href='userAccomplished.html'">Submit form</button>
+		              <button class="btn btn-primary" type="submit">Submit form</button>
 		            </div>
                   </form>
                 </div>

@@ -50,7 +50,7 @@
 <!-- The home button is located at the header since it has the purpose of redirecting the user back to it's default landing page. -->
 <!-- start implementation for the search bar. -->
             <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
-              <button class="btn btn-primary" style="height:55px" onclick="window.location = 'adminOngoing'">
+              <button class="btn btn-primary" style="height:55px" onclick="window.location = '/admin/adminOngoing'">
                 <span class="oi oi-home ml-1"></span>
               </button>
 <!-- end implementation for the search bar. -->
@@ -90,9 +90,9 @@
               <nav class="page-navs">
                 <div class="nav-scroller">
                   <div class="nav nav-center nav-tabs">
-                    <a class="nav-link" href="adminOngoing.html">On-going Trainings</a>
-                    <a class="nav-link" href="adminUpcoming.html">Upcoming Trainings</a>
-                    <a class="nav-link active" href="adminConcluded.html">Concluded Trainings</a>
+                    <a class="nav-link" href="/admin/adminOngoing">On-going Trainings</a>
+                    <a class="nav-link" href="/admin/adminUpcoming">Upcoming Trainings</a>
+                    <a class="nav-link active" href="/admin/adminConcluded">Concluded Trainings</a>
                   </div>
                 </div>
               </nav>
@@ -120,12 +120,12 @@
                           <td class="align-middle"> ${listVar[3]}% </td>
                           <td class="align-middle text-right">
                             <div class="btn-group">
-                              <button class="btn btn-primary" style="width:200px" type="submit" onclick="window.location = 'adminTeaf.html'">Edit Training Effectiveness <br>Assessment Form Questions</button>
+                              <button class="btn btn-primary" style="width:200px" type="submit" onclick="window.location = '/admin/adminTeaf'">Edit Training Effectiveness <br>Assessment Form Questions</button>
                             </div>
                           </td>
                           <td class="align-middle text-right">
                             <div class="btn-group">
-                              <button class="btn btn-primary" style="height:60px"type="submit" onclick="window.location = 'adminEventComments.html'">View Results</button>
+                              <button class="btn btn-primary" style="height:60px"type="submit" onclick="window.location = '/admin/adminEventComments'">View Results</button>
                             </div>
                           </td>
                         </tr>

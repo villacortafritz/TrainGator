@@ -52,7 +52,7 @@
 <!-- The home button is located at the header since it has the purpose of redirecting the user back to it's default landing page. -->
 <!-- start implementation for the search bar. -->
             <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
-              <button class="btn btn-primary" style="height:55px" onclick="window.location = 'adminOngoing'">
+              <button class="btn btn-primary" style="height:55px" onclick="window.location = '/admin/adminOngoing'">
                 <span class="oi oi-home ml-1"></span>
               </button>
 <!-- end implementation for the search bar. -->
@@ -96,7 +96,7 @@
             <section class="card card-fluid">
             <div class="card-body">
               <div class="table-responsive">
-              <form action="http://localhost:8080/submitAttendance" method="post">
+              <form action="http://localhost:8080/admin/submitAttendance" method="post">
                 <table class="table">
                   <thead>
                     <tr>

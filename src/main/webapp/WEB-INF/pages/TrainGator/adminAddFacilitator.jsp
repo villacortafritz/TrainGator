@@ -50,7 +50,7 @@
 <!-- The home button is located at the header since it has the purpose of redirecting the user back to it's default landing page. -->
 <!-- start implementation for the search bar. -->
             <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
-              <button class="btn btn-primary" style="height:55px" onclick="window.location = 'adminOngoing'">
+              <button class="btn btn-primary" style="height:55px" onclick="window.location = '/admin/adminOngoing'">
                 <span class="oi oi-home ml-1"></span>
               </button>
 <!-- end implementation for the search bar. -->
@@ -87,7 +87,7 @@
                   <div class="page-section">
                     <div class="form-group">
                     </div>
-                    <form method="post" action="http://localhost:8080/adminAddFacilitator">
+                    <form method="post" action="http://localhost:8080/admin/adminAddFacilitator">
                     <input type="hidden" name="train_id" value="${trainID}">
                     <div class="row">
                       <div class="col-lg-6">
@@ -199,7 +199,7 @@
                     </div>
                   <div class="form-actions" style="padding-left:45%">
                     <button class="btn btn-primary" type="submit">Confirm</button>
-                    <a class="btn btn-secondary" href="adminCreateEvent/?trainId=${trainID}">Back</a>
+                    <a class="btn btn-secondary" href="/admin/adminCreateEvent?trainId=${trainID}">Back</a>
                   </div>
                   </form>
                 </div>
