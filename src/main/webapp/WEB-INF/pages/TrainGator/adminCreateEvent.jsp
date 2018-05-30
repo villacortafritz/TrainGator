@@ -49,7 +49,6 @@
 <!-- end implementation for the search bar. -->
               </div>
             </div>
-<<<<<<< HEAD
 <!-- The home button is located at the header since it has the purpose of redirecting the user back to it's default landing page. -->
 <!-- start implementation for the search bar. -->
             <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
@@ -59,25 +58,23 @@
 <!-- end implementation for the search bar. -->
 <!-- The user option consists of the log out button for the purpose of logging out the user in it's current session. -->
 <!-- start implementation for the user option. -->
-              <div class="dropdown">
-                <button class="btn-account d-none d-md-flex" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <span class="user-avatar">
-                    <img src="/images/avatars/profile.jpg" alt="">
-                  </span>
-                  <span class="account-summary pr-lg-4 d-none d-lg-block">
-                    <span class="account-name">Name of Admin</span>
-                    <span class="account-description">Administrator</span>
-                  </span>
-                </button>
-                <div class="dropdown-arrow dropdown-arrow-left"></div>
-                <div class="dropdown-menu">
-                  <h6 class="dropdown-header d-none d-md-block d-lg-none"> Name of Admin </h6>
-                  <a class="dropdown-item" href="generalSignin.html">
-                    <span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
-                    <div class="dropdown-divider"></div>
-=======
+         <div class="dropdown">
+           <button class="btn-account d-none d-md-flex" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             <span class="account-summary pr-lg-4 d-none d-lg-block">
+               <span class="account-name">Name of Admin</span>
+               <span class="account-description">Administrator</span>
+             </span>
+           </button>
+           <div class="dropdown-arrow dropdown-arrow-left"></div>
+           <div class="dropdown-menu">
+             <h6 class="dropdown-header d-none d-md-block d-lg-none"> Name of Admin </h6>
+             <a class="dropdown-item" href="generalSignin.html">
+               <span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
+               <div class="dropdown-divider"></div>
           </div>
         </header>
+<!-- end implementation for the user option. -->
+<!-- end implementation for the header. -->
       <main class="app-main">
         <div class="wrapper">
           <div class="page">
@@ -145,68 +142,11 @@
                 </div>
                 <div class="form-actions" style="padding-left:40%">
                   <button class="btn btn-primary" type="submit" style="width:200px">Next</button>
->>>>>>> 0ef9c6e58dc1678bc222769d29009ea4e81f7a13
                 </div>
               </div>
-<!-- end implementation for the user option. -->
             </div>
           </div>
         </div>
-      </header>
-<!-- end implementation for the header. -->
-     <main class="app-main">
-       <div class="wrapper">
-         <div class="page">
-           <div class="page-inner">
-             <header class="page-title-bar">
-               <h1 class="page-title" style="padding-left:35%"> Create Training Event </h1>
-             </header>
-             <div class="page-section">
-               <form method="post" action="http://localhost:8080/adminCreateEvent">
-               <div class="section-deck">
-                 <section class="card card-fluid">
-                   <div class="card-body">
-                       <div class="form-group">
-                         <label class="control-label">Training Name</label>
-                         <input type="text" class="form-control" name="train_name" required=""> 
-                       </div>
-                       <div class="form-group">
-                         <label class="control-label">Training Category</label>
-                         <select name="train_cat" class="form-control" required>
-                           <option>------------</option>
-                           <c:forEach items="${list}" var="listVar">
-                             <option value="${listVar.subDesc}">${listVar.subDesc}</option>
-                           </c:forEach>
-                         </select>
-                       </div>
-                       <div class="form-group">
-                         <label class="control-label" for="flatpickr01">Start Date</label>
-                         <input id="flatpickr01" type="text" class="form-control" name="train_datestart" required=""> 
-                       </div>
-                       <div class="form-group">
-                         <label class="control-label" for="flatpickr01">End Date</label>
-                         <input id="flatpickr01" type="text" class="form-control" name="train_dateend" required=""> 
-                       </div>
-                       <div class="form-group">
-                         <label class="control-label" for="flatpickr08">Start Time</label>
-                         <input id="flatpickr08" type="text" class="form-control" name="train_timestart"> </div>
-                       <div class="form-group">
-                         <label class="control-label" for="flatpickr08">End Time</label>
-                         <input id="flatpickr08" type="text" class="form-control" name="train_timeend"> </div>
-                       <div class="form-group">
-                         <label for="exampleTextarea">Course Objective and Course Outline for Training Event</label>
-                         <textarea class="form-control" id="exampleTextarea" rows="3" name="train_courseobjective"></textarea>
-                       </div>
-                   </div>
-                 </section>
-               </div>
-               <div class="form-actions" style="padding-left:40%">
-                 <button class="btn btn-primary" type="submit" style="width:200px" onclick="window.location.href='adminOngoing.html'">Confirm</button>
-               </div>
-           </form>
-         </div>
-       </div>
-     </main>
    </div>
    <script src="/vendor/jquery/jquery.min.js"></script>
    <script src="/vendor/bootstrap/js/popper.min.js"></script>

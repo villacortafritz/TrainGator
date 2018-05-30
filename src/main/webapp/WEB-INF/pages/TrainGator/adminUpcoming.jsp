@@ -58,9 +58,6 @@
 <!-- start implementation for the user option. -->
               <div class="dropdown">
                 <button class="btn-account d-none d-md-flex" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <span class="user-avatar">
-                    <img src="/images/avatars/profile.jpg" alt="">
-                  </span>
                   <span class="account-summary pr-lg-4 d-none d-lg-block">
                     <span class="account-name">Name of Admin</span>
                     <span class="account-description">Administrator</span>
@@ -118,6 +115,11 @@
                           <td>${listVar[0]}</td>
                           <td class="align-middle"> ${listVar[1]} </td>
                           <td class="align-middle"> 20 </td>
+                          <td class="align-middle text-right">
+                            <div class="btn-group">
+                              <a class="btn btn-primary" href="adminTrainingDetails?trainId=${listVar[2]}">Delete Training</a>
+                            </div>
+                          </td>
                           <td class="align-middle text-right">
                             <div class="btn-group">
                               <a class="btn btn-primary" href="adminTrainingDetails?trainId=${listVar[2]}">View Details</a>
