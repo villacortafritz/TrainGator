@@ -90,11 +90,6 @@ public class MainController {
 		return adminAttendance(request,map);		
 	}
 	
-	@RequestMapping(value="/adminCff", method=RequestMethod.GET)
-	public String adminCff(HttpServletRequest request, ModelMap map) {
-		return "TrainGator/adminCff";
-	}
-	
 	@RequestMapping("/adminConcluded")
 	public String loadadminConcluded( ModelMap map) {
 		List<Object> trainlist = MainService.getConcludedTraining();
@@ -166,11 +161,6 @@ public class MainController {
 		map.addAttribute("facRating",facRating);
 		map.addAttribute("facComments",facComments);
 		return "TrainGator/adminFacilitatorComments";
-	}
-	
-	@RequestMapping(value="/adminFff", method=RequestMethod.GET)
-	public String adminFff(HttpServletRequest request, ModelMap map) {
-		return "TrainGator/adminFff";
 	}
 	
 	@RequestMapping(value="/adminOngoing", method=RequestMethod.GET)
@@ -265,11 +255,6 @@ public class MainController {
 	@RequestMapping(value="/adminUpcoming", method=RequestMethod.POST)
 	public String adminUpcoming(HttpServletRequest request, ModelMap map) {
 		return "TrainGator/adminUpcoming";
-	}
-	
-	@RequestMapping(value="/generalRecoverPassword", method=RequestMethod.GET)
-	public String generalRecoverPassword(HttpServletRequest request, ModelMap map) {
-		return "TrainGator/generalRecoverPassword";
 	}
 	
 	@RequestMapping("/generalSignin")
