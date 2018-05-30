@@ -293,12 +293,16 @@ public class MainService {
 			train.setTrainTimestart(train_timestart);
 			train.setTrainStatus(1);
 			MainRepository.updateTraining(em,train);
-			
 	}
 
 	public List<TblUser> getSupeprvisor() {
 		return MainRepository.getSupervisor(em);
 	}
+
+	public List<Object> getJoinedTraining(int userId) {	
+		return MainRepository.getJoinedTraining(em,userId);
+	}
+
 
 
 }

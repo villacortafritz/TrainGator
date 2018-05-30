@@ -266,11 +266,6 @@ public class MainRepository {
 		List<Object> list = query.list();
 		return list;
 	}
-	
-	
-	
-	
-	
 
 	public void submitAttendance(EntityManager em, TblAttendance attend) {
 			em.persist(attend);
@@ -323,6 +318,25 @@ public class MainRepository {
 	public void addSupervisor(EntityManager em, TblSupervisor sv) {
 		em.persist(sv);
 		
+	}
+
+	public List<Object> getJoinedTraining(EntityManager em, int userId) {
+		Session session = em.unwrap(Session.class);
+		StringBuilder stringQuery = new StringBuilder(
+				"SELECT t.*,( "
+							+"SELECT DATEDIFF( CURRENT_DATE,train_datestart ) FROM tbl_training "
+							+"WHERE train_id = t.train_id AND train_datestart <= CURRENT_DATE "
+							+")as days, " 
+							+"(SELECT DATEDIFF(train_dateend, train_datestart ) FROM tbl_training WHERE train_id = t.train_id "
+					        +")as NoOfdays FROM tbl_training t "
+				+"JOIN tbl_participant p ON t.train_id = p.train_id "
+				+"JOIN tbl_user u on p.user_id = u.user_id "
+				+"WHERE u.user_id = :id AND t.train_status IN(1,2) "
+				);
+		SQLQuery query = session.createSQLQuery(stringQuery.toString());
+		query.setParameter("id", userId);
+		List<Object> list = query.list();
+		return list;
 	}
 
 

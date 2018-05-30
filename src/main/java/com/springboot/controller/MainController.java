@@ -6,6 +6,9 @@ import java.util.Arrays;
 import java.util.Date;
 
 
+
+
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +17,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import java.util.List;
 import java.util.stream.IntStream;
@@ -263,7 +267,8 @@ public class MainController {
 	}
 	
 	@RequestMapping("/generalSignin")
-	public String generalSigninGet(HttpServletRequest request, ModelMap map) {
+	public String generalSigninGet(SessionStatus status) {
+		status.setComplete();
 		return "TrainGator/generalSignin";
 	}
 	
@@ -280,9 +285,12 @@ public class MainController {
 			map.addAttribute("usertype",user.getUserType());
 			if(user.getUserType().equals("administrator"))
 				return "TrainGator/adminOngoing";
-			else
-//				MainService.getJoinedTraining(user.getUserId());
+			else{
+				List<Object> joined = MainService.getJoinedTraining(user.getUserId());
+//				System.out.println(Arrays.deepToString(joined.toArray()));
+				map.addAttribute("joined",joined);
 				return "TrainGator/userJoined";
+				}
 			}
 		else{
 			map.addAttribute("error",error);
@@ -388,27 +396,6 @@ public class MainController {
 		return "TrainGator/userTna";
 	}
 
-	@RequestMapping(value="/signin",method=RequestMethod.POST)
-	public String signin(HttpServletRequest request, ModelMap map) {
-		String email = request.getParameter("email");
-		String password = request.getParameter("password");
-		String error = "Invalid Email or Password";
-		TblUser user = (TblUser)MainService.checkUser(email,password);
-		if(user!=null){
-			map.addAttribute("userID",user.getUserId());
-			map.addAttribute("fname",user.getUserFname());
-			map.addAttribute("lname",user.getUserLname());
-			map.addAttribute("usertype",user.getUserType());
-			if(user.getUserType().equals("administrator"))
-				return "adminAll";
-			else
-				return "userAll";
-			}
-		else{
-			map.addAttribute("error",error);
-			return "signin";
-		}
-	}
 	@RequestMapping("/userAll")
 	public String loadUserAll(){
 		return "userAll";
