@@ -46,7 +46,7 @@
                 <div class="dropdown-arrow dropdown-arrow-left"></div>
                 <div class="dropdown-menu">
                   <h6 class="dropdown-header d-none d-md-block d-lg-none"> Name of User </h6>
-                  <a class="dropdown-item" href="/user/generalSignin">
+                  <a class="dropdown-item" href="/logout">
                     <span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
                     <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="#">Help Center</a>

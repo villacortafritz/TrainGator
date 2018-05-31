@@ -74,6 +74,11 @@ public class GeneralController {
 		map.addAttribute("supervisor",sv);
 		return "TrainGator/generalSignup";
 	}
+	@RequestMapping("/logout")
+	public String logout(HttpServletRequest request) {
+		request.getSession().invalidate();
+		return "TrainGator/generalSignin";
+	}
 	
 	@RequestMapping(value="/generalSignup", method=RequestMethod.POST)
 	public String generalSignup(HttpServletRequest request, ModelMap map) {
