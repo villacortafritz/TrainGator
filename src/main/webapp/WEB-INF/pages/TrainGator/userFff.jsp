@@ -35,9 +35,6 @@
                   </button>
                   <div class="dropdown">
                     <button class="btn-account d-none d-md-flex" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <span class="user-avatar">
-                        <img src="/images/avatars/profile.jpg" alt="">
-                      </span>
                       <span class="account-summary pr-lg-4 d-none d-lg-block">
                         <span class="account-name">Name of User</span>
                         <span class="account-description">Participant/Supervisor</span>
@@ -46,8 +43,8 @@
                     <div class="dropdown-arrow dropdown-arrow-left"></div>
                     <div class="dropdown-menu">
                       <h6 class="dropdown-header d-none d-md-block d-lg-none"> Name of User </h6>
-                      <a class="dropdown-item" href="/generalSignin">
-                        <span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
+                      <a class="dropdown-item" href="/logout">
+                    <span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
                         <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="#">Help Center</a>
                       <a class="dropdown-item" href="#">Ask Forum</a>
@@ -368,6 +365,21 @@
                             </section>
                           </div>
                         </div>
+<<<<<<< HEAD
+                      </div>
+                    </fieldset>
+                  </form>
+                  <div class="form-group">
+                    <label for="exampleTextarea">22. Additional comments on the speaker.</label>
+                    <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+                  </div><br>
+                </div>
+              </section>
+            </div>
+            <div class="form-actions" style="margin-left:45%">
+              <button class="btn btn-primary" type="submit" onclick="window.location.href='userAccomplished.html'">Submit form</button>
+            </div>
+=======
                       </fieldset>
 
                       <fieldset>
@@ -585,7 +597,7 @@
                 <button class="btn btn-primary" type="submit">Submit form</button>
               </div>
             </form>
-             
+
           </div>
         </div>
       </div>

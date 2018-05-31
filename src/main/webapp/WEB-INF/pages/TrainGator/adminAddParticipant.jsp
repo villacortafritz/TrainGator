@@ -56,9 +56,6 @@
 <!-- start implementation for the user option. -->
               <div class="dropdown">
                 <button class="btn-account d-none d-md-flex" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <span class="user-avatar">
-                    <img src="/images/avatars/profile.jpg" alt="">
-                  </span>
                   <span class="account-summary pr-lg-4 d-none d-lg-block">
                     <span class="account-name">Name of Admin</span>
                     <span class="account-description">Administrator</span>

@@ -40,7 +40,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text">
                       <span class="oi oi-magnifying-glass"></span>
-                    </span>
+                      </span>
 <!-- The search bar at the header has the purpose of searching the users within the database. -->
 <!-- start implentation for the search bar. -->
                   </div>
@@ -60,9 +60,6 @@
 <!-- start implementation for the user option. -->
               <div class="dropdown">
                 <button class="btn-account d-none d-md-flex" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <span class="user-avatar">
-                    <img src="/images/avatars/profile.jpg" alt="">
-                  </span>
                   <span class="account-summary pr-lg-4 d-none d-lg-block">
                     <span class="account-name">Name of Admin</span>
                     <span class="account-description">Administrator</span>
@@ -71,7 +68,7 @@
                 <div class="dropdown-arrow dropdown-arrow-left"></div>
                 <div class="dropdown-menu">
                   <h6 class="dropdown-header d-none d-md-block d-lg-none"> Name of Admin </h6>
-                  <a class="dropdown-item" href="generalSignin.html">
+                  <a class="dropdown-item" href="/logout">
                     <span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
                     <div class="dropdown-divider"></div>
                 </div>
@@ -118,30 +115,21 @@
 	                        <span class="switcher-indicator"></span>
 	                        </label>
 	                     </td>
-	                  	</tr>                		
-          					</c:forEach>           
-                    <tr>
-                      <td class="align-middle"></td>
-                      <td>
-                        <a>Name of Participant</a>
-                      </td>
-                      <td class="align-middle">
-                        <label class="switcher-control" style="margin-left:8px">
-                        <input type="checkbox" name="onoffswitch" class="switcher-input">
-                        <span class="switcher-indicator"></span>
-                        </label>
-                     </td>
-                  </tr>
-                </tbody>
+					</tr>
+					</c:forEach>
+				</tbody>
               </table>
+
               <div class="form-actions" style="padding-left:45%">
 		        <button class="btn btn-primary" type="submit">Confirm</button>
 		      </div> 
+
               </form>
                 <button class="btn btn-primary" type="submit" style="width:100%" onclick="window.location.href='/admin/attendanceForPrint'">Attendance Details</button>
             </div>
           </div>
         </div>
+     
       </div>
     </main>
   <script src="/vendor/jquery/jquery.min.js"></script>

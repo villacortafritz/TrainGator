@@ -57,9 +57,6 @@
 <!-- start implementation for the user option. -->
               <div class="dropdown">
                 <button class="btn-account d-none d-md-flex" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <span class="user-avatar">
-                    <img src="/images/avatars/profile.jpg" alt="">
-                  </span>
                   <span class="account-summary pr-lg-4 d-none d-lg-block">
                     <span class="account-name">${fname} ${lname}</span>
                     <span class="account-description">${usertype}</span>
@@ -68,9 +65,8 @@
                 <div class="dropdown-arrow dropdown-arrow-left"></div>
                 <div class="dropdown-menu">
                   <h6 class="dropdown-header d-none d-md-block d-lg-none">${fname} ${lname}</h6>
-                  <a class="dropdown-item" href="/generalSignin">
+                  <a class="dropdown-item" href="/logout">
                     <span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
-                    <div class="dropdown-divider"></div>
                 </div>
               </div>
 <!-- end implementation for the user option. -->
@@ -129,6 +125,10 @@
                                           ${joined[0][1]}
                                         </h4>
                                         <h6 class="card-subtitle text-muted">
+                                          <span class="due-date">Date: 2018-01-01 to 2018-01-06</span>
+                                          <br>
+                                          <span class="due-date">Facilitator: Name of Facilitator</span>
+                                          <br>
                                           <span class="due-date">${joined[0][2]} to ${joined[0][3]}</span>
                                           <hr>
                                           <button class="btn btn-primary btn-small" type="submit" style="width:80%" onclick="window.location.href='adminAttendance'">Attendance</button>
