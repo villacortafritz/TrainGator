@@ -417,5 +417,9 @@ public class MainService {
 	public boolean getSafDataById(int id) {
 		return MainRepository.getSafDataById(em,id);
 	}
+	public List<Object> getAttendanceDetails(int trainid) {
+		
+		return MainRepository.getAttendanceDetails(em,trainid);
+	}
 }
 	

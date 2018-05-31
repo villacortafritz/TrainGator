@@ -58,12 +58,9 @@
 <!-- start implementation for the user option. -->
               <div class="dropdown">
                 <button class="btn-account d-none d-md-flex" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <span class="user-avatar">
-                    <img src="/images/avatars/profile.jpg" alt="">
-                  </span>
                   <span class="account-summary pr-lg-4 d-none d-lg-block">
-                    <span class="account-name">Name of Admin</span>
-                    <span class="account-description">Administrator</span>
+                    <span class="account-name">${fname} ${lname}</span>
+                    <span class="account-description">${usertype}</span>
                   </span>
                 </button>
                 <div class="dropdown-arrow dropdown-arrow-left"></div>
@@ -71,7 +68,6 @@
                   <h6 class="dropdown-header d-none d-md-block d-lg-none"> Name of Admin </h6>
                   <a class="dropdown-item" href="/logout">
                     <span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
-                    <div class="dropdown-divider"></div>
                 </div>
               </div>
 <!-- end implementation for the user option. -->
@@ -100,34 +96,30 @@
           <header class="page-title-bar">
             <div class="section-block">
               <div class="metric-row">
-                <div class="col-12 col-sm-6 col-lg-3">
-                  <div class="card-metric">
-                    <div class="metric">
-                      <!-- insert stat here -->
-                    </div>
+                <div class="col-12 col-sm-6 col-xl-6">
+                    <section class="card card-fluid">
+                      <div class="card-body">
+                        <div class="text-center">
+                          <div class="easyPieChart mb-1" data-percent="50" data-barcolor="#346CB0" data-trackcolor="false">
+                            <span>45%</span>
+                          </div>
+                          <span>Average Success Rate</span>
+                        </div>
+                      </div>
+                    </section>
                   </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-3">
-                  <div class="card-metric">
-                    <div class="metric">
-                      <!-- insert stat here -->
-                    </div>
+                <div class="col-12 col-sm-6 col-xl-6">
+                    <section class="card card-fluid">
+                      <div class="card-body">
+                        <div class="text-center">
+                          <div class="easyPieChart mb-1" data-percent="50" data-barcolor="#346CB0" data-trackcolor="false">
+                            <span>60%</span>
+                          </div>
+                          <span>Average Ongoing Trainings</span>
+                        </div>
+                      </div>
+                    </section>
                   </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-3">
-                  <div class="card-metric">
-                    <div class="metric">
-                      <!-- insert stat here -->
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-3">
-                  <div class="card-metric">
-                    <div class="metric">
-                      <!-- insert stat here -->
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
               <div>
@@ -184,10 +176,6 @@
                                     </a>
                                   </div>
                                 </div>
-                                <button type="button" class="btn btn-sm btn-secondary">
-                                  <i class="far fa-trash-alt"></i>
-                                <span class="sr-only">Remove</span>
-                              </button>
                               </div>
                             </div>
                           </section>
@@ -201,8 +189,12 @@
   </div>
 </main>
 <script src="/vendor/jquery/jquery.min.js"></script>
+<script src="/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
 <script src="/vendor/bootstrap/js/popper.min.js"></script>
 <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="/js/pages/easypiechart-demo.js"></script>
+<script src="/vendor/chart.js/Chart.min.js"></script>
+<script src="/js/pages/chartjs-others-demo.js"></script>
 <script src="/js/main.min.js"></script>
 </body>
 </html>

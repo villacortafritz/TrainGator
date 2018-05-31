@@ -64,8 +64,8 @@
                     <img src="/images/avatars/profile.jpg" alt="">
                   </span>
                   <span class="account-summary pr-lg-4 d-none d-lg-block">
-                    <span class="account-name">Name of Admin</span>
-                    <span class="account-description">Administrator</span>
+                    <span class="account-name">${fname} ${lname}</span>
+                    <span class="account-description">${usertype}</span>
                   </span>
                 </button>
                 <div class="dropdown-arrow dropdown-arrow-left"></div>
@@ -73,7 +73,6 @@
                   <h6 class="dropdown-header d-none d-md-block d-lg-none"> Name of Admin </h6>
                   <a class="dropdown-item" href="/logout">
                     <span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
-                    <div class="dropdown-divider"></div>
           <!-- end implementation for the user option. -->
             </div>
           </div>
@@ -150,6 +149,10 @@
                 </div>
                </form>
               </div>
+            </div>
+          </div>
+        </div>
+   </div>
          </div>
     </div>
   </div>

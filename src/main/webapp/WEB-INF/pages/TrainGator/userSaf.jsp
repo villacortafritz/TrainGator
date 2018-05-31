@@ -38,9 +38,6 @@
                 </button>
                 <div class="dropdown">
                   <button class="btn-account d-none d-md-flex" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="user-avatar">
-                      <img src="/images/avatars/profile.jpg" alt="">
-                    </span>
                     <span class="account-summary pr-lg-4 d-none d-lg-block">
                       <span class="account-name">Name of User</span>
                       <span class="account-description">Participant/Supervisor</span>
@@ -61,7 +58,7 @@
           </div>
         </header>
     <main class="app-main">
-      <div class="wrapper">
+      <div id="printable" class="wrapper">
         <div class="page">
           <div class="page-inner">
             <header class="page-title-bar">
@@ -2422,11 +2419,14 @@
               </div>
             </div>
           </form>
+          
           </div>
         </div>
       </div>
     </div>
     </main>
+    
+   
   <script src="/vendor/jquery/jquery.min.js"></script>
   <script src="/vendor/bootstrap/js/popper.min.js"></script>
   <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>

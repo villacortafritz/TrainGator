@@ -57,9 +57,6 @@
 <!-- start implementation for the user option. -->
               <div class="dropdown">
                 <button class="btn-account d-none d-md-flex" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <span class="user-avatar">
-                    <img src="/images/avatars/profile.jpg" alt="">
-                  </span>
                   <span class="account-summary pr-lg-4 d-none d-lg-block">
                     <span class="account-name">${fname} ${lname}</span>
                     <span class="account-description">${usertype}</span>
@@ -70,7 +67,6 @@
                   <h6 class="dropdown-header d-none d-md-block d-lg-none">${fname} ${lname}</h6>
                   <a class="dropdown-item" href="/logout">
                     <span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
-                    <div class="dropdown-divider"></div>
                 </div>
               </div>
 <!-- end implementation for the user option. -->
@@ -82,8 +78,8 @@
   <main class="app-main">
     <header class="page-cover">
       <div class="text-center">
-        <h2 class="h4 mt-3 mb-0"> Name of User </h2>
-        <p class="text-muted"> Participant/Supervisor </p>
+        <h2 class="h4 mt-3 mb-0">${fname} ${lname}</h2>
+        <p class="text-muted"> ${usertype} </p>
       </div>
     </header>
     <nav class="page-navs">
@@ -153,7 +149,6 @@
           </div>
         </div>
       </div>
-
       <div class="page-inner">
         <div class="page-section">
         <section class="card card-fluid">

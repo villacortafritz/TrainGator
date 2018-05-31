@@ -12,6 +12,7 @@ import java.util.List;
 
 
 
+
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
@@ -89,7 +90,7 @@ public class MainRepository {
 				"SELECT u.* "
 				+ "FROM tbl_participant p JOIN tbl_user u "
 				+ "ON p.user_id = u.user_id "
-				+ "WHERE p.train_id = 40");
+				+ "WHERE p.train_id = 36");
 		SQLQuery query = session.createSQLQuery(stringQuery.toString());
 		List<TblUser> list = query.list();
 		return list;
@@ -489,6 +490,19 @@ public class MainRepository {
 			return true;
 		else
 			return false;
+	}
+	public List<Object> getAttendanceDetails(EntityManager em, int trainid) {
+		Session session = em.unwrap(Session.class);
+		StringBuilder stringQuery = new StringBuilder(
+				"SELECT u.user_fname, u.user_lname, a.status, a.att_date "
+				+ "FROM tbl_attendance a "
+				+ "JOIN tbl_user u " 
+				+ "ON a.user_id = u.user_id " 
+				+ "WHERE a.train_id = :id ");
+		SQLQuery query = session.createSQLQuery(stringQuery.toString());
+		query.setParameter("id", trainid);
+		List<Object> list = query.list();		
+		return list;
 	}
 	
 }

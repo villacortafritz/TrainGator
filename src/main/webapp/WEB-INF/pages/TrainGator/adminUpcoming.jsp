@@ -58,12 +58,9 @@
 <!-- start implementation for the user option. -->
               <div class="dropdown">
                 <button class="btn-account d-none d-md-flex" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <span class="user-avatar">
-                    <img src="/images/avatars/profile.jpg" alt="">
-                  </span>
                   <span class="account-summary pr-lg-4 d-none d-lg-block">
-                    <span class="account-name">Name of Admin</span>
-                    <span class="account-description">Administrator</span>
+                    <span class="account-name">${fname} ${lname}</span>
+                    <span class="account-description">${usertype}</span>
                   </span>
                 </button>
                 <div class="dropdown-arrow dropdown-arrow-left"></div>
@@ -71,7 +68,6 @@
                   <h6 class="dropdown-header d-none d-md-block d-lg-none"> Name of Admin </h6>
                   <a class="dropdown-item" href="/logout">
                     <span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
-                    <div class="dropdown-divider"></div>
                 </div>
               </div>
 <!-- end implementation for the user option. -->
@@ -118,6 +114,11 @@
                           <td>${listVar[0]}</td>
                           <td class="align-middle"> ${listVar[1]} </td>
                           <td class="align-middle"> 20 </td>
+                          <td class="align-middle text-right">
+                            <div class="btn-group">
+                              <a class="btn btn-primary" href="adminTrainingDetails?trainId=${listVar[2]}">Delete Training</a>
+                            </div>
+                          </td>
                           <td class="align-middle text-right">
                             <div class="btn-group">
                               <a class="btn btn-primary" href="/admin/adminTrainingDetails?trainId=${listVar[2]}">View Details</a>
