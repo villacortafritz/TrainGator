@@ -69,6 +69,7 @@
               <section class="card card-fluid">
                 <div class="card-body" style="padding-top: 50px;">
                   <form action="http://localhost:8080/user/submitAnswerTeaf" method="post">
+                  <input name="formid" value="${whatForm}"><label> ${whatForm} </label><br>
                     <fieldset>
                       <div class="form-group">
                       	

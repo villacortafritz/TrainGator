@@ -110,15 +110,17 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                    <td class="align-middle"></td>
-                    <td>
-                    <a>Name of Training</a>
-                    </td>
-                    <td class="align-middle"><button class="btn btn-primary" type="submit" onclick="window.location.href='/user/userCff'">Answer Course Feedback Form</button></td>
-                    <td class="align-middle"><button class="btn btn-primary" type="submit" onclick="window.location.href='/user/userFff'">Answer Facilitator's Feedback Form</button></td>
-                    <td class="align-middle"><button class="btn btn-primary" type="submit" onclick="window.location.href='/user/userTeaf'">Answer Training Effectiveness Assessment Form</button></td>
-                  </tr>
+	                  <c:forEach items="${accTra}" var="accTra">
+	                    <tr>
+	                    <td class="align-middle"></td>
+	                    <td>
+	                    <a>${accTra[0]}</a> 
+	                    </td>
+	                    	<td class="align-middle"><button class="btn btn-primary" type="submit" onclick="window.location.href='/user/userCff?trainid=${accTra[1]}'">Answer Course Feedback Form</button></td>
+	                    	<td class="align-middle"><button class="btn btn-primary" type="submit" onclick="window.location.href='/user/userFff?trainid=${accTra[1]}'">Answer Facilitator's Feedback Form</button></td>
+	                    	<td class="align-middle"><button class="btn btn-primary" type="submit" onclick="window.location.href='/user/userTeaf?trainid=${accTra[1]}'">Answer Training Effectiveness Assessment Form</button></td>
+	                  	</tr>
+	                 </c:forEach>
                 </tbody>
               </table>
             </div>
