@@ -40,11 +40,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text">
                       <span class="oi oi-magnifying-glass"></span>
-<<<<<<< HEAD
-                                          </span>
-=======
-                    </span>
->>>>>>> eefe32709fcb63cef3032eff6b208104a3046a00
+                      </span>
 <!-- The search bar at the header has the purpose of searching the users within the database. -->
 <!-- start implentation for the search bar. -->
                   </div>
@@ -119,37 +115,17 @@
 	                        <span class="switcher-indicator"></span>
 	                        </label>
 	                     </td>
-<<<<<<< HEAD
-	                  	</tr>
+					</tr>
 					</c:forEach>
-=======
-	                  	</tr>                		
-          					</c:forEach>           
-                    <tr>
-                      <td class="align-middle"></td>
-                      <td>
-                        <a>Name of Participant</a>
-                      </td>
-                      <td class="align-middle">
-                        <label class="switcher-control" style="margin-left:8px">
-                        <input type="checkbox" name="onoffswitch" class="switcher-input">
-                        <span class="switcher-indicator"></span>
-                        </label>
-                     </td>
-                  </tr>
->>>>>>> eefe32709fcb63cef3032eff6b208104a3046a00
-                </tbody>
+				</tbody>
               </table>
               </form>
             </div>
           </div>
         </div>
-<<<<<<< HEAD
         <div class="form-actions" style="padding-left:45%">
         <button class="btn btn-primary" type="submit" onclick="window.location.href='adminOngoing.html'">Confirm</button>
       </div>
-=======
->>>>>>> eefe32709fcb63cef3032eff6b208104a3046a00
       </div>
     </main>
   <script src="/vendor/jquery/jquery.min.js"></script>

@@ -67,7 +67,6 @@
                   <h6 class="dropdown-header d-none d-md-block d-lg-none">${fname} ${lname}</h6>
                   <a class="dropdown-item" href="generalSignin.html">
                     <span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
-                    <div class="dropdown-divider"></div>
                 </div>
               </div>
 <!-- end implementation for the user option. -->

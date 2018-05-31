@@ -80,25 +80,36 @@
       <main class="app-main">
         <div class="wrapper">
           <div class="page">
-                <div class="page-inner">
+              <div class="page-inner">
+               <header class="page-title-bar">
+	            	<h1 class="page-title" style="text-align:center;">${trainingdetails.trainName}</h1>
+	        	</header>
                   <div class="page-section">
                     <div class="row">
                       <div class="col-lg-12">
                         <section class="card">
                           <header class="card-header" style="text-align:center"> ${trainingdetails.trainName} </header>
-                          <div class="card-footer-content text-muted">Duration of Training </div>
-                          <p class="card-text" style="text-align:center">${trainingdetails.trainDatestart} to ${trainingdetails.trainDateend}
-                          </p>
-                          <div class="card-footer-content text-muted">Schedule of Training </div>
-                          <p class="card-text" style="text-align:center"> ${trainingdetails.trainTimestart} to ${trainingdetails.trainTimeend} 
-                          </p>
-                            <div class="card-footer-content text-muted">Training Facilitator </div>
-                            <c:forEach items="${facilitators}" var="faciVar">
-                              <p class="card-text" style="text-align:center"> ${faciVar[1]} ${faciVar[2]}</p>
-                            </c:forEach>
-                          <div class="card-footer-content text-muted">Training Course Objective and Outline </div>
-                          <p class="card-text" style="text-align:center"> ${trainingdetails.trainCourseoutline} </p>
-                          <br>
+                          <div class="row">
+                          	<div class="col-lg-4">
+                          		<div class="card-footer-content" style="text-align:center"><b>Duration of Training></b> </div>
+                          		<p class="card-text" style="text-align:center">${trainingdetails.trainDatestart} to ${trainingdetails.trainDateend}
+                          		</p>
+                          	</div>
+                          	<div class="col-lg-4">
+                          	 	<div class="card-footer-content text-muted" style="text-align:center"><b>Schedule of Training</b></div>
+                          		<p class="card-text" style="text-align:center"> ${trainingdetails.trainTimestart} to ${trainingdetails.trainTimeend} 
+                          		</p>
+                          	</div>
+                          	<div class="col-lg-4">
+                          		<div class="card-footer-content text-muted" style="text-align:center"><b>Training Facilitator </b></div>
+                            	<c:forEach items="${facilitators}" var="faciVar">
+                             		<p class="card-text" style="text-align:center"> ${faciVar[1]} ${faciVar[2]}</p>
+                            	</c:forEach>
+                          	</div>
+                          </div>
+                          <div class="card-footer-content text-muted" style="text-align:center;"><b>Training Course Objective and Outline</b> </div>
+                          <p class="card-text" style="text-align:center;"> ${trainingdetails.trainCourseoutline} </p>
+                          <br>	
                           <div class="form-actions" style="padding-left:45%">
 	                    		<button class="btn btn-primary" type="submit" onclick="window.location.href='adminCreateEvent'">Edit Training</button>
 	                  		</div><br>
@@ -107,26 +118,22 @@
                       
                       
                       	<div class="col-lg-6">
-                           <!-- .card -->
                            <div class="card card-fluid">
-                             <!-- .list-group -->
                             	<form action="http://localhost:8080/insertParticipant" method="post">
                                 <input type="hidden" name="train_id" value="${trainId}">
 	                               <div class="list-group list-group-flush list-group-bordered">
 	                                 <div class="list-group-header"> Recommended Participants </div>
 	                                 	<c:forEach items="${recommendedList}" var="recVar">
-                  											<label class="list-group-item custom-control custom-checkbox">                               
+                  							<label class="list-group-item custom-control custom-checkbox">                               
 	                                       		<input name="userRecommended" type="checkbox" class="custom-control-input" value="${recVar.userId}" >
 	                                       		<span class="custom-control-label">${recVar.userFname} ${recVar.userLname}</span>
 	                                   		</label>
-                										</c:forEach>	
+                						</c:forEach>	
 	                              	</div><hr>
 	                              	<div style="padding-left:40%"><button  type="submit">Add Participant</button></div>
 	                              	<hr>
-              								</form>
-                             <!-- /.list-group -->
+              					</form>
                            </div>
-                           <!-- /.card -->
                       	</div>                    
 
 

@@ -59,16 +59,15 @@
               <div class="dropdown">
                 <button class="btn-account d-none d-md-flex" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <span class="account-summary pr-lg-4 d-none d-lg-block">
-                    <span class="account-name">Name of Admin</span>
-                    <span class="account-description">Administrator</span>
+                    <span class="account-name">${fname} ${lname}</span>
+                    <span class="account-description">${usertype}</span>
                   </span>
                 </button>
                 <div class="dropdown-arrow dropdown-arrow-left"></div>
                 <div class="dropdown-menu">
                   <h6 class="dropdown-header d-none d-md-block d-lg-none"> Name of Admin </h6>
                   <a class="dropdown-item" href="generalSignin.html">
-                    <span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
-                    <div class="dropdown-divider"></div>
+                    <span class="dropdown-icon oi oi-account-logout"></span> Logout </a>
                 </div>
               </div>
 <!-- end implementation for the user option. -->
