@@ -47,6 +47,7 @@ public class MainService {
 			TblSupervisor sv = new TblSupervisor();
 			sv.setSupervisorId(Integer.parseInt(svId));
 			sv.setUserId(userId);
+			sv.setStatus("no");
 			MainRepository.addSupervisor(em,sv);
 		}else {
 			TblUser user = new TblUser();
@@ -382,18 +383,21 @@ public class MainService {
 			peerinsert1.setForuserId(forId);
 			peerinsert1.setStatus("pending");
 			MainRepository.addPeers(em,peerinsert1);
+			MainRepository.updatePeerStatus(em,forId);
 
 			TblAnswersaf peerinsert2 = new TblAnswersaf();
 			peerinsert2.setByuserId(peer2);
 			peerinsert2.setForuserId(forId);
 			peerinsert2.setStatus("pending");
 			MainRepository.addPeers(em,peerinsert2);
+			MainRepository.updatePeerStatus(em,forId);
 
 			TblAnswersaf peerinsert3 = new TblAnswersaf();
 			peerinsert3.setByuserId(peer3);
 			peerinsert3.setForuserId(forId);
 			peerinsert3.setStatus("pending");
 			MainRepository.addPeers(em,peerinsert3);
+			MainRepository.updatePeerStatus(em,forId);
 
 		
 	}
@@ -404,6 +408,14 @@ public class MainService {
 
 	public List<Object> answerSafUsers(int id) {
 		return MainRepository.answerSafUsers(em,id);
+	}
+
+	public List<TblUser> getUsersExceptCurrent(int id) {
+		return MainRepository.getUsersExceptCurrent(em,id);
+	}
+
+	public boolean getSafDataById(int id) {
+		return MainRepository.getSafDataById(em,id);
 	}
 }
 	

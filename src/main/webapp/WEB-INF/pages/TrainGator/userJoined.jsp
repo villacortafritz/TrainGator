@@ -106,10 +106,15 @@
                 <div class="page-inner">
                   <header class="page-title-bar">
                     <div>
-                      <button class="btn btn-primary" type="submit" style="width:100%" onclick="window.location.href='userTna'">Answer Training Needs Analysis Form</button>
-                      <button class="btn btn-primary" type="submit" style="width:100%" onclick="window.location.href='userSaf'">Answer Skills Assessment Form</button>
+                      <c:if test="${usertype=='Supervisor/Manager'}">
+                        <button class="btn btn-primary" id="usertnabtn"type="submit" style="width:100%" onclick="window.location.href='/user/userTna'">Answer Training Needs Analysis Form</button>
+                      </c:if>
                     </div>
+                      <c:if test="${AnsweredSaf}">
+                        <button class="btn btn-primary" type="submit" style="width:100%" onclick="window.location.href='/user/userSaf?forId=${userID}'">Answer Skills Assessment Form</button>
+                      </c:if>
                   </header>
+                  </div>
                   <div class="page-section">
                     <section class="card">
                       <div class="list-group list-group-messages list-group-flush list-group-bordered">

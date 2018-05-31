@@ -9,6 +9,7 @@ import java.util.Date;
 
 
 
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,8 +38,9 @@ public class GeneralController {
 	private MainService MainService;
 	
 	@RequestMapping("/generalSignin")
-	public String generalSigninGet(SessionStatus status) {
-		status.setComplete();
+	public String generalSigninGet(ModelMap map) {
+		String error = "";
+		map.addAttribute("error",error);
 		return "TrainGator/generalSignin";
 	}
 	
@@ -58,7 +60,10 @@ public class GeneralController {
 			else{
 				List<Object> joined = MainService.getJoinedTraining(user.getUserId());
 //				System.out.println(Arrays.deepToString(joined.toArray()));
+				//checks if naka fill up naba sya sa iyang SAF
+				boolean AnsweredSaf = MainService.getSafDataById(user.getUserId());
 				map.addAttribute("joined",joined);
+				map.addAttribute("AnsweredSaf", AnsweredSaf);
 				return "TrainGator/userJoined";
 				}
 			}

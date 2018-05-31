@@ -28,6 +28,7 @@
         </p>
       </header>
       <form class="auth-form" method="post" action="http://localhost:8080/generalSignin">
+        
         <div class="form-group">
           <div class="form-label-group">
             <input type="email" id="inputUser" class="form-control" name="email" placeholder="email" required="" autofocus="">
@@ -40,6 +41,11 @@
             <label for="inputPassword">Password</label>
           </div>
         </div>
+        <c:if test="${error!=''}">
+          <div class="alert alert-warning" role="alert">
+            ${error}
+          </div>
+        </c:if>
         <div class="form-group">
           <button class="btn btn-lg btn-primary btn-block" type="submit">Sign In</button>
         </div>

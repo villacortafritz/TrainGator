@@ -313,7 +313,7 @@ public class UserController {
 	public String userAnswerableSaf(HttpServletRequest request, ModelMap map) {
 		List<Object> svUsers = MainService.getSupervisedUsers(Integer.parseInt(request.getSession().getAttribute("userID").toString()));
 		List<Object> answerSafUsers = MainService.answerSafUsers(Integer.parseInt(request.getSession().getAttribute("userID").toString()));
-		List<TblUser> users = MainService.getUsers();
+		List<TblUser> users = MainService.getUsersExceptCurrent(Integer.parseInt(request.getSession().getAttribute("userID").toString()));
 		map.addAttribute("peer",users);
 		map.addAttribute("svUsers",svUsers);
 		map.addAttribute("answerSafUsers",answerSafUsers);
@@ -390,11 +390,15 @@ public class UserController {
 		return "TrainGator/userFff";
 	}
 	
-	@RequestMapping(value="/userJoined", method=RequestMethod.GET)
+	@RequestMapping("/userJoined")
 	public String userJoined(HttpServletRequest request, ModelMap map) {
 		List<Object> joined = MainService.getJoinedTraining(Integer.parseInt(request.getSession().getAttribute("userID").toString()));
+		
+		//checks if naka fill up naba sya sa iyang SAF
+		boolean AnsweredSaf = MainService.getSafDataById(Integer.parseInt(request.getSession().getAttribute("userID").toString()));
 //		System.out.println(Arrays.deepToString(joined.toArray()));
 		map.addAttribute("joined",joined);
+		map.addAttribute("AnsweredSaf", AnsweredSaf);
 		return "TrainGator/userJoined";
 	}
 	

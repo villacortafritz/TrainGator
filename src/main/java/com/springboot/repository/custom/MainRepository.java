@@ -408,7 +408,7 @@ public class MainRepository {
 		Session session = em.unwrap(Session.class);
 		StringBuilder stringQuery = new StringBuilder("SELECT u.* FROM tbl_supervisor s "
 													 +"JOIN tbl_user u on s.user_id = u.user_id "
-													 +"WHERE s.supervisor_id = :id");
+													 +"WHERE s.supervisor_id = :id AND s.peerstatus = 'no'");
 		SQLQuery query = session.createSQLQuery(stringQuery.toString());
 		query.setParameter("id", id);
 		List<Object> list =  query.list();
@@ -459,6 +459,36 @@ public class MainRepository {
 		query.setParameter("ansId", ansId);
 		query.executeUpdate();
 		
+	}
+
+	public List<TblUser> getUsersExceptCurrent(EntityManager em, int id) {	
+		StringBuilder userquery = new StringBuilder("FROM TblUser WHERE userType != :type AND userId != :id");
+		Query query = em.createQuery(userquery.toString());
+		query.setParameter("type", "administrator");
+		query.setParameter("id", id);
+		List<TblUser> users = query.getResultList();
+		return users;
+	}
+
+	public void updatePeerStatus(EntityManager em, int forId) {
+		Session session = em.unwrap(Session.class);
+		StringBuilder stringQuery = new StringBuilder("UPDATE `tbl_supervisor` SET `peerstatus`= 'yes' WHERE `user_id` = :id");
+		SQLQuery query = session.createSQLQuery(stringQuery.toString());
+		query.setParameter("id", forId);
+		query.executeUpdate();
+		
+	}
+
+	public boolean getSafDataById(EntityManager em, int id) {
+		StringBuilder userquery = new StringBuilder("FROM TblFormresult WHERE res_type = 'self' AND train_id = 0 AND ans_id = :id");
+		Query query = em.createQuery(userquery.toString());
+		query.setParameter("id", id);
+		List<TblUser> users = query.getResultList();
+		
+		if(users != null)
+			return true;
+		else
+			return false;
 	}
 	
 }
