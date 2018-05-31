@@ -26,7 +26,7 @@
 <!-- The TrainGator logo is seen at the left-most side of the header, it is used for redirecting the user to it's default landing page. -->
 <!-- start implementation for the TrainGator logo. -->
           <div class="top-bar-brand">
-            <a href="userJoined.html">
+            <a href="/user/userJoined">
               <img src="/images/rect-logo.png" height="45" alt="">
             </a>
           </div>
@@ -49,7 +49,7 @@
 <!-- The home button is located at the header since it has the purpose of redirecting the user back to it's default landing page. -->
 <!-- start implementation for the search bar. -->
             <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
-              <button class="btn btn-primary" style="height:55px" onclick="window.location = 'userJoined.html'">
+              <button class="btn btn-primary" style="height:55px" onclick="window.location = '/user/userJoined'">
                 <span class="oi oi-home ml-1"></span>
               </button>
 <!-- end implementation for the search bar. -->
@@ -85,11 +85,11 @@
     <nav class="page-navs">
       <div class="nav-scroller">
         <div class="nav nav-center nav-tabs">
-          <a class="nav-link" href="userJoined.html">Joined Trainings</a>
-          <a class="nav-link" href="userUpcoming.html">Upcoming Trainings</a>
-          <a class="nav-link" href="userRecommended.html">Recommended Trainings</a>
-          <a class="nav-link active" href="userAccomplished.html">Accomplished Trainings</a>
-          <a class="nav-link" href="userAnswerableSaf.html">Answerable Skills Assessment Form</a>
+          <a class="nav-link" href="/user/userJoined">Joined Trainings</a>
+          <a class="nav-link" href="/user/userUpcoming">Upcoming Trainings</a>
+          <a class="nav-link" href="/user/userRecommended">Recommended Trainings</a>
+          <a class="nav-link active" href="/user/userAccomplished">Accomplished Trainings</a>
+          <a class="nav-link" href="/user/userAnswerableSaf">Answerable Skills Assessment Form</a>
         </div>
       </div>
     </nav>
@@ -115,9 +115,9 @@
                     <td>
                     <a>Name of Training</a>
                     </td>
-                    <td class="align-middle"><button class="btn btn-primary" type="submit" onclick="window.location.href='userCff.html'">Answer Course Feedback Form</button></td>
-                    <td class="align-middle"><button class="btn btn-primary" type="submit" onclick="window.location.href='userFff.html'">Answer Facilitator's Feedback Form</button></td>
-                    <td class="align-middle"><button class="btn btn-primary" type="submit" onclick="window.location.href='userTeaf.html'">Answer Training Effectiveness Assessment Form</button></td>
+                    <td class="align-middle"><button class="btn btn-primary" type="submit" onclick="window.location.href='/user/userCff'">Answer Course Feedback Form</button></td>
+                    <td class="align-middle"><button class="btn btn-primary" type="submit" onclick="window.location.href='/user/userFff'">Answer Facilitator's Feedback Form</button></td>
+                    <td class="align-middle"><button class="btn btn-primary" type="submit" onclick="window.location.href='/user/userTeaf'">Answer Training Effectiveness Assessment Form</button></td>
                   </tr>
                 </tbody>
               </table>

@@ -11,6 +11,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.springboot.entities.TblAnswersaf;
 import com.springboot.entities.TblAttendance;
 import com.springboot.entities.TblCat;
 import com.springboot.entities.TblFacilitator;
@@ -96,8 +97,8 @@ public class MainService {
 		return MainRepository.getConfirmedParticipants(em);
 	
 	}
-	public List<TblUser> removeParticipantById(String[] id, int trainid) {
-			return MainRepository.removeParticipantById(em, id,trainid);
+	public void removeParticipantById(String[] id, int trainid) {
+		 MainRepository.removeParticipantById(em, id,trainid);
 			
 	}
 
@@ -110,18 +111,23 @@ public class MainService {
 	public void addSAF(List<TblSubcat> subCatList, String[] results, int ansId, int userId, String restype) {	
 //		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Date date = new Date();
-		for(TblSubcat sub: subCatList) 
-		{
-		TblFormresult form = new TblFormresult();
-		form.setAnsId(ansId);//id sa kung kinsay ga answer, para rani sa peer ug sv
-		form.setQuestId(sub.getSubId());
-		form.setResData(results[sub.getSubId()]);
-		form.setResDate(date);
-		form.setResType(restype);
-		form.setTrainId(0);//0 if di kinanglan e specify para asa na training
-		form.setUserId(userId);//para ka kinsa iyang gi answeran,para ni sa peer
-		MainRepository.addSAF(em,form);
+		System.out.println(restype);
+		if(restype.equalsIgnoreCase("peer")){
+			System.out.println(restype);
+			MainRepository.updateTblAnswerSaf(em,userId,ansId);
 		}
+		for(TblSubcat sub: subCatList){
+			TblFormresult form = new TblFormresult();
+			form.setAnsId(ansId);//id sa kung kinsay ga answer, para rani sa peer ug sv
+			form.setQuestId(sub.getSubId());
+			form.setResData(results[sub.getSubId()]);
+			form.setResDate(date);
+			form.setResType(restype);
+			form.setTrainId(0);//0 if di kinanglan e specify para asa na training
+			form.setUserId(userId);//para ka kinsa iyang gi answeran,para ni sa peer
+			MainRepository.addSAF(em,form);
+		}
+		
 	}
 	
 
@@ -345,11 +351,8 @@ public class MainService {
 			ansFff[i].setResData(userFffAnswer[i]);
 			ansFff[i].setResType("Self");
 			questid++;
-			
 		}
-		
 		MainRepository.submitUserFff(em,ansFff);
-	
 	}
 
 	public List<Object> getCommentsforFaci(String trainId) {
@@ -358,7 +361,6 @@ public class MainService {
 	}
 
 	public double getFacilitatorRating(String trainId) {
-		// TODO Auto-generated method stub
 		
 		double value = MainRepository.getFacilatatorRating(em, trainId);
 		
@@ -366,6 +368,42 @@ public class MainService {
 		System.out.println(value + "VALUEEEE GAGUUUU");
 		return value;
 //		return MainRepository.getFacilatatorRating(em, trainId);
+	}
+
+	public List<Object> getSupervisedUsers(int id) {	
+		return MainRepository.getSupervisedUsers(em,id);
+	}
+
+	public void addPeers(int peer1, int peer2, int peer3,	
+			int forId) {
+
+			TblAnswersaf peerinsert1 = new TblAnswersaf();
+			peerinsert1.setByuserId(peer1);
+			peerinsert1.setForuserId(forId);
+			peerinsert1.setStatus("pending");
+			MainRepository.addPeers(em,peerinsert1);
+
+			TblAnswersaf peerinsert2 = new TblAnswersaf();
+			peerinsert2.setByuserId(peer2);
+			peerinsert2.setForuserId(forId);
+			peerinsert2.setStatus("pending");
+			MainRepository.addPeers(em,peerinsert2);
+
+			TblAnswersaf peerinsert3 = new TblAnswersaf();
+			peerinsert3.setByuserId(peer3);
+			peerinsert3.setForuserId(forId);
+			peerinsert3.setStatus("pending");
+			MainRepository.addPeers(em,peerinsert3);
+
+		
+	}
+
+	public void removeFacilitatorById(String[] id, int trainid) {
+			MainRepository.removeFacilitatorById(em, id,trainid);
+	}
+
+	public List<Object> answerSafUsers(int id) {
+		return MainRepository.answerSafUsers(em,id);
 	}
 }
 	

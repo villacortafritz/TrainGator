@@ -1,5 +1,9 @@
 <!-- userAnswerableSaf page is only accessible by a user. -->
 <!-- userAnswerableSaf page is where the user can view the employee's being assigned for answering of SAF. -->
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <!DOCTYPE html>
 <html lang="en">
 <!-- Basic information about the page (eg. name of page) is reflected within the head tag. -->
@@ -22,7 +26,7 @@
 <!-- The TrainGator logo is seen at the left-most side of the header, it is used for redirecting the user to it's default landing page. -->
 <!-- start implementation for the TrainGator logo. -->
           <div class="top-bar-brand">
-            <a href="userJoined.html">
+            <a href="/user/userJoined">
               <img src="/images/rect-logo.png" height="45" alt="">
             </a>
           </div>
@@ -45,7 +49,7 @@
 <!-- The home button is located at the header since it has the purpose of redirecting the user back to it's default landing page. -->
 <!-- start implementation for the search bar. -->
             <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
-              <button class="btn btn-primary" style="height:55px" onclick="window.location = 'userJoined.html'">
+              <button class="btn btn-primary" style="height:55px" onclick="window.location = '/user/userJoined'">
                 <span class="oi oi-home ml-1"></span>
               </button>
 <!-- end implementation for the search bar. -->
@@ -61,8 +65,14 @@
                 <div class="dropdown-arrow dropdown-arrow-left"></div>
                 <div class="dropdown-menu">
                   <h6 class="dropdown-header d-none d-md-block d-lg-none">${fname} ${lname}</h6>
+<<<<<<< HEAD
                   <a class="dropdown-item" href="generalSignin.html">
                     <span class="dropdown-icon oi oi-account-logout"></span> Logout </a>
+=======
+                  <a class="dropdown-item" href="/user/generalSignin">
+                    <span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
+                    <div class="dropdown-divider"></div>
+>>>>>>> a47827d56240bdcaa32fa324ee80a7b8c708dc3b
                 </div>
               </div>
 <!-- end implementation for the user option. -->
@@ -81,11 +91,11 @@
     <nav class="page-navs">
       <div class="nav-scroller">
         <div class="nav nav-center nav-tabs">
-          <a class="nav-link" href="userJoined.html">Joined Trainings</a>
-          <a class="nav-link" href="userUpcoming.html">Upcoming Trainings</a>
-          <a class="nav-link" href="userRecommended.html">Recommended Trainings</a>
-          <a class="nav-link" href="userAccomplished.html">Accomplished Trainings</a>
-          <a class="nav-link active" href="userAnswerableSaf.html">Answerable Skills Assessment Form</a>
+          <a class="nav-link" href="/user/userJoined">Joined Trainings</a>
+          <a class="nav-link" href="/user/userUpcoming">Upcoming Trainings</a>
+          <a class="nav-link" href="/user/userRecommended">Recommended Trainings</a>
+          <a class="nav-link" href="/user/userAccomplished">Accomplished Trainings</a>
+          <a class="nav-link active" href="/user/userAnswerableSaf">Answerable Skills Assessment Form</a>
         </div>
       </div>
     </nav>
@@ -105,31 +115,42 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                    <td class="align-middle"></td>
-                    <td><a>Name of Employee</a></td>
-                    <td class="align-middle">
-                        <select id="exampleSelect1" class="custom-select" style="width:180px">
-                          <option selected>Select Peer </option>
-                          <option value="1"> One </option>
-                        </select>
-                    </td>
-                    <td class="align-middle">
-                        <select id="exampleSelect1" class="custom-select" style="width:180px">
-                          <option selected>Select Peer </option>
-                          <option value="1"> One </option>
-                        </select>
-                    </td>
-                    <td class="align-middle">
-                        <select id="exampleSelect1" class="custom-select" style="width:180px">
-                          <option selected>Select Peer </option>
-                          <option value="1"> One </option>
-                        </select>
-                    </td>
-                    <td class="align-middle"><button class="btn btn-primary" type="submit" onclick="window.location.href='userTeaf.html'">Answer as Supervisor</button></td>
-                  </tr>
-                </tbody>
-              </table>
+                      <c:forEach items="${svUsers}" var="svUsersVar">
+                    <form method="post" action="/user/userAnswerableSaf">
+                        <input type="hidden" name="forId" value="${svUsersVar[0]}">
+                        <tr>
+                        <td class="align-middle"></td>
+                        <td> ${svUsersVar[1]} ${svUsersVar[2]}</td>
+                        <td class="align-middle">
+                            <select name="peer1" class="custom-select" style="width:180px" onchange="peerSelectHandler(this.value,this.id)">
+                              <option selected>Select Peer </option>
+                              <c:forEach items="${peer}" var="peerVar">
+                                <option value="${peerVar.userId}">${peerVar.userFname} ${peerVar.userLname}</option>
+                              </c:forEach>
+                            </select>
+                        </td>
+                        <td class="align-middle">
+                            <select name="peer2" class="custom-select" style="width:180px" onchange="peerSelectHandler(this.value,this.id)">
+                              <option selected>Select Peer </option>
+                              <c:forEach items="${peer}" var="peerVar">
+                                <option value="${peerVar.userId}">${peerVar.userFname} ${peerVar.userLname}</option>
+                              </c:forEach>
+                            </select>
+                        </td>
+                        <td class="align-middle">
+                            <select name="peer3" class="custom-select" style="width:180px" onchange="peerSelectHandler(this.value,this.id)">
+                              <option selected>Select Peer </option>
+                              <c:forEach items="${peer}" var="peerVar">
+                                <option value="${peerVar.userId}">${peerVar.userFname} ${peerVar.userLname}</option>
+                              </c:forEach>
+                            </select>
+                        </td>
+                        <td class="align-middle"><button class="btn btn-primary" type="submit">Assign and Answer</button></td>
+                        </tr>
+                    </form>
+                      </c:forEach>
+                  </tbody>
+                </table>
             </div>
           </div>
         </div>
@@ -148,11 +169,16 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                  <td class="align-middle"></td>
-                  <td><a>Name of Employee</a></td>
-                  <td class="align-middle" style="padding-left:100px"><button class="btn btn-primary" type="submit" onclick="window.location.href='userSaf.html'" style="width:750px">Answer as Peer</button></td>
-                </tr>
+                  <c:forEach items="${answerSafUsers}" var="userVar">
+                  <form method="post" action="/user/userAnswerPeerSaf">
+                    <input type="hidden" name="forId" value="${userVar[0]}">
+                    <tr>
+                      <td class="align-middle"></td>
+                      <td>${userVar[1]} ${userVar[2]}</td>
+                      <td class="align-middle" style="padding-left:100px"><button class="btn btn-primary" type="submit" style="width:750px">Answer as Peer</button></td>
+                    </tr>
+                  </form>
+                  </c:forEach>
               </tbody>
             </table>
           </div>
@@ -160,6 +186,76 @@
       </div>
     </div>
     </main>
+    <script type="text/javascript">
+      //canceled
+      // function peerSelectHandler(select,id) {
+      //   console.log(id);
+      //   console.log(select);
+      //   var peer1 = document.getElementById('peer1');
+      //   var peer2 = document.getElementById('peer2');
+      //   var peer3 = document.getElementById('peer3');
+      //   if (id == 'peer1') {
+      //     for (var i = 0; i < peer2.options.length; i++) {
+      //         if (peer2.options[i].value == select) {
+      //           console.log(peer2.options[i].value);
+      //           peer2.options[i].style.display = 'none';
+      //         }
+      //         else {
+      //           peer2.options[i].style.display = 'block';
+      //         }
+      //     }
+      //     for (var i = 0; i < peer3.options.length; i++) {
+      //         if (peer3.options[i].value == select) {
+      //           console.log(peer3.options[i].value);
+      //           peer3.options[i].style.display = 'none';
+      //         }
+      //         else {
+      //           peer3.options[i].style.display = 'block';
+      //         }
+      //     }
+      //   }
+      //   else if (id == 'peer2') {
+      //     for (var i = 0; i < peer1.options.length; i++) {
+      //         if (peer1.options[i].value == select) {
+      //           console.log(peer1.options[i].value);
+      //           peer1.options[i].style.display = 'none';
+      //         }
+      //         else {
+      //           peer1.options[i].style.display = 'block';
+      //         }
+      //     }
+      //     for (var i = 0; i < peer3.options.length; i++) {
+      //         if (peer3.options[i].value == select) {
+      //           console.log(peer3.options[i].value);
+      //           peer3.options[i].style.display = 'none';
+      //         }
+      //         else {
+      //           peer3.options[i].style.display = 'block';
+      //         }
+      //     }
+      //   }
+      //   else {
+      //     for (var i = 0; i < peer1.options.length; i++) {
+      //         if (peer1.options[i].value == select) {
+      //           console.log(peer1.options[i].value);
+      //           peer1.options[i].style.display = 'none';
+      //         }
+      //         else {
+      //           peer1.options[i].style.display = 'block';
+      //         }
+      //     }
+      //     for (var i = 0; i < peer2.options.length; i++) {
+      //         if (peer2.options[i].value == select) {
+      //           console.log(peer2.options[i].value);
+      //           peer2.options[i].style.display = 'none';
+      //         }
+      //         else {
+      //           peer2.options[i].style.display = 'block';
+      //         }
+      //     }
+      //   }
+      // }
+    </script>
   <script src="/vendor/jquery/jquery.min.js"></script>
   <script src="/vendor/bootstrap/js/popper.min.js"></script>
   <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>

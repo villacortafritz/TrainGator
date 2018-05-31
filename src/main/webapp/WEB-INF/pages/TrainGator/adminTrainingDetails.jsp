@@ -26,7 +26,7 @@
 <!-- The TrainGator logo is seen at the left-most side of the header, it is used for redirecting the user to it's default landing page. -->
 <!-- start implementation for the TrainGator logo. -->
           <div class="top-bar-brand">
-            <a href="adminOngoing.html">
+            <a href="/admin/adminOngoing">
               <img src="/images/rect-logo.png" height="45" alt="">
             </a>
           </div>
@@ -50,7 +50,7 @@
 <!-- The home button is located at the header since it has the purpose of redirecting the user back to it's default landing page. -->
 <!-- start implementation for the search bar. -->
             <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
-              <button class="btn btn-primary" style="height:55px" onclick="window.location = 'adminOngoing'">
+              <button class="btn btn-primary" style="height:55px" onclick="window.location = '/admin/adminOngoing'">
                 <span class="oi oi-home ml-1"></span>
               </button>
 <!-- end implementation for the search bar. -->
@@ -59,13 +59,13 @@
               <div class="dropdown">
                 <button class="btn-account d-none d-md-flex" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <span class="account-summary pr-lg-4 d-none d-lg-block">
-                    <span class="account-name">Name of Admin</span>
+                    <span class="account-name">${fname} ${fname}</span>
                     <span class="account-description">Administrator</span>
                   </span>
                 </button>
                 <div class="dropdown-arrow dropdown-arrow-left"></div>
                 <div class="dropdown-menu">
-                  <h6 class="dropdown-header d-none d-md-block d-lg-none"> Name of Admin </h6>
+                  <h6 class="dropdown-header d-none d-md-block d-lg-none"> ${fname} ${fname} </h6>
                   <a class="dropdown-item" href="generalSignin.html">
                     <span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
                     <div class="dropdown-divider"></div>
@@ -111,7 +111,7 @@
                           <p class="card-text" style="text-align:center;"> ${trainingdetails.trainCourseoutline} </p>
                           <br>	
                           <div class="form-actions" style="padding-left:45%">
-	                    		<button class="btn btn-primary" type="submit" onclick="window.location.href='adminCreateEvent'">Edit Training</button>
+	                    		<button class="btn btn-primary" type="submit" onclick="window.location.href='/admin/adminCreateEvent'">Edit Training</button>
 	                  		</div><br>
                         </section>
                       </div>
@@ -216,22 +216,22 @@
                                     </tr>
                            	</thead>
                            	 <tbody>
-                           		<form action="http://localhost:8080/removeParticipant?trainId=${trainId}" method="post">
-	                            	<c:forEach items="${participants}" var="partVar">
+                           		<form action="http://localhost:8080/admin/removeFacilitator?trainId=${trainId}" method="post">
+	                            	<c:forEach items="${facilitators}" var="faciVar">
             										<label class="list-group-item custom-control custom-checkbox">
                   											<tr>
 	                                   			<td>
-	                                   				<span>${partVar[1]} ${partVar[2]}</span>
+	                                   				<span>${faciVar[1]} ${faciVar[2]}</span>
 	                                   			</td>	
 	                                   	 		<td>
-	                                   	 			<span> ${partVar[4]}</span>
+	                                   	 			<span> ${faciVar[4]}</span>
 	                                   	 		</td>
 	                                   	 		<td>				                                                      
-	                                   	 			<span> ${partVar[5]}</span>	                                   	 		
+	                                   	 			<span> ${faciVar[5]}</span>	                                   	 		
 	                                   	 		</td>
 	                                   	 		<td class="align-middle text-right">				                                   
 				                                     <label class="list-group-item custom-control custom-checkbox">
-                                               <input name="partipantId" id="partipantId" type="checkbox" onclick="hide()" class="custom-control-input" value="${partVar[0]}">
+                                               <input name="facilitatorId" id="facilitatorId" type="checkbox" onclick="hide()" class="custom-control-input" value="${faciVar[0]}">
 				                                       <input name="trainid" type="hidden" value="${trainId}">
 				                                       <span class="custom-control-label"></span>
 				                                      
@@ -254,7 +254,7 @@
                     
                     </div>
                     <div class="form-actions" style="padding-left:42%">
-                    	<button class="btn btn-primary" type="submit" onclick="window.location.href='adminUpcoming'">Back to Upcoming Trainings List</button>
+                    	<button class="btn btn-primary" type="submit" onclick="window.location.href='/admin/adminUpcoming'">Back to Upcoming Trainings List</button>
                   	</div>
                   </div>
                 </div>

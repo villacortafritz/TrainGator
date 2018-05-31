@@ -26,7 +26,7 @@
 <!-- The TrainGator logo is seen at the left-most side of the header, it is used for redirecting the user to it's default landing page. -->
 <!-- start implementation for the TrainGator logo. -->
           <div class="top-bar-brand">
-            <a href="adminOngoing.html">
+            <a href="/admin/adminOngoing">
               <img src="/images/rect-logo.png" height="45" alt="">
             </a>
           </div>
@@ -50,7 +50,7 @@
 <!-- The home button is located at the header since it has the purpose of redirecting the user back to it's default landing page. -->
 <!-- start implementation for the search bar. -->
             <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
-              <button class="btn btn-primary" style="height:55px" onclick="window.location = 'adminOngoing'">
+              <button class="btn btn-primary" style="height:55px" onclick="window.location = '/admin/adminOngoing'">
                 <span class="oi oi-home ml-1"></span>
               </button>
 <!-- end implementation for the search bar. -->
@@ -66,8 +66,14 @@
                 <div class="dropdown-arrow dropdown-arrow-left"></div>
                 <div class="dropdown-menu">
                   <h6 class="dropdown-header d-none d-md-block d-lg-none"> Name of Admin </h6>
+<<<<<<< HEAD
                   <a class="dropdown-item" href="generalSignin.html">
                     <span class="dropdown-icon oi oi-account-logout"></span> Logout </a>
+=======
+                  <a class="dropdown-item" href="/user/generalSignin">
+                    <span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
+                    <div class="dropdown-divider"></div>
+>>>>>>> a47827d56240bdcaa32fa324ee80a7b8c708dc3b
                 </div>
               </div>
 <!-- end implementation for the user option. -->
@@ -86,9 +92,9 @@
               <nav class="page-navs">
                 <div class="nav-scroller">
                   <div class="nav nav-center nav-tabs">
-                    <a class="nav-link" href="adminOngoing.html">On-going Trainings</a>
-                    <a class="nav-link active" href="adminUpcoming.html">Upcoming Trainings</a>
-                    <a class="nav-link" href="adminConcluded.html">Concluded Trainings</a>
+                    <a class="nav-link" href="/admin/adminOngoing">On-going Trainings</a>
+                    <a class="nav-link active" href="/admin/adminUpcoming">Upcoming Trainings</a>
+                    <a class="nav-link" href="/admin/adminConcluded">Concluded Trainings</a>
                   </div>
                 </div>
               </nav>
@@ -116,12 +122,16 @@
                           <td class="align-middle"> 20 </td>
                           <td class="align-middle text-right">
                             <div class="btn-group">
+<<<<<<< HEAD
                               <a class="btn btn-primary" href="adminTrainingDetails?trainId=${listVar[2]}">Delete Training</a>
                             </div>
                           </td>
                           <td class="align-middle text-right">
                             <div class="btn-group">
                               <a class="btn btn-primary" href="adminTrainingDetails?trainId=${listVar[2]}">View Details</a>
+=======
+                              <a class="btn btn-primary" href="/admin/adminTrainingDetails?trainId=${listVar[2]}">View Details</a>
+>>>>>>> a47827d56240bdcaa32fa324ee80a7b8c708dc3b
                             </div>
                           </td>
                         </tr>

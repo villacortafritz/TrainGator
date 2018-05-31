@@ -24,7 +24,7 @@
           <span class="sr-only">Sign In</span>
         </h1>
         <p> Don't have an account?
-          <a href="generalSignup.html">Create One</a>
+          <a href="/generalSignup">Create One</a>
         </p>
       </header>
       <form class="auth-form" method="post" action="http://localhost:8080/generalSignin">

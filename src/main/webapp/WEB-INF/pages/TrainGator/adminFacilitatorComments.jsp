@@ -50,7 +50,7 @@
 <!-- The home button is located at the header since it has the purpose of redirecting the user back to it's default landing page. -->
 <!-- start implementation for the search bar. -->
             <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
-              <button class="btn btn-primary" style="height:55px" onclick="window.location = 'adminOngoing'">
+              <button class="btn btn-primary" style="height:55px" onclick="window.location = '/admin/adminOngoing'">
                 <span class="oi oi-home ml-1"></span>
               </button>
 <!-- end implementation for the search bar. -->
@@ -176,7 +176,7 @@
                       </div>
                     </section>
                   <div class="form-actions" style="padding-left:40%">
-                    <button class="btn btn-primary" type="submit" onclick="window.location.href='adminConcluded.html'">Back to Concluded Trainings List</button>
+                    <button class="btn btn-primary" type="submit" onclick="window.location.href='/admin/adminConcluded'">Back to Concluded Trainings List</button>
                   </div>
                 </div>
             </div>
