@@ -341,11 +341,6 @@ public class UserController {
 		return "TrainGator/userAccomplished";
 	}
 	
-	@RequestMapping(value="/userAnswerableSaf", method=RequestMethod.GET)
-	public String userAnswerableSaf(HttpServletRequest request, ModelMap map) {
-		return "TrainGator/userAnswerableSaf";
-	}
-	
 	@RequestMapping(value="/userAttendance", method=RequestMethod.GET)
 	public String userAttendance(HttpServletRequest request, ModelMap map) {
 		
