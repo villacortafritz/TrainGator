@@ -66,14 +66,8 @@
                 <div class="dropdown-arrow dropdown-arrow-left"></div>
                 <div class="dropdown-menu">
                   <h6 class="dropdown-header d-none d-md-block d-lg-none"> Name of Admin </h6>
-<<<<<<< HEAD
                   <a class="dropdown-item" href="generalSignin.html">
                     <span class="dropdown-icon oi oi-account-logout"></span> Logout </a>
-=======
-                  <a class="dropdown-item" href="/generalSignin">
-                    <span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
-                    <div class="dropdown-divider"></div>
->>>>>>> a47827d56240bdcaa32fa324ee80a7b8c708dc3b
                 </div>
               </div>
 <!-- end implementation for the user option. -->
