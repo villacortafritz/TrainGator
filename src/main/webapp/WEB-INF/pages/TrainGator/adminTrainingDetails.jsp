@@ -62,13 +62,13 @@
                     <img src="/images/avatars/profile.jpg" alt="">
                   </span>
                   <span class="account-summary pr-lg-4 d-none d-lg-block">
-                    <span class="account-name">Name of Admin</span>
+                    <span class="account-name">${fname} ${fname}</span>
                     <span class="account-description">Administrator</span>
                   </span>
                 </button>
                 <div class="dropdown-arrow dropdown-arrow-left"></div>
                 <div class="dropdown-menu">
-                  <h6 class="dropdown-header d-none d-md-block d-lg-none"> Name of Admin </h6>
+                  <h6 class="dropdown-header d-none d-md-block d-lg-none"> ${fname} ${fname} </h6>
                   <a class="dropdown-item" href="generalSignin.html">
                     <span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
                     <div class="dropdown-divider"></div>
@@ -209,22 +209,22 @@
                                     </tr>
                            	</thead>
                            	 <tbody>
-                           		<form action="http://localhost:8080/removeParticipant?trainId=${trainId}" method="post">
-	                            	<c:forEach items="${participants}" var="partVar">
+                           		<form action="http://localhost:8080/admin/removeFacilitator?trainId=${trainId}" method="post">
+	                            	<c:forEach items="${facilitators}" var="faciVar">
             										<label class="list-group-item custom-control custom-checkbox">
                   											<tr>
 	                                   			<td>
-	                                   				<span>${partVar[1]} ${partVar[2]}</span>
+	                                   				<span>${faciVar[1]} ${faciVar[2]}</span>
 	                                   			</td>	
 	                                   	 		<td>
-	                                   	 			<span> ${partVar[4]}</span>
+	                                   	 			<span> ${faciVar[4]}</span>
 	                                   	 		</td>
 	                                   	 		<td>				                                                      
-	                                   	 			<span> ${partVar[5]}</span>	                                   	 		
+	                                   	 			<span> ${faciVar[5]}</span>	                                   	 		
 	                                   	 		</td>
 	                                   	 		<td class="align-middle text-right">				                                   
 				                                     <label class="list-group-item custom-control custom-checkbox">
-                                               <input name="partipantId" id="partipantId" type="checkbox" onclick="hide()" class="custom-control-input" value="${partVar[0]}">
+                                               <input name="facilitatorId" id="facilitatorId" type="checkbox" onclick="hide()" class="custom-control-input" value="${faciVar[0]}">
 				                                       <input name="trainid" type="hidden" value="${trainId}">
 				                                       <span class="custom-control-label"></span>
 				                                      

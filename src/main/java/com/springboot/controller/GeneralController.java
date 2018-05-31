@@ -31,7 +31,6 @@ import com.springboot.service.MainService;
 
 @Controller
 @RequestMapping("/")
-@SessionAttributes({"userID","fname","lname","usertype","trainId"})//mapped variables that is declared here will auto acquire the data, can be accessed every page
 public class GeneralController {
 	
 	@Autowired
@@ -50,10 +49,10 @@ public class GeneralController {
 		String error = "Invalid Email or Password";
 		TblUser user = (TblUser)MainService.checkUser(email,password);
 		if(user!=null){
-			map.addAttribute("userID",user.getUserId());
-			map.addAttribute("fname",user.getUserFname());
-			map.addAttribute("lname",user.getUserLname());
-			map.addAttribute("usertype",user.getUserType());
+			request.getSession().setAttribute("userID",user.getUserId());
+			request.getSession().setAttribute("fname",user.getUserFname());
+			request.getSession().setAttribute("lname",user.getUserLname());
+			request.getSession().setAttribute("usertype",user.getUserType());
 			if(user.getUserType().equals("administrator"))
 				return "TrainGator/adminOngoing";
 			else{

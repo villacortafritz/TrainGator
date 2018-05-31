@@ -9,6 +9,9 @@ import java.util.List;
 
 
 
+
+
+
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
@@ -20,6 +23,7 @@ import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.springboot.entities.TblAnswersaf;
 import com.springboot.entities.TblAttendance;
 import com.springboot.entities.TblCat;
 import com.springboot.entities.TblFacilitator;
@@ -116,7 +120,7 @@ public class MainRepository {
 	}
 
 
-	public List<TblUser> removeParticipantById(EntityManager em, String[] id, int trainid) {
+	public void removeParticipantById(EntityManager em, String[] id, int trainid) {
 		ArrayList<Integer> participants = new ArrayList<Integer>();
 
 		for(String ids : id){
@@ -129,7 +133,6 @@ public class MainRepository {
 		query.setParameter("userid",participants);
 		query.setParameter("trainid",trainid);
 		query.executeUpdate();
-		return null;
 	}
 
 	public Object checkuser(EntityManager em, String email, String password) {
@@ -399,6 +402,63 @@ public class MainRepository {
 		System.out.println(list.get(0).toString() + "BOGOG RATING");
 		double value =  Double.parseDouble(list.get(0).toString());
 		return value;
+	}
+
+	public List<Object> getSupervisedUsers(EntityManager em, int id) {	
+		Session session = em.unwrap(Session.class);
+		StringBuilder stringQuery = new StringBuilder("SELECT u.* FROM tbl_supervisor s "
+													 +"JOIN tbl_user u on s.user_id = u.user_id "
+													 +"WHERE s.supervisor_id = :id");
+		SQLQuery query = session.createSQLQuery(stringQuery.toString());
+		query.setParameter("id", id);
+		List<Object> list =  query.list();
+		return list;
+	}
+
+	public void addPeers(EntityManager em, TblAnswersaf peer) {
+		em.persist(peer);
+		
+	}
+
+	public void removeFacilitatorById(EntityManager em, String[] id, int trainid) {	
+		ArrayList<Integer> facilitators = new ArrayList<Integer>();
+		for(String ids : id){
+			Integer n = new Integer(Integer.parseInt(ids));
+			System.out.println(n);
+			facilitators.add(n);
+		}
+		StringBuilder studentQuery = new StringBuilder("DELETE FROM TblFacilitator WHERE userId IN :userid AND trainId = :trainid");
+		Query query = em.createQuery(studentQuery.toString());
+		query.setParameter("userid",facilitators);
+		query.setParameter("trainid",trainid);
+		query.executeUpdate();
+		
+	}
+
+	public List<Object> answerSafUsers(EntityManager em, int id) {
+		Session session = em.unwrap(Session.class);
+		StringBuilder stringQuery = new StringBuilder(
+														"SELECT u.* FROM tbl_answersaf a "
+														+"JOIN tbl_user u on a.foruser_id = u.user_id "
+														+"WHERE a.status <> 'done' AND a.byuser_id = :id"
+													 );
+		SQLQuery query = session.createSQLQuery(stringQuery.toString());
+		query.setParameter("id", id);
+		List<Object> list =  query.list();
+		return list;
+	}
+
+	public void updateTblAnswerSaf(EntityManager em, int userId, int ansId) {	
+		Session session = em.unwrap(Session.class);
+		StringBuilder stringQuery = new StringBuilder(
+														"UPDATE `tbl_answersaf` SET `status`= 'done' "
+														+"WHERE `foruser_id` = :userId AND `byuser_id` = :ansId"
+													 );
+		SQLQuery query = session.createSQLQuery(stringQuery.toString());
+		query.setParameter("userId", userId);
+		query.setParameter("ansId", ansId);
+		query.executeUpdate();
+		
 	}
 	
 }

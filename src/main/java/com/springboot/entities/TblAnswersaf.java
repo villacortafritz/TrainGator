@@ -20,12 +20,23 @@ public class TblAnswersaf implements Serializable {
 	@Column(name="saf_id")
 	private int safId;
 
-	@Column(name="forUser_id")
+	@Column(name="foruser_id")
 	private int foruserId;
 	
 
-	@Column(name="byUser_id")
+	@Column(name="byuser_id")
 	private int byuserId;
+	
+	@GeneratedValue
+	private String status;
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
 	public int getSafId() {
 		return safId;

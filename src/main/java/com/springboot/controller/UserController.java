@@ -9,6 +9,7 @@ import java.util.Date;
 
 
 
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,6 @@ import com.springboot.service.MainService;
 
 @Controller
 @RequestMapping("/user")
-@SessionAttributes({"userID","fname","lname","usertype","trainId"})//mapped variables that is declared here will auto acquire the data, can be accessed every page
 public class UserController {
 	
 	@Autowired
@@ -309,6 +309,33 @@ public class UserController {
 //		return "TrainGator/generalSignup";
 //	}
 //	
+	@RequestMapping("/userAnswerableSaf")
+	public String userAnswerableSaf(HttpServletRequest request, ModelMap map) {
+		List<Object> svUsers = MainService.getSupervisedUsers(Integer.parseInt(request.getSession().getAttribute("userID").toString()));
+		List<Object> answerSafUsers = MainService.answerSafUsers(Integer.parseInt(request.getSession().getAttribute("userID").toString()));
+		List<TblUser> users = MainService.getUsers();
+		map.addAttribute("peer",users);
+		map.addAttribute("svUsers",svUsers);
+		map.addAttribute("answerSafUsers",answerSafUsers);
+		return "TrainGator/userAnswerableSaf";
+	}
+	@RequestMapping(value="/userAnswerableSaf", method=RequestMethod.POST)
+	public String assignUserAnswerableSaf(HttpServletRequest request, ModelMap map) {
+		int peer1 =Integer.parseInt(request.getParameter("peer1"));
+		int peer2 =Integer.parseInt(request.getParameter("peer2"));
+		int peer3 =Integer.parseInt(request.getParameter("peer3"));
+		int forId = Integer.parseInt(request.getParameter("forId"));
+		MainService.addPeers(peer1,peer2,peer3,forId);
+		map.addAttribute("forId",forId);
+		return "TrainGator/userSaf";
+	}
+	@RequestMapping(value="/userAnswerPeerSaf", method=RequestMethod.POST)
+	public String assignUserAnswerPeerSaf(HttpServletRequest request, ModelMap map) {
+		int forId = Integer.parseInt(request.getParameter("forId"));
+		map.addAttribute("forId",forId);
+		return "TrainGator/userSaf";
+	}
+	
 	@RequestMapping(value="/userAccomplished", method=RequestMethod.GET)
 	public String userAccomplished(HttpServletRequest request, ModelMap map) {
 		return "TrainGator/userAccomplished";
@@ -360,14 +387,14 @@ public class UserController {
 		userFffAnswer[10] = request.getParameter("Q22");
 		
 		MainService.submitFff(userFffAnswer);
-		
-		
-		
 		return "TrainGator/userFff";
 	}
 	
 	@RequestMapping(value="/userJoined", method=RequestMethod.GET)
 	public String userJoined(HttpServletRequest request, ModelMap map) {
+		List<Object> joined = MainService.getJoinedTraining(Integer.parseInt(request.getSession().getAttribute("userID").toString()));
+//		System.out.println(Arrays.deepToString(joined.toArray()));
+		map.addAttribute("joined",joined);
 		return "TrainGator/userJoined";
 	}
 	
@@ -378,23 +405,25 @@ public class UserController {
 	
 	@RequestMapping("/userSaf")
 	public String userSaf(HttpServletRequest request, ModelMap map) {
+		map.addAttribute("forId",request.getParameter("forId"));
 		return "TrainGator/userSaf";
 	}
 	@RequestMapping(value="/userSaf",method=RequestMethod.POST)
 	public String skillsAssessment(HttpServletRequest request, ModelMap map) {
 		int id = 1;
-		int ansId = Integer.parseInt(request.getParameter("ansId"));
-		int userId = Integer.parseInt(request.getParameter("userId"));
+		int userId = Integer.parseInt(request.getParameter("forId"));//para ka kinsa 
+		int ansId = Integer.parseInt(request.getSession().getAttribute("userID").toString());//kung kinsay nag ans
 		String restype = request.getParameter("restype");
 		String[] results = new String[60];
-		for(int i=1;i<54;i++){
+		for(int i=1;i<52;i++){
 			if(request.getParameter(Integer.toString(i))!=null)
 			results[i] = request.getParameter(Integer.toString(i));
+			System.out.println(results[i] + i);
 		}
 		List<TblSubcat> SubCatList = MainService.getSubCategoriesByFormId(id);
 		MainService.addSAF(SubCatList,results,ansId,userId,restype);
 		
-		return "TrainGator/userSaf";
+		return "TrainGator/userAnswerableSaf";
 	}	
 	
 	@RequestMapping(value="/userTeaf", method=RequestMethod.GET)
@@ -433,7 +462,4 @@ public class UserController {
 	public String userUpcoming(HttpServletRequest request, ModelMap map) {
 		return "TrainGator/userUpcoming";
 	}
-	
-
-
 }

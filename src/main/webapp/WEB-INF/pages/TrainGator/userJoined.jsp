@@ -95,11 +95,11 @@
                 <nav class="page-navs">
                   <div class="nav-scroller">
                     <div class="nav nav-center nav-tabs">
-                      <a class="nav-link active" href="userJoined.html">Joined Trainings</a>
-                      <a class="nav-link" href="userUpcoming.html">Upcoming Trainings</a>
-                      <a class="nav-link" href="userRecommended.html">Recommended Trainings</a>
-                      <a class="nav-link" href="userAccomplished.html">Accomplished Trainings</a>
-                      <a class="nav-link" href="userAnswerableSaf.html">Answerable Skills Assessment Form</a>
+                      <a class="nav-link active" href="/user/userJoined">Joined Trainings</a>
+                      <a class="nav-link" href="/user/userUpcoming">Upcoming Trainings</a>
+                      <a class="nav-link" href="/user/userRecommended">Recommended Trainings</a>
+                      <a class="nav-link" href="/user/userAccomplished">Accomplished Trainings</a>
+                      <a class="nav-link" href="/user/userAnswerableSaf">Answerable Skills Assessment Form</a>
                     </div>
                   </div>
                 </nav>

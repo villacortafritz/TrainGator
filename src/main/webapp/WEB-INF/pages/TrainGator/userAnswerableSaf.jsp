@@ -1,5 +1,9 @@
 <!-- userAnswerableSaf page is only accessible by a user. -->
 <!-- userAnswerableSaf page is where the user can view the employee's being assigned for answering of SAF. -->
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <!DOCTYPE html>
 <html lang="en">
 <!-- Basic information about the page (eg. name of page) is reflected within the head tag. -->
@@ -109,31 +113,42 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                    <td class="align-middle"></td>
-                    <td><a>Name of Employee</a></td>
-                    <td class="align-middle">
-                        <select id="exampleSelect1" class="custom-select" style="width:180px">
-                          <option selected>Select Peer </option>
-                          <option value="1"> One </option>
-                        </select>
-                    </td>
-                    <td class="align-middle">
-                        <select id="exampleSelect1" class="custom-select" style="width:180px">
-                          <option selected>Select Peer </option>
-                          <option value="1"> One </option>
-                        </select>
-                    </td>
-                    <td class="align-middle">
-                        <select id="exampleSelect1" class="custom-select" style="width:180px">
-                          <option selected>Select Peer </option>
-                          <option value="1"> One </option>
-                        </select>
-                    </td>
-                    <td class="align-middle"><button class="btn btn-primary" type="submit" onclick="window.location.href='/user/userTeaf'">Answer as Supervisor</button></td>
-                  </tr>
-                </tbody>
-              </table>
+                      <c:forEach items="${svUsers}" var="svUsersVar">
+                    <form method="post" action="/user/userAnswerableSaf">
+                        <input type="hidden" name="forId" value="${svUsersVar[0]}">
+                        <tr>
+                        <td class="align-middle"></td>
+                        <td> ${svUsersVar[1]} ${svUsersVar[2]}</td>
+                        <td class="align-middle">
+                            <select name="peer1" class="custom-select" style="width:180px" onchange="peerSelectHandler(this.value,this.id)">
+                              <option selected>Select Peer </option>
+                              <c:forEach items="${peer}" var="peerVar">
+                                <option value="${peerVar.userId}">${peerVar.userFname} ${peerVar.userLname}</option>
+                              </c:forEach>
+                            </select>
+                        </td>
+                        <td class="align-middle">
+                            <select name="peer2" class="custom-select" style="width:180px" onchange="peerSelectHandler(this.value,this.id)">
+                              <option selected>Select Peer </option>
+                              <c:forEach items="${peer}" var="peerVar">
+                                <option value="${peerVar.userId}">${peerVar.userFname} ${peerVar.userLname}</option>
+                              </c:forEach>
+                            </select>
+                        </td>
+                        <td class="align-middle">
+                            <select name="peer3" class="custom-select" style="width:180px" onchange="peerSelectHandler(this.value,this.id)">
+                              <option selected>Select Peer </option>
+                              <c:forEach items="${peer}" var="peerVar">
+                                <option value="${peerVar.userId}">${peerVar.userFname} ${peerVar.userLname}</option>
+                              </c:forEach>
+                            </select>
+                        </td>
+                        <td class="align-middle"><button class="btn btn-primary" type="submit">Assign and Answer</button></td>
+                        </tr>
+                    </form>
+                      </c:forEach>
+                  </tbody>
+                </table>
             </div>
           </div>
         </div>
@@ -153,11 +168,16 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                  <td class="align-middle"></td>
-                  <td><a>Name of Employee</a></td>
-                  <td class="align-middle" style="padding-left:100px"><button class="btn btn-primary" type="submit" onclick="window.location.href='/user/userSaf'" style="width:750px">Answer as Peer</button></td>
-                </tr>
+                  <c:forEach items="${answerSafUsers}" var="userVar">
+                  <form method="post" action="/user/userAnswerPeerSaf">
+                    <input type="hidden" name="forId" value="${userVar[0]}">
+                    <tr>
+                      <td class="align-middle"></td>
+                      <td>${userVar[1]} ${userVar[2]}</td>
+                      <td class="align-middle" style="padding-left:100px"><button class="btn btn-primary" type="submit" style="width:750px">Answer as Peer</button></td>
+                    </tr>
+                  </form>
+                  </c:forEach>
               </tbody>
             </table>
           </div>
@@ -165,6 +185,76 @@
       </div>
     </div>
     </main>
+    <script type="text/javascript">
+      //canceled
+      // function peerSelectHandler(select,id) {
+      //   console.log(id);
+      //   console.log(select);
+      //   var peer1 = document.getElementById('peer1');
+      //   var peer2 = document.getElementById('peer2');
+      //   var peer3 = document.getElementById('peer3');
+      //   if (id == 'peer1') {
+      //     for (var i = 0; i < peer2.options.length; i++) {
+      //         if (peer2.options[i].value == select) {
+      //           console.log(peer2.options[i].value);
+      //           peer2.options[i].style.display = 'none';
+      //         }
+      //         else {
+      //           peer2.options[i].style.display = 'block';
+      //         }
+      //     }
+      //     for (var i = 0; i < peer3.options.length; i++) {
+      //         if (peer3.options[i].value == select) {
+      //           console.log(peer3.options[i].value);
+      //           peer3.options[i].style.display = 'none';
+      //         }
+      //         else {
+      //           peer3.options[i].style.display = 'block';
+      //         }
+      //     }
+      //   }
+      //   else if (id == 'peer2') {
+      //     for (var i = 0; i < peer1.options.length; i++) {
+      //         if (peer1.options[i].value == select) {
+      //           console.log(peer1.options[i].value);
+      //           peer1.options[i].style.display = 'none';
+      //         }
+      //         else {
+      //           peer1.options[i].style.display = 'block';
+      //         }
+      //     }
+      //     for (var i = 0; i < peer3.options.length; i++) {
+      //         if (peer3.options[i].value == select) {
+      //           console.log(peer3.options[i].value);
+      //           peer3.options[i].style.display = 'none';
+      //         }
+      //         else {
+      //           peer3.options[i].style.display = 'block';
+      //         }
+      //     }
+      //   }
+      //   else {
+      //     for (var i = 0; i < peer1.options.length; i++) {
+      //         if (peer1.options[i].value == select) {
+      //           console.log(peer1.options[i].value);
+      //           peer1.options[i].style.display = 'none';
+      //         }
+      //         else {
+      //           peer1.options[i].style.display = 'block';
+      //         }
+      //     }
+      //     for (var i = 0; i < peer2.options.length; i++) {
+      //         if (peer2.options[i].value == select) {
+      //           console.log(peer2.options[i].value);
+      //           peer2.options[i].style.display = 'none';
+      //         }
+      //         else {
+      //           peer2.options[i].style.display = 'block';
+      //         }
+      //     }
+      //   }
+      // }
+    </script>
   <script src="/vendor/jquery/jquery.min.js"></script>
   <script src="/vendor/bootstrap/js/popper.min.js"></script>
   <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>

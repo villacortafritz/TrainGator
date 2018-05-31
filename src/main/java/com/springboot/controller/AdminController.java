@@ -74,8 +74,6 @@ public class AdminController {
 		
 		System.out.println("BOGOOOOOOOO");
 		boolean found = false;
-		
-		
 		for(String find:participantId){		
 			for (String element:userId) {
 			    if (element.equals(find)) {
@@ -233,7 +231,25 @@ public class AdminController {
 		
 		return "TrainGator/adminTrainingDetails";
 	}
-	
+	@RequestMapping(value="/removeFacilitator",method=RequestMethod.POST)
+	public String removeFacilitatorById(HttpServletRequest request, ModelMap map) {
+		String[] id = request.getParameterValues("facilitatorId");
+//		System.out.println(request.getParameter("trainid")+ "aaaaaaaaaaaaaa");
+		String trainId = request.getParameter("trainId");
+		MainService.removeParticipantById(id,Integer.parseInt(trainId));
+		MainService.removeFacilitatorById(id,Integer.parseInt(trainId));
+		//remove then display again the details
+		Object trainingdetails = MainService.getTrainingById(Integer.parseInt(trainId));
+		List<Object> participants = MainService.getParticipantsById(Integer.parseInt(trainId));
+		List<Object> facilitators = MainService.getFacilitatorsById(Integer.parseInt(trainId));
+		map.addAttribute("trainId",trainId);
+		map.addAttribute("trainingdetails", trainingdetails);
+		map.addAttribute("participants", participants);
+		map.addAttribute("facilitators", facilitators);
+		map.addAttribute("trainId",trainId);
+		
+		return "TrainGator/adminTrainingDetails";
+	}
 	@RequestMapping(value="/insertParticipant",method=RequestMethod.POST)
 	public String addParticipant(HttpServletRequest request, ModelMap map) {
 		String[] userId =  request.getParameterValues("userRecommended");
