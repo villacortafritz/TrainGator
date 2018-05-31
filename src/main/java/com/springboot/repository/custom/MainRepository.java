@@ -5,16 +5,6 @@ import java.util.List;
 
 
 
-
-
-
-
-
-
-
-
-
-
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
@@ -560,5 +550,19 @@ public class MainRepository {
 		List<Object> list = query.list();
 		return list;
 	}
+	public List<Object> getAccomplishedTraining(EntityManager em, int userid) {
+		Session session = em.unwrap(Session.class);
+		StringBuilder stringQuery = new StringBuilder(
+				"SELECT t.train_name, t.train_id "
+				+ "FROM tbl_training t "
+				+ "JOIN tbl_participant p " 
+				+ "ON t.train_id = p.train_id " 
+				+ "WHERE p.user_id= :id AND t.train_status=3 ");
+		SQLQuery query = session.createSQLQuery(stringQuery.toString());
+		query.setParameter("id", userid);
+		List<Object> list = query.list();		
+		return list;
+	}
+
 	
 }

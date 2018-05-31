@@ -336,8 +336,13 @@ public class UserController {
 		return "TrainGator/userSaf";
 	}
 	
-	@RequestMapping(value="/userAccomplished", method=RequestMethod.GET)
+	@RequestMapping("/userAccomplished")
 	public String userAccomplished(HttpServletRequest request, ModelMap map) {
+		int userid = Integer.parseInt(request.getSession().getAttribute("userID").toString());	
+		List<Object> accomplishedTrainings = MainService.getAccomplishedTrainings(userid);
+		
+		map.addAttribute("accTra", accomplishedTrainings);
+
 		return "TrainGator/userAccomplished";
 	}
 	
@@ -349,30 +354,44 @@ public class UserController {
 	
 	@RequestMapping(value="/userCff", method=RequestMethod.GET)
 	public String userCff(HttpServletRequest request, ModelMap map) {
+		String trainId = request.getParameter("trainid");	
+		map.addAttribute("whatForm", trainId);
 		return "TrainGator/userCff";
 	}
 	
 	@RequestMapping(value="/submitUserCff", method=RequestMethod.POST)
 	public String submitUserCff(HttpServletRequest request, ModelMap map) {
 		String[] cffAnswer = new String[3];
+		int trainid = Integer.parseInt(request.getParameter("formid"));
+		int userid = Integer.parseInt(request.getSession().getAttribute("userID").toString());
+		String usertype = request.getSession().getAttribute("usertype").toString();
+		
 		cffAnswer[0] = request.getParameter("customRadio1");
 		cffAnswer[1] = request.getParameter("customRadio2");
 		cffAnswer[2] = request.getParameter("customRadio3");
 		
-		MainService.submitUserCff(cffAnswer);
+		MainService.submitUserCff(cffAnswer, trainid, userid,usertype);
+		
+		List<Object> accomplishedTrainings = MainService.getAccomplishedTrainings(userid);
+		map.addAttribute("accTra", accomplishedTrainings);
 
-		return "TrainGator/userCff";
+		return "TrainGator/userAccomplished";
 	}
 	
-	
-	
+
 	@RequestMapping(value="/userFff", method=RequestMethod.GET)
 	public String userFff(HttpServletRequest request, ModelMap map) {
+		String trainId = request.getParameter("trainid");	
+		map.addAttribute("whatForm", trainId);
 		return "TrainGator/userFff";
 	}
 	
 	@RequestMapping(value="/submitUserFff", method=RequestMethod.POST)
 	public String submitUserFff(HttpServletRequest request, ModelMap map) {
+		int trainid = Integer.parseInt(request.getParameter("formid"));
+		int userid = Integer.parseInt(request.getSession().getAttribute("userID").toString());
+		String usertype = request.getSession().getAttribute("usertype").toString();
+		
 		String[] userFffAnswer = new String[11];
 		userFffAnswer[0] = request.getParameter("Q12");
 		userFffAnswer[1] = request.getParameter("Q13");
@@ -386,8 +405,11 @@ public class UserController {
 		userFffAnswer[9] = request.getParameter("Q21");
 		userFffAnswer[10] = request.getParameter("Q22");
 		
-		MainService.submitFff(userFffAnswer);
-		return "TrainGator/userFff";
+		MainService.submitFff(userFffAnswer, trainid, userid, usertype);
+		
+		List<Object> accomplishedTrainings = MainService.getAccomplishedTrainings(userid);
+		map.addAttribute("accTra", accomplishedTrainings);
+		return "TrainGator/userAccomplished";
 	}
 	
 	@RequestMapping("/userJoined")
@@ -434,12 +456,18 @@ public class UserController {
 	public String loadUserTeaf(HttpServletRequest request, ModelMap map) {
 		List<TblCat> teafQuestions = MainService.getTeafQuestions();
 		map.addAttribute("questions", teafQuestions);
+		String trainId = request.getParameter("trainid");	
+		map.addAttribute("whatForm", trainId);
 		return "TrainGator/userTeaf";
 	}
 	
 	@RequestMapping(value="/submitAnswerTeaf", method=RequestMethod.POST)
 	public String submitAnswerTeaf(HttpServletRequest request, ModelMap map) {
 		String[] teafAnswer = new String[8];
+		
+		int trainid = Integer.parseInt(request.getParameter("formid"));
+		int userid = Integer.parseInt(request.getSession().getAttribute("userID").toString());
+		String usertype = request.getSession().getAttribute("usertype").toString();
 		
 		teafAnswer[0] = request.getParameter("q1teaf");
 		teafAnswer[1] = request.getParameter("q2teaf");
@@ -450,8 +478,11 @@ public class UserController {
 		teafAnswer[6] = request.getParameter("q7teaf");
 		teafAnswer[7] = request.getParameter("q8teaf");
 		
-		MainService.submitAnswerTeaf(teafAnswer);		
-		return "TrainGator/userTeaf";
+		MainService.submitAnswerTeaf(teafAnswer, trainid, userid,usertype);		
+		
+		List<Object> accomplishedTrainings = MainService.getAccomplishedTrainings(userid);
+		map.addAttribute("accTra", accomplishedTrainings);
+		return "TrainGator/userAccomplished";
 	}
 	@RequestMapping(value="/userTna", method=RequestMethod.GET)
 	public String userTna(HttpServletRequest request, ModelMap map) {

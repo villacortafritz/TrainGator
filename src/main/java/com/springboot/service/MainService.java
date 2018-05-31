@@ -216,7 +216,7 @@ public class MainService {
 			quesTeaf[i] = new TblCat();
 			quesTeaf[i].setCatDesc(ques[i]);
 			quesTeaf[i].setFormId(2);
-			
+			quesTeaf[i].setCatId(i+10);
 		}
 
 		MainRepository.submitTeafQuestions(em,quesTeaf);
@@ -229,18 +229,20 @@ public class MainService {
 		
 	}
 
-	public void submitAnswerTeaf(String teafAnswer[]) {
+	public void submitAnswerTeaf(String teafAnswer[], int trainid, int userid, String usertype) {
 		Date date = new Date();
 		TblFormresult ansTeaf[] = new TblFormresult[8];
 		for(int i = 0; i <=7 ; i++)
 		{
 			ansTeaf[i] = new TblFormresult();
-			ansTeaf[i].setAnsId(1);
-			ansTeaf[i].setUserId(1); //SUBJECT TO CHANGE
+			ansTeaf[i].setAnsId(i+1);
+			ansTeaf[i].setUserId(userid);
 			ansTeaf[i].setQuestId(i+1);
 			ansTeaf[i].setResDate(date);
-			ansTeaf[i].setTrainId(101); //SUBJECT TO CHANGE
-			ansTeaf[i].setResData(teafAnswer[i]);
+			ansTeaf[i].setTrainId(trainid);
+			ansTeaf[i].setResData(teafAnswer[i].toString());
+			ansTeaf[i].setResType(usertype);
+			
 		}
 		MainRepository.submitTeafAnswers(em, ansTeaf);
 
@@ -308,7 +310,7 @@ public class MainService {
 	public List<Object> getJoinedTraining(int userId) {	
 		return MainRepository.getJoinedTraining(em,userId);
 	}
-	public void submitUserCff(String[] cffAnswer) {
+	public void submitUserCff(String[] cffAnswer, int trainid, int userid, String usertype) {
 		TblFormresult ansCff[] = new TblFormresult[3];	
 		Date date = new Date();
 		int questid = 31;
@@ -317,12 +319,12 @@ public class MainService {
 		{
 			ansCff[i] = new TblFormresult();
 			ansCff[i].setAnsId(i+1);
-			ansCff[i].setUserId(1); //SUBJECT TO CHANGE
+			ansCff[i].setUserId(userid); 
 			ansCff[i].setQuestId(questid);
 			ansCff[i].setResDate(date);
-			ansCff[i].setTrainId(101); //SUBJECT TO CHANGE
+			ansCff[i].setTrainId(trainid);
 			ansCff[i].setResData(cffAnswer[i]);
-			ansCff[i].setResType("Self");
+			ansCff[i].setResType(usertype);
 			questid++;
 			
 		}
@@ -335,7 +337,7 @@ public class MainService {
 		return MainRepository.getParticipantComments(em, trainId);
 	}
 
-	public void submitFff(String[] userFffAnswer) {
+	public void submitFff(String[] userFffAnswer,int trainid,int userid,String usertype) {
 		TblFormresult ansFff[] = new TblFormresult[11];	
 		Date date = new Date();
 		
@@ -345,12 +347,12 @@ public class MainService {
 		{
 			ansFff[i] = new TblFormresult();
 			ansFff[i].setAnsId(i+1);
-			ansFff[i].setUserId(1); //SUBJECT TO CHANGE
+			ansFff[i].setUserId(userid);
 			ansFff[i].setQuestId(questid);
 			ansFff[i].setResDate(date);
-			ansFff[i].setTrainId(101); //SUBJECT TO CHANGE
+			ansFff[i].setTrainId(trainid);
 			ansFff[i].setResData(userFffAnswer[i]);
-			ansFff[i].setResType("Self");
+			ansFff[i].setResType(usertype);
 			questid++;
 		}
 		MainRepository.submitUserFff(em,ansFff);
@@ -453,6 +455,10 @@ public class MainService {
 
 	public List<Object> getOngoingTraining() {
 		return MainRepository.getOngoingTraining(em);
+	}
+	public List<Object> getAccomplishedTrainings(int userid) {
+		
+		return MainRepository.getAccomplishedTraining(em,userid);
 	}
 }
 	

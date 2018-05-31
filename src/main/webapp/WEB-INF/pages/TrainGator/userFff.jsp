@@ -67,6 +67,7 @@
                 <div class="card-body" style="padding-top: 50px;">
 
                   <form action="http://localhost:8080/user/submitUserFff" method="post">
+                  <input name="formid" value="${whatForm}"><label> ${whatForm} </label><br>
                       <fieldset>
                         <div class="form-group">
                           <label for="exampleInputEmail1">12. Adequate time was allocated for Lecture. [1-Strongly Agree : 5-Strongly Disagree]</label>
@@ -365,21 +366,7 @@
                             </section>
                           </div>
                         </div>
-<<<<<<< HEAD
-                      </div>
-                    </fieldset>
-                  </form>
-                  <div class="form-group">
-                    <label for="exampleTextarea">22. Additional comments on the speaker.</label>
-                    <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-                  </div><br>
-                </div>
-              </section>
-            </div>
-            <div class="form-actions" style="margin-left:45%">
-              <button class="btn btn-primary" type="submit" onclick="window.location.href='userAccomplished.html'">Submit form</button>
-            </div>
-=======
+
                       </fieldset>
 
                       <fieldset>
@@ -586,8 +573,6 @@
                       <label for="exampleTextarea">22. Additional comments on the speaker.</label>
                       <input type="text" name="Q22" class="form-control" id="exampleTextarea" rows="3">
                     </div><br>
-
-
 
 
                   </div>

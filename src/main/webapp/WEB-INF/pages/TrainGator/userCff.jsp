@@ -63,6 +63,8 @@
           </header>
           <div class="page-section">
           <form action="http://localhost:8080/user/submitUserCff" method="post">
+          <label> Course Feedback Form </label><br>
+          <input name="formid" value="${whatForm}"><label> ${whatForm} </label><br>
             <div class="section-deck">
                 <section class="card card-fluid">
                   <div class="card-body">
