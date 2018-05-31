@@ -50,6 +50,9 @@
 <!-- The home button is located at the header since it has the purpose of redirecting the user back to it's default landing page. -->
 <!-- start implementation for the search bar. -->
             <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
+              <button class="btn btn-primary" style="height:55px" onclick="window.location = '/admin/updatetrainingstatus?page=adminOngoing'">
+                <span class="oi oi-loop-circular ml-1"></span>
+              </button>
               <button class="btn btn-primary" style="height:55px" onclick="window.location = '/admin/adminOngoing'">
                 <span class="oi oi-home ml-1"></span>
               </button>
@@ -65,15 +68,10 @@
                 </button>
                 <div class="dropdown-arrow dropdown-arrow-left"></div>
                 <div class="dropdown-menu">
-                  <h6 class="dropdown-header d-none d-md-block d-lg-none"> Name of Admin </h6>
-<<<<<<< HEAD
-                  <a class="dropdown-item" href="generalSignin.html">
-                    <span class="dropdown-icon oi oi-account-logout"></span> Logout </a>
-=======
+                  <h6 class="dropdown-header d-none d-md-block d-lg-none"> ${fname} ${lname} </h6>
                   <a class="dropdown-item" href="/logout">
                     <span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
                     <div class="dropdown-divider"></div>
->>>>>>> 7b2661e8797fc284ca98925b627b5d8a28379bc2
                 </div>
               </div>
 <!-- end implementation for the user option. -->
@@ -104,31 +102,26 @@
                   <div class="card-body">
                     <div class="table-responsive">
                       <table class="table">
+                        <center>
+                          <button class="btn btn-small" type="submit" onclick="window.location = '/admin/adminTeaf'">Edit Training Effectiveness Assessment Form Questions</button>
+                        </center>
                         <thead>
                           <tr>
-                            <th style="width:62px"></th>
-                            <th style="min-width:280px">Concluded Training List</th>
+                            <th >Concluded Training List</th>
                             <th> Number of Participants </th>
                             <th> Success Rate </th>
-                            <th style="width: 50px;"> &nbsp; </th>
+                            <th style="width: 200px;">
+                            </th>
                           </tr>
                         </thead>
                         <tbody>
                         <c:forEach items="${list}" var="listVar">
                           <tr>
-                          <td class="align-middle"></td>
                           <td>${listVar[0]}</td>
                           <td class="align-middle"> ${listVar[1]} </td>
                           <td class="align-middle"> ${listVar[3]}% </td>
-                          <td class="align-middle text-right">
-                            <div class="btn-group">
-                              <button class="btn btn-primary" style="width:200px" type="submit" onclick="window.location = '/admin/adminTeaf'">Edit Training Effectiveness <br>Assessment Form Questions</button>
-                            </div>
-                          </td>
-                          <td class="align-middle text-right">
-                            <div class="btn-group">
-                              <button class="btn btn-primary" style="height:60px"type="submit" onclick="window.location = '/admin/adminEventComments'">View Results</button>
-                            </div>
+                          <td class="align-middle ">
+                            <button class="btn btn-primary btn-small" type="submit" onclick="window.location = '/admin/adminEventComments'">View Results</button>
                           </td>
                         </tr>
                         </c:forEach>

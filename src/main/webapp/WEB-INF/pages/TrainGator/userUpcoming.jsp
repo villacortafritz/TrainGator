@@ -103,25 +103,27 @@
                     <tr>
                       <th style="width:62px"></th>
                       <th style="min-width:280px">Upcoming Training List</th>
-                      <th> Name of Facilitator </th>
                       <th> Date of Training </th>
+                      <th> Time of Training </th>
                       <th style="width: 50px;"> &nbsp; </th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                    <td class="align-middle"></td>
-                    <td>
-                    <a>Name of Training</a>
-                    </td>
-                    <td class="align-middle"> Name of Facilitator </td>
-                    <td class="align-middle"> Date of Training </td>
-                    <td class="align-middle text-right">
-                      <div class="btn-group">
-                        <button class="btn btn-primary" type="submit" onclick="window.location.href='userUpcoming.html'">Request to Join Training</button>
-                      </div>
-                    </td>
-                  </tr>
+                    <c:forEach items="${list}" var="listVar">
+                      <tr>
+                      <td class="align-middle"></td>
+                      <td>
+                      <a>${listVar.trainName}</a>
+                      </td>
+                      <td class="align-middle">Date: ${listVar.trainDatestart} to ${listVar.trainDatestart}</td>
+                      <td class="align-middle">Time: ${listVar.trainTimestart} to ${listVar.trainTimeend}</td>
+                      <td class="align-middle text-right">
+                        <div class="btn-group">
+                          <button class="btn btn-primary">Request to Join Training</button>
+                        </div>
+                      </td>
+                    </tr>
+                  </c:forEach>
                 </tbody>
               </table>
             </div>

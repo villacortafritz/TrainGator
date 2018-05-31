@@ -50,9 +50,13 @@
 <!-- The home button is located at the header since it has the purpose of redirecting the user back to it's default landing page. -->
 <!-- start implementation for the search bar. -->
             <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
+              <button class="btn btn-primary" style="height:55px" onclick="window.location = '/admin/updatetrainingstatus?page=adminOngoing'">
+                <span class="oi oi-loop-circular ml-1"></span>
+              </button>
               <button class="btn btn-primary" style="height:55px" onclick="window.location = '/admin/adminOngoing'">
                 <span class="oi oi-home ml-1"></span>
               </button>
+
 <!-- end implementation for the search bar. -->
 <!-- The user option consists of the log out button for the purpose of logging out the user in it's current session. -->
 <!-- start implementation for the user option. -->
@@ -65,7 +69,7 @@
                 </button>
                 <div class="dropdown-arrow dropdown-arrow-left"></div>
                 <div class="dropdown-menu">
-                  <h6 class="dropdown-header d-none d-md-block d-lg-none"> Name of Admin </h6>
+                  <h6 class="dropdown-header d-none d-md-block d-lg-none"> ${fname} ${lname} </h6>
                   <a class="dropdown-item" href="/logout">
                     <span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
                 </div>
@@ -116,7 +120,7 @@
                           <td class="align-middle"> 20 </td>
                           <td class="align-middle text-right">
                             <div class="btn-group">
-                              <a class="btn btn-primary" href="adminTrainingDetails?trainId=${listVar[2]}">Delete Training</a>
+                              <a class="btn btn-primary" href="/admin/deleteTraining?trainId=${listVar[2]}">Delete Training</a>
                             </div>
                           </td>
                           <td class="align-middle text-right">

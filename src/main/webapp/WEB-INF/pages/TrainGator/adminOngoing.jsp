@@ -50,6 +50,9 @@
 <!-- The home button is located at the header since it has the purpose of redirecting the user back to it's default landing page. -->
 <!-- start implementation for the search bar. -->
             <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
+              <button class="btn btn-primary" style="height:55px" onclick="window.location = '/admin/updatetrainingstatus?page=adminOngoing'">
+                <span class="oi oi-loop-circular ml-1"></span>
+              </button>
               <button class="btn btn-primary" style="height:55px" onclick="window.location = '/admin/adminOngoing'">
                 <span class="oi oi-home ml-1"></span>
               </button>
@@ -65,7 +68,7 @@
                 </button>
                 <div class="dropdown-arrow dropdown-arrow-left"></div>
                 <div class="dropdown-menu">
-                  <h6 class="dropdown-header d-none d-md-block d-lg-none"> Name of Admin </h6>
+                  <h6 class="dropdown-header d-none d-md-block d-lg-none"> ${fname} ${lname} </h6>
                   <a class="dropdown-item" href="/logout">
                     <span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
                 </div>
@@ -107,7 +110,7 @@
                         </div>
                       </div>
                     </section>
-                  </div>
+                </div>
                 <div class="col-12 col-sm-6 col-xl-6">
                     <section class="card card-fluid">
                       <div class="card-body">
@@ -140,43 +143,45 @@
                         <div class="board board-list">
                           <section class="tasks">
                             <header class="task-header">
-                              <h1 class="task-title mr-auto"> On-going Training List
-                              </h1>
+                              <h1 class="task-title mr-auto"> On-going Training List</h1>
                             </header>
                             <div class="task-issue">
-                              <div class="card">
-                                <header class="card-header">
-                                  <h4 class="card-title">
-                                    <a href="#">Name of Training</a>
-                                  </h4>
-                                  <h6 class="card-subtitle text-muted">
-                                    <span class="due-date">Date: 2018-01-01 to 2018-01-06</span>
-                                    <br>
-                                    <span class="due-date">Facilitator: Name of Facilitator</span>
-                                    <br>
-                                    <br>
-                                    <button class="btn btn-primary" type="submit" style="width:80%" onclick="window.location.href='/admin/adminAttendance'">Attendance</button>
-                                  </h6>
-                                </header>
-                                <div class="card-body">
-                                  <div class="list-group">
-                                    <div class="list-group-item">
-                                      <div class="list-group-item-body py-1 text-truncate">
-                                      </div>
-                                    </div>
-                                    <a href="#" class="list-group-item pt-0">
-                                      <div class="list-group-item-body">
-                                        <div class="progress progress-xs">
-                                          <div class="progress-bar bg-success" role="progressbar" style="width: 66.66666666666667%;" aria-valuenow="66.66666666666667" aria-valuemin="0" aria-valuemax="100"></div>
+                              <c:forEach items="${list}" var="listVar">
+                                <div class="card my-3">
+                                  <header class="card-header">
+                                    <h4 class="card-title">
+                                      <a href="#">${listVar[1]}</a>
+                                    </h4>
+                                    <h6 class="card-subtitle text-muted">
+                                      <span class="due-date">Date: ${listVar[2]} to ${listVar[3]}</span>
+                                      <br>
+                                      <span class="due-date">Time: ${listVar[5]} to ${listVar[6]}</span>
+                                      <br>
+                                      <br>
+                                      <button class="btn btn-primary" type="submit" style="width:80%" onclick="window.location.href='/admin/adminAttendance?trainId=${listVar[0]}'">Attendance</button>
+                                    </h6>
+                                  </header>
+                                  <div class="card-body">
+                                    <div class="list-group">
+                                      <div class="list-group-item">
+                                        <div class="list-group-item-body py-1 text-truncate">
                                         </div>
                                       </div>
-                                      <div class="list-group-item-figure">
-                                        <span class="todos">Day 4 / Day 6</span>
-                                      </div>
-                                    </a>
+                                      <button name="displaypercent${listVar[0]}" class="list-group-item pt-0" onclick="percent(this.name,${listVar[9]},${listVar[10]})">
+                                        <div class="list-group-item-body">
+                                          <div class="progress progress-xs">
+                                            <div class="progress-bar bg-success" role="progressbar" id="displaypercent${listVar[0]}"  aria-valuemin="0" aria-valuemax="100"></div>
+                                          </div>
+                                        </div>
+                                        <div class="list-group-item-figure">
+                                          <span class="todos">Day ${listVar[9]} / Day ${listVar[10]}</span>
+                                        </div>
+                                      </button>
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
+
+                              </c:forEach>
                             </div>
                           </section>
                         </div>
@@ -188,6 +193,12 @@
         </div>
   </div>
 </main>
+<script type="text/javascript">
+  function percent(id,n1,n2) {
+      var x = (n1 / n2)*100;
+      document.getElementById(id).style.width = x + '%';
+    }
+</script>
 <script src="/vendor/jquery/jquery.min.js"></script>
 <script src="/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
 <script src="/vendor/bootstrap/js/popper.min.js"></script>

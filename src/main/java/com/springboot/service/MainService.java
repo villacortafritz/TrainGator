@@ -93,9 +93,9 @@ public class MainService {
 		
 	}
 	
-	public List<TblUser> getConfirmedParticipants() {
+	public List<TblUser> getConfirmedParticipants(int id) {
 		
-		return MainRepository.getConfirmedParticipants(em);
+		return MainRepository.getConfirmedParticipants(em, id);
 	
 	}
 	public void removeParticipantById(String[] id, int trainid) {
@@ -420,6 +420,39 @@ public class MainService {
 	public List<Object> getAttendanceDetails(int trainid) {
 		
 		return MainRepository.getAttendanceDetails(em,trainid);
+	}
+
+	public void updateTrainingStatus() {
+		List<Object[]> TrainDays = MainRepository.getTrainingDaysDiff(em);
+		for(Object[] td:TrainDays){
+//			for(int i=0;i<td.length;i++){
+				if( (Integer.parseInt(td[9].toString())) > (-1) ){
+					 MainRepository.updateTrainingStatus(em,Integer.parseInt(td[0].toString()),1);//set status to Upcoming
+					 System.out.println(Integer.parseInt(td[9].toString()) + " Upcoming "+Integer.parseInt(td[0].toString()));
+				}else{
+					if(((Integer.parseInt(td[9].toString()))+(Integer.parseInt(td[10].toString()))) > -1){
+						MainRepository.updateTrainingStatus(em,Integer.parseInt(td[0].toString()),2);//set status to Ongoing
+						System.out.println(((Integer.parseInt(td[9].toString()))+(Integer.parseInt(td[10].toString()))) + " Ongoing "+Integer.parseInt(td[0].toString()));
+					}else{
+						MainRepository.updateTrainingStatus(em,Integer.parseInt(td[0].toString()),3);//set status to Concluded
+						System.out.println(((Integer.parseInt(td[9].toString()))+(Integer.parseInt(td[10].toString()))) + " Concluded "+Integer.parseInt(td[0].toString()));
+					}
+				}
+//			}
+		}
+	}
+
+	public List<TblTraining> getTrainingByStatus(int i) {	
+		return MainRepository.getTrainingByStatus(em,i);
+	}
+
+	public void deleteTrainingById(int id) {
+		MainRepository.deleteTrainingById(em,id);
+		
+	}
+
+	public List<Object> getOngoingTraining() {
+		return MainRepository.getOngoingTraining(em);
 	}
 }
 	

@@ -462,8 +462,10 @@ public class UserController {
 	public String loadUserAll(){
 		return "userAll";
 	}
-	@RequestMapping(value="/userUpcoming", method=RequestMethod.GET)
+	@RequestMapping("/userUpcoming")
 	public String userUpcoming(HttpServletRequest request, ModelMap map) {
+		List<TblTraining> list = MainService.getTrainingByStatus(1);
+		map.addAttribute("list",list);
 		return "TrainGator/userUpcoming";
 	}
 }

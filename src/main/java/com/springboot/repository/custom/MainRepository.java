@@ -13,6 +13,8 @@ import java.util.List;
 
 
 
+
+
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
@@ -82,7 +84,7 @@ public class MainRepository {
 
 	}
 	
-	public List<TblUser> getConfirmedParticipants(EntityManager em) {
+	public List<TblUser> getConfirmedParticipants(EntityManager em,int id) {
 		
 		
 		Session session = em.unwrap(Session.class);
@@ -90,8 +92,9 @@ public class MainRepository {
 				"SELECT u.* "
 				+ "FROM tbl_participant p JOIN tbl_user u "
 				+ "ON p.user_id = u.user_id "
-				+ "WHERE p.train_id = 36");
+				+ "WHERE p.train_id = :id");
 		SQLQuery query = session.createSQLQuery(stringQuery.toString());
+		query.setParameter("id", id);
 		List<TblUser> list = query.list();
 		return list;
 		
@@ -502,6 +505,59 @@ public class MainRepository {
 		SQLQuery query = session.createSQLQuery(stringQuery.toString());
 		query.setParameter("id", trainid);
 		List<Object> list = query.list();		
+		return list;
+	}
+
+	public List<Object[]> getTrainingDaysDiff(EntityManager em) {
+		Session session = em.unwrap(Session.class);
+		StringBuilder stringQuery = new StringBuilder(
+				"SELECT t.*, "
+				+"( SELECT DATEDIFF( train_datestart,CURRENT_DATE ) FROM tbl_training WHERE train_id = t.train_id)as currentToStartDiffDays, "
+				+"(SELECT DATEDIFF(train_dateend, train_datestart ) FROM tbl_training WHERE train_id = t.train_id)as NoOfdays "
+				+"FROM tbl_training t "
+				);
+		SQLQuery query = session.createSQLQuery(stringQuery.toString());
+		List<Object[]> list = query.list();
+		return list;
+	}
+
+	public void updateTrainingStatus(EntityManager em, int id,int status) {
+		Session session = em.unwrap(Session.class);
+		StringBuilder stringQuery = new StringBuilder("UPDATE tbl_training SET train_status= :status WHERE train_id = :id");
+		SQLQuery query = session.createSQLQuery(stringQuery.toString());
+		query.setParameter("id", id);
+		query.setParameter("status", status);
+		query.executeUpdate();
+		
+	}
+
+	public List<TblTraining> getTrainingByStatus(EntityManager em, int i) {
+		StringBuilder CatQuery = new StringBuilder("FROM TblTraining WHERE trainStatus = :status");
+		Query query = em.createQuery(CatQuery.toString());
+		query.setParameter("status", i);
+		List<TblTraining> list = query.getResultList();
+		return list;
+	}
+
+	public void deleteTrainingById(EntityManager em, int id) {
+		StringBuilder tQuery = new StringBuilder("DELETE FROM TblTraining WHERE trainId = :id");
+		Query query = em.createQuery(tQuery.toString());
+		query.setParameter("id",id);
+		query.executeUpdate();
+		
+	}
+
+	public List<Object> getOngoingTraining(EntityManager em) {
+		Session session = em.unwrap(Session.class);
+		StringBuilder stringQuery = new StringBuilder(
+				"SELECT t.*,(SELECT DATEDIFF( CURRENT_DATE,train_datestart ) FROM tbl_training "
+						+"WHERE train_id = t.train_id AND train_datestart <= CURRENT_DATE)as days, "
+						+"(SELECT DATEDIFF(train_dateend, train_datestart ) FROM tbl_training WHERE train_id = t.train_id)as NoOfdays "
+			            +"FROM tbl_training t "
+							+"WHERE t.train_status = 2"
+				);
+		SQLQuery query = session.createSQLQuery(stringQuery.toString());
+		List<Object> list = query.list();
 		return list;
 	}
 	

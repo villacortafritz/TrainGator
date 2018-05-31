@@ -130,13 +130,9 @@
                                           ${joined[0][1]}
                                         </h4>
                                         <h6 class="card-subtitle text-muted">
-                                          <span class="due-date">Date: 2018-01-01 to 2018-01-06</span>
+                                          <span class="due-date">Date: ${joined[0][2]} to ${joined[0][3]}</span>
                                           <br>
-                                          <span class="due-date">Facilitator: Name of Facilitator</span>
-                                          <br>
-                                          <span class="due-date">${joined[0][2]} to ${joined[0][3]}</span>
-                                          <hr>
-                                          <button class="btn btn-primary btn-small" type="submit" style="width:80%" onclick="window.location.href='adminAttendance'">Attendance</button>
+                                          <span class="due-date">Time: ${joined[0][5]} to ${joined[0][6]}</span>
                                         </h6>
                                       </header>
                                       <div class="card-body">

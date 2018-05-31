@@ -10,6 +10,7 @@ import java.util.Date;
 
 
 
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,9 +56,11 @@ public class GeneralController {
 			request.getSession().setAttribute("fname",user.getUserFname());
 			request.getSession().setAttribute("lname",user.getUserLname());
 			request.getSession().setAttribute("usertype",user.getUserType());
-			if(user.getUserType().equals("administrator"))
+			if(user.getUserType().equals("administrator")){
+				List<Object> list = MainService.getOngoingTraining();
+				map.addAttribute("list",list);
 				return "TrainGator/adminOngoing";
-			else{
+			}else{
 				List<Object> joined = MainService.getJoinedTraining(user.getUserId());
 //				System.out.println(Arrays.deepToString(joined.toArray()));
 				//checks if naka fill up naba sya sa iyang SAF

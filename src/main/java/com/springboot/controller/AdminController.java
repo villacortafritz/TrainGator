@@ -31,7 +31,6 @@ import com.springboot.service.MainService;
 
 @Controller
 @RequestMapping("/admin")
-@SessionAttributes({"userID","fname","lname","usertype","trainId"})//mapped variables that is declared here will auto acquire the data, can be accessed every page
 public class AdminController {
 	
 	@Autowired
@@ -60,7 +59,8 @@ public class AdminController {
 	
 	@RequestMapping(value="/adminAttendance", method=RequestMethod.GET)
 	public String adminAttendance(HttpServletRequest request, ModelMap map) {
-		List<TblUser> confirmedList = MainService.getConfirmedParticipants();	
+		String trainId = request.getParameter("trainId");
+		List<TblUser> confirmedList = MainService.getConfirmedParticipants(Integer.parseInt(trainId));	
 		map.addAttribute("confirmedList", confirmedList);	
 		return "TrainGator/adminAttendance";
 	}
@@ -180,6 +180,8 @@ public class AdminController {
 	
 	@RequestMapping(value="/adminOngoing", method=RequestMethod.GET)
 	public String adminOngoing(HttpServletRequest request, ModelMap map) {
+		List<Object> list = MainService.getOngoingTraining();
+		map.addAttribute("list",list);
 		return "TrainGator/adminOngoing";
 	}
 	
@@ -286,6 +288,19 @@ public class AdminController {
 	@RequestMapping(value="/adminUpcoming", method=RequestMethod.POST)
 	public String adminUpcoming(HttpServletRequest request, ModelMap map) {
 		return "TrainGator/adminUpcoming";
+	}
+	
+	@RequestMapping(value="/updatetrainingstatus", method=RequestMethod.GET)
+	public String updatetrainingstatus(HttpServletRequest request) {
+		StringBuilder sb = new StringBuilder("TrainGator/");
+		sb.append(request.getParameter("page"));
+		MainService.updateTrainingStatus();
+		return sb.toString();
+	}
+	@RequestMapping(value="/deleteTraining")
+	public String deleteTraining(HttpServletRequest request){
+		MainService.deleteTrainingById(Integer.parseInt(request.getParameter("trainId")));
+		return "/admin/adminUpcoming";
 	}
 	
 //	@RequestMapping("/generalSignin")
