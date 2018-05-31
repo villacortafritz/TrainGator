@@ -65,7 +65,7 @@
                 <div class="dropdown-arrow dropdown-arrow-left"></div>
                 <div class="dropdown-menu">
                   <h6 class="dropdown-header d-none d-md-block d-lg-none">${fname} ${lname}</h6>
-                  <a class="dropdown-item" href="generalSignin.html">
+                  <a class="dropdown-item" href="/logout">
                     <span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
                 </div>
               </div>

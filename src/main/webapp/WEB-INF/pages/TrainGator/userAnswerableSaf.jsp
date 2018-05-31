@@ -65,14 +65,8 @@
                 <div class="dropdown-arrow dropdown-arrow-left"></div>
                 <div class="dropdown-menu">
                   <h6 class="dropdown-header d-none d-md-block d-lg-none">${fname} ${lname}</h6>
-<<<<<<< HEAD
-                  <a class="dropdown-item" href="generalSignin.html">
-                    <span class="dropdown-icon oi oi-account-logout"></span> Logout </a>
-=======
-                  <a class="dropdown-item" href="/user/generalSignin">
+                  <a class="dropdown-item" href="/logout">
                     <span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
-                    <div class="dropdown-divider"></div>
->>>>>>> a47827d56240bdcaa32fa324ee80a7b8c708dc3b
                 </div>
               </div>
 <!-- end implementation for the user option. -->
@@ -84,8 +78,8 @@
   <main class="app-main">
     <header class="page-cover">
       <div class="text-center">
-        <h2 class="h4 mt-3 mb-0"> Name of User </h2>
-        <p class="text-muted"> Participant/Supervisor </p>
+        <h2 class="h4 mt-3 mb-0">${fname} ${lname}</h2>
+        <p class="text-muted"> ${usertype} </p>
       </div>
     </header>
     <nav class="page-navs">
