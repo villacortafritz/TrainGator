@@ -65,10 +65,25 @@ public class AdminController {
 		return "TrainGator/adminAttendance";
 	}
 	
+	@RequestMapping(value="/attendanceForPrint", method=RequestMethod.GET)
+	public String attendanceForPrint(HttpServletRequest request, ModelMap map) {
+		List<Object> attDet= MainService.getAttendanceDetails(36);//trainid
+		
+		map.addAttribute("userAttendance", attDet);
+		
+		return "TrainGator/attendanceForPrint";
+	}
+	
+	
 	@RequestMapping(value="/submitAttendance", method=RequestMethod.POST)
 	public String adminConfirmAttendance(HttpServletRequest request, ModelMap map) {
+		
+		int trainid = 36;
+		
 		String[] userId =  request.getParameterValues("confirmedAttend");
-		String[] participantId = MainService.getAllParticipantsId(40);
+		String[] participantId = MainService.getAllParticipantsId(trainid);
+		
+		
 		
 		//KALIMOT KO BUTANG TITLE LAST PUUSH SO MAO KUNO NI CHANGE HEHE
 		
@@ -79,12 +94,12 @@ public class AdminController {
 			    if (element.equals(find)) {
 			        found = true;
 			        System.out.println( "The value is found!");
-			        MainService.confirmAttendance(find, 40, 2);     
+			        MainService.confirmAttendance(find, trainid, 2);     
 			    }
 			}
 			if (found==false) { 
 			    System.out.println( "The value is not found!" );
-			    MainService.confirmAttendance(find, 40, 1); 
+			    MainService.confirmAttendance(find, trainid, 1); 
 			}
 		}
 		return adminAttendance(request,map);		

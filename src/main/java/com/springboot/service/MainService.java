@@ -405,5 +405,10 @@ public class MainService {
 	public List<Object> answerSafUsers(int id) {
 		return MainRepository.answerSafUsers(em,id);
 	}
+
+	public List<Object> getAttendanceDetails(int trainid) {
+		
+		return MainRepository.getAttendanceDetails(em,trainid);
+	}
 }
 	

@@ -96,54 +96,87 @@
             <section class="card card-fluid">
             <div class="card-body">
               <div class="table-responsive">
-              <form action="http://localhost:8080/admin/submitAttendance" method="post">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th style="width:62px"></th>
-                      <th style="min-width:280px"> Name of Participant </th>
-                      <th> Present </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                  	<c:forEach items="${confirmedList}" var="partAttend">
-	                  	<tr>
-	                      <td class="align-middle"></td>
-	                      <td>
-	                        <a>${partAttend[1]} ${partAttend[2]}</a>
-	                      </td>
-	                      <td class="align-middle">
-	                        <label class="switcher-control" style="margin-left:8px">
-	                        <input type="checkbox" name="confirmedAttend" class="switcher-input" value="${partAttend[0]}">
-	                        <span class="switcher-indicator"></span>
-	                        </label>
-	                     </td>
-	                  	</tr>                		
-          					</c:forEach>           
-                    <tr>
-                      <td class="align-middle"></td>
-                      <td>
-                        <a>Name of Participant</a>
-                      </td>
-                      <td class="align-middle">
-                        <label class="switcher-control" style="margin-left:8px">
-                        <input type="checkbox" name="onoffswitch" class="switcher-input">
-                        <span class="switcher-indicator"></span>
-                        </label>
-                     </td>
-                  </tr>
-                </tbody>
-              </table>
-              <div class="form-actions" style="padding-left:45%">
-		        <button class="btn btn-primary" type="submit">Confirm</button>
-		      </div> 
-              </form>
-                <button class="btn btn-primary" type="submit" style="width:100%" onclick="window.location.href='/admin/attendanceForPrint'">Attendance Details</button>
+             
+              
+              
             </div>
+            
+             <div id="printable">
+	             <table>
+				  <tr>
+				    <th>Firstname</th>
+				    <th>Lastname</th> 
+				    <th>Age</th>
+				  </tr>
+				  <c:forEach items="${userAttendance}" var="userat">
+					  <tr>
+					    <td>${userat[0]} ${userat[1]}</td>
+					    <td><c:if test="${(userat[2] == '1')}">
+								<a>Absent</a>
+							</c:if>
+							<c:if test="${(userat[2] == '2')}">
+								<a>Present</a>
+							</c:if></td>
+					    <td>${userat[3]}</td>
+					  </tr>
+				 </c:forEach>    
+				  
+				</table>
+             
+              
+              
+            </div>
+            
+             <a href="javascript:demoFromHTML()" class="button">Download Form</a>
           </div>
         </div>
       </div>
     </main>
+    
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+
+   <script>
+    function demoFromHTML() {
+        var pdf = new jsPDF('p', 'pt', 'letter');
+        // source can be HTML-formatted string, or a reference
+        // to an actual DOM element from which the text will be scraped.
+        source = $('#printable')[0];
+
+        // we support special element handlers. Register them with jQuery-style 
+        // ID selector for either ID or node name. ("#iAmID", "div", "span" etc.)
+        // There is no support for any other type of selectors 
+        // (class, of compound) at this time.
+        specialElementHandlers = {
+            // element with id of "bypass" - jQuery style selector
+            '#bypassme': function (element, renderer) {
+                // true = "handled elsewhere, bypass text extraction"
+                return true
+            }
+        };
+        margins = {
+            top: 80,
+            bottom: 60,
+            left: 40,
+            width: 522
+        };
+        // all coords and widths are in jsPDF instance's declared units
+        // 'inches' in this case
+        pdf.fromHTML(
+            source, // HTML string or DOM elem ref.
+            margins.left, // x coord
+            margins.top, { // y coord
+                'width': margins.width, // max width of content on PDF
+                'elementHandlers': specialElementHandlers
+            },
+
+            function (dispose) {
+                // dispose: object with X, Y of the last line add to the PDF 
+                //          this allow the insertion of new lines after html
+                pdf.save('FFF.pdf');
+            }, margins
+        );
+    }
+</script>
   <script src="/vendor/jquery/jquery.min.js"></script>
   <script src="/vendor/bootstrap/js/popper.min.js"></script>
   <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>

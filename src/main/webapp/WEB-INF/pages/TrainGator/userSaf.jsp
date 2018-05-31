@@ -61,7 +61,7 @@
           </div>
         </header>
     <main class="app-main">
-      <div class="wrapper">
+      <div id="printable" class="wrapper">
         <div class="page">
           <div class="page-inner">
             <header class="page-title-bar">
@@ -2422,11 +2422,14 @@
               </div>
             </div>
           </form>
+          
           </div>
         </div>
       </div>
     </div>
     </main>
+    
+   
   <script src="/vendor/jquery/jquery.min.js"></script>
   <script src="/vendor/bootstrap/js/popper.min.js"></script>
   <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
