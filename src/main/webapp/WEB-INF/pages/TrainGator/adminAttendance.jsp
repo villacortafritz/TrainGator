@@ -94,6 +94,7 @@
             <div class="card-body">
               <div class="table-responsive">
               <form action="http://localhost:8080/admin/submitAttendance" method="post">
+                <input type="hidden" name="trainId" value="${trainId}">
                 <table class="table">
                   <thead>
                     <tr>
@@ -125,7 +126,7 @@
 		      </div> 
 
               </form>
-                <button class="btn btn-primary" type="submit" style="width:100%" onclick="window.location.href='/admin/attendanceForPrint'">Attendance Details</button>
+                <button class="btn btn-primary" type="submit" style="width:100%" onclick="window.location.href='/admin/attendanceForPrint?trainId=${trainId}'">Attendance Details</button>
             </div>
           </div>
         </div>

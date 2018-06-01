@@ -60,6 +60,7 @@ public class AdminController {
 	@RequestMapping(value="/adminAttendance", method=RequestMethod.GET)
 	public String adminAttendance(HttpServletRequest request, ModelMap map) {
 		String trainId = request.getParameter("trainId");
+		map.addAttribute("trainId",trainId);
 		List<TblUser> confirmedList = MainService.getConfirmedParticipants(Integer.parseInt(trainId));	
 		map.addAttribute("confirmedList", confirmedList);	
 		return "TrainGator/adminAttendance";
@@ -67,7 +68,7 @@ public class AdminController {
 	
 	@RequestMapping(value="/attendanceForPrint", method=RequestMethod.GET)
 	public String attendanceForPrint(HttpServletRequest request, ModelMap map) {
-		List<Object> attDet= MainService.getAttendanceDetails(36);//trainid
+		List<Object> attDet= MainService.getAttendanceDetails(Integer.parseInt(request.getParameter("trainId")));//trainid
 		
 		map.addAttribute("userAttendance", attDet);
 		
@@ -78,29 +79,25 @@ public class AdminController {
 	@RequestMapping(value="/submitAttendance", method=RequestMethod.POST)
 	public String adminConfirmAttendance(HttpServletRequest request, ModelMap map) {
 		
-		int trainid = 36;
+		int trainid = Integer.parseInt(request.getParameter("trainId"));
 		
 		String[] userId =  request.getParameterValues("confirmedAttend");
 		String[] participantId = MainService.getAllParticipantsId(trainid);
-		
-		
-		
-		//KALIMOT KO BUTANG TITLE LAST PUUSH SO MAO KUNO NI CHANGE HEHE
-		
-		System.out.println("BOGOOOOOOOO");
 		boolean found = false;
 		for(String find:participantId){		
 			for (String element:userId) {
 			    if (element.equals(find)) {
-			        found = true;
+//			        found = true;
 			        System.out.println( "The value is found!");
 			        MainService.confirmAttendance(find, trainid, 2);     
+			    }else{
+			    	MainService.confirmAttendance(find, trainid, 1); 
 			    }
 			}
-			if (found==false) { 
-			    System.out.println( "The value is not found!" );
-			    MainService.confirmAttendance(find, trainid, 1); 
-			}
+//			if (found==false) { 
+//			    System.out.println( "The value is not found!" );
+//			    MainService.confirmAttendance(find, trainid, 1); 
+//			}
 		}
 		return adminAttendance(request,map);		
 	}
