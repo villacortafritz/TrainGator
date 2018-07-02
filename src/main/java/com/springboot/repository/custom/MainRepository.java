@@ -232,7 +232,7 @@ public class MainRepository {
 	public List<Object> getConcludedTraining(EntityManager em) {
 		Session session = em.unwrap(Session.class);
 		StringBuilder stringQuery = new StringBuilder(
-			"SELECT t.train_name, COUNT(p.user_id) as partNo, t.train_id, "
+			"SELECT t.*, COUNT(p.user_id) as partNo, "
 																		+"(SELECT cast((SUM(cast(res_data as int))/30*100)/(100*count(DISTINCT(user_id)))*100 as int) as total " 
 																		+"  FROM `tbl_formresults` "
 																		+" WHERE quest_id BETWEEN 1 AND 6 AND train_id = t.train_id) as percent "
@@ -309,7 +309,7 @@ public class MainRepository {
 	}
 
 	public List<TblUser> getSupervisor(EntityManager em) {
-		StringBuilder svquery = new StringBuilder("FROM TblUser WHERE userType = 'Supervisor/Manager'");
+		StringBuilder svquery = new StringBuilder("FROM TblUser WHERE userType = 'Supervisor'");
 		Query query = em.createQuery(svquery.toString());
 		List<TblUser> list = query.getResultList();
 		return list;
@@ -393,7 +393,7 @@ public class MainRepository {
 		SQLQuery query = session.createSQLQuery(stringQuery.toString());
 		query.setParameter("id", trainId);
 		List<Double> list = query.list();
-		System.out.println(list.get(0).toString() + "BOGOG RATING");
+//		System.out.println(list.get(0).toString() + "BOGOG RATING");
 		double value =  Double.parseDouble(list.get(0).toString());
 		return value;
 	}

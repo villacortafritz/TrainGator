@@ -50,7 +50,7 @@
 <!-- The home button is located at the header since it has the purpose of redirecting the user back to it's default landing page. -->
 <!-- start implementation for the search bar. -->
             <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
-              <button class="btn btn-primary" style="height:55px" onclick="window.location = '/admin/updatetrainingstatus?page=adminOngoing'">
+              <button class="btn btn-primary" style="height:55px" onclick="window.location = '/admin/updatetrainingstatus?page=adminUpcoming'">
                 <span class="oi oi-loop-circular ml-1"></span>
               </button>
               <button class="btn btn-primary" style="height:55px" onclick="window.location = '/admin/adminOngoing'">

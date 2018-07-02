@@ -96,7 +96,7 @@ public class GeneralController {
 		String password = request.getParameter("password");
 		String supervisor  = (request.getParameter("supervisor")==null) ? "" : request.getParameter("supervisor");
 		MainService.addUser(fname,lname,email,password,supervisor);
-		return "TrainGator/generalSignup";
+		return "TrainGator/generalSignin";
 	}
 	
 //	@RequestMapping(value="/userAccomplished", method=RequestMethod.GET)

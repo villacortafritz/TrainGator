@@ -50,7 +50,7 @@
 <!-- The home button is located at the header since it has the purpose of redirecting the user back to it's default landing page. -->
 <!-- start implementation for the search bar. -->
             <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
-              <button class="btn btn-primary" style="height:55px" onclick="window.location = '/admin/updatetrainingstatus?page=adminOngoing'">
+              <button class="btn btn-primary" style="height:55px" onclick="window.location = '/admin/updatetrainingstatus?page=adminConcluded'">
                 <span class="oi oi-loop-circular ml-1"></span>
               </button>
               <button class="btn btn-primary" style="height:55px" onclick="window.location = '/admin/adminOngoing'">
@@ -71,7 +71,6 @@
                   <h6 class="dropdown-header d-none d-md-block d-lg-none"> ${fname} ${lname} </h6>
                   <a class="dropdown-item" href="/logout">
                     <span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
-                    <div class="dropdown-divider"></div>
                 </div>
               </div>
 <!-- end implementation for the user option. -->
@@ -117,11 +116,12 @@
                         <tbody>
                         <c:forEach items="${list}" var="listVar">
                           <tr>
-                          <td>${listVar[0]}</td>
-                          <td class="align-middle"> ${listVar[1]} </td>
-                          <td class="align-middle"> ${listVar[3]}% </td>
+                          <td>${listVar[1]}</td>
+                          <td class="align-middle"> ${listVar[9]} </td>
+                          <td class="align-middle"> ${listVar[10]}% </td>
                           <td class="align-middle ">
-                            <button class="btn btn-primary btn-small" type="submit" onclick="window.location = '/admin/adminEventComments'">View Results</button>
+                            <button class="btn btn-primary btn-small" type="submit" 
+                            onclick="window.location = '/admin/adminEventComments?trainId=${listVar[0]}&trainName=${listVar[1]}&traindstart=${listVar[2]}&traindend=${listVar[3]}&trainco=${listVar[4]}&traintstart=${listVar[5]}&traintend=${listVar[6]}&part=${listVar[9]}&percent=${listVar[10]}'">View Results</button>
                           </td>
                         </tr>
                         </c:forEach>

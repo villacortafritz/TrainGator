@@ -123,15 +123,15 @@
 	                               <div class="list-group list-group-flush list-group-bordered">
 	                                 <div class="list-group-header"> Recommended Participants </div>
 	                                 	<c:forEach items="${recommendedList}" var="recVar">
-                  							<label class="list-group-item custom-control custom-checkbox">                               
+                          							<label class="list-group-item custom-control custom-checkbox">                               
 	                                       		<input name="userRecommended" type="checkbox" class="custom-control-input" value="${recVar.userId}" >
 	                                       		<span class="custom-control-label">${recVar.userFname} ${recVar.userLname}</span>
 	                                   		</label>
-                						</c:forEach>	
+                      						</c:forEach>	
 	                              	</div><hr>
 	                              	<div style="padding-left:40%"><button  type="submit">Add Participant</button></div>
 	                              	<hr>
-              					</form>
+                    					</form>
                            </div>
                       	</div>                    
 
@@ -142,7 +142,6 @@
                             <div class="list-group-header"> Participants Who Requested to Join </div>
                             <label class="list-group-item custom-control custom-checkbox">
                               <input name="listcheckbox" type="checkbox" class="custom-control-input" unchecked>
-                              <span class="custom-control-label">Bunny Barros</span>
                             </label>
                           </div>
                           <hr>
@@ -159,7 +158,7 @@
                            <table class="table">
                            	<thead>
                            		<tr>
-                                    <th style="min-width:200px">  Participant Name </th>
+                                    <th>  Participant Name </th>
                                     <th> Email </th>
                                     <th> Job Position </th>
                                     <th> Action </th>
@@ -208,7 +207,7 @@
                            <table class="table">
                            	<thead>
                            		<tr>
-                                    <th style="min-width:200px">  Facilitator Name </th>
+                                    <th>  Facilitator Name </th>
                                     <th> Email </th>
                                     <th> Job Position </th>
                                     <th> Action </th>

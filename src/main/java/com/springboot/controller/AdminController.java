@@ -106,10 +106,15 @@ public class AdminController {
 	}
 	
 	@RequestMapping("/adminConcluded")
-	public String loadadminConcluded( ModelMap map) {
-		List<Object> trainlist = MainService.getConcludedTraining();
-		map.addAttribute("list",trainlist);
-		return "TrainGator/adminConcluded";
+	public String loadadminConcluded(HttpServletRequest request, ModelMap map) {
+		if(request.getSession()!=null){
+			List<Object> trainlist = MainService.getConcludedTraining();
+			map.addAttribute("list",trainlist);
+			return "TrainGator/adminConcluded";
+		}else{
+			return "TrainGator/generalSignin";
+		}
+		
 	}
 	@RequestMapping(value="/adminConcluded", method=RequestMethod.POST)
 	public String adminConcluded(HttpServletRequest request, ModelMap map) {
@@ -117,10 +122,15 @@ public class AdminController {
 	}
 	
 	@RequestMapping("/adminloadCreateEvent")
-	public String loadadminCreateEvent(ModelMap map) {
-		List<TblSubcat> list = MainService.getSubCategoriesByFormId(1);
-		map.addAttribute("list",list);
-		return "TrainGator/adminCreateEvent";
+	public String loadadminCreateEvent(HttpServletRequest request,ModelMap map) {
+		if(request.getSession()!=null){
+			List<TblSubcat> list = MainService.getSubCategoriesByFormId(1);
+			map.addAttribute("list",list);
+			return "TrainGator/adminCreateEvent";
+		}else{
+			return "TrainGator/generalSignin";
+		}
+		
 	}
 	@RequestMapping(value="/adminCreateEvent",method=RequestMethod.GET)
 	public String editadminCreateEvent(HttpServletRequest request,ModelMap map) {
@@ -160,11 +170,21 @@ public class AdminController {
 	
 	@RequestMapping(value="/adminEventComments", method=RequestMethod.GET)
 	public String adminEventComments(HttpServletRequest request, ModelMap map) {
-		String trainId = "101"; // TO BE CHANGEEEE
+		String trainId = request.getParameter("trainId");
 		List<Object> partComments = MainService.getParticipantComments(trainId);		
 		map.addAttribute("partComments",partComments);		
-		double facRating = MainService.getFacilitatorRating(trainId);		
+		double facRating = MainService.getFacilitatorRating(trainId);	
+		double failrating = 100.00 - facRating;
+		map.addAttribute("trainName",request.getParameter("trainName"));
+		map.addAttribute("traindstart",request.getParameter("traindstart"));
+		map.addAttribute("traindend",request.getParameter("traindend"));
+		map.addAttribute("trainco",request.getParameter("trainco"));
+		map.addAttribute("traintstart",request.getParameter("traintstart"));
+		map.addAttribute("traintend",request.getParameter("traintend"));
+		map.addAttribute("percent",request.getParameter("percent"));
+		map.addAttribute("part",request.getParameter("part"));
 		map.addAttribute("facRating",facRating);
+		map.addAttribute("failrating",failrating);
 		return "TrainGator/adminEventComments";
 	}
 	

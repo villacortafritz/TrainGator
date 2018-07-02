@@ -49,9 +49,6 @@
         <div class="form-group">
           <button class="btn btn-lg btn-primary btn-block" type="submit">Sign In</button>
         </div>
-        <div class="text-center pt-3">
-          <a href="generalRecoverPassword.html" class="link">Forgot Password?</a>
-        </div>
       </form>
     </main>
   </body>
